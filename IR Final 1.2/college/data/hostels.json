@@ -1,0 +1,843 @@
+[
+    {
+        "hostel_id": "H001",
+        "college": "R.V. College of Engineering",
+        "location": "Bangalore",
+        "coordinates": {
+            "lat": 12.9239,
+            "lng": 77.4990
+        },
+        "type": "College Hostel",
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": true,
+            "capacity_boys": 800,
+            "capacity_girls": 400,
+            "rooms": [
+                "Single",
+                "Double",
+                "Triple"
+            ],
+            "amenities": [
+                "WiFi",
+                "AC (optional)",
+                "Mess",
+                "Gym",
+                "Study room",
+                "Reading room"
+            ]
+        },
+        "fees": {
+            "annual_hostel_fee": 45000,
+            "mess_fee_monthly": 4500,
+            "total_yearly": 99000
+        },
+        "food": "Vegetarian and Non-vegetarian options",
+        "rules": [
+            "Gate closing: 9 PM",
+            "Visitors allowed on weekends",
+            "Mess compulsory for hostellers"
+        ]
+    },
+    {
+        "hostel_id": "H002",
+        "college": "B.M.S. College of Engineering",
+        "location": "Bangalore",
+        "coordinates": {
+            "lat": 12.9406,
+            "lng": 77.5661
+        },
+        "type": "College Hostel",
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": true,
+            "capacity_boys": 600,
+            "capacity_girls": 350,
+            "rooms": [
+                "Double",
+                "Triple"
+            ],
+            "amenities": [
+                "WiFi",
+                "Mess",
+                "Sports facilities",
+                "Medical room"
+            ]
+        },
+        "fees": {
+            "annual_hostel_fee": 40000,
+            "mess_fee_monthly": 4000,
+            "total_yearly": 88000
+        },
+        "food": "Pure Vegetarian"
+    },
+    {
+        "hostel_id": "H003",
+        "college": "Siddaganga Institute of Technology",
+        "location": "Tumkur",
+        "coordinates": {
+            "lat": 13.3379,
+            "lng": 77.1025
+        },
+        "type": "College Hostel (Mutt managed)",
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": true,
+            "capacity_boys": 3000,
+            "capacity_girls": 800,
+            "rooms": [
+                "Double",
+                "Triple",
+                "Dormitory"
+            ],
+            "amenities": [
+                "Free food for poor students",
+                "Temple",
+                "Library",
+                "Sports"
+            ]
+        },
+        "fees": {
+            "annual_hostel_fee": 15000,
+            "mess_fee_monthly": 2000,
+            "total_yearly": 39000,
+            "special_note": "Extremely affordable due to Mutt support"
+        },
+        "food": "Pure Vegetarian (Satvik)",
+        "highlights": [
+            "Cheapest hostel in Karnataka",
+            "Run by Sri Siddaganga Mutt",
+            "Ideal for rural students"
+        ]
+    },
+    {
+        "hostel_id": "H004",
+        "college": "PES University",
+        "location": "Bangalore",
+        "coordinates": {
+            "lat": 12.9345,
+            "lng": 77.5355
+        },
+        "type": "College Hostel",
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": true,
+            "capacity_boys": 500,
+            "capacity_girls": 400,
+            "rooms": [
+                "Single AC",
+                "Double AC",
+                "Double Non-AC"
+            ],
+            "amenities": [
+                "WiFi",
+                "AC",
+                "Gym",
+                "Mess",
+                "Recreation room",
+                "Laundry"
+            ]
+        },
+        "fees": {
+            "annual_hostel_fee": 80000,
+            "mess_fee_monthly": 5500,
+            "total_yearly": 146000
+        },
+        "food": "Multi-cuisine"
+    },
+    {
+        "hostel_id": "H005",
+        "college": "M.S. Ramaiah Institute of Technology",
+        "location": "Bangalore",
+        "coordinates": {
+            "lat": 13.0296,
+            "lng": 77.5652
+        },
+        "type": "College Hostel",
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": true,
+            "capacity_boys": 700,
+            "capacity_girls": 400,
+            "rooms": [
+                "Double",
+                "Triple"
+            ],
+            "amenities": [
+                "WiFi",
+                "Mess",
+                "Sports ground",
+                "Reading room"
+            ]
+        },
+        "fees": {
+            "annual_hostel_fee": 50000,
+            "mess_fee_monthly": 4500,
+            "total_yearly": 104000
+        }
+    },
+    {
+        "hostel_id": "H006",
+        "college": "NIE Mysore",
+        "location": "Mysore",
+        "coordinates": {
+            "lat": 12.3113,
+            "lng": 76.6545
+        },
+        "type": "College Hostel",
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": true,
+            "capacity_boys": 500,
+            "capacity_girls": 300,
+            "rooms": [
+                "Double",
+                "Triple"
+            ],
+            "amenities": [
+                "WiFi",
+                "Mess",
+                "Library",
+                "Sports"
+            ]
+        },
+        "fees": {
+            "annual_hostel_fee": 35000,
+            "mess_fee_monthly": 3500,
+            "total_yearly": 77000
+        },
+        "highlights": [
+            "Affordable for Mysore region students"
+        ]
+    },
+    {
+        "hostel_id": "BCM001",
+        "name": "BCM Boys Hostel - Bangalore (Vijayanagar)",
+        "department": "Department of Backward Classes Welfare",
+        "location": "Bangalore",
+        "address": "Vijayanagar, Bangalore - 560040",
+        "coordinates": {
+            "lat": 12.9716,
+            "lng": 77.5346
+        },
+        "type": "BCM Government Hostel",
+        "category": [
+            "OBC",
+            "Category-1",
+            "Category-2A",
+            "Category-3A",
+            "Category-3B"
+        ],
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": false,
+            "capacity": 200,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Free food",
+                "Library",
+                "Study hall",
+                "Medical facility"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 0,
+            "food_fee": 0,
+            "total": "Free for eligible students"
+        },
+        "eligibility": {
+            "category": [
+                "OBC",
+                "Category-1",
+                "2A",
+                "3A",
+                "3B"
+            ],
+            "income_limit": 250000,
+            "education": "Pursuing degree/professional courses"
+        },
+        "how_to_apply": "Apply through BCM Department or SSP Portal",
+        "contact": "080-23374567",
+        "map_link": "https://maps.google.com/?q=12.9716,77.5346"
+    },
+    {
+        "hostel_id": "BCM002",
+        "name": "BCM Girls Hostel - Bangalore (Basavanagudi)",
+        "department": "Department of Backward Classes Welfare",
+        "location": "Bangalore",
+        "address": "Basavanagudi, Bangalore - 560004",
+        "coordinates": {
+            "lat": 12.9406,
+            "lng": 77.5747
+        },
+        "type": "BCM Government Hostel",
+        "category": [
+            "OBC",
+            "Category-1",
+            "Category-2A",
+            "Category-3A",
+            "Category-3B"
+        ],
+        "facilities": {
+            "boys_hostel": false,
+            "girls_hostel": true,
+            "capacity": 150,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Free food",
+                "Library",
+                "Study hall",
+                "24/7 Security",
+                "Medical facility"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 0,
+            "food_fee": 0,
+            "total": "Free for eligible students"
+        },
+        "eligibility": {
+            "category": [
+                "OBC",
+                "Category-1",
+                "2A",
+                "3A",
+                "3B"
+            ],
+            "income_limit": 250000
+        },
+        "contact": "080-26652345",
+        "map_link": "https://maps.google.com/?q=12.9406,77.5747"
+    },
+    {
+        "hostel_id": "BCM003",
+        "name": "BCM Boys Hostel - Mysore",
+        "department": "Department of Backward Classes Welfare",
+        "location": "Mysore",
+        "address": "Kuvempunagar, Mysore - 570023",
+        "coordinates": {
+            "lat": 12.3051,
+            "lng": 76.6394
+        },
+        "type": "BCM Government Hostel",
+        "category": [
+            "OBC",
+            "Category-1",
+            "Category-2A",
+            "Category-3A",
+            "Category-3B"
+        ],
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": false,
+            "capacity": 180,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Free food",
+                "Library",
+                "Study hall"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 0,
+            "food_fee": 0,
+            "total": "Free for eligible students"
+        },
+        "eligibility": {
+            "category": [
+                "OBC",
+                "Category-1",
+                "2A",
+                "3A",
+                "3B"
+            ],
+            "income_limit": 250000
+        },
+        "contact": "0821-2412567",
+        "map_link": "https://maps.google.com/?q=12.3051,76.6394"
+    },
+    {
+        "hostel_id": "BCM004",
+        "name": "BCM Girls Hostel - Mysore",
+        "department": "Department of Backward Classes Welfare",
+        "location": "Mysore",
+        "address": "Vijayanagar, Mysore - 570017",
+        "coordinates": {
+            "lat": 12.3175,
+            "lng": 76.6197
+        },
+        "type": "BCM Government Hostel",
+        "category": [
+            "OBC",
+            "Category-1",
+            "Category-2A",
+            "Category-3A",
+            "Category-3B"
+        ],
+        "facilities": {
+            "boys_hostel": false,
+            "girls_hostel": true,
+            "capacity": 120,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Free food",
+                "Library",
+                "24/7 Security"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 0,
+            "food_fee": 0,
+            "total": "Free for eligible students"
+        },
+        "contact": "0821-2548901",
+        "map_link": "https://maps.google.com/?q=12.3175,76.6197"
+    },
+    {
+        "hostel_id": "BCM005",
+        "name": "BCM Boys Hostel - Hubli",
+        "department": "Department of Backward Classes Welfare",
+        "location": "Hubli",
+        "address": "Vidyanagar, Hubli - 580031",
+        "coordinates": {
+            "lat": 15.3647,
+            "lng": 75.1180
+        },
+        "type": "BCM Government Hostel",
+        "category": [
+            "OBC",
+            "Category-1",
+            "Category-2A",
+            "Category-3A",
+            "Category-3B"
+        ],
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": false,
+            "capacity": 150,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Free food",
+                "Library"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 0,
+            "food_fee": 0,
+            "total": "Free for eligible students"
+        },
+        "contact": "0836-2234567",
+        "map_link": "https://maps.google.com/?q=15.3647,75.1180"
+    },
+    {
+        "hostel_id": "BCM006",
+        "name": "BCM Girls Hostel - Belagavi",
+        "department": "Department of Backward Classes Welfare",
+        "location": "Belagavi",
+        "address": "Camp Area, Belagavi - 590001",
+        "coordinates": {
+            "lat": 15.8497,
+            "lng": 74.4977
+        },
+        "type": "BCM Government Hostel",
+        "category": [
+            "OBC",
+            "Category-1",
+            "Category-2A",
+            "Category-3A",
+            "Category-3B"
+        ],
+        "facilities": {
+            "boys_hostel": false,
+            "girls_hostel": true,
+            "capacity": 100,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Free food",
+                "Library",
+                "24/7 Security"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 0,
+            "food_fee": 0,
+            "total": "Free for eligible students"
+        },
+        "contact": "0831-2465678",
+        "map_link": "https://maps.google.com/?q=15.8497,74.4977"
+    },
+    {
+        "hostel_id": "BCM007",
+        "name": "BCM Boys Hostel - Tumkur",
+        "department": "Department of Backward Classes Welfare",
+        "location": "Tumkur",
+        "address": "SS Puram, Tumkur - 572102",
+        "coordinates": {
+            "lat": 13.3379,
+            "lng": 77.0950
+        },
+        "type": "BCM Government Hostel",
+        "category": [
+            "OBC",
+            "Category-1",
+            "Category-2A",
+            "Category-3A",
+            "Category-3B"
+        ],
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": false,
+            "capacity": 120,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Free food",
+                "Library"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 0,
+            "food_fee": 0,
+            "total": "Free for eligible students"
+        },
+        "contact": "0816-2271234",
+        "map_link": "https://maps.google.com/?q=13.3379,77.0950"
+    },
+    {
+        "hostel_id": "BCM008",
+        "name": "BCM Girls Hostel - Dharwad",
+        "department": "Department of Backward Classes Welfare",
+        "location": "Dharwad",
+        "address": "Near Karnataka University, Dharwad - 580003",
+        "coordinates": {
+            "lat": 15.4589,
+            "lng": 75.0078
+        },
+        "type": "BCM Government Hostel",
+        "category": [
+            "OBC",
+            "Category-1",
+            "Category-2A",
+            "Category-3A",
+            "Category-3B"
+        ],
+        "facilities": {
+            "boys_hostel": false,
+            "girls_hostel": true,
+            "capacity": 80,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Free food",
+                "Library",
+                "24/7 Security"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 0,
+            "food_fee": 0,
+            "total": "Free for eligible students"
+        },
+        "contact": "0836-2747890",
+        "map_link": "https://maps.google.com/?q=15.4589,75.0078"
+    },
+    {
+        "hostel_id": "SC001",
+        "name": "SC/ST Boys Hostel - Bangalore (Jayanagar)",
+        "department": "Department of Social Welfare",
+        "location": "Bangalore",
+        "address": "Jayanagar 4th Block, Bangalore - 560011",
+        "coordinates": {
+            "lat": 12.9276,
+            "lng": 77.5833
+        },
+        "type": "SC/ST Government Hostel",
+        "category": [
+            "SC",
+            "ST"
+        ],
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": false,
+            "capacity": 250,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Free food",
+                "Library",
+                "Study hall",
+                "Computer lab",
+                "Medical facility"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 0,
+            "food_fee": 0,
+            "total": "Completely Free"
+        },
+        "eligibility": {
+            "category": [
+                "SC",
+                "ST"
+            ],
+            "income_limit": 250000
+        },
+        "how_to_apply": "Apply through SSP Portal (ssp.postmatric.karnataka.gov.in)",
+        "contact": "080-26564321",
+        "map_link": "https://maps.google.com/?q=12.9276,77.5833"
+    },
+    {
+        "hostel_id": "SC002",
+        "name": "SC/ST Girls Hostel - Bangalore (Malleshwaram)",
+        "department": "Department of Social Welfare",
+        "location": "Bangalore",
+        "address": "Malleshwaram, Bangalore - 560003",
+        "coordinates": {
+            "lat": 13.0028,
+            "lng": 77.5667
+        },
+        "type": "SC/ST Government Hostel",
+        "category": [
+            "SC",
+            "ST"
+        ],
+        "facilities": {
+            "boys_hostel": false,
+            "girls_hostel": true,
+            "capacity": 200,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Free food",
+                "Library",
+                "24/7 Security",
+                "Medical facility"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 0,
+            "food_fee": 0,
+            "total": "Completely Free"
+        },
+        "how_to_apply": "Apply through SSP Portal",
+        "contact": "080-23567890",
+        "map_link": "https://maps.google.com/?q=13.0028,77.5667"
+    },
+    {
+        "hostel_id": "SC003",
+        "name": "SC/ST Hostel - Mysore",
+        "department": "Department of Social Welfare",
+        "location": "Mysore",
+        "address": "Gokulam, Mysore - 570002",
+        "coordinates": {
+            "lat": 12.3254,
+            "lng": 76.6453
+        },
+        "type": "SC/ST Government Hostel",
+        "category": [
+            "SC",
+            "ST"
+        ],
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": true,
+            "capacity": 300,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Free food",
+                "Library",
+                "Sports"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 0,
+            "food_fee": 0,
+            "total": "Completely Free"
+        },
+        "contact": "0821-2419876",
+        "map_link": "https://maps.google.com/?q=12.3254,76.6453"
+    },
+    {
+        "hostel_id": "MIN001",
+        "name": "Minority Boys Hostel - Bangalore",
+        "department": "Karnataka Minorities Development Corporation",
+        "location": "Bangalore",
+        "address": "Shivajinagar, Bangalore - 560051",
+        "coordinates": {
+            "lat": 12.9838,
+            "lng": 77.6031
+        },
+        "type": "Minority Welfare Hostel",
+        "category": [
+            "Muslim",
+            "Christian",
+            "Sikh",
+            "Buddhist",
+            "Jain",
+            "Parsi"
+        ],
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": false,
+            "capacity": 150,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Subsidized food",
+                "Library",
+                "Prayer room"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 500,
+            "food_fee": 1500,
+            "total_monthly": 2000,
+            "note": "Heavily subsidized"
+        },
+        "eligibility": {
+            "category": [
+                "Minority communities"
+            ],
+            "income_limit": 200000
+        },
+        "contact": "080-22865432",
+        "map_link": "https://maps.google.com/?q=12.9838,77.6031"
+    },
+    {
+        "hostel_id": "MIN002",
+        "name": "Minority Girls Hostel - Bangalore",
+        "department": "Karnataka Minorities Development Corporation",
+        "location": "Bangalore",
+        "address": "K.R. Market Area, Bangalore - 560002",
+        "coordinates": {
+            "lat": 12.9634,
+            "lng": 77.5780
+        },
+        "type": "Minority Welfare Hostel",
+        "category": [
+            "Muslim",
+            "Christian",
+            "Sikh",
+            "Buddhist",
+            "Jain",
+            "Parsi"
+        ],
+        "facilities": {
+            "boys_hostel": false,
+            "girls_hostel": true,
+            "capacity": 100,
+            "rooms": [
+                "Shared (4-6 students)"
+            ],
+            "amenities": [
+                "Subsidized food",
+                "Library",
+                "24/7 Security"
+            ]
+        },
+        "fees": {
+            "hostel_fee": 500,
+            "food_fee": 1500,
+            "total_monthly": 2000
+        },
+        "contact": "080-22709876",
+        "map_link": "https://maps.google.com/?q=12.9634,77.5780"
+    },
+    {
+        "hostel_id": "H007",
+        "college": "Government Engineering Colleges (General)",
+        "location": "Various",
+        "type": "Government Hostel",
+        "facilities": {
+            "boys_hostel": true,
+            "girls_hostel": true,
+            "rooms": [
+                "Double",
+                "Triple",
+                "Dormitory"
+            ],
+            "amenities": [
+                "Mess",
+                "Library"
+            ]
+        },
+        "fees": {
+            "annual_hostel_fee": 8000,
+            "mess_fee_monthly": 2500,
+            "total_yearly": 38000
+        },
+        "eligibility": "Priority to rural and economically weaker students",
+        "highlights": [
+            "Cheapest option",
+            "Government subsidized",
+            "Best for SC/ST/OBC students"
+        ]
+    },
+    {
+        "hostel_id": "H008",
+        "college": "General - Bangalore PG Options",
+        "location": "Bangalore",
+        "coordinates": {
+            "lat": 12.9716,
+            "lng": 77.5946
+        },
+        "type": "Private PG/Hostel",
+        "facilities": {
+            "typical_options": [
+                "PG with meals",
+                "PG without meals",
+                "Shared rooms",
+                "Single rooms"
+            ],
+            "amenities": [
+                "WiFi",
+                "Laundry",
+                "Power backup",
+                "Security"
+            ]
+        },
+        "fees": {
+            "shared_room_monthly": {
+                "min": 6000,
+                "max": 12000
+            },
+            "single_room_monthly": {
+                "min": 10000,
+                "max": 18000
+            },
+            "with_meals": "Add Rs 3000-5000/month"
+        },
+        "popular_areas": [
+            "BTM Layout (near RVCE, BMSCE)",
+            "Koramangala (near Christ, Jain University)",
+            "Basavanagudi (near BMS, Jyoti Nivas)",
+            "Jayanagar (central to many colleges)",
+            "Whitefield (near MVJ, CMR)"
+        ],
+        "tips": [
+            "Book early before academic year starts",
+            "Verify facilities before paying",
+            "Check proximity to college",
+            "Ask for student discount"
+        ]
+    }
+]

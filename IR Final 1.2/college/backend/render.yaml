@@ -1,0 +1,15 @@
+# Render.com Blueprint - One-click Deploy
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: insightrural-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false  # User must set this manually in Render dashboard
+      - key: PYTHON_VERSION
+        value: 3.11.0

@@ -1,0 +1,65 @@
+[
+  {
+    "category": "Government colleges",
+    "gm_and_others_above_income_limit": 44200,
+    "snq_quota": 20610,
+    "sc_st_concession": 0,
+    "cat1_upto_2_5_lakhs": 0,
+    "others_upto_10_lakhs": 23590,
+    "cat1_above_2_5_lakhs": 0
+  },
+  {
+    "category": "For Aided courses In Aided colleges",
+    "gm_and_others_above_income_limit": 44200,
+    "snq_quota": 20610,
+    "sc_st_concession": 0,
+    "cat1_upto_2_5_lakhs": 0,
+    "others_upto_10_lakhs": 23590,
+    "cat1_above_2_5_lakhs": 0
+  },
+  {
+    "category": "UVCE",
+    "gm_and_others_above_income_limit": 49600,
+    "snq_quota": 20610,
+    "sc_st_concession": 0,
+    "cat1_upto_2_5_lakhs": 0,
+    "others_upto_10_lakhs": 28990,
+    "cat1_above_2_5_lakhs": 0
+  },
+  {
+    "category": "VTU Constituent Colleges HIGHER FEES",
+    "gm_and_others_above_income_limit": 102410,
+    "snq_quota": 20610,
+    "sc_st_concession": 0,
+    "cat1_upto_2_5_lakhs": 0,
+    "others_upto_10_lakhs": 78820,
+    "cat1_above_2_5_lakhs": 0
+  },
+  {
+    "category": "Type-1 -Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "gm_and_others_above_income_limit": 112410,
+    "snq_quota": 30610,
+    "sc_st_concession": 0,
+    "cat1_upto_2_5_lakhs": 0,
+    "others_upto_10_lakhs": 88820,
+    "cat1_above_2_5_lakhs": 0
+  },
+  {
+    "category": "Type-2 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "gm_and_others_above_income_limit": 121610,
+    "snq_quota": 30610,
+    "sc_st_concession": 0,
+    "cat1_upto_2_5_lakhs": 0,
+    "others_upto_10_lakhs": 98020,
+    "cat1_above_2_5_lakhs": 0
+  },
+  {
+    "category": "Deemed / Private Universities",
+    "gm_and_others_above_income_limit": 112410,
+    "snq_quota": null,
+    "sc_st_concession": 0,
+    "cat1_upto_2_5_lakhs": 0,
+    "others_upto_10_lakhs": 88820,
+    "cat1_above_2_5_lakhs": 0
+  }
+]

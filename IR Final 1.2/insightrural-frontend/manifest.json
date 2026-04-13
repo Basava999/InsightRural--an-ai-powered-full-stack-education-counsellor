@@ -1,0 +1,52 @@
+{
+    "name": "InsightRural",
+    "short_name": "InsightRural",
+    "description": "AI-Powered Educational Guidance for Rural Karnataka Students",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#0a0a0f",
+    "theme_color": "#10a37f",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en",
+    "categories": [
+        "education",
+        "productivity"
+    ],
+    "icons": [
+        {
+            "src": "assets/icons/icon-192.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/icons/icon-512.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "College Predictor",
+            "short_name": "Predictor",
+            "description": "Predict your college admission chances",
+            "url": "/index.html?feature=predictor"
+        },
+        {
+            "name": "Ask AI Counselor",
+            "short_name": "Chat",
+            "description": "Chat with AI for guidance",
+            "url": "/index.html?feature=chat"
+        },
+        {
+            "name": "Live Dashboard",
+            "short_name": "Dashboard",
+            "description": "View live counselling statistics",
+            "url": "/index.html?feature=dashboard"
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false
+}

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightRural - AI Educational Guide</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="AI-Powered Educational Guidance for Rural Karnataka Students">
+    <meta name="theme-color" content="#10a37f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="InsightRural">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.svg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/sidebar.css">
+    <link rel="stylesheet" href="css/components/chat.css">
+    <link rel="stylesheet" href="css/components/modal.css">
+    <link rel="stylesheet" href="css/components/predictor.css">
+    <link rel="stylesheet" href="css/components/predictor-premium.css">
+    <link rel="stylesheet" href="css/components/dashboard.css">
+    <link rel="stylesheet" href="css/components/features.css">
+    <link rel="stylesheet" href="css/components/scholarship-hostel.css">
+    <link rel="stylesheet" href="css/components/landing.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+</head>
+
+<body>
+<div id="app-content" style="display:none;">
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+            <div class="brand">
+                <div class="logo">IR</div>
+                <h1>InsightRural</h1>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <button class="theme-toggle" id="theme-toggle" title="Toggle theme">
+                <svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"
+                        stroke="currentColor" stroke-width="2" />
+                    <path
+                        d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
+                        stroke="currentColor" stroke-width="2" />
+                </svg>
+                <svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M21 12.79C20.8427 14.4922 20.2039 16.1144 19.1582 17.4668C18.1125 18.8192 16.7035 19.8458 15.0957 20.4265C13.4879 21.0073 11.7479 21.1181 10.0795 20.7461C8.41101 20.3741 6.88299 19.5345 5.67422 18.3258C4.46545 17.117 3.62593 15.589 3.2539 13.9205C2.88187 12.252 2.99274 10.5121 3.57348 8.9043C4.15423 7.29651 5.18085 5.8875 6.53324 4.84185C7.88563 3.7962 9.50782 3.15731 11.21 3C10.2134 4.34827 9.73385 6.00945 9.85854 7.68141C9.98324 9.35338 10.7039 10.9251 11.8894 12.1106C13.0749 13.2961 14.6466 14.0168 16.3186 14.1415C17.9906 14.2662 19.6517 13.7866 21 12.79Z"
+                        stroke="currentColor" stroke-width="2" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar (Hidden by default) -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-brand">
+                <div class="sidebar-logo">IR</div>
+                <div>
+                    <h2>InsightRural</h2>
+                    <p class="sidebar-subtitle">AI Educational Guide</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-item active" data-feature="colleges">
+                <div class="nav-icon">🏛️</div>
+                <span>Colleges & Courses</span>
+            </div>
+            <div class="nav-item" data-feature="scholarships">
+                <div class="nav-icon">💰</div>
+                <span>Scholarships</span>
+            </div>
+            <div class="nav-item" data-feature="loans">
+                <div class="nav-icon">🏦</div>
+                <span>Education Loans</span>
+            </div>
+            <div class="nav-item" data-feature="hostels">
+                <div class="nav-icon">🏠</div>
+                <span>Hostels & Accommodation</span>
+            </div>
+            <div class="nav-item" data-feature="general">
+                <div class="nav-icon">🤖</div>
+                <span>General Guidance</span>
+            </div>
+            <div class="nav-divider"></div>
+
+            <!-- Startup Features -->
+            <div class="nav-item" data-feature="dashboard" id="dashboard-nav">
+                <div class="nav-icon">📊</div>
+                <span>Live Dashboard</span>
+                <span class="nav-badge live">LIVE</span>
+            </div>
+            <div class="nav-item predictor-nav" data-feature="predictor" id="predictor-nav">
+                <div class="nav-icon">🎯</div>
+                <span>College Predictor</span>
+                <span class="nav-badge">ML</span>
+            </div>
+            <div class="nav-item" data-feature="career" id="career-nav">
+                <div class="nav-icon">🧭</div>
+                <span>Career Counselor</span>
+                <span class="nav-badge ai">AI</span>
+            </div>
+            <div class="nav-item" data-feature="documents" id="documents-nav">
+                <div class="nav-icon">📁</div>
+                <span>Document Vault</span>
+            </div>
+
+            <div class="nav-divider"></div>
+            <div class="nav-label">🚀 Advanced AI</div>
+
+            <div class="nav-item" data-feature="voice" id="voice-nav">
+                <div class="nav-icon">🎙️</div>
+                <span>Voice Counselor</span>
+                <span class="nav-badge new">NEW</span>
+            </div>
+            <div class="nav-item" data-feature="scanner" id="scanner-nav">
+                <div class="nav-icon">📄</div>
+                <span>Document Scanner</span>
+                <span class="nav-badge new">NEW</span>
+            </div>
+            <div class="nav-item" data-feature="simulator" id="simulator-nav">
+                <div class="nav-icon">🚀</div>
+                <span>Career Simulator</span>
+                <span class="nav-badge new">NEW</span>
+            </div>
+            <div class="nav-item" data-feature="avatar" id="avatar-nav">
+                <div class="nav-icon">🎬</div>
+                <span>Video Counselor</span>
+                <span class="nav-badge new">NEW</span>
+            </div>
+            <div class="nav-item" data-feature="counseling" id="counseling-nav">
+                <div class="nav-icon">📋</div>
+                <span>KEA Counseling Suite</span>
+                <span class="nav-badge ai">AI</span>
+            </div>
+        </div>
+
+        <div class="profile-section">
+            <button class="profile-btn" id="profile-btn">
+                <div class="nav-icon">👤</div>
+                <span>Profile</span>
+                <svg class="edit-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13"
+                        stroke="currentColor" stroke-width="1.5" />
+                    <path
+                        d="M18.5 2.5C18.8978 2.10217 19.4374 1.87868 20 1.87868C20.5626 1.87868 21.1022 2.10217 21.5 2.5C21.8978 2.89783 22.1213 3.43739 22.1213 4C22.1213 4.56261 21.8978 5.10217 21.5 5.5L12 15L8 16L9 12L18.5 2.5Z"
+                        stroke="currentColor" stroke-width="1.5" />
+                </svg>
+            </button>
+        </div>
+
+
+    </aside>
+
+    <main class="main-content">
+        <div class="chat-container">
+            <div class="messages-container" id="messages-container"></div>
+
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea id="chat-input" placeholder="Ask about colleges, scholarships, loans, hostels…"
+                        rows="1"></textarea>
+                    <button id="chat-stop-btn" title="Stop generating"></button>
+                    <button id="send-btn" class="send-btn" disabled></button>
+                </div>
+                <p class="chat-hint">InsightRural AI can make mistakes. Verify important information.</p>
+            </div>
+        </div>
+
+        <!-- College Predictor Section — Government-Grade -->
+        <div id="predictor-section" class="predictor-section">
+            <!-- Animated Hero Banner -->
+            <div class="kea-hero" id="kea-hero">
+                <div class="hero-particles" id="hero-particles"></div>
+                <div class="hero-content">
+                    <div class="hero-badge">🏛️ KEA KCET 2025</div>
+                    <h2>College Seat Predictor</h2>
+                    <p>Powered by KEA's Serial Dictatorship Algorithm &bull; 3-Year Trend AI &bull; Real Cutoff Data</p>
+                    <div class="hero-stats" id="hero-stats">
+                        <div class="stat-card"><span class="stat-num" data-target="230000">0</span><span
+                                class="stat-label">Candidates</span></div>
+                        <div class="stat-card"><span class="stat-num" data-target="200">0</span><span
+                                class="stat-label">Colleges</span></div>
+                        <div class="stat-card"><span class="stat-num" data-target="45000">0</span><span
+                                class="stat-label">Seats</span></div>
+                        <div class="stat-card"><span class="stat-num" data-target="98">0</span><span
+                                class="stat-label">% Accuracy</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="predictor-tabs" id="predictor-tabs">
+                <button class="tab-btn active" data-tab="predict">🎯 Predict</button>
+                <button class="tab-btn" data-tab="analytics">📊 Analytics</button>
+                <button class="tab-btn" data-tab="compare">⚖️ Compare</button>
+                <button class="tab-btn" data-tab="simulator">🔄 Simulator</button>
+                <button class="tab-btn" data-tab="checklist">📋 Checklist</button>
+            </div>
+
+            <!-- Tab: Predict -->
+            <div class="predictor-tab-content active" id="tab-predict">
+                <form class="predictor-form" id="predictor-form">
+                    <div id="predictor-form-content"></div>
+                </form>
+                <div id="prediction-results" class="prediction-results"></div>
+            </div>
+
+            <!-- Tab: Analytics Dashboard -->
+            <div class="predictor-tab-content" id="tab-analytics">
+                <div id="analytics-dashboard"></div>
+            </div>
+
+            <!-- Tab: Compare Colleges -->
+            <div class="predictor-tab-content" id="tab-compare">
+                <div id="compare-container"></div>
+            </div>
+
+            <!-- Tab: Round Simulator -->
+            <div class="predictor-tab-content" id="tab-simulator">
+                <div id="simulator-container"></div>
+            </div>
+
+            <!-- Tab: Document Checklist -->
+            <div class="predictor-tab-content" id="tab-checklist">
+                <div id="checklist-container"></div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="feature-section" style="display: none;"></div>
+
+        <!-- Documents Section -->
+        <div id="documents-section" class="feature-section" style="display: none;"></div>
+
+        <!-- Career Section -->
+        <div id="career-section" class="feature-section career-section" style="display: none;"></div>
+
+        <!-- Voice Counselor Section -->
+        <div id="voice-section" class="feature-section" style="display: none;"></div>
+
+        <!-- Document Scanner Section -->
+        <div id="scanner-section" class="feature-section" style="display: none;"></div>
+
+        <!-- Career Simulator Section -->
+        <div id="simulator-section" class="feature-section" style="display: none;"></div>
+
+        <!-- Video Avatar Section -->
+        <div id="avatar-section" class="feature-section" style="display: none;"></div>
+
+        <!-- Scholarships Auto-Pilot Section -->
+        <div id="scholarships-section" class="feature-section" style="display: none;"></div>
+
+        <!-- Hostels Explorer Section -->
+        <div id="hostels-section" class="feature-section" style="display: none;"></div>
+
+        <!-- Counseling Suite Section -->
+        <div id="counseling-section" class="feature-section" style="display: none;"></div>
+    </main>
+
+    <div class="modal" id="login-modal" style="display: none;"></div>
+    <div class="modal" id="profile-modal" style="display: none;"></div>
+
+    <!-- ✅ ONLY ADDED BLOCK -->
+    <div id="college-overlay" style="display:none;position:fixed;inset:0;background:#fff;z-index:9999;">
+        <iframe id="college-frame" src="" style="width:100%;height:100%;border:none;"></iframe>
+    </div>
+    <!-- ✅ END ADDITION -->
+</div><!-- #app-content -->
+
+    <script src="js/components/landing.js"></script>
+    <script src="js/core/state.js"></script>
+    <script src="js/components/sidebar.js"></script>
+    <script src="js/components/chat.js"></script>
+    <script src="js/components/modal.js"></script>
+    <script src="js/components/predictor.js"></script>
+    <script src="js/components/voice.js"></script>
+    <script src="js/components/dashboard.js"></script>
+    <script src="js/components/documents.js"></script>
+    <script src="js/components/progress.js"></script>
+    <script src="js/components/voice_counselor.js"></script>
+    <script src="js/components/document_scanner.js"></script>
+    <script src="js/components/career_simulator.js"></script>
+    <script src="js/components/video_avatar.js"></script>
+    <script src="js/components/scholarships.js"></script>
+    <script src="js/components/scholarship_writer.js"></script>
+    <script src="js/components/hostel_explorer.js"></script>
+    <script src="js/components/counseling_component.js"></script>
+    <script src="js/pwa.js"></script>
+    <script src="js/core/app.js"></script>
+</body>
+
+</html>

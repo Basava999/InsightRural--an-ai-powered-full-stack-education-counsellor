@@ -1,0 +1,355 @@
+[
+    {
+        "scholarship_id": "SCH001",
+        "name": "Karnataka Post-Matric Scholarship for SC Students",
+        "department": "Department of Social Welfare",
+        "category": "SC",
+        "eligibility": {
+            "domicile": "Karnataka",
+            "category": [
+                "SC"
+            ],
+            "income_limit": 250000,
+            "education": "Post-Matric (Class 11 onwards)",
+            "attendance_required": 75,
+            "marks_required": 50
+        },
+        "benefits": {
+            "full_fee_reimbursement": true,
+            "maintenance_allowance": {
+                "hosteller": 1200,
+                "day_scholar": 550
+            },
+            "hostel_fees": true,
+            "exam_fees": true
+        },
+        "application_portal": "ssp.postmatric.karnataka.gov.in",
+        "deadline": "January 15, 2026",
+        "documents_required": [
+            "Aadhaar Card (Student and Parents)",
+            "Caste Certificate",
+            "Income Certificate (< 2.5 Lakhs)",
+            "Previous year marksheet",
+            "Fee receipt",
+            "Bonafide certificate",
+            "Bank passbook (Aadhaar linked)",
+            "SSLC marks card",
+            "Kutumba ID"
+        ],
+        "renewal": "Annual renewal required with passing marks"
+    },
+    {
+        "scholarship_id": "SCH002",
+        "name": "Karnataka Post-Matric Scholarship for ST Students",
+        "department": "Department of Tribal Welfare",
+        "category": "ST",
+        "eligibility": {
+            "domicile": "Karnataka",
+            "category": [
+                "ST"
+            ],
+            "income_limit": 250000,
+            "education": "Post-Matric (Class 11 onwards)",
+            "attendance_required": 75,
+            "marks_required": 50
+        },
+        "benefits": {
+            "full_fee_reimbursement": true,
+            "maintenance_allowance": {
+                "hosteller": 1200,
+                "day_scholar": 550
+            },
+            "hostel_fees": true,
+            "exam_fees": true
+        },
+        "application_portal": "ssp.postmatric.karnataka.gov.in",
+        "deadline": "February 15, 2026",
+        "documents_required": [
+            "Aadhaar Card (Student and Parents)",
+            "Tribe Certificate",
+            "Income Certificate (< 2.5 Lakhs)",
+            "Previous year marksheet",
+            "Fee receipt",
+            "Bonafide certificate",
+            "Bank passbook (Aadhaar linked)",
+            "SSLC marks card",
+            "Kutumba ID"
+        ],
+        "renewal": "Annual renewal required"
+    },
+    {
+        "scholarship_id": "SCH003",
+        "name": "Karnataka Post-Matric Scholarship for OBC Category-1",
+        "department": "Department of Backward Classes Welfare",
+        "category": "OBC_Cat1",
+        "eligibility": {
+            "domicile": "Karnataka",
+            "category": [
+                "Category-1"
+            ],
+            "income_limit": 250000,
+            "education": "Post-Matric (Class 11 onwards)",
+            "attendance_required": 75,
+            "marks_required": 50
+        },
+        "benefits": {
+            "fee_reimbursement": true,
+            "maintenance_allowance": {
+                "hosteller": 1000,
+                "day_scholar": 500
+            },
+            "educational_allowance": 10000,
+            "tuition_fee": 10000
+        },
+        "application_portal": "ssp.postmatric.karnataka.gov.in",
+        "deadline": "January 31, 2026",
+        "documents_required": [
+            "Aadhaar Card",
+            "Caste Certificate (Category-1)",
+            "Income Certificate (< 2.5 Lakhs)",
+            "Previous year marksheet",
+            "Fee receipt",
+            "Bonafide certificate",
+            "Bank passbook",
+            "Kutumba ID"
+        ]
+    },
+    {
+        "scholarship_id": "SCH004",
+        "name": "Karnataka Post-Matric Scholarship for OBC Category 2A/3A/3B",
+        "department": "Department of Backward Classes Welfare",
+        "category": "OBC_Cat2A_3A_3B",
+        "eligibility": {
+            "domicile": "Karnataka",
+            "category": [
+                "Category-2A",
+                "Category-3A",
+                "Category-3B"
+            ],
+            "income_limit": 100000,
+            "education": "Post-Matric (Class 11 onwards)",
+            "attendance_required": 75,
+            "marks_required": 50
+        },
+        "benefits": {
+            "fee_reimbursement": "partial",
+            "maintenance_allowance": {
+                "hosteller": 800,
+                "day_scholar": 400
+            }
+        },
+        "application_portal": "ssp.postmatric.karnataka.gov.in",
+        "deadline": "January 31, 2026",
+        "documents_required": [
+            "Aadhaar Card",
+            "Caste Certificate (2A/3A/3B)",
+            "Income Certificate (< 1 Lakh)",
+            "Previous year marksheet",
+            "Fee receipt",
+            "Bonafide certificate",
+            "Bank passbook",
+            "Kutumba ID"
+        ]
+    },
+    {
+        "scholarship_id": "SCH005",
+        "name": "Karnataka Minority Post-Matric Scholarship",
+        "department": "Department of Minority Welfare",
+        "category": "Minority",
+        "eligibility": {
+            "domicile": "Karnataka",
+            "category": [
+                "Muslim",
+                "Christian",
+                "Sikh",
+                "Buddhist",
+                "Jain",
+                "Parsi"
+            ],
+            "income_limit": 200000,
+            "education": "Post-Matric (Class 11 onwards)",
+            "marks_required": 50
+        },
+        "benefits": {
+            "fee_reimbursement": true,
+            "maintenance_allowance": {
+                "hosteller": 1000,
+                "day_scholar": 500
+            }
+        },
+        "application_portal": "ssp.postmatric.karnataka.gov.in",
+        "deadline": "January 31, 2026",
+        "documents_required": [
+            "Aadhaar Card",
+            "Minority Declaration Certificate",
+            "Income Certificate (< 2 Lakhs)",
+            "Previous year marksheet",
+            "Fee receipt",
+            "Bonafide certificate",
+            "Bank passbook"
+        ]
+    },
+    {
+        "scholarship_id": "SCH006",
+        "name": "Vidyasiri Scholarship for SC/ST Students",
+        "department": "Department of Social Welfare",
+        "category": "Vidyasiri",
+        "eligibility": {
+            "domicile": "Karnataka",
+            "category": [
+                "SC",
+                "ST"
+            ],
+            "income_limit": 250000,
+            "education": "Degree/Professional courses"
+        },
+        "benefits": {
+            "food_allowance": 1500,
+            "accommodation": "Free hostel",
+            "study_material": 500
+        },
+        "application_portal": "ssp.postmatric.karnataka.gov.in",
+        "deadline": "November 30, 2025",
+        "special_note": "Specifically for food and accommodation support"
+    },
+    {
+        "scholarship_id": "SCH007",
+        "name": "50% Fee Concession for SC/ST (Income 2.5-10 Lakhs)",
+        "department": "Department of Social Welfare",
+        "category": "SC_ST_Higher_Income",
+        "eligibility": {
+            "domicile": "Karnataka",
+            "category": [
+                "SC",
+                "ST"
+            ],
+            "income_min": 250000,
+            "income_max": 1000000,
+            "education": "Engineering/Medical courses"
+        },
+        "benefits": {
+            "fee_concession": "50%",
+            "applicable_for": [
+                "Engineering",
+                "Medical",
+                "Dental",
+                "Nursing"
+            ]
+        },
+        "application_portal": "ssp.postmatric.karnataka.gov.in",
+        "special_note": "For SC/ST students with family income between 2.5-10 lakhs"
+    },
+    {
+        "scholarship_id": "SCH008",
+        "name": "SSP Post-Matric Scholarship for EWS/Brahmin Students",
+        "department": "Karnataka State Brahmin Development Board",
+        "category": "EWS_Brahmin",
+        "eligibility": {
+            "domicile": "Karnataka",
+            "category": [
+                "General/EWS",
+                "Brahmin"
+            ],
+            "income_limit": 800000,
+            "education": "Post-Matric",
+            "ews_certificate": "mandatory"
+        },
+        "benefits": {
+            "maintenance_allowance": {
+                "hosteller": 1200,
+                "day_scholar": 550
+            },
+            "tuition_fee": "partial"
+        },
+        "application_portal": "ssp.postmatric.karnataka.gov.in",
+        "deadline": "February 28, 2026"
+    },
+    {
+        "scholarship_id": "SCH009",
+        "name": "Central Sector Scheme of Scholarship",
+        "department": "Ministry of Education, GoI",
+        "category": "Merit_Based",
+        "eligibility": {
+            "domicile": "India",
+            "category": [
+                "All categories"
+            ],
+            "income_limit": 800000,
+            "education": "Undergraduate (Regular)",
+            "marks_required": "Top 20 percentile in Class 12"
+        },
+        "benefits": {
+            "amount_per_year": {
+                "year_1_3": 12000,
+                "year_4_5": 20000
+            }
+        },
+        "application_portal": "scholarships.gov.in",
+        "deadline": "October 31, 2025",
+        "documents_required": [
+            "Class 12 marksheet",
+            "Income Certificate",
+            "Admission letter",
+            "Bank details"
+        ]
+    },
+    {
+        "scholarship_id": "SCH010",
+        "name": "AICTE Pragati Scholarship for Girls",
+        "department": "AICTE",
+        "category": "Girl_Students",
+        "eligibility": {
+            "gender": "Female",
+            "income_limit": 800000,
+            "education": "Engineering/Technical courses (AICTE approved)",
+            "tuition_fee_limit": 30000
+        },
+        "benefits": {
+            "amount_per_year": 50000,
+            "duration": "4 years (B.Tech) / 2 years (Diploma)"
+        },
+        "application_portal": "scholarships.gov.in",
+        "deadline": "November 30, 2025",
+        "seats": "Up to 5000 per year nationally"
+    },
+    {
+        "scholarship_id": "SCH011",
+        "name": "Prime Minister's Scholarship for SC/ST",
+        "department": "Ministry of Social Justice",
+        "category": "PM_Scholarship",
+        "eligibility": {
+            "category": [
+                "SC",
+                "ST"
+            ],
+            "education": "Professional degree courses",
+            "first_year_only": true
+        },
+        "benefits": {
+            "one_time_amount": 25000
+        },
+        "application_portal": "scholarships.gov.in"
+    },
+    {
+        "scholarship_id": "SCH012",
+        "name": "NSP Post-Matric Scholarship for OBC",
+        "department": "Ministry of Social Justice, GoI",
+        "category": "OBC_Central",
+        "eligibility": {
+            "category": [
+                "OBC (Non-creamy layer)"
+            ],
+            "income_limit": 150000,
+            "education": "Post-Matric"
+        },
+        "benefits": {
+            "maintenance_allowance": {
+                "hosteller": 750,
+                "day_scholar": 350
+            },
+            "course_fee": "Actual, max Rs 7000"
+        },
+        "application_portal": "scholarships.gov.in",
+        "deadline": "November 30, 2025"
+    }
+]

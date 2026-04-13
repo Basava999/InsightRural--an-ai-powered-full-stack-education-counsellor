@@ -1,0 +1,3492 @@
+[
+  {
+    "college_id": "E001",
+    "name": "University Visvesvaraya College of Engineering (UVCE)",
+    "type": "Government",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "Bangalore University",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL"
+    ],
+    "fee_category": "UVCE",
+    "annual_fee": {
+      "gm": 49600,
+      "obc": 28990,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 850,
+        "OBC": 420,
+        "SC": 4500,
+        "ST": 2800
+      },
+      "ECE": {
+        "GM": 1800,
+        "OBC": 950,
+        "SC": 8500,
+        "ST": 5200
+      },
+      "EEE": {
+        "GM": 4500,
+        "OBC": 2100,
+        "SC": 15000,
+        "ST": 9000
+      },
+      "ME": {
+        "GM": 12000,
+        "OBC": 6500,
+        "SC": 28000,
+        "ST": 18000
+      },
+      "CIVIL": {
+        "GM": 18000,
+        "OBC": 9500,
+        "SC": 35000,
+        "ST": 22000
+      }
+    },
+    "website": "https://uvce.ac.in",
+    "highlights": [
+      "Oldest engineering college in Karnataka (est. 1917)",
+      "Excellentplacements",
+      "Very low government fees",
+      "Strong alumni in ISRO & DRDO"
+    ],
+    "phone": "+91-80-22961954",
+    "email": "principal@uvce.ac.in",
+    "established": 1917,
+    "total_seats": 420,
+    "nba_accredited": true,
+    "placement_avg_lpa": 8.5,
+    "placement_highest_lpa": 32,
+    "top_recruiters": [
+      "Infosys",
+      "Wipro",
+      "TCS",
+      "Accenture",
+      "Amazon",
+      "Bosch"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/uHkYP3yQSuVCdArK8"
+  },
+  {
+    "college_id": "E002",
+    "name": "Government SJCE Mysore",
+    "type": "Government",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "JSS Science and Technology University",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE"
+    ],
+    "fee_category": "Government colleges",
+    "annual_fee": {
+      "gm": 44200,
+      "obc": 23590,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 1200,
+        "OBC": 600,
+        "SC": 5500,
+        "ST": 3200
+      },
+      "ECE": {
+        "GM": 2500,
+        "OBC": 1300,
+        "SC": 10000,
+        "ST": 6000
+      },
+      "ISE": {
+        "GM": 1800,
+        "OBC": 900,
+        "SC": 7500,
+        "ST": 4500
+      },
+      "EEE": {
+        "GM": 5500,
+        "OBC": 2800,
+        "SC": 18000,
+        "ST": 11000
+      },
+      "ME": {
+        "GM": 15000,
+        "OBC": 8000,
+        "SC": 32000,
+        "ST": 20000
+      },
+      "CIVIL": {
+        "GM": 22000,
+        "OBC": 12000,
+        "SC": 40000,
+        "ST": 25000
+      }
+    },
+    "website": "https://sjce.ac.in",
+    "phone": "+91-821-2548285",
+    "email": "principal@sjce.ac.in",
+    "established": 1963,
+    "total_seats": 540,
+    "nba_accredited": true,
+    "placement_avg_lpa": 9.2,
+    "placement_highest_lpa": 38,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "L&T",
+      "HAL",
+      "BEML",
+      "Biocon"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/mMBfYo5e8jPAQ7zb9",
+    "highlights": [
+      "NAAC A+ autonomous",
+      "Best government engineering college in Mysore",
+      "Strong research output"
+    ]
+  },
+  {
+    "college_id": "E003",
+    "name": "R.V. College of Engineering (RVCE)",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU (Autonomous)",
+    "naac_grade": "A++",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS",
+      "CY"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 593,
+        "OBC": 315,
+        "SC": 7102,
+        "ST": 3308
+      },
+      "ECE": {
+        "GM": 1303,
+        "OBC": 680,
+        "SC": 9500,
+        "ST": 5800
+      },
+      "ISE": {
+        "GM": 820,
+        "OBC": 430,
+        "SC": 7800,
+        "ST": 4200
+      },
+      "AI": {
+        "GM": 750,
+        "OBC": 390,
+        "SC": 7500,
+        "ST": 4000
+      },
+      "DS": {
+        "GM": 680,
+        "OBC": 360,
+        "SC": 7200,
+        "ST": 3800
+      },
+      "CY": {
+        "GM": 1100,
+        "OBC": 580,
+        "SC": 9000,
+        "ST": 5200
+      },
+      "EEE": {
+        "GM": 4200,
+        "OBC": 2200,
+        "SC": 17000,
+        "ST": 10500
+      },
+      "ME": {
+        "GM": 7801,
+        "OBC": 4100,
+        "SC": 25000,
+        "ST": 15000
+      },
+      "CIVIL": {
+        "GM": 22445,
+        "OBC": 11800,
+        "SC": 42000,
+        "ST": 26000
+      }
+    },
+    "website": "https://rvce.edu.in",
+    "highlights": [
+      "#1 private engineering college in Karnataka",
+      "NAAC A++",
+      "NBA accredited",
+      "Top 50 in NIRF 2024",
+      "Google & Microsoft on-campus recruiter"
+    ],
+    "phone": "+91-80-67178000",
+    "email": "principal@rvce.edu.in",
+    "established": 1963,
+    "total_seats": 900,
+    "nba_accredited": true,
+    "placement_avg_lpa": 18.5,
+    "placement_highest_lpa": 98,
+    "top_recruiters": [
+      "Google",
+      "Microsoft",
+      "Amazon",
+      "Goldman Sachs",
+      "Flipkart",
+      "Qualcomm",
+      "Texas Instruments"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/VgG27f8UxBMFZLgs6"
+  },
+  {
+    "college_id": "E004",
+    "name": "B.M.S. College of Engineering (BMSCE)",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU (Autonomous)",
+    "naac_grade": "A++",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 2156,
+        "OBC": 925,
+        "SC": 10068,
+        "ST": 4795
+      },
+      "ECE": {
+        "GM": 3979,
+        "OBC": 2050,
+        "SC": 15000,
+        "ST": 9000
+      },
+      "ISE": {
+        "GM": 2800,
+        "OBC": 1450,
+        "SC": 12000,
+        "ST": 7000
+      },
+      "AI": {
+        "GM": 2400,
+        "OBC": 1250,
+        "SC": 11000,
+        "ST": 6500
+      },
+      "DS": {
+        "GM": 2200,
+        "OBC": 1150,
+        "SC": 10500,
+        "ST": 6000
+      },
+      "EEE": {
+        "GM": 8500,
+        "OBC": 4400,
+        "SC": 28000,
+        "ST": 17000
+      },
+      "ME": {
+        "GM": 21621,
+        "OBC": 11200,
+        "SC": 42000,
+        "ST": 26000
+      },
+      "CIVIL": {
+        "GM": 37116,
+        "OBC": 19200,
+        "SC": 55000,
+        "ST": 35000
+      }
+    },
+    "website": "https://bmsce.ac.in",
+    "highlights": [
+      "Established 1946 — oldest private college in Bangalore",
+      "NAAC A++",
+      "Strong 75+ years alumni network",
+      "Excellent industry partnerships"
+    ],
+    "phone": "+91-80-26622130",
+    "email": "principal@bmsce.ac.in",
+    "established": 1946,
+    "total_seats": 840,
+    "nba_accredited": true,
+    "placement_avg_lpa": 15.2,
+    "placement_highest_lpa": 72,
+    "top_recruiters": [
+      "Amazon",
+      "Microsoft",
+      "Cisco",
+      "Bosch",
+      "SAP",
+      "Oracle",
+      "Deloitte"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/WiZ6yqFKpYuVA9KdA"
+  },
+  {
+    "college_id": "E005",
+    "name": "PES University",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "Deemed University",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "AI",
+      "DS",
+      "BT"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "annual_fee": {
+      "gm": 350000,
+      "obc": 280000,
+      "sc_st": 180000
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 2154,
+        "OBC": 763,
+        "SC": 13626,
+        "ST": 10879
+      },
+      "ECE": {
+        "GM": 3072,
+        "OBC": 1600,
+        "SC": 16000,
+        "ST": 10000
+      },
+      "AI": {
+        "GM": 2500,
+        "OBC": 1300,
+        "SC": 14000,
+        "ST": 9500
+      },
+      "DS": {
+        "GM": 2300,
+        "OBC": 1200,
+        "SC": 13800,
+        "ST": 9200
+      },
+      "EEE": {
+        "GM": 8500,
+        "OBC": 4500,
+        "SC": 28000,
+        "ST": 18000
+      },
+      "ME": {
+        "GM": 20398,
+        "OBC": 10500,
+        "SC": 40000,
+        "ST": 25000
+      },
+      "CIVIL": {
+        "GM": 8336,
+        "OBC": 4300,
+        "SC": 30000,
+        "ST": 19000
+      }
+    },
+    "website": "https://pes.edu",
+    "highlights": [
+      "Deemed University",
+      "NAAC A+",
+      "Strong startup culture",
+      "Top placement record for Deemed colleges",
+      "NBA accredited programs"
+    ],
+    "phone": "+91-80-26672090",
+    "email": "admissions@pes.edu",
+    "established": 1988,
+    "total_seats": 780,
+    "nba_accredited": true,
+    "placement_avg_lpa": 16.8,
+    "placement_highest_lpa": 85,
+    "top_recruiters": [
+      "Google",
+      "Amazon",
+      "Microsoft",
+      "Uber",
+      "Razorpay",
+      "Zepto",
+      "PayPal"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/Z5dKgfC48QLMABSB8"
+  },
+  {
+    "college_id": "E006",
+    "name": "M.S. Ramaiah Institute of Technology (MSRIT)",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU (Autonomous)",
+    "naac_grade": "A++",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS",
+      "AERO",
+      "BT"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 1850,
+        "OBC": 920,
+        "SC": 9500,
+        "ST": 5500
+      },
+      "ECE": {
+        "GM": 3500,
+        "OBC": 1800,
+        "SC": 14000,
+        "ST": 8500
+      },
+      "ISE": {
+        "GM": 2400,
+        "OBC": 1200,
+        "SC": 11000,
+        "ST": 6500
+      },
+      "AI": {
+        "GM": 2100,
+        "OBC": 1050,
+        "SC": 10000,
+        "ST": 6000
+      },
+      "DS": {
+        "GM": 1950,
+        "OBC": 980,
+        "SC": 9800,
+        "ST": 5800
+      },
+      "EEE": {
+        "GM": 7500,
+        "OBC": 3900,
+        "SC": 25000,
+        "ST": 15500
+      },
+      "ME": {
+        "GM": 18000,
+        "OBC": 9500,
+        "SC": 38000,
+        "ST": 24000
+      },
+      "CIVIL": {
+        "GM": 32000,
+        "OBC": 16500,
+        "SC": 50000,
+        "ST": 32000
+      },
+      "AERO": {
+        "GM": 12000,
+        "OBC": 6200,
+        "SC": 32000,
+        "ST": 20000
+      }
+    },
+    "website": "https://msrit.edu",
+    "highlights": [
+      "NAAC A++",
+      "Largest intake among Bangalore private colleges",
+      "Ramaiah Group flagship institution",
+      "Strong industry-academia collaboration"
+    ],
+    "phone": "+91-80-23600822",
+    "email": "principal@msrit.edu",
+    "established": 1962,
+    "total_seats": 1020,
+    "nba_accredited": true,
+    "placement_avg_lpa": 14.5,
+    "placement_highest_lpa": 65,
+    "top_recruiters": [
+      "Amazon",
+      "Infosys",
+      "Wipro",
+      "TCS",
+      "L&T Infotech",
+      "Mindtree",
+      "Honeywell"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/PCxMZmXt7xFM8bDf8"
+  },
+  {
+    "college_id": "E007",
+    "name": "Siddaganga Institute of Technology (SIT)",
+    "type": "Type1_Unaided",
+    "location": "Tumkur",
+    "district": "Tumkur",
+    "affiliation": "VTU (Autonomous)",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "CH"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 3200,
+        "OBC": 1650,
+        "SC": 12500,
+        "ST": 7500
+      },
+      "ECE": {
+        "GM": 6500,
+        "OBC": 3350,
+        "SC": 22000,
+        "ST": 13500
+      },
+      "ISE": {
+        "GM": 4200,
+        "OBC": 2150,
+        "SC": 16000,
+        "ST": 9800
+      },
+      "AI": {
+        "GM": 3800,
+        "OBC": 1950,
+        "SC": 14500,
+        "ST": 8800
+      },
+      "EEE": {
+        "GM": 12000,
+        "OBC": 6200,
+        "SC": 32000,
+        "ST": 20000
+      },
+      "ME": {
+        "GM": 25000,
+        "OBC": 13000,
+        "SC": 45000,
+        "ST": 28000
+      },
+      "CIVIL": {
+        "GM": 35000,
+        "OBC": 18000,
+        "SC": 52000,
+        "ST": 33000
+      }
+    },
+    "website": "https://sit.ac.in",
+    "highlights": [
+      "Run by Sri Siddaganga Mutt — subsidised hostel & mess",
+      "NAAC A+",
+      "NBA accredited",
+      "Very affordable for Tumkur region students"
+    ],
+    "phone": "+91-816-2278601",
+    "email": "sitprincipal@sit.ac.in",
+    "established": 1963,
+    "total_seats": 780,
+    "nba_accredited": true,
+    "placement_avg_lpa": 10.5,
+    "placement_highest_lpa": 42,
+    "top_recruiters": [
+      "Infosys",
+      "Wipro",
+      "TCS",
+      "L&T",
+      "Bosch",
+      "Tata Motors",
+      "Volvo"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/Nc3ew9vDMqpGFhfv8"
+  },
+  {
+    "college_id": "E008",
+    "name": "Dayananda Sagar College of Engineering (DSCE)",
+    "type": "Type2_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU (Autonomous)",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS",
+      "CYBER"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 121610,
+      "obc": 98020,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 4500,
+        "OBC": 2350,
+        "SC": 17000,
+        "ST": 10500
+      },
+      "ECE": {
+        "GM": 8500,
+        "OBC": 4400,
+        "SC": 28000,
+        "ST": 17000
+      },
+      "ISE": {
+        "GM": 5800,
+        "OBC": 3000,
+        "SC": 20000,
+        "ST": 12500
+      },
+      "AI": {
+        "GM": 5200,
+        "OBC": 2700,
+        "SC": 18500,
+        "ST": 11500
+      },
+      "DS": {
+        "GM": 4800,
+        "OBC": 2500,
+        "SC": 17500,
+        "ST": 11000
+      },
+      "CYBER": {
+        "GM": 5500,
+        "OBC": 2850,
+        "SC": 19500,
+        "ST": 12000
+      },
+      "EEE": {
+        "GM": 15000,
+        "OBC": 7800,
+        "SC": 35000,
+        "ST": 22000
+      },
+      "ME": {
+        "GM": 28000,
+        "OBC": 14500,
+        "SC": 48000,
+        "ST": 30000
+      },
+      "CIVIL": {
+        "GM": 40000,
+        "OBC": 20500,
+        "SC": 58000,
+        "ST": 36000
+      }
+    },
+    "website": "https://dayanandasagar.edu",
+    "phone": "+91-80-42161701",
+    "email": "admission@dayanandasagar.edu",
+    "established": 1979,
+    "total_seats": 900,
+    "nba_accredited": false,
+    "placement_avg_lpa": 8.8,
+    "placement_highest_lpa": 36,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "Cognizant",
+      "Accenture",
+      "HCL",
+      "Tech Mahindra"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/mD3gPXkVLRbhKMry8",
+    "highlights": [
+      "NAAC A+",
+      "Good DSP & VLSI labs",
+      "Strong ECE department",
+      "Dayananda Sagar Group institution"
+    ]
+  },
+  {
+    "college_id": "E009",
+    "name": "National Institute of Engineering (NIE), Mysore",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "VTU (Autonomous)",
+    "naac_grade": "A++",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 2800,
+        "OBC": 1450,
+        "SC": 11500,
+        "ST": 7000
+      },
+      "ECE": {
+        "GM": 5500,
+        "OBC": 2850,
+        "SC": 19000,
+        "ST": 11800
+      },
+      "ISE": {
+        "GM": 3600,
+        "OBC": 1850,
+        "SC": 14000,
+        "ST": 8500
+      },
+      "EEE": {
+        "GM": 9500,
+        "OBC": 4900,
+        "SC": 30000,
+        "ST": 18500
+      },
+      "ME": {
+        "GM": 20000,
+        "OBC": 10500,
+        "SC": 40000,
+        "ST": 25000
+      },
+      "CIVIL": {
+        "GM": 30000,
+        "OBC": 15500,
+        "SC": 48000,
+        "ST": 30000
+      }
+    },
+    "website": "https://nie.ac.in",
+    "highlights": [
+      "NAAC A++",
+      "One of the oldest private engg colleges (est. 1946)",
+      "Strong Mechanical & Civil departments",
+      "Good for Mysore-region students"
+    ],
+    "phone": "+91-821-2485407",
+    "email": "principal@nie.ac.in",
+    "established": 1946,
+    "total_seats": 600,
+    "nba_accredited": true,
+    "placement_avg_lpa": 11.2,
+    "placement_highest_lpa": 45,
+    "top_recruiters": [
+      "Infosys",
+      "Wipro",
+      "TCS",
+      "Larsen & Toubro",
+      "Bosch",
+      "ABB",
+      "Siemens"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/zJTKmAPQ3kDQ3AGx5"
+  },
+  {
+    "college_id": "E010",
+    "name": "Bangalore Institute of Technology (BIT)",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU (Autonomous)",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 3800,
+        "OBC": 1950,
+        "SC": 14500,
+        "ST": 8800
+      },
+      "ECE": {
+        "GM": 7500,
+        "OBC": 3900,
+        "SC": 25000,
+        "ST": 15500
+      },
+      "ISE": {
+        "GM": 4800,
+        "OBC": 2500,
+        "SC": 17500,
+        "ST": 11000
+      },
+      "AI": {
+        "GM": 4200,
+        "OBC": 2150,
+        "SC": 16000,
+        "ST": 9800
+      },
+      "DS": {
+        "GM": 4000,
+        "OBC": 2050,
+        "SC": 15500,
+        "ST": 9500
+      },
+      "EEE": {
+        "GM": 12000,
+        "OBC": 6200,
+        "SC": 32000,
+        "ST": 20000
+      },
+      "ME": {
+        "GM": 22000,
+        "OBC": 11500,
+        "SC": 42000,
+        "ST": 26500
+      },
+      "CIVIL": {
+        "GM": 35000,
+        "OBC": 18000,
+        "SC": 52000,
+        "ST": 33000
+      }
+    },
+    "website": "https://bit-bangalore.edu.in",
+    "phone": "+91-80-22421982",
+    "email": "principal@bit-bangalore.edu.in",
+    "established": 1979,
+    "total_seats": 720,
+    "nba_accredited": true,
+    "placement_avg_lpa": 10.8,
+    "placement_highest_lpa": 40,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "KPIT",
+      "Mindtree",
+      "Mphasis",
+      "HCL"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/B2qMgwXb9Y5VXQYH7",
+    "highlights": [
+      "NAAC A+",
+      "Located in central Bangalore",
+      "Good CSE & ISE placements",
+      "Strong VTU rank holders"
+    ]
+  },
+  {
+    "college_id": "E011",
+    "name": "Dr. Ambedkar Institute of Technology (AIT)",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU (Autonomous)",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 4200,
+        "OBC": 2150,
+        "SC": 16000,
+        "ST": 9800
+      },
+      "ECE": {
+        "GM": 8000,
+        "OBC": 4150,
+        "SC": 26500,
+        "ST": 16500
+      },
+      "ISE": {
+        "GM": 5200,
+        "OBC": 2700,
+        "SC": 18500,
+        "ST": 11500
+      },
+      "EEE": {
+        "GM": 13000,
+        "OBC": 6700,
+        "SC": 34000,
+        "ST": 21000
+      },
+      "ME": {
+        "GM": 24000,
+        "OBC": 12500,
+        "SC": 44000,
+        "ST": 27500
+      },
+      "CIVIL": {
+        "GM": 36000,
+        "OBC": 18500,
+        "SC": 53000,
+        "ST": 33500
+      }
+    },
+    "website": "https://drait.edu",
+    "phone": "+91-80-23190797",
+    "email": "principal@drait.edu",
+    "established": 2001,
+    "total_seats": 540,
+    "nba_accredited": false,
+    "placement_avg_lpa": 7.5,
+    "placement_highest_lpa": 28,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "Accenture",
+      "Cognizant",
+      "Capgemini"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/YjzfuFSATPpd8Xpv6",
+    "highlights": [
+      "NAAC A+",
+      "Named after Dr. B.R. Ambedkar",
+      "Good campus placement record",
+      "Affordable Type-1 fees"
+    ]
+  },
+  {
+    "college_id": "E012",
+    "name": "SDM College of Engineering and Technology",
+    "type": "Type1_Unaided",
+    "location": "Dharwad",
+    "district": "Dharwad",
+    "affiliation": "VTU (Autonomous)",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 5500,
+        "OBC": 2850,
+        "SC": 19000,
+        "ST": 11800
+      },
+      "ECE": {
+        "GM": 10000,
+        "OBC": 5200,
+        "SC": 32000,
+        "ST": 19800
+      },
+      "ISE": {
+        "GM": 6800,
+        "OBC": 3500,
+        "SC": 22000,
+        "ST": 13800
+      },
+      "EEE": {
+        "GM": 15500,
+        "OBC": 8000,
+        "SC": 36000,
+        "ST": 22500
+      },
+      "ME": {
+        "GM": 28000,
+        "OBC": 14500,
+        "SC": 48000,
+        "ST": 30000
+      },
+      "CIVIL": {
+        "GM": 38000,
+        "OBC": 19500,
+        "SC": 55000,
+        "ST": 34500
+      }
+    },
+    "website": "https://sdmcet.ac.in",
+    "highlights": [
+      "Sri Dharmasthala Manjunatheshwara Trust",
+      "NAAC A+",
+      "Best choice for North Karnataka students",
+      "Affordable hostel facilities"
+    ],
+    "phone": "+91-836-2447465",
+    "email": "principal@sdmcet.ac.in",
+    "established": 2002,
+    "total_seats": 540,
+    "nba_accredited": true,
+    "placement_avg_lpa": 9.5,
+    "placement_highest_lpa": 38,
+    "top_recruiters": [
+      "Infosys",
+      "Wipro",
+      "TCS",
+      "L&T",
+      "Volvo",
+      "Bosch",
+      "ABB"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/XqA1HLLVoxYCQ5ib8"
+  },
+  {
+    "college_id": "E013",
+    "name": "K.L.E. Technological University (KLETU)",
+    "type": "Type2_Unaided",
+    "location": "Hubli",
+    "district": "Dharwad",
+    "affiliation": "Autonomous University",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "AI"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 165000,
+      "obc": 140000,
+      "sc_st": 85000
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 4000,
+        "OBC": 2050,
+        "SC": 15500,
+        "ST": 9500
+      },
+      "ECE": {
+        "GM": 7800,
+        "OBC": 4050,
+        "SC": 26000,
+        "ST": 16000
+      },
+      "AI": {
+        "GM": 4500,
+        "OBC": 2350,
+        "SC": 17000,
+        "ST": 10500
+      },
+      "EEE": {
+        "GM": 13500,
+        "OBC": 7000,
+        "SC": 35000,
+        "ST": 21800
+      },
+      "ME": {
+        "GM": 26000,
+        "OBC": 13500,
+        "SC": 46000,
+        "ST": 28800
+      },
+      "CIVIL": {
+        "GM": 37000,
+        "OBC": 19000,
+        "SC": 54000,
+        "ST": 34000
+      }
+    },
+    "website": "https://kletech.ac.in",
+    "highlights": [
+      "State Private University status",
+      "NAAC A",
+      "Good research infrastructure",
+      "Dominant in Hubli-Dharwad region"
+    ],
+    "phone": "+91-836-2378250",
+    "email": "registrar@kletech.ac.in",
+    "established": 1947,
+    "total_seats": 540,
+    "nba_accredited": true,
+    "placement_avg_lpa": 10.2,
+    "placement_highest_lpa": 40,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "Tata Motors",
+      "Bosch",
+      "BEL",
+      "HAL"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/mNe7TZ2KFqLaAr5R6"
+  },
+  {
+    "college_id": "E014",
+    "name": "Gogte Institute of Technology (GIT)",
+    "type": "Type1_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "VTU",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 6500,
+        "OBC": 3350,
+        "SC": 22000,
+        "ST": 13500
+      },
+      "ECE": {
+        "GM": 12000,
+        "OBC": 6200,
+        "SC": 32000,
+        "ST": 20000
+      },
+      "EEE": {
+        "GM": 18000,
+        "OBC": 9500,
+        "SC": 38000,
+        "ST": 23800
+      },
+      "ME": {
+        "GM": 30000,
+        "OBC": 15500,
+        "SC": 50000,
+        "ST": 31500
+      },
+      "CIVIL": {
+        "GM": 40000,
+        "OBC": 20500,
+        "SC": 58000,
+        "ST": 36500
+      }
+    },
+    "website": "https://git.edu",
+    "phone": "+91-831-2405500",
+    "email": "principal@git.edu",
+    "established": 1990,
+    "total_seats": 420,
+    "nba_accredited": false,
+    "placement_avg_lpa": 7.2,
+    "placement_highest_lpa": 24,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "Kirloskar",
+      "Tata Motors",
+      "L&T"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/rFJkW4b3K4bHQDPK8",
+    "highlights": [
+      "NAAC A",
+      "Best private college in Belgaum district",
+      "Affordable for North Karnataka students"
+    ]
+  },
+  {
+    "college_id": "E015",
+    "name": "RNS Institute of Technology (RNSIT)",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 5000,
+        "OBC": 2600,
+        "SC": 18000,
+        "ST": 11200
+      },
+      "ECE": {
+        "GM": 9500,
+        "OBC": 4900,
+        "SC": 30000,
+        "ST": 18500
+      },
+      "ISE": {
+        "GM": 6200,
+        "OBC": 3200,
+        "SC": 21000,
+        "ST": 13000
+      },
+      "AI": {
+        "GM": 5600,
+        "OBC": 2900,
+        "SC": 19500,
+        "ST": 12000
+      },
+      "EEE": {
+        "GM": 14500,
+        "OBC": 7500,
+        "SC": 35500,
+        "ST": 22000
+      },
+      "ME": {
+        "GM": 26000,
+        "OBC": 13500,
+        "SC": 46000,
+        "ST": 28800
+      },
+      "CIVIL": {
+        "GM": 38000,
+        "OBC": 19500,
+        "SC": 55000,
+        "ST": 34500
+      }
+    },
+    "website": "https://rnsit.ac.in",
+    "phone": "+91-80-28610886",
+    "email": "principal@rnsit.ac.in",
+    "established": 2001,
+    "total_seats": 660,
+    "nba_accredited": true,
+    "placement_avg_lpa": 9.8,
+    "placement_highest_lpa": 38,
+    "top_recruiters": [
+      "Infosys",
+      "Wipro",
+      "TCS",
+      "Accenture",
+      "Mphasis",
+      "GlobalLogic",
+      "Bosch"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/V4xrGQbK3YeECW3U8",
+    "highlights": [
+      "NAAC A+",
+      "Good CSE & AI placements",
+      "NBA accredited programs",
+      "Bangalore South location"
+    ]
+  },
+  {
+    "college_id": "E016",
+    "name": "JSS Science and Technology University",
+    "type": "Deemed_Private",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Deemed University",
+    "naac_grade": "A++",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "annual_fee": {
+      "gm": 220000,
+      "obc": 180000,
+      "sc_st": 100000
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 2200,
+        "OBC": 1150,
+        "SC": 10500,
+        "ST": 6300
+      },
+      "ECE": {
+        "GM": 4200,
+        "OBC": 2150,
+        "SC": 16000,
+        "ST": 9800
+      },
+      "ISE": {
+        "GM": 2900,
+        "OBC": 1500,
+        "SC": 12000,
+        "ST": 7200
+      },
+      "AI": {
+        "GM": 2500,
+        "OBC": 1300,
+        "SC": 11000,
+        "ST": 6600
+      },
+      "EEE": {
+        "GM": 8000,
+        "OBC": 4150,
+        "SC": 26500,
+        "ST": 16500
+      },
+      "ME": {
+        "GM": 18000,
+        "OBC": 9500,
+        "SC": 38000,
+        "ST": 23800
+      },
+      "CIVIL": {
+        "GM": 28000,
+        "OBC": 14500,
+        "SC": 48000,
+        "ST": 30000
+      }
+    },
+    "website": "https://jssstuniv.in",
+    "phone": "+91-821-2548400",
+    "email": "registrar@jssstuniv.in",
+    "established": 1963,
+    "total_seats": 660,
+    "nba_accredited": true,
+    "placement_avg_lpa": 12.5,
+    "placement_highest_lpa": 52,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Amazon",
+      "Wipro",
+      "L&T",
+      "Bosch",
+      "Cisco"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/y2PcNLEe2e8m9hHx8",
+    "highlights": [
+      "NAAC A++ Deemed University",
+      "Best Deemed college outside Bangalore",
+      "Lower fee than Bangalore deemed colleges",
+      "Strong research output"
+    ]
+  },
+  {
+    "college_id": "E017",
+    "name": "Malnad College of Engineering",
+    "type": "Government_Aided",
+    "location": "Hassan",
+    "district": "Hassan",
+    "affiliation": "VTU",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL"
+    ],
+    "fee_category": "For Aided courses In Aided colleges",
+    "annual_fee": {
+      "gm": 44200,
+      "obc": 23590,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 4800,
+        "OBC": 2500,
+        "SC": 17500,
+        "ST": 10800
+      },
+      "ECE": {
+        "GM": 9200,
+        "OBC": 4750,
+        "SC": 29500,
+        "ST": 18200
+      },
+      "EEE": {
+        "GM": 14000,
+        "OBC": 7250,
+        "SC": 34500,
+        "ST": 21500
+      },
+      "ME": {
+        "GM": 24000,
+        "OBC": 12500,
+        "SC": 44000,
+        "ST": 27500
+      },
+      "CIVIL": {
+        "GM": 34000,
+        "OBC": 17500,
+        "SC": 51000,
+        "ST": 32000
+      }
+    },
+    "website": "https://mcehassan.ac.in",
+    "highlights": [
+      "Government aided — very low fee",
+      "Good for rural Hassan district students",
+      "NAAC A",
+      "University topper tradition"
+    ],
+    "phone": "+91-8172-268985",
+    "email": "principal@mcehassan.ac.in",
+    "established": 1960,
+    "total_seats": 420,
+    "nba_accredited": false,
+    "placement_avg_lpa": 7.0,
+    "placement_highest_lpa": 22,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "L&T",
+      "Tata Motors",
+      "BEML"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/Kc5XLQZ3fE9RbvJQ9"
+  },
+  {
+    "college_id": "E018",
+    "name": "P.E.S. College of Engineering",
+    "type": "Government_Aided",
+    "location": "Mandya",
+    "district": "Mandya",
+    "affiliation": "VTU",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL"
+    ],
+    "fee_category": "For Aided courses In Aided colleges",
+    "annual_fee": {
+      "gm": 44200,
+      "obc": 23590,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 5500,
+        "OBC": 2850,
+        "SC": 19000,
+        "ST": 11800
+      },
+      "ECE": {
+        "GM": 10500,
+        "OBC": 5450,
+        "SC": 33000,
+        "ST": 20500
+      },
+      "EEE": {
+        "GM": 15500,
+        "OBC": 8000,
+        "SC": 36000,
+        "ST": 22500
+      },
+      "ME": {
+        "GM": 26000,
+        "OBC": 13500,
+        "SC": 46000,
+        "ST": 28800
+      },
+      "CIVIL": {
+        "GM": 36000,
+        "OBC": 18500,
+        "SC": 53000,
+        "ST": 33200
+      }
+    },
+    "website": "https://pesce.ac.in",
+    "phone": "+91-8232-222048",
+    "email": "principal@pesce.ac.in",
+    "established": 1962,
+    "total_seats": 420,
+    "nba_accredited": false,
+    "placement_avg_lpa": 6.5,
+    "placement_highest_lpa": 20,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "BEML",
+      "KPCL",
+      "Tata Motors"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/WJfYMVppHPbvKe8J7",
+    "highlights": [
+      "Government aided — affordable fees",
+      "Mandya district — good for OBC/SC/ST students",
+      "Peaceful campus"
+    ]
+  },
+  {
+    "college_id": "E019",
+    "name": "The Oxford College of Engineering",
+    "type": "Type2_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 121610,
+      "obc": 98020,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 8000,
+        "OBC": 4150,
+        "SC": 26500,
+        "ST": 16500
+      },
+      "ECE": {
+        "GM": 15000,
+        "OBC": 7750,
+        "SC": 35500,
+        "ST": 22000
+      },
+      "ISE": {
+        "GM": 10000,
+        "OBC": 5200,
+        "SC": 31000,
+        "ST": 19500
+      },
+      "EEE": {
+        "GM": 20000,
+        "OBC": 10500,
+        "SC": 40000,
+        "ST": 25000
+      },
+      "ME": {
+        "GM": 32000,
+        "OBC": 16500,
+        "SC": 50000,
+        "ST": 31500
+      },
+      "CIVIL": {
+        "GM": 42000,
+        "OBC": 21500,
+        "SC": 60000,
+        "ST": 37500
+      }
+    },
+    "website": "https://oxfordcollege.edu.in",
+    "phone": "+91-80-25732555",
+    "email": "info@oxfordcollege.edu.in",
+    "established": 1996,
+    "total_seats": 540,
+    "nba_accredited": false,
+    "placement_avg_lpa": 7.8,
+    "placement_highest_lpa": 28,
+    "top_recruiters": [
+      "Infosys",
+      "CTS",
+      "TCS",
+      "Wipro",
+      "HCL",
+      "Accenture"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/hh5X8nFJaRmfB8mQA",
+    "highlights": [
+      "NAAC A",
+      "Bangalore central location",
+      "Type-2 fees",
+      "Good for Bangalore-based students"
+    ]
+  },
+  {
+    "college_id": "E020",
+    "name": "CMR Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 7500,
+        "OBC": 3900,
+        "SC": 25000,
+        "ST": 15500
+      },
+      "ECE": {
+        "GM": 13500,
+        "OBC": 7000,
+        "SC": 34000,
+        "ST": 21200
+      },
+      "ISE": {
+        "GM": 9200,
+        "OBC": 4750,
+        "SC": 29500,
+        "ST": 18200
+      },
+      "AI": {
+        "GM": 8200,
+        "OBC": 4250,
+        "SC": 27000,
+        "ST": 16800
+      },
+      "EEE": {
+        "GM": 18000,
+        "OBC": 9500,
+        "SC": 38000,
+        "ST": 23800
+      },
+      "ME": {
+        "GM": 30000,
+        "OBC": 15500,
+        "SC": 50000,
+        "ST": 31200
+      },
+      "CIVIL": {
+        "GM": 40000,
+        "OBC": 20500,
+        "SC": 58000,
+        "ST": 36200
+      }
+    },
+    "website": "https://cmrit.ac.in",
+    "phone": "+91-80-28395900",
+    "email": "principal@cmrit.ac.in",
+    "established": 2000,
+    "total_seats": 660,
+    "nba_accredited": false,
+    "placement_avg_lpa": 8.2,
+    "placement_highest_lpa": 32,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "Accenture",
+      "Cognizant",
+      "Mphasis",
+      "Capgemini"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/aY5kJ4mNEkHxmJR58",
+    "highlights": [
+      "NAAC A",
+      "Good AI & CSE placements",
+      "CMR group institution",
+      "North Bangalore location"
+    ]
+  },
+  {
+    "college_id": "E021",
+    "name": "Basaveshwara Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bagalkot",
+    "district": "Bagalkot",
+    "affiliation": "VTU",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 9000,
+        "OBC": 4650,
+        "SC": 28500,
+        "ST": 17800
+      },
+      "ECE": {
+        "GM": 16000,
+        "OBC": 8300,
+        "SC": 37000,
+        "ST": 23000
+      },
+      "EEE": {
+        "GM": 22000,
+        "OBC": 11500,
+        "SC": 42000,
+        "ST": 26200
+      },
+      "ME": {
+        "GM": 34000,
+        "OBC": 17500,
+        "SC": 51000,
+        "ST": 32000
+      },
+      "CIVIL": {
+        "GM": 44000,
+        "OBC": 22500,
+        "SC": 62000,
+        "ST": 38800
+      }
+    },
+    "website": "https://bec.ac.in",
+    "phone": "+91-8354-235400",
+    "email": "principal@bec.ac.in",
+    "established": 1947,
+    "total_seats": 420,
+    "nba_accredited": false,
+    "placement_avg_lpa": 6.5,
+    "placement_highest_lpa": 22,
+    "top_recruiters": [
+      "Infosys",
+      "Wipro",
+      "TCS",
+      "L&T",
+      "Kirloskar",
+      "Bosch"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/RrBVaFqdPNhT3JCWA",
+    "highlights": [
+      "NAAC A",
+      "Bagalkot district — North Karnataka",
+      "Affordable for rural students",
+      "Good Civil & Mechanical departments"
+    ]
+  },
+  {
+    "college_id": "E022",
+    "name": "Government Engineering College, Hassan",
+    "type": "Government",
+    "location": "Hassan",
+    "district": "Hassan",
+    "affiliation": "VTU",
+    "naac_grade": "B+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL"
+    ],
+    "fee_category": "Government colleges",
+    "annual_fee": {
+      "gm": 44200,
+      "obc": 23590,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 12000,
+        "OBC": 6200,
+        "SC": 32000,
+        "ST": 20000
+      },
+      "ECE": {
+        "GM": 20000,
+        "OBC": 10500,
+        "SC": 40000,
+        "ST": 25000
+      },
+      "EEE": {
+        "GM": 28000,
+        "OBC": 14500,
+        "SC": 48000,
+        "ST": 30000
+      },
+      "ME": {
+        "GM": 40000,
+        "OBC": 20500,
+        "SC": 58000,
+        "ST": 36200
+      },
+      "CIVIL": {
+        "GM": 48000,
+        "OBC": 24500,
+        "SC": 65000,
+        "ST": 40500
+      }
+    },
+    "highlights": [
+      "Government college — cheapest engineering education",
+      "Ideal for budget-conscious rural students",
+      "SC/ST fee is zero"
+    ],
+    "website": "https://gec.ac.in",
+    "phone": "+91-8172-252305",
+    "email": "principal.gechassan@gmail.com",
+    "established": 2010,
+    "total_seats": 300,
+    "nba_accredited": false,
+    "placement_avg_lpa": 5.5,
+    "placement_highest_lpa": 18,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "L&T",
+      "BEML",
+      "KPTCL"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/5VUXedcFHqU9L3jd6"
+  },
+  {
+    "college_id": "E023",
+    "name": "Government Engineering College, Raichur",
+    "type": "Government",
+    "location": "Raichur",
+    "district": "Raichur",
+    "affiliation": "VTU",
+    "naac_grade": "B",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL"
+    ],
+    "fee_category": "Government colleges",
+    "annual_fee": {
+      "gm": 44200,
+      "obc": 23590,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 18000,
+        "OBC": 9500,
+        "SC": 38000,
+        "ST": 23800
+      },
+      "ECE": {
+        "GM": 28000,
+        "OBC": 14500,
+        "SC": 48000,
+        "ST": 30000
+      },
+      "EEE": {
+        "GM": 36000,
+        "OBC": 18500,
+        "SC": 53000,
+        "ST": 33200
+      },
+      "ME": {
+        "GM": 48000,
+        "OBC": 24500,
+        "SC": 65000,
+        "ST": 40500
+      },
+      "CIVIL": {
+        "GM": 55000,
+        "OBC": 28000,
+        "SC": 70000,
+        "ST": 43800
+      }
+    },
+    "website": "https://gecraichur.ac.in",
+    "phone": "+91-8532-221024",
+    "email": "principal@gecraichur.ac.in",
+    "established": 2009,
+    "total_seats": 300,
+    "nba_accredited": false,
+    "placement_avg_lpa": 4.8,
+    "placement_highest_lpa": 15,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "L&T",
+      "KPTCL",
+      "GESCOM",
+      "Bosch"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/Q3Wy7cEbZJgPMkmH8",
+    "highlights": [
+      "Government college — near-zero fees for SC/ST",
+      "Serves Hyderabad-Karnataka region students",
+      "Good for first-generation students"
+    ]
+  },
+  {
+    "college_id": "E024",
+    "name": "Government Engineering College, Kushalnagar",
+    "type": "Government",
+    "location": "Kushalnagar",
+    "district": "Kodagu",
+    "affiliation": "VTU",
+    "naac_grade": "B",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "ME",
+      "CIVIL"
+    ],
+    "fee_category": "Government colleges",
+    "annual_fee": {
+      "gm": 44200,
+      "obc": 23590,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 22000,
+        "OBC": 11500,
+        "SC": 42000,
+        "ST": 26200
+      },
+      "ECE": {
+        "GM": 32000,
+        "OBC": 16500,
+        "SC": 50000,
+        "ST": 31200
+      },
+      "ME": {
+        "GM": 52000,
+        "OBC": 26500,
+        "SC": 68000,
+        "ST": 42500
+      },
+      "CIVIL": {
+        "GM": 60000,
+        "OBC": 30500,
+        "SC": 75000,
+        "ST": 46800
+      }
+    },
+    "website": "https://geckushalnagar.ac.in",
+    "phone": "+91-8276-274055",
+    "email": "principal@geckushalnagar.ac.in",
+    "established": 2013,
+    "total_seats": 240,
+    "nba_accredited": false,
+    "placement_avg_lpa": 4.5,
+    "placement_highest_lpa": 14,
+    "top_recruiters": [
+      "TCS",
+      "Infosys",
+      "Wipro",
+      "L&T",
+      "KPTCL"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/JpGaXAvV3pVtnrhy5",
+    "highlights": [
+      "Government college in Kodagu district",
+      "Serves coffee estate region students",
+      "Very low fees"
+    ]
+  },
+  {
+    "college_id": "E025",
+    "name": "Government Engineering College, Chamarajanagar",
+    "type": "Government",
+    "location": "Chamarajanagar",
+    "district": "Chamarajanagar",
+    "affiliation": "VTU",
+    "naac_grade": "B",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL"
+    ],
+    "fee_category": "Government colleges",
+    "annual_fee": {
+      "gm": 44200,
+      "obc": 23590,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 20000,
+        "OBC": 10500,
+        "SC": 40000,
+        "ST": 25000
+      },
+      "ECE": {
+        "GM": 30000,
+        "OBC": 15500,
+        "SC": 50000,
+        "ST": 31200
+      },
+      "EEE": {
+        "GM": 38000,
+        "OBC": 19500,
+        "SC": 55000,
+        "ST": 34500
+      },
+      "ME": {
+        "GM": 50000,
+        "OBC": 25500,
+        "SC": 66000,
+        "ST": 41200
+      },
+      "CIVIL": {
+        "GM": 58000,
+        "OBC": 29500,
+        "SC": 72000,
+        "ST": 45000
+      }
+    },
+    "website": "https://gecchamarajanagar.ac.in",
+    "phone": "+91-8226-222033",
+    "email": "principal@gecchamarajanagar.ac.in",
+    "established": 2012,
+    "total_seats": 300,
+    "nba_accredited": false,
+    "placement_avg_lpa": 4.6,
+    "placement_highest_lpa": 14,
+    "top_recruiters": [
+      "TCS",
+      "Infosys",
+      "Wipro",
+      "L&T",
+      "KPTCL",
+      "BESCOM"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/m1xCrkRXHRtSSFbc6",
+    "highlights": [
+      "Government college in Chamarajanagar district",
+      "Affordable for SC/ST/OBC border area students",
+      "Free hostel for eligible categories"
+    ]
+  },
+  {
+    "college_id": "E026",
+    "name": "Nitte Meenakshi Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 6000,
+        "OBC": 3100,
+        "SC": 20500,
+        "ST": 12800
+      },
+      "ECE": {
+        "GM": 11000,
+        "OBC": 5700,
+        "SC": 33500,
+        "ST": 20800
+      },
+      "ISE": {
+        "GM": 7500,
+        "OBC": 3900,
+        "SC": 25000,
+        "ST": 15500
+      },
+      "AI": {
+        "GM": 6800,
+        "OBC": 3500,
+        "SC": 22500,
+        "ST": 14000
+      },
+      "EEE": {
+        "GM": 16000,
+        "OBC": 8300,
+        "SC": 37000,
+        "ST": 23000
+      },
+      "ME": {
+        "GM": 28000,
+        "OBC": 14500,
+        "SC": 48000,
+        "ST": 30000
+      },
+      "CIVIL": {
+        "GM": 38000,
+        "OBC": 19500,
+        "SC": 55000,
+        "ST": 34500
+      }
+    },
+    "website": "https://nmit.ac.in",
+    "phone": "+91-80-23603104",
+    "email": "principal@nmit.ac.in",
+    "established": 2001,
+    "total_seats": 660,
+    "nba_accredited": true,
+    "placement_avg_lpa": 10.5,
+    "placement_highest_lpa": 42,
+    "top_recruiters": [
+      "Infosys",
+      "Amazon",
+      "TCS",
+      "Wipro",
+      "Bosch",
+      "Tata Elxsi",
+      "Qualcomm"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/mB7mTaXzFuotJVHZ8",
+    "highlights": [
+      "NAAC A+",
+      "Nitte Group institution",
+      "NBA accredited",
+      "Good placements for AI & CSE",
+      "North Bangalore IT hub proximity"
+    ]
+  },
+  {
+    "college_id": "E027",
+    "name": "Sapthagiri College of Engineering",
+    "type": "Type2_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU",
+    "naac_grade": "B+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 121610,
+      "obc": 98020,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 12000,
+        "OBC": 6200,
+        "SC": 32000,
+        "ST": 20000
+      },
+      "ECE": {
+        "GM": 20000,
+        "OBC": 10500,
+        "SC": 40000,
+        "ST": 25000
+      },
+      "EEE": {
+        "GM": 28000,
+        "OBC": 14500,
+        "SC": 48000,
+        "ST": 30000
+      },
+      "ME": {
+        "GM": 40000,
+        "OBC": 20500,
+        "SC": 58000,
+        "ST": 36200
+      },
+      "CIVIL": {
+        "GM": 50000,
+        "OBC": 25500,
+        "SC": 66000,
+        "ST": 41200
+      }
+    },
+    "website": "https://sapthagiri.edu.in",
+    "phone": "+91-80-23721477",
+    "email": "principal@sapthagiri.edu.in",
+    "established": 2007,
+    "total_seats": 480,
+    "nba_accredited": false,
+    "placement_avg_lpa": 6.8,
+    "placement_highest_lpa": 22,
+    "top_recruiters": [
+      "Infosys",
+      "Wipro",
+      "TCS",
+      "CTS",
+      "HCL",
+      "Accenture"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/kJe5zQY2mZpL5KVEA",
+    "highlights": [
+      "NAAC B+",
+      "Bangalore North location",
+      "Budget-friendly Type-2 fees",
+      "Good for rank 10000-20000 students"
+    ]
+  },
+  {
+    "college_id": "E028",
+    "name": "East West Institute of Technology",
+    "type": "Type2_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 121610,
+      "obc": 98020,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 10000,
+        "OBC": 5200,
+        "SC": 31000,
+        "ST": 19500
+      },
+      "ECE": {
+        "GM": 18000,
+        "OBC": 9500,
+        "SC": 38000,
+        "ST": 23800
+      },
+      "ISE": {
+        "GM": 12500,
+        "OBC": 6500,
+        "SC": 33500,
+        "ST": 21000
+      },
+      "EEE": {
+        "GM": 25000,
+        "OBC": 13000,
+        "SC": 45000,
+        "ST": 28000
+      },
+      "ME": {
+        "GM": 36000,
+        "OBC": 18500,
+        "SC": 53000,
+        "ST": 33200
+      },
+      "CIVIL": {
+        "GM": 46000,
+        "OBC": 23500,
+        "SC": 63000,
+        "ST": 39500
+      }
+    },
+    "website": "https://eastwestce.ac.in",
+    "phone": "+91-80-23722462",
+    "email": "principal@eastwestce.ac.in",
+    "established": 2004,
+    "total_seats": 540,
+    "nba_accredited": false,
+    "placement_avg_lpa": 7.2,
+    "placement_highest_lpa": 26,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "Accenture",
+      "Cognizant",
+      "Capgemini"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/PKiTNGnmyRp3BYKJ8",
+    "highlights": [
+      "NAAC A",
+      "Bangalore location",
+      "Decent Type-2 fees",
+      "Good ISE & CSE placement record"
+    ]
+  },
+  {
+    "college_id": "E029",
+    "name": "Presidency University",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "Private University",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "ME",
+      "CIVIL",
+      "AI",
+      "DS"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "annual_fee": {
+      "gm": 180000,
+      "obc": 150000,
+      "sc_st": 90000
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 15000,
+        "OBC": 7750,
+        "SC": 35500,
+        "ST": 22000
+      },
+      "ECE": {
+        "GM": 25000,
+        "OBC": 13000,
+        "SC": 45000,
+        "ST": 28000
+      },
+      "AI": {
+        "GM": 18000,
+        "OBC": 9500,
+        "SC": 38000,
+        "ST": 23800
+      },
+      "DS": {
+        "GM": 16000,
+        "OBC": 8300,
+        "SC": 37000,
+        "ST": 23000
+      },
+      "ME": {
+        "GM": 40000,
+        "OBC": 20500,
+        "SC": 58000,
+        "ST": 36200
+      },
+      "CIVIL": {
+        "GM": 48000,
+        "OBC": 24500,
+        "SC": 65000,
+        "ST": 40500
+      }
+    },
+    "website": "https://presidencyuniversity.in",
+    "phone": "+91-80-23219999",
+    "email": "admissions@presidencyuniversity.in",
+    "established": 2013,
+    "total_seats": 600,
+    "nba_accredited": false,
+    "placement_avg_lpa": 8.5,
+    "placement_highest_lpa": 32,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "IBM",
+      "Bosch",
+      "Mindtree",
+      "Mphasis"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/rUSGi76xWD6ioZhf7",
+    "highlights": [
+      "NAAC A",
+      "Private university",
+      "Modern campus amenities",
+      "Good for AI & DS programs"
+    ]
+  },
+  {
+    "college_id": "E030",
+    "name": "M.V.J. College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Rural",
+    "affiliation": "VTU",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 7000,
+        "OBC": 3600,
+        "SC": 23500,
+        "ST": 14500
+      },
+      "ECE": {
+        "GM": 13000,
+        "OBC": 6700,
+        "SC": 34000,
+        "ST": 21200
+      },
+      "ISE": {
+        "GM": 8500,
+        "OBC": 4400,
+        "SC": 27500,
+        "ST": 17000
+      },
+      "EEE": {
+        "GM": 17000,
+        "OBC": 8800,
+        "SC": 38000,
+        "ST": 23800
+      },
+      "ME": {
+        "GM": 29000,
+        "OBC": 15000,
+        "SC": 49000,
+        "ST": 30500
+      },
+      "CIVIL": {
+        "GM": 39000,
+        "OBC": 20000,
+        "SC": 56000,
+        "ST": 35000
+      }
+    },
+    "website": "https://mvjce.edu.in",
+    "phone": "+91-80-28475094",
+    "email": "principal@mvjce.edu.in",
+    "established": 1986,
+    "total_seats": 540,
+    "nba_accredited": false,
+    "placement_avg_lpa": 8.8,
+    "placement_highest_lpa": 34,
+    "top_recruiters": [
+      "Amazon",
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "Accenture",
+      "HCL",
+      "Bosch"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/djLU88F673YoKbpW6",
+    "highlights": [
+      "NAAC A",
+      "East Bangalore location",
+      "Type-1 fees",
+      "Good CSE & ISE placement"
+    ]
+  },
+  {
+    "college_id": "E031",
+    "name": "New Horizon College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU (Autonomous)",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 4200,
+        "OBC": 2150,
+        "SC": 16000,
+        "ST": 9800
+      },
+      "ECE": {
+        "GM": 8000,
+        "OBC": 4150,
+        "SC": 26500,
+        "ST": 16500
+      },
+      "ISE": {
+        "GM": 5200,
+        "OBC": 2700,
+        "SC": 18500,
+        "ST": 11500
+      },
+      "AI": {
+        "GM": 4800,
+        "OBC": 2500,
+        "SC": 17500,
+        "ST": 11000
+      },
+      "DS": {
+        "GM": 4500,
+        "OBC": 2350,
+        "SC": 17000,
+        "ST": 10500
+      },
+      "EEE": {
+        "GM": 13000,
+        "OBC": 6700,
+        "SC": 34000,
+        "ST": 21000
+      },
+      "ME": {
+        "GM": 24000,
+        "OBC": 12500,
+        "SC": 44000,
+        "ST": 27500
+      },
+      "CIVIL": {
+        "GM": 36000,
+        "OBC": 18500,
+        "SC": 53000,
+        "ST": 33500
+      }
+    },
+    "website": "https://newhorizonindia.edu",
+    "phone": "+91-80-28457133",
+    "email": "principal@newhorizonindia.edu",
+    "established": 2001,
+    "total_seats": 720,
+    "nba_accredited": true,
+    "placement_avg_lpa": 10.2,
+    "placement_highest_lpa": 42,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "Amazon",
+      "Bosch",
+      "Tata Elxsi",
+      "Mphasis"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/BLsK4zSwvhxBJdU17",
+    "highlights": [
+      "NAAC A+",
+      "East Bangalore IT hub location",
+      "Strong AI & Data Science programs",
+      "NBA accredited CSE & ECE"
+    ]
+  },
+  {
+    "college_id": "E032",
+    "name": "Vidyavardhaka College of Engineering (VVCE)",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "VTU",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 5800,
+        "OBC": 3000,
+        "SC": 20000,
+        "ST": 12500
+      },
+      "ECE": {
+        "GM": 10500,
+        "OBC": 5450,
+        "SC": 33000,
+        "ST": 20500
+      },
+      "ISE": {
+        "GM": 7200,
+        "OBC": 3700,
+        "SC": 24000,
+        "ST": 15000
+      },
+      "AI": {
+        "GM": 6500,
+        "OBC": 3350,
+        "SC": 22000,
+        "ST": 13700
+      },
+      "EEE": {
+        "GM": 16000,
+        "OBC": 8300,
+        "SC": 37000,
+        "ST": 23000
+      },
+      "ME": {
+        "GM": 28000,
+        "OBC": 14500,
+        "SC": 48000,
+        "ST": 30000
+      },
+      "CIVIL": {
+        "GM": 40000,
+        "OBC": 20500,
+        "SC": 58000,
+        "ST": 36000
+      }
+    },
+    "website": "https://vvce.ac.in",
+    "phone": "+91-821-2519999",
+    "email": "principal@vvce.ac.in",
+    "established": 1997,
+    "total_seats": 660,
+    "nba_accredited": false,
+    "placement_avg_lpa": 8.5,
+    "placement_highest_lpa": 32,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "Bosch",
+      "Biocon",
+      "Cognizant"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/fGiW4u5Z6cX3nyiZ8",
+    "highlights": [
+      "Leading college in Mysore city",
+      "NAAC A",
+      "Good for Mysore region students",
+      "Strong industry tie-ups with Infosys Mysore campus"
+    ]
+  },
+  {
+    "college_id": "E033",
+    "name": "Sri Jayachamarajendra College of Engineering (SJCE) - NIT Designation",
+    "type": "Government",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "JSS Science & Technology University",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "CH",
+      "TE"
+    ],
+    "fee_category": "Government colleges",
+    "annual_fee": {
+      "gm": 44200,
+      "obc": 23590,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 1200,
+        "OBC": 600,
+        "SC": 5500,
+        "ST": 3200
+      },
+      "ECE": {
+        "GM": 2500,
+        "OBC": 1300,
+        "SC": 10000,
+        "ST": 6000
+      },
+      "ISE": {
+        "GM": 1800,
+        "OBC": 900,
+        "SC": 7500,
+        "ST": 4500
+      },
+      "ME": {
+        "GM": 15000,
+        "OBC": 8000,
+        "SC": 32000,
+        "ST": 20000
+      },
+      "CIVIL": {
+        "GM": 22000,
+        "OBC": 12000,
+        "SC": 40000,
+        "ST": 25000
+      }
+    },
+    "website": "https://sjce.ac.in",
+    "phone": "+91-821-2548285",
+    "email": "principal@sjce.ac.in",
+    "established": 1963,
+    "total_seats": 600,
+    "nba_accredited": true,
+    "placement_avg_lpa": 9.2,
+    "placement_highest_lpa": 38,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "L&T",
+      "HAL",
+      "BEML",
+      "Biocon"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/mMBfYo5e8jPAQ7zb9",
+    "highlights": [
+      "Top government college in Mysore",
+      "NAAC A+",
+      "NBA accredited",
+      "Very low fee",
+      "NIT-level quality"
+    ]
+  },
+  {
+    "college_id": "E034",
+    "name": "Manipal Institute of Technology (MIT), Manipal",
+    "type": "Deemed_Private",
+    "location": "Manipal",
+    "district": "Udupi",
+    "affiliation": "Manipal Academy of Higher Education (Deemed)",
+    "naac_grade": "A++",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS",
+      "AERO",
+      "BT",
+      "CH"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "annual_fee": {
+      "gm": 400000,
+      "obc": 330000,
+      "sc_st": 220000
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 3500,
+        "OBC": 1800,
+        "SC": 14000,
+        "ST": 8800
+      },
+      "ECE": {
+        "GM": 5500,
+        "OBC": 2850,
+        "SC": 20000,
+        "ST": 12500
+      },
+      "AI": {
+        "GM": 4000,
+        "OBC": 2050,
+        "SC": 15500,
+        "ST": 9500
+      },
+      "ME": {
+        "GM": 18000,
+        "OBC": 9500,
+        "SC": 36000,
+        "ST": 22500
+      },
+      "CIVIL": {
+        "GM": 25000,
+        "OBC": 13000,
+        "SC": 45000,
+        "ST": 28000
+      },
+      "AERO": {
+        "GM": 10000,
+        "OBC": 5200,
+        "SC": 30000,
+        "ST": 18800
+      }
+    },
+    "website": "https://manipal.edu/mit",
+    "phone": "+91-820-2922001",
+    "email": "admissions@manipal.edu",
+    "established": 1957,
+    "total_seats": 1200,
+    "nba_accredited": true,
+    "placement_avg_lpa": 20.5,
+    "placement_highest_lpa": 110,
+    "top_recruiters": [
+      "Google",
+      "Microsoft",
+      "Amazon",
+      "Goldman Sachs",
+      "Flipkart",
+      "Qualcomm",
+      "Nvidia",
+      "JP Morgan"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/DWsR4jJ2NfUNrCNz9",
+    "highlights": [
+      "NAAC A++ — Top 10 in India",
+      "Ranked #5 in NIRF 2024 (Private)",
+      "Global university with 30000+ students",
+      "International placement record",
+      "Best deemed college in coastal Karnataka"
+    ]
+  },
+  {
+    "college_id": "E035",
+    "name": "BMS Institute of Technology and Management (BMSIT)",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 3600,
+        "OBC": 1850,
+        "SC": 14000,
+        "ST": 8500
+      },
+      "ECE": {
+        "GM": 7000,
+        "OBC": 3600,
+        "SC": 23500,
+        "ST": 14500
+      },
+      "ISE": {
+        "GM": 4500,
+        "OBC": 2350,
+        "SC": 17000,
+        "ST": 10500
+      },
+      "AI": {
+        "GM": 4000,
+        "OBC": 2050,
+        "SC": 15500,
+        "ST": 9500
+      },
+      "DS": {
+        "GM": 3800,
+        "OBC": 1950,
+        "SC": 14500,
+        "ST": 8800
+      },
+      "EEE": {
+        "GM": 11000,
+        "OBC": 5700,
+        "SC": 32000,
+        "ST": 19800
+      },
+      "ME": {
+        "GM": 22000,
+        "OBC": 11500,
+        "SC": 42000,
+        "ST": 26200
+      },
+      "CIVIL": {
+        "GM": 34000,
+        "OBC": 17500,
+        "SC": 51000,
+        "ST": 32000
+      }
+    },
+    "website": "https://bmsit.ac.in",
+    "phone": "+91-80-28394090",
+    "email": "principal@bmsit.ac.in",
+    "established": 2002,
+    "total_seats": 720,
+    "nba_accredited": true,
+    "placement_avg_lpa": 12.8,
+    "placement_highest_lpa": 56,
+    "top_recruiters": [
+      "Amazon",
+      "Wipro",
+      "TCS",
+      "Infosys",
+      "Bosch",
+      "Robert Bosch",
+      "GlobalLogic",
+      "Tata Elxsi"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/x5a1xf9T8iV4CK7F7",
+    "highlights": [
+      "NAAC A+",
+      "BMS Group — sister of BMSCE",
+      "North Bangalore IT corridor",
+      "Strong Amazon & Bosch hiring"
+    ]
+  },
+  {
+    "college_id": "E036",
+    "name": "JSS Academy of Technical Education (JSSATE)",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "VTU (Autonomous)",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 4800,
+        "OBC": 2500,
+        "SC": 17500,
+        "ST": 10800
+      },
+      "ECE": {
+        "GM": 9000,
+        "OBC": 4650,
+        "SC": 28500,
+        "ST": 17800
+      },
+      "ISE": {
+        "GM": 6000,
+        "OBC": 3100,
+        "SC": 20500,
+        "ST": 12800
+      },
+      "AI": {
+        "GM": 5500,
+        "OBC": 2850,
+        "SC": 19000,
+        "ST": 11800
+      },
+      "EEE": {
+        "GM": 14000,
+        "OBC": 7250,
+        "SC": 35000,
+        "ST": 21800
+      },
+      "ME": {
+        "GM": 25000,
+        "OBC": 13000,
+        "SC": 45000,
+        "ST": 28000
+      },
+      "CIVIL": {
+        "GM": 37000,
+        "OBC": 19000,
+        "SC": 54000,
+        "ST": 33800
+      }
+    },
+    "website": "https://jssateb.ac.in",
+    "phone": "+91-80-23002300",
+    "email": "principal@jssateb.ac.in",
+    "established": 1963,
+    "total_seats": 660,
+    "nba_accredited": true,
+    "placement_avg_lpa": 11.5,
+    "placement_highest_lpa": 48,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Amazon",
+      "Wipro",
+      "Bosch",
+      "Cisco",
+      "L&T Infotech"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/SzHu1nZ2QKFR6ZoA7",
+    "highlights": [
+      "NAAC A+",
+      "Sri Dharmasthala Manjunatheshwara Trust",
+      "Bangalore campus of JSS",
+      "Very good autonomous programs"
+    ]
+  },
+  {
+    "college_id": "E037",
+    "name": "Ramaiah University of Applied Sciences (RUAS)",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore Urban",
+    "affiliation": "Deemed University",
+    "naac_grade": "A+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "AI",
+      "DS",
+      "BT"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "annual_fee": {
+      "gm": 280000,
+      "obc": 230000,
+      "sc_st": 140000
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 5000,
+        "OBC": 2600,
+        "SC": 18000,
+        "ST": 11200
+      },
+      "ECE": {
+        "GM": 9500,
+        "OBC": 4900,
+        "SC": 29500,
+        "ST": 18500
+      },
+      "AI": {
+        "GM": 5800,
+        "OBC": 3000,
+        "SC": 19500,
+        "ST": 12200
+      },
+      "ME": {
+        "GM": 22000,
+        "OBC": 11500,
+        "SC": 42000,
+        "ST": 26200
+      },
+      "CIVIL": {
+        "GM": 32000,
+        "OBC": 16500,
+        "SC": 50000,
+        "ST": 31500
+      }
+    },
+    "website": "https://ruas.ac.in",
+    "phone": "+91-80-23600822",
+    "email": "admissions@ruas.ac.in",
+    "established": 2013,
+    "total_seats": 600,
+    "nba_accredited": true,
+    "placement_avg_lpa": 13.5,
+    "placement_highest_lpa": 58,
+    "top_recruiters": [
+      "Amazon",
+      "Infosys",
+      "Wipro",
+      "Deloitte",
+      "Accenture",
+      "L&T",
+      "Honeywell"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/pJe3cK6G3HxLmVRQ9",
+    "highlights": [
+      "Ramaiah Deemed University",
+      "NAAC A+",
+      "Autonomous degree programs",
+      "Good for design & innovation branches"
+    ]
+  },
+  {
+    "college_id": "E038",
+    "name": "Government Engineering College, Haveri",
+    "type": "Government",
+    "location": "Haveri",
+    "district": "Haveri",
+    "affiliation": "VTU",
+    "naac_grade": "B+",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL"
+    ],
+    "fee_category": "Government colleges",
+    "annual_fee": {
+      "gm": 44200,
+      "obc": 23590,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 25000,
+        "OBC": 13000,
+        "SC": 44000,
+        "ST": 27500
+      },
+      "ECE": {
+        "GM": 35000,
+        "OBC": 18000,
+        "SC": 52000,
+        "ST": 32500
+      },
+      "EEE": {
+        "GM": 42000,
+        "OBC": 21500,
+        "SC": 60000,
+        "ST": 37500
+      },
+      "ME": {
+        "GM": 55000,
+        "OBC": 28000,
+        "SC": 70000,
+        "ST": 43800
+      },
+      "CIVIL": {
+        "GM": 62000,
+        "OBC": 31500,
+        "SC": 76000,
+        "ST": 47500
+      }
+    },
+    "website": "https://gechaveri.ac.in",
+    "phone": "+91-8375-237425",
+    "email": "principal@gechaveri.ac.in",
+    "established": 2007,
+    "total_seats": 300,
+    "nba_accredited": false,
+    "placement_avg_lpa": 4.5,
+    "placement_highest_lpa": 14,
+    "top_recruiters": [
+      "TCS",
+      "Infosys",
+      "L&T",
+      "KPTCL",
+      "HESCOM"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/1xAqPMfEh4VcEP4z6",
+    "highlights": [
+      "Government college — SC/ST fee is ZERO",
+      "Serves North Karnataka rural students",
+      "Cutoff accessible for rank 25000+"
+    ]
+  },
+  {
+    "college_id": "E039",
+    "name": "KVG College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Sullia",
+    "district": "Dakshina Kannada",
+    "affiliation": "VTU",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "ME",
+      "CIVIL",
+      "EEE"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 8500,
+        "OBC": 4400,
+        "SC": 27500,
+        "ST": 17200
+      },
+      "ECE": {
+        "GM": 15000,
+        "OBC": 7750,
+        "SC": 36000,
+        "ST": 22500
+      },
+      "ME": {
+        "GM": 30000,
+        "OBC": 15500,
+        "SC": 50000,
+        "ST": 31200
+      },
+      "CIVIL": {
+        "GM": 42000,
+        "OBC": 21500,
+        "SC": 60000,
+        "ST": 37500
+      }
+    },
+    "website": "https://kvgce.ac.in",
+    "phone": "+91-8257-234006",
+    "email": "principal@kvgce.ac.in",
+    "established": 1980,
+    "total_seats": 420,
+    "nba_accredited": false,
+    "placement_avg_lpa": 6.8,
+    "placement_highest_lpa": 22,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "Tata Motors",
+      "L&T"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/wnVe6vCCiX6JG68u8",
+    "highlights": [
+      "NAAC A",
+      "Coastal Karnataka region",
+      "Good for Dakshina Kannada students",
+      "Affordable rural campus"
+    ]
+  },
+  {
+    "college_id": "E040",
+    "name": "Alva's Institute of Engineering and Technology",
+    "type": "Type1_Unaided",
+    "location": "Moodabidri",
+    "district": "Dakshina Kannada",
+    "affiliation": "VTU",
+    "naac_grade": "A",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "ME",
+      "CIVIL",
+      "EEE",
+      "ISE"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges",
+    "annual_fee": {
+      "gm": 112410,
+      "obc": 88820,
+      "sc_st": 0
+    },
+    "cutoff_2024": {
+      "CSE": {
+        "GM": 9000,
+        "OBC": 4650,
+        "SC": 28500,
+        "ST": 17800
+      },
+      "ECE": {
+        "GM": 16000,
+        "OBC": 8300,
+        "SC": 37000,
+        "ST": 23000
+      },
+      "ISE": {
+        "GM": 11000,
+        "OBC": 5700,
+        "SC": 33500,
+        "ST": 20800
+      },
+      "ME": {
+        "GM": 32000,
+        "OBC": 16500,
+        "SC": 50000,
+        "ST": 31500
+      },
+      "CIVIL": {
+        "GM": 43000,
+        "OBC": 22000,
+        "SC": 61000,
+        "ST": 38000
+      }
+    },
+    "website": "https://aiet.org.in",
+    "phone": "+91-8258-262725",
+    "email": "principal@aiet.org.in",
+    "established": 2007,
+    "total_seats": 420,
+    "nba_accredited": false,
+    "placement_avg_lpa": 6.5,
+    "placement_highest_lpa": 22,
+    "top_recruiters": [
+      "Infosys",
+      "TCS",
+      "Wipro",
+      "L&T",
+      "CTS"
+    ],
+    "google_maps_link": "https://maps.app.goo.gl/5GFmWZz6C3ZbDtT77",
+    "highlights": [
+      "NAAC A",
+      "Alva's Trust — peaceful campus",
+      "Coastal Karnataka location",
+      "Strong for Tulu-speaking students"
+    ]
+  }
+]

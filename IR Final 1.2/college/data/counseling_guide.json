@@ -1,0 +1,163 @@
+{
+    "last_updated": "2024-2025",
+    "engineering": {
+        "title": "KCET Engineering Counseling Process",
+        "steps": [
+            {
+                "id": 1,
+                "title": "Document Verification",
+                "description": "Candidates must visit the designated nodal center with all original documents. Upon verification, you will receive a generic 'User ID' and 'Secret Key'.",
+                "icon": "📝"
+            },
+            {
+                "id": 2,
+                "title": "Online Registration",
+                "description": "Log in to the KEA portal using your CET Number and Captcha. Create a password and verify your details.",
+                "icon": "💻"
+            },
+            {
+                "id": 3,
+                "title": "Option Entry",
+                "description": "Enter your preferred colleges and courses in order of priority. There is no limit on the number of options you can enter. Think carefully!",
+                "icon": "college"
+            },
+            {
+                "id": 4,
+                "title": "Mock Allotment",
+                "description": "KEA publishes a mock result to clear doubts and show you where you stand. You can modify your options after this.",
+                "icon": "🔮"
+            },
+            {
+                "id": 5,
+                "title": "Final Seat Allotment",
+                "description": "Actual seat allotment results are published. You will be assigned a seat based on merit and priority.",
+                "icon": "🎉"
+            },
+            {
+                "id": 6,
+                "title": "Post-Allotment Choice",
+                "description": "Choose one of 4 choices: Choice 1 (Accept & Join), Choice 2 (Accept & Upgrade), Choice 3 (Reject & Next Round), Choice 4 (Exit).",
+                "icon": "decision"
+            },
+            {
+                "id": 7,
+                "title": "Fee Payment & Admission Order",
+                "description": "If you select Choice 1 or 2, pay the prescribed fees online and download your Admission Order.",
+                "icon": "💳"
+            },
+            {
+                "id": 8,
+                "title": "College Reporting",
+                "description": "Visit the allotted college with your Admission Order and original documents to complete the process.",
+                "icon": "🏫"
+            }
+        ]
+    },
+    "medical": {
+        "title": "Medical (NEET) Counseling Process",
+        "steps": [
+            {
+                "id": 1,
+                "title": "KEA Registration",
+                "description": "Even for NEET, you must register on the KEA portal for Karnataka state quota seats.",
+                "icon": "f"
+            },
+            {
+                "id": 2,
+                "title": "Document Verification",
+                "description": "Similar to Engineering, verify documents at nodal centers. Ensure NEET scorecard is included.",
+                "icon": "📝"
+            },
+            {
+                "id": 3,
+                "title": "Option Entry (Medical)",
+                "description": "Enter options for Medical, Dental, and AYUSH courses separately from engineering options.",
+                "icon": "🩺"
+            },
+            {
+                "id": 4,
+                "title": "Seat Allotment",
+                "description": "Seats are allotted based on NEET All India Rank (AIR) and state reservation policies.",
+                "icon": "🏥"
+            },
+            {
+                "id": 5,
+                "title": "Admission & Reporting",
+                "description": "Pay fees to KEA (not college directly) and report to the medical college.",
+                "icon": "🎓"
+            }
+        ]
+    },
+    "documents": [
+        {
+            "id": "doc_1",
+            "name": "KCET/NEET Application Form",
+            "details": "Printout of the final submitted application form.",
+            "required": true
+        },
+        {
+            "id": "doc_2",
+            "name": "Admission Ticket (Hall Ticket)",
+            "details": "Original Admission Ticket with invigilator signature.",
+            "required": true
+        },
+        {
+            "id": "doc_3",
+            "name": "SSLC / 10th Standard Marks Card",
+            "details": "Proof of Date of Birth.",
+            "required": true
+        },
+        {
+            "id": "doc_4",
+            "name": "2nd PUC / 12th Standard Marks Card",
+            "details": "Original marks card.",
+            "required": true
+        },
+        {
+            "id": "doc_5",
+            "name": "Study Certificate (7 Years)",
+            "details": "Countersigned by BEO/DDPI showing 7 years of study in Karnataka.",
+            "required": true
+        },
+        {
+            "id": "doc_6",
+            "name": "Caste / Income Certificate",
+            "details": "Issued by Tahasildar (for SC/ST/OBC and Fee Exemption).",
+            "required": false
+        },
+        {
+            "id": "doc_7",
+            "name": "Kannada Medium Certificate",
+            "details": "If claiming Kannada Medium reservation.",
+            "required": false
+        },
+        {
+            "id": "doc_8",
+            "name": "Rural Study Certificate",
+            "details": "If claiming Rural quota (1st to 10th Std).",
+            "required": false
+        },
+        {
+            "id": "doc_9",
+            "name": "371(J) Certificate",
+            "details": "For Hyderabad-Karnataka Region reservation.",
+            "required": false
+        },
+        {
+            "id": "doc_10",
+            "name": "Passport Size Photos",
+            "details": "2 recent photos (same as uploaded in application).",
+            "required": true
+        }
+    ],
+    "faq": [
+        {
+            "q": "Can I edit my options after Mock Allotment?",
+            "a": "Yes! The main purpose of Mock Allotment is to let you change valid priority of options."
+        },
+        {
+            "q": "What happens if I don't report to college?",
+            "a": "Your seat will be cancelled and you may not be allowed in subsequent rounds (depending on Choice selected)."
+        }
+    ]
+}

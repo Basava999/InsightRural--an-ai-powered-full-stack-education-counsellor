@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+*.egg-info/
+
+# Node
+node_modules/
+yarn.lock
+package-lock.json
+
+# Virtual environments
+ir/
+
+# Database
+insightrural.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+server_log.txt
+
+# Executables
+*.exe
+
+# Vector DB (large binary data)
+vector_db/
+
+# IDE
+.vscode/
+.idea/
+
+# Gemini
+.gemini/

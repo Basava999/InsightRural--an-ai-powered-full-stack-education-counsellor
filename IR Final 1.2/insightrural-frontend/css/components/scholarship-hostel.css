@@ -1,0 +1,1069 @@
+/* ============================================
+   InsightRural — Scholarship & Hostel Explorer
+   Premium UI Component Styles
+   ============================================ */
+
+/* ---- Common Shared ---- */
+.btn-primary {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #10a37f, #0d9488);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(16, 163, 127, 0.3);
+    filter: brightness(1.08);
+}
+
+.btn-secondary {
+    padding: 10px 20px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1.5px solid var(--border-color);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary-color, #10a37f);
+    color: var(--primary-color, #10a37f);
+    background: var(--bg-hover);
+}
+
+.btn-block {
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-xs {
+    padding: 4px 10px;
+    font-size: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Spinner */
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--border-color, #e5e7eb);
+    border-top-color: #10a37f;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================
+   FILTER CHIPS (Shared by both components)
+   ============================================ */
+.filter-chip {
+    padding: 8px 18px;
+    border: 1.5px solid var(--border-color, #e5e7eb);
+    background: var(--bg-secondary, #fff);
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary, #64748b);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.filter-chip:hover {
+    border-color: #10a37f;
+    color: #10a37f;
+}
+
+.filter-chip.active {
+    background: linear-gradient(135deg, #10a37f, #0d9488);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 2px 10px rgba(16, 163, 127, 0.25);
+}
+
+/* ============================================
+   SEARCH INPUTS
+   ============================================ */
+.scholarships-search,
+.hostel-search-wrap {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+.search-input-wrap,
+.hostel-search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-wrap .search-icon,
+.hostel-search-wrap .search-icon {
+    position: absolute;
+    left: 16px;
+    font-size: 1.1rem;
+    z-index: 1;
+}
+
+.search-input-wrap input,
+.hostel-search-wrap input {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    border: 1.5px solid var(--border-color, #e5e7eb);
+    border-radius: 14px;
+    background: var(--bg-secondary, #fff);
+    color: var(--text-primary, #1e293b);
+    font-family: inherit;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+.search-input-wrap input:focus,
+.hostel-search-wrap input:focus {
+    outline: none;
+    border-color: #10a37f;
+    box-shadow: 0 0 0 4px rgba(16, 163, 127, 0.1);
+}
+
+/* ============================================
+   SCHOLARSHIP COMPONENT
+   ============================================ */
+.scholarships-page {
+    animation: fadeInUp 0.4s ease;
+}
+
+.scholarships-hero,
+.hostel-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0 1rem;
+}
+
+.hero-icon,
+.hero-icon-hostel {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    animation: float 3s ease infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.scholarships-hero h2,
+.hostel-hero h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #10a37f 0%, #3b82f6 50%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.scholarships-hero p,
+.hostel-hero p {
+    color: var(--text-secondary, #64748b);
+    font-size: 1rem;
+}
+
+.scholarship-filters,
+.hostel-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+/* ---- Scholarship Grid ---- */
+.scholarships-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+}
+
+/* ---- Scholarship Card ---- */
+.scholarship-card {
+    background: var(--bg-secondary, #fff);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 16px;
+    padding: 20px 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.5s ease both;
+}
+
+.scholarship-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #10a37f, #3b82f6);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.scholarship-card:hover::before {
+    opacity: 1;
+}
+
+.scholarship-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.scholarship-card.matched {
+    border-color: #10a37f;
+    box-shadow: 0 0 0 1px #10a37f, 0 4px 20px rgba(16, 163, 127, 0.1);
+}
+
+.match-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #10a37f, #0d9488);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.scholarship-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+    line-height: 1.4;
+    flex: 1;
+}
+
+.category-badge {
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.badge-sc {
+    background: rgba(139, 92, 246, 0.12);
+    color: #8b5cf6;
+}
+
+.badge-st {
+    background: rgba(236, 72, 153, 0.12);
+    color: #ec4899;
+}
+
+.badge-obc {
+    background: rgba(59, 130, 246, 0.12);
+    color: #3b82f6;
+}
+
+.badge-minority {
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+}
+
+.badge-general {
+    background: rgba(245, 158, 11, 0.12);
+    color: #f59e0b;
+}
+
+.card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+    color: var(--text-secondary, #64748b);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.card-benefits {
+    font-size: 0.9rem;
+    color: var(--text-secondary, #64748b);
+    margin-bottom: 16px;
+    padding: 10px 14px;
+    background: var(--bg-primary, #f8fafc);
+    border-radius: 10px;
+    border: 1px solid var(--border-color, #e5e7eb);
+}
+
+.scholarship-details {
+    margin-bottom: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color, #e5e7eb);
+}
+
+.detail-section {
+    margin-bottom: 12px;
+}
+
+.detail-section h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-primary, #1e293b);
+}
+
+.detail-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detail-section li {
+    padding: 3px 0 3px 18px;
+    position: relative;
+    font-size: 0.88rem;
+    color: var(--text-secondary, #64748b);
+}
+
+.detail-section li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    color: #10a37f;
+    font-weight: 700;
+}
+
+.portal-link {
+    color: #10a37f;
+    text-decoration: underline;
+    font-size: 0.88rem;
+    word-break: break-all;
+}
+
+.card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+/* ---- Smart Match Banner ---- */
+.smart-match-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, rgba(16, 163, 127, 0.08), rgba(59, 130, 246, 0.08));
+    border: 1.5px solid rgba(16, 163, 127, 0.2);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.5s ease;
+}
+
+.smart-match-banner .match-icon {
+    font-size: 2rem;
+}
+
+.smart-match-banner .match-text strong {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.smart-match-banner .match-text p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ============================================
+   HOSTEL EXPLORER COMPONENT
+   ============================================ */
+.hostel-page {
+    animation: fadeInUp 0.4s ease;
+}
+
+.hostel-controls {
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+}
+
+.hostel-stats {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.stat-chip {
+    padding: 8px 18px;
+    background: var(--bg-secondary, #fff);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 100px;
+    font-size: 0.88rem;
+    color: var(--text-secondary, #64748b);
+}
+
+.stat-chip strong {
+    color: var(--text-primary, #1e293b);
+    margin-right: 4px;
+}
+
+/* ---- Hostel Grid ---- */
+.hostel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+}
+
+/* ---- Hostel Card ---- */
+.hostel-card {
+    background: var(--bg-secondary, #fff);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease both;
+    display: flex;
+    flex-direction: column;
+}
+
+.hostel-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.hostel-card-header {
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hostel-card-header.type-college {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+}
+
+.hostel-card-header.type-bcm {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
+}
+
+.hostel-card-header.type-scst {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 0.05));
+}
+
+.hostel-card-header.type-minority {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+}
+
+.hostel-card-header.type-govt {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+}
+
+.hostel-type-badge {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary, #1e293b);
+}
+
+.free-badge {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.hostel-card-body {
+    padding: 16px 20px;
+    flex: 1;
+}
+
+.hostel-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+    margin-bottom: 10px;
+}
+
+.hostel-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--text-secondary, #64748b);
+    margin-bottom: 12px;
+}
+
+.amenities-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.amenity-chip {
+    padding: 4px 10px;
+    background: var(--bg-primary, #f8fafc);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 6px;
+    font-size: 0.78rem;
+}
+
+.eligibility-info {
+    font-size: 0.85rem;
+    color: var(--text-secondary, #64748b);
+    padding: 8px 12px;
+    background: var(--bg-primary, #f8fafc);
+    border-radius: 8px;
+    border: 1px solid var(--border-color, #e5e7eb);
+}
+
+.hostel-card-actions {
+    padding: 12px 20px;
+    border-top: 1px solid var(--border-color, #e5e7eb);
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* ---- Compare Panel ---- */
+.compare-panel {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: var(--bg-secondary, #fff);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 16px 16px 0 0;
+    padding: 16px 24px;
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.1);
+    min-width: 500px;
+    max-width: 700px;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateX(-50%) translateY(100%);
+    }
+
+    to {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.compare-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.compare-header h3 {
+    flex: 1;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.compare-items {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.compare-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: var(--bg-primary, #f8fafc);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+/* ---- Compare Table ---- */
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.compare-table th,
+.compare-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+.compare-table th {
+    background: var(--bg-primary, #f8fafc);
+    font-weight: 600;
+}
+
+.compare-table tr:hover td {
+    background: var(--bg-hover, rgba(0, 0, 0, 0.02));
+}
+
+/* ---- Modals ---- */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal-container {
+    position: relative;
+    z-index: 1;
+    background: var(--bg-secondary, #fff);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: fadeInScale 0.3s ease;
+}
+
+.compare-modal-container {
+    max-width: 800px;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+.modal-header h2 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.close-modal {
+    width: 36px;
+    height: 36px;
+    background: var(--bg-primary, #f8fafc);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    color: var(--text-primary);
+}
+
+.close-modal:hover {
+    background: #ef4444;
+    color: white;
+    border-color: #ef4444;
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+/* ---- How to Apply ---- */
+.apply-guide-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.apply-guide-header h3 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+}
+
+.type-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    background: rgba(16, 163, 127, 0.1);
+    color: #10a37f;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.apply-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.apply-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--bg-primary, #f8fafc);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+.apply-step:hover {
+    border-color: #10a37f;
+    transform: translateX(4px);
+}
+
+.step-num {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10a37f, #3b82f6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.apply-step p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--text-primary, #1e293b);
+    line-height: 1.5;
+}
+
+.contact-info {
+    padding: 16px 20px;
+    background: var(--bg-primary, #f8fafc);
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.contact-info h4 {
+    margin-bottom: 8px;
+}
+
+.contact-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.apply-guide-footer {
+    text-align: center;
+}
+
+/* ---- AI Apply Modal ---- */
+.hostel-target-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hostel-target-info h3 {
+    font-size: 1.1rem;
+    color: #10a37f;
+    margin-bottom: 4px;
+}
+
+.hostel-target-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.ai-apply-step .form-group {
+    margin-bottom: 16px;
+}
+
+.ai-apply-step .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+.ai-apply-step textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 14px;
+    min-height: 100px;
+    resize: vertical;
+    transition: all 0.2s;
+}
+
+.ai-apply-step textarea:focus {
+    outline: none;
+    border-color: #10a37f;
+    box-shadow: 0 0 0 4px rgba(16, 163, 127, 0.08);
+}
+
+.ai-apply-step input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.ai-apply-step input[type="text"]:focus {
+    outline: none;
+    border-color: #10a37f;
+}
+
+.application-output {
+    padding: 20px;
+    background: var(--bg-primary, #f8fafc);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+}
+
+.ai-apply-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.loading-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    z-index: 10;
+    border-radius: inherit;
+}
+
+[data-theme="dark"] .loading-overlay {
+    background: rgba(15, 17, 23, 0.85);
+}
+
+.loading-overlay p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ---- Skeleton Loading ---- */
+.skeleton {
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-line {
+    height: 14px;
+    background: var(--bg-primary, #f1f5f9);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.w40 {
+    width: 40%;
+}
+
+.w60 {
+    width: 60%;
+}
+
+.w80 {
+    width: 80%;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+
+    .scholarships-grid,
+    .hostel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .scholarship-filters,
+    .hostel-filters {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+    }
+
+    .compare-panel {
+        min-width: auto;
+        width: 95%;
+    }
+
+    .card-actions,
+    .hostel-card-actions {
+        flex-direction: column;
+    }
+
+    .hostel-meta {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+[data-theme="dark"] .scholarship-card,
+[data-theme="dark"] .hostel-card {
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .scholarship-card:hover,
+[data-theme="dark"] .hostel-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .card-benefits,
+[data-theme="dark"] .eligibility-info,
+[data-theme="dark"] .amenity-chip {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .hostel-card-header.type-college {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), transparent);
+}
+
+[data-theme="dark"] .hostel-card-header.type-bcm {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), transparent);
+}
+
+[data-theme="dark"] .hostel-card-header.type-scst {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.08), transparent);
+}
+
+[data-theme="dark"] .hostel-card-header.type-minority {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), transparent);
+}
+
+[data-theme="dark"] .skeleton-line {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .skeleton-line::after {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+}

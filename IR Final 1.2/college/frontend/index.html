@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightRural — College Search & Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h1>Insight<span>Rural</span></h1>
+                </div>
+                <p class="tagline">Discover colleges, compare fees, and find your perfect match</p>
+            </div>
+            <div class="stats-bar">
+                <div class="stat">
+                    <i class="fas fa-university"></i>
+                    <span id="totalColleges">0</span>
+                    <small>Colleges</small>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="totalLocations">0</span>
+                    <small>Locations</small>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-code-branch"></i>
+                    <span id="totalBranches">0</span>
+                    <small>Branches</small>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-container">
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchBox" placeholder="Search colleges by name, branch, or location...">
+                <div id="suggestions" class="suggestions"></div>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="branchFilter"><i class="fas fa-code-branch"></i> Branch</label>
+                    <select id="branchFilter">
+                        <option value="">All Branches</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="locationFilter"><i class="fas fa-map-marker-alt"></i> Location</label>
+                    <select id="locationFilter">
+                        <option value="">All Locations</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="collegeType"><i class="fas fa-school"></i> Type</label>
+                    <select id="collegeType">
+                        <option value="">All Types</option>
+                        <option value="Government">Government</option>
+                        <option value="Private">Private</option>
+                        <option value="Autonomous">Autonomous</option>
+                        <option value="Deemed">Deemed University</option>
+                    </select>
+                </div>
+                
+                <button id="clearBtn" class="btn-clear">
+                    <i class="fas fa-times"></i> Clear All
+                </button>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section">
+            <div class="section-header">
+                <h2><i class="fas fa-list"></i> Colleges</h2>
+                <div class="results-info">
+                    <span id="resultsCount">0</span> colleges found
+                </div>
+            </div>
+            
+            <div id="results" class="results-grid">
+                <!-- Cards will be loaded here -->
+            </div>
+            
+            <!-- Pagination -->
+            <div id="pagination" class="pagination"></div>
+            
+            <!-- Loading State -->
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Loading colleges...</p>
+            </div>
+            
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state hidden">
+                <i class="fas fa-search"></i>
+                <h3>No colleges found</h3>
+                <p>Try adjusting your search or filters</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- College Details Modal -->
+    <div id="detailModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modalTitle">College Details</h2>
+                <button id="closeModal" class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div id="detailBody" class="detail-body">
+                    <!-- Content loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 InsightRural. All rights reserved.</p>
+            <p class="footer-info">
+                <i class="fas fa-database"></i> Data is updated regularly
+                <i class="fas fa-info-circle"></i> Information for reference only
+            </p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

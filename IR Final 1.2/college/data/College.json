@@ -1,0 +1,4383 @@
+[
+  {
+    "college_id": "E001",
+    "name": "Univesity of Visvesvaraya College of Engineering",
+    "type": "Government",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Bangalore University",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "UVCE",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E002",
+    "name": "GovernmentS K S J T Institute of Engineering",
+    "type": "Government",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E003",
+    "name": "B M S College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {},
+    "correct_name": "B.M.S. College of Engineering"
+  },
+  {
+    "college_id": "E004",
+    "name": "Dr. Ambedkar Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E005",
+    "name": "R. V. College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E006",
+    "name": "M S Ramaiah Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS",
+      "AERO",
+      "BT"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {},
+    "correct_name": "M.S. Ramaiah Institute of Technology"
+  },
+  {
+    "college_id": "E007",
+    "name": "Dayananda Sagar College of Engineering",
+    "type": "Type2_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS",
+      "CYBER"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {},
+    "correct_name": "Dayananda Sagar College of Engineering"
+  },
+  {
+    "college_id": "E008",
+    "name": "Bangalore Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "AI",
+      "DS"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {},
+    "correct_name": "Bangalore Institute of Technology"
+  },
+  {
+    "college_id": "E009",
+    "name": "PES University 100 Feet Ring Road",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E011",
+    "name": "M V J College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E012",
+    "name": "Sir M.Visvesvaraya Institute of Technology",
+    "type": "Government",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Bangalore University",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "UVCE",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E013",
+    "name": "Ghousia Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E014",
+    "name": "S J C Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Chikkaballapur",
+    "district": "Chikkaballapur",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E015",
+    "name": "Dr.T.Thimmaiah Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Kolar",
+    "district": "Kolar",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E016",
+    "name": "Siddaganga Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Tumkur",
+    "district": "Tumkur",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E017",
+    "name": "Sri Siddhartha Institute of Technology MARALUR",
+    "type": "Type1_Unaided",
+    "location": "Tumkur",
+    "district": "Tumkur",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E018",
+    "name": "Kalpatharu Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Hassan",
+    "district": "Hassan",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E021",
+    "name": "Sri Jayachamarajendra College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E022",
+    "name": "The National Institute of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E023",
+    "name": "P E S College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Mandya",
+    "district": "Mandya",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E024",
+    "name": "Malnad College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Hassan",
+    "district": "Hassan",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E028",
+    "name": "Tontadarya College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Gadag",
+    "district": "Gadag",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E029",
+    "name": "Maratha Mandal Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E031",
+    "name": "B V V Sangha`s Basaveshwara Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bagalkot",
+    "district": "Bagalkot",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E032",
+    "name": "R.T.E. Soceity's Rural Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Gadag",
+    "district": "Gadag",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E033",
+    "name": "Sri Taralabalu Jagadguru Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Haveri",
+    "district": "Haveri",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E034",
+    "name": "SDM College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Dharwad",
+    "district": "Dharwad",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E035",
+    "name": "Anjuman Institute of Technology & Management",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E036",
+    "name": "K L E Technological Univeristy",
+    "type": "Type2_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E037",
+    "name": "K.L.S. Gogte Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E038",
+    "name": "BLDEA's VP. Dr.P.G. Hallakatti College of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Bijapur",
+    "district": "Bijapur",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E040",
+    "name": "Hira Sugar Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E041",
+    "name": "P D A College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Gulbarga",
+    "district": "Gulbarga",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E042",
+    "name": "Khaja Bandanawaz University KBN University Street",
+    "type": "Deemed_Private",
+    "location": "Gulbarga",
+    "district": "Gulbarga",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E043",
+    "name": "Gurunanak Dev Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bidar",
+    "district": "Bidar",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E044",
+    "name": "Bheemanna Khandre Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bidar",
+    "district": "Bidar",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E045",
+    "name": "Rao Bahadur Y.Mahabaleswarappa Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E046",
+    "name": "H K E's Society's Sir M Visvesvaraya College of Engineering",
+    "type": "Government",
+    "location": "Raichur",
+    "district": "Raichur",
+    "affiliation": "Bangalore University",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "UVCE",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E047",
+    "name": "Malnad College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Hassan",
+    "district": "Hassan",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E048",
+    "name": "B M S College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME",
+      "CIVIL",
+      "ISE",
+      "AI",
+      "DS"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {},
+    "correct_name": "B.M.S. College of Engineering"
+  },
+  {
+    "college_id": "E049",
+    "name": "B V V Sangha`s Basaveshwara Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bagalkot",
+    "district": "Bagalkot",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E054",
+    "name": "K V G College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E055",
+    "name": "P A College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E056",
+    "name": "The National Institute of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E057",
+    "name": "JSS Science and Technology University JSS TECHNICAL INSTITUTIONS CAMPUS",
+    "type": "Deemed_Private",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E058",
+    "name": "P E S College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Mandya",
+    "district": "Mandya",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E059",
+    "name": "P D A College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Gulbarga",
+    "district": "Gulbarga",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E060",
+    "name": "Dr. Ambedkar Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E061",
+    "name": "University B.D.T College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E062",
+    "name": "Bapuji Institute of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Davangere",
+    "district": "Davangere",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E063",
+    "name": "S J M Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Chitradurga",
+    "district": "Chitradurga",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E064",
+    "name": "Adhichunchanagiri Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E065",
+    "name": "Jawaharlal Nehru New College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Shimoga",
+    "district": "Shimoga",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E066",
+    "name": "University B.D.T. college of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Davangere",
+    "district": "Davangere",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E070",
+    "name": "Bahubali College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Hassan",
+    "district": "Hassan",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E071",
+    "name": "Vidya Vardhaka College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E075",
+    "name": "Ballari Institute of Technology & Management",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E076",
+    "name": "Proudadevaraya Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E077",
+    "name": "Vidya Vikas Institute of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E078",
+    "name": "The Oxford College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E079",
+    "name": "Acharya Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E081",
+    "name": "SRI SIDDHARTHA SCHOOL OF ENGINEERING",
+    "type": "Type1_Unaided",
+    "location": "Tumkur",
+    "district": "Tumkur",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E082",
+    "name": "J S S Academy of Technical Education",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E083",
+    "name": "H.K.B.K.College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E085",
+    "name": "APS College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E086",
+    "name": "Sri Sairam College Of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E087",
+    "name": "Vivekananada Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E090",
+    "name": "Sri Revana Siddeswara Institute of Technology",
+    "type": "Type2_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E091",
+    "name": "K S Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E092",
+    "name": "Vemana Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E093",
+    "name": "Basavakalyana Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bidar",
+    "district": "Bidar",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E094",
+    "name": "Coorg Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E095",
+    "name": "AMC Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E096",
+    "name": "East Point College of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E097",
+    "name": "C M R Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E098",
+    "name": "Atria Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E099",
+    "name": "New Horizon College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E100",
+    "name": "K N S Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E101",
+    "name": "Channabasaveshwara Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Tumkur",
+    "district": "Tumkur",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E102",
+    "name": "DONBOSCO Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E103",
+    "name": "Global Academy of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E104",
+    "name": "Nagarjuna College of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E106",
+    "name": "East West Institute Of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E107",
+    "name": "B N M Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E108",
+    "name": "SAPTHAGIRI NPS UNIVERISTY #14/5",
+    "type": "Type2_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E109",
+    "name": "City Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E111",
+    "name": "Sri Venkateshwara College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E112",
+    "name": "Sri Krishna Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E113",
+    "name": "Sambhram Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E114",
+    "name": "G M Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Davangere",
+    "district": "Davangere",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E115",
+    "name": "S.J B. Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E116",
+    "name": "R.L.Jalappa Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E118",
+    "name": "RNS Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E119",
+    "name": "K C T Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Gulbarga",
+    "district": "Gulbarga",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E120",
+    "name": "Jnanavikasa Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E121",
+    "name": "Vivekananada College of Engineering Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E123",
+    "name": "Canara Engineering College Bantwal",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E124",
+    "name": "Rajiv Gandhi Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E126",
+    "name": "B M S Institute of Technology & Management",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E127",
+    "name": "M S Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E128",
+    "name": "Sharanbasava University",
+    "type": "Deemed_Private",
+    "location": "Gulbarga",
+    "district": "Gulbarga",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E129",
+    "name": "St.Joseph Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E130",
+    "name": "Shridevi Institute of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Tumkur",
+    "district": "Tumkur",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E132",
+    "name": "Secab Institute of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Bijapur",
+    "district": "Bijapur",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E133",
+    "name": "G S S S Institute of Engineering & Technology for Women",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E134",
+    "name": "Smt. Kamala & Sri Venkappa M.Agadi College of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Gadag",
+    "district": "Gadag",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E135",
+    "name": "K L S Viswanathrao Deshpande Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E136",
+    "name": "Moodalakatte Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Udupi",
+    "district": "Udupi",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E139",
+    "name": "Impact College of Engineering & Applied Sciences",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E141",
+    "name": "PES UNIVERSITY",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E142",
+    "name": "Adhichunchanagiri University",
+    "type": "Deemed_Private",
+    "location": "Mandya",
+    "district": "Mandya",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E144",
+    "name": "Srinivas Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E145",
+    "name": "Rajarajeswari College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E146",
+    "name": "Shreedevi Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E147",
+    "name": "T.John Institute of technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E149",
+    "name": "Cambridge Institutute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E150",
+    "name": "P E S Institute of Technology & Management",
+    "type": "Type1_Unaided",
+    "location": "Shimoga",
+    "district": "Shimoga",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E151",
+    "name": "Mangalore Institute of Technology & Engineering",
+    "type": "Type1_Unaided",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E152",
+    "name": "S D M Institute of Tech.",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E153",
+    "name": "S E A College of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E154",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E155",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Hassan",
+    "district": "Hassan",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E156",
+    "name": "K R PET KRISHNA",
+    "type": "Government",
+    "location": "Mandya",
+    "district": "Mandya",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E157",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E158",
+    "name": "Maharaja Institute of Technology Mysore",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E159",
+    "name": "Karavali Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E160",
+    "name": "Sahyadri College Of Engineering & Management",
+    "type": "Type1_Unaided",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E161",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E162",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Raichur",
+    "district": "Raichur",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E163",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Haveri",
+    "district": "Haveri",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E164",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E165",
+    "name": "Yenepoya Institute Of Technology",
+    "type": "Type1_Unaided",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E167",
+    "name": "K L E S's K L E College of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E168",
+    "name": "Amrutha Institute of Engineering & Management Science",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E169",
+    "name": "Alva's Institute of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E171",
+    "name": "Brindavan College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E172",
+    "name": "R.R. Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E173",
+    "name": "Sai Vidya Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E174",
+    "name": "Dr. Sri Sri Sri Shivakumara Mahaswamyji College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E175",
+    "name": "S.S.E.T.S.S.G.Balekundri Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E176",
+    "name": "Navodaya Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Raichur",
+    "district": "Raichur",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E177",
+    "name": "Rajeev Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E178",
+    "name": "The National Institute of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E180",
+    "name": "Beary's Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E181",
+    "name": "Sri Basaveswara Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E184",
+    "name": "C Byre Gowda Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Kolar",
+    "district": "Kolar",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E185",
+    "name": "Angadi Institute of Technology and Management",
+    "type": "Type1_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E186",
+    "name": "ACS College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E188",
+    "name": "Vijaya Vittala Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E189",
+    "name": "NAVKIS COLLEGE OF ENGINEERING",
+    "type": "Type1_Unaided",
+    "location": "Hassan",
+    "district": "Hassan",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E191",
+    "name": "Akshaya Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Tumkur",
+    "district": "Tumkur",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E193",
+    "name": "Srinivas University SRINIVAS CAMPUS MUKKA MANGALURU",
+    "type": "Deemed_Private",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E194",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Karwar",
+    "district": "Karwar",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E196",
+    "name": "Jain College of Engineering",
+    "type": "Type2_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E197",
+    "name": "Veerappa Nisty Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E198",
+    "name": "Sharanbasava University",
+    "type": "Deemed_Private",
+    "location": "Gulbarga",
+    "district": "Gulbarga",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E199",
+    "name": "AGM Rural Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Hubli",
+    "district": "Hubli",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E201",
+    "name": "Gopalan College of Engineering & Management",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E202",
+    "name": "Sampoorna Group of Institutions",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E203",
+    "name": "K S School of Engineering & Management",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E204",
+    "name": "Bangalore Technological Institute",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E205",
+    "name": "ATME College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E206",
+    "name": "Shri Madhwa Vadiraja Institute of Technology and Management",
+    "type": "Type1_Unaided",
+    "location": "Udupi",
+    "district": "Udupi",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E207",
+    "name": "V S M`s Somashekhar R Kothiwale Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E209",
+    "name": "Jyothi Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E210",
+    "name": "G Madegowda Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Mandya",
+    "district": "Mandya",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E211",
+    "name": "Jain Institute of Technology",
+    "type": "Type2_Unaided",
+    "location": "Davangere",
+    "district": "Davangere",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E212",
+    "name": "Dayananda Sagar Academy of Technology & Management Technical Campus",
+    "type": "Type2_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E213",
+    "name": "Lingarajappa Engineering College",
+    "type": "Type1_Unaided",
+    "location": "Bidar",
+    "district": "Bidar",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E216",
+    "name": "Shetty Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Gulbarga",
+    "district": "Gulbarga",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E220",
+    "name": "ALLIANCE University Central Campus",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E221",
+    "name": "Biluru Gurubasava Mahaswamiji Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bagalkot",
+    "district": "Bagalkot",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E222",
+    "name": "Cambridge Institute Of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E225",
+    "name": "SJB School of Achitecture & Planning",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E227",
+    "name": "Cauvery institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Koppal",
+    "district": "Koppal",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E232",
+    "name": "REVA University RUKMINI KNOWLEDGE PARK",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E235",
+    "name": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E237",
+    "name": "PRESIDENCY University ITGALPURA",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E238",
+    "name": "Mysuru Royal Institute Of Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E239",
+    "name": "East West College Of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E240",
+    "name": "Dayananda Sagar University DEVARAKAGGALAHALLI VILLAGE",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E241",
+    "name": "KLE Technological University",
+    "type": "Deemed_Private",
+    "location": "Hubli",
+    "district": "Hubli",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E252",
+    "name": "Mysore College Of Engineering and Management",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E254",
+    "name": "A J Institute Of Engineering And Technology.Kottar chowki Boloor Village Mangalore KOTTARA CHOWKI BOLOOR VILLAGE",
+    "type": "Type1_Unaided",
+    "location": "Mangalore",
+    "district": "Mangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E255",
+    "name": "GANDHI INSTITUTE OF TECHNOLOGY AND MANAGEMENT GITAM OFF CAMPUS BENGALURU NH 207",
+    "type": "Type2_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E256",
+    "name": "RAI TECHNOLOGICAL UNIVERSITY 11TH MILE GALLU",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E257",
+    "name": "CMR University Main Campus",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E258",
+    "name": "Maharaja Institute of Technology",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E259",
+    "name": "Sir M V School of Architecture",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E263",
+    "name": "School of Planning and Architchure",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E264",
+    "name": "BASAV ENGINEERING SCHOOL OF TECHNOLOGY",
+    "type": "Type1_Unaided",
+    "location": "Bijapur",
+    "district": "Bijapur",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E265",
+    "name": "Jain College of Engineering and Technology",
+    "type": "Type2_Unaided",
+    "location": "Hubli",
+    "district": "Hubli",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E269",
+    "name": "Jain College Of Engineering and Research",
+    "type": "Type2_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-2 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E272",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Koppal",
+    "district": "Koppal",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E273",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Koppal",
+    "district": "Koppal",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E274",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Hassan",
+    "district": "Hassan",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E275",
+    "name": "R V Institute Of Technology and Management",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E278",
+    "name": "VISVESVARAYA TECHNOLOGICAL UNIVERSITY",
+    "type": "Government",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Bangalore University",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "UVCE",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E279",
+    "name": "VISVESVARAYA TECHNOLOGICAL UNIVERSITY",
+    "type": "Government",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Bangalore University",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "UVCE",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E281",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Chitradurga",
+    "district": "Chitradurga",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E283",
+    "name": "University of Mysuru B.N.BAHADUR INSTITUTE OF MANAGEMENT SCIENCES",
+    "type": "Deemed_Private",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E284",
+    "name": "Sri Jayachamarajendra College of Engineering",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E285",
+    "name": "RV University R.V. VIDYANIKETAN POST",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E286",
+    "name": "BGS College of Engineering & Technology",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E287",
+    "name": "Vidyashilp University #125",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E288",
+    "name": "Garden City University 16th KM",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E289",
+    "name": "Visvesvaraya Technological University",
+    "type": "Government",
+    "location": "Gulbarga",
+    "district": "Gulbarga",
+    "affiliation": "Bangalore University",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "UVCE",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E290",
+    "name": "Visvesvaraya Technological University",
+    "type": "Government",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Bangalore University",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "UVCE",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E291",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Gadag",
+    "district": "Gadag",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E292",
+    "name": "Government Engineering College",
+    "type": "Government",
+    "location": "Bidar",
+    "district": "Bidar",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E297",
+    "name": "ADITYA COLLEGE OF ENGINEERING AND TECHNOLOGY SURVEY NO 2/8 2/9 AND 2/2",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E299",
+    "name": "Ghousia Institute of Technology for Women",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E300",
+    "name": "AKASH INTITUTE OF ENGINEERING AND TECHNOLOGY PRASANNAHALLI MAIN RAOD",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E301",
+    "name": "KISHKINDA UNIVERSITY BALLARI INSTITUTE OF TECHNOLOGY & MANAGEMENT",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E302",
+    "name": "AMITY UNIVERSITY National Highway 648",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E303",
+    "name": "GM University KARUR VILLAGE",
+    "type": "Deemed_Private",
+    "location": "Davangere",
+    "district": "Davangere",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E304",
+    "name": "ANUVARTIK MIRJI BHARATESH INSTITUTE OF TECHNOLOGY BELAGAVI",
+    "type": "Type1_Unaided",
+    "location": "Belgaum",
+    "district": "Belgaum",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E305",
+    "name": "DR H N NATIONAL COLLEGE OF ENGINEERING BENGALURU",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E306",
+    "name": "THE CHANAKYA UNIVERSITY NO 29 HARALURU",
+    "type": "Deemed_Private",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Deemed University",
+    "hostel_available": true,
+    "branches": [
+      "AI",
+      "CIVIL",
+      "CSE",
+      "DS",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Deemed / Private Universities",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E307",
+    "name": "SESHADRIPURAM INSTITUTE OF TECHNOLOGY MYSURU MYSURU",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E308",
+    "name": "CONSTITUENT COLLEGE OF VTU",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E309",
+    "name": "CONSTITUENT COLLEGE OF VTU",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E310",
+    "name": "GOVERNMENT ENGINEERING COLLEGE",
+    "type": "Government",
+    "location": "Hassan",
+    "district": "Hassan",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "Government colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E311",
+    "name": "RATHINAM INSTITUTE OF TECHNOLOGY DODDAKAMMANAHALLY VILLAGE",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E312",
+    "name": "NEW EBENEZER INSTITUTE OF TECHNOLOGY HENNUR BAGALUR MAIN ROAD",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E313",
+    "name": "HARSHA INSTITUTE OF TECHNOLOGY VARADANAYAKANA HALLY VILLAGE",
+    "type": "Type1_Unaided",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E314",
+    "name": "CAUVERY COLLEGE OF ENGINEERING KBL LAYOUT",
+    "type": "Type1_Unaided",
+    "location": "Mysore",
+    "district": "Mysore",
+    "affiliation": "Autonomous",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ISE",
+      "ME"
+    ],
+    "fee_category": "Type-1 - Un-aided colleges including Minority & Un-Aided courses In Aided colleges",
+    "cutoff_data": {}
+  },
+  {
+    "college_id": "E315",
+    "name": "VTU Constituent Engineering College",
+    "type": "VTU Constituent",
+    "location": "Bangalore",
+    "district": "Bangalore",
+    "affiliation": "VTU",
+    "hostel_available": true,
+    "branches": [
+      "CIVIL",
+      "CSE",
+      "ECE",
+      "EEE",
+      "ME"
+    ],
+    "fee_category": "VTU Constituent Colleges HIGHER FEES",
+    "cutoff_data": {}
+  }
+]

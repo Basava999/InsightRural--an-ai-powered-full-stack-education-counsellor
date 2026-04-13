@@ -1,0 +1,379 @@
+/* ============================================
+   InsightRural — Premium Sidebar
+   ============================================ */
+
+/* ---- Sidebar Container ---- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* ---- Sidebar Header ---- */
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(180deg, var(--bg-sidebar) 0%, var(--bg-primary) 100%);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sidebar-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #10a37f 0%, #3b82f6 50%, #8b5cf6 100%);
+    background-size: 200% 200%;
+    animation: logoShift 6s ease infinite;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 19px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(16, 163, 127, 0.3);
+    letter-spacing: -0.5px;
+}
+
+.sidebar-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+    letter-spacing: -0.3px;
+}
+
+.sidebar-subtitle {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* ---- Navigation Section ---- */
+.nav-section {
+    flex: 1;
+    padding: 12px 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.nav-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    padding: 14px 20px 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ---- Nav Items ---- */
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    margin: 2px 10px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, #10a37f, #3b82f6);
+    border-radius: 0 4px 4px 0;
+    transition: height 0.25s ease;
+}
+
+.nav-item:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    transform: translateX(2px);
+}
+
+.nav-item:hover::before {
+    height: 60%;
+}
+
+.nav-item:active {
+    transform: translateX(2px) scale(0.98);
+}
+
+/* Active State */
+.nav-item.active {
+    background: linear-gradient(135deg, rgba(16, 163, 127, 0.12), rgba(16, 163, 127, 0.06));
+    color: var(--primary-color);
+    font-weight: 600;
+    border-color: rgba(16, 163, 127, 0.15);
+}
+
+.nav-item.active::before {
+    height: 65%;
+}
+
+.nav-item.active .nav-icon {
+    background: linear-gradient(135deg, #10a37f, #0d9488);
+    color: white;
+    box-shadow: 0 2px 8px rgba(16, 163, 127, 0.3);
+}
+
+[data-theme="dark"] .nav-item.active {
+    background: linear-gradient(135deg, rgba(16, 163, 127, 0.15), rgba(16, 163, 127, 0.06));
+}
+
+/* ---- Nav Icon ---- */
+.nav-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
+}
+
+/* ---- Nav Divider ---- */
+.nav-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+    margin: 10px 20px;
+}
+
+/* ---- Nav Badges ---- */
+.nav-badge {
+    margin-left: auto;
+    padding: 2px 8px;
+    font-size: 9px;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+/* Default badge - gradient purple */
+.nav-badge {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+/* ML badge */
+.nav-badge.ml {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+/* AI badge */
+.nav-badge.ai {
+    background: linear-gradient(135deg, #10a37f, #059669);
+    color: white;
+}
+
+/* LIVE badge */
+.nav-badge.live {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    animation: pulseLive 2s ease infinite;
+}
+
+@keyframes pulseLive {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* NEW badge */
+.nav-badge.new {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+/* ---- Predictor Nav Special ---- */
+.predictor-nav {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.06), rgba(118, 75, 162, 0.06));
+    border: 1px solid rgba(102, 126, 234, 0.12);
+}
+
+.predictor-nav:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
+}
+
+.predictor-nav.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-color: transparent;
+}
+
+.predictor-nav.active::before {
+    background: linear-gradient(180deg, #667eea, #764ba2);
+}
+
+.predictor-nav.active .nav-icon {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: transparent;
+}
+
+.predictor-nav.active .nav-badge {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* ---- Profile Section ---- */
+.profile-section {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.profile-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    font-family: inherit;
+}
+
+.profile-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary-color);
+}
+
+.profile-btn .nav-icon {
+    background: linear-gradient(135deg, rgba(16, 163, 127, 0.1), rgba(59, 130, 246, 0.1));
+    border: none;
+}
+
+.edit-icon {
+    margin-left: auto;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.profile-btn:hover .edit-icon {
+    color: var(--primary-color);
+}
+
+/* ---- Login Section ---- */
+.login-section {
+    padding: 16px;
+}
+
+.login-sidebar-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #10a37f, #0d9488);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(16, 163, 127, 0.25);
+    letter-spacing: 0.01em;
+}
+
+.login-sidebar-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(16, 163, 127, 0.35);
+    filter: brightness(1.1);
+}
+
+.login-sidebar-btn:active {
+    transform: translateY(0);
+}
+
+.login-sidebar-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ---- Scrollbar ---- */
+.nav-section::-webkit-scrollbar {
+    width: 4px;
+}
+
+.nav-section::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.nav-section::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+}
+
+.nav-section::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 300px;
+    }
+
+    .sidebar-header {
+        padding: 16px;
+    }
+}

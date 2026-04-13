@@ -1,0 +1,241 @@
+[
+    {
+        "loan_id": "LOAN001",
+        "bank": "State Bank of India (SBI)",
+        "scheme_name": "SBI Student Loan Scheme",
+        "type": "Education Loan",
+        "loan_amount": {
+            "india_max": 1500000,
+            "abroad_max": 3000000
+        },
+        "interest_rate": {
+            "base_rate": 8.50,
+            "female_discount": 0.50,
+            "special_discount": "0.50% for IITs/NITs"
+        },
+        "eligibility": {
+            "nationality": "Indian",
+            "age": "18-35 years",
+            "education": "Admission secured in recognized institution",
+            "courses": [
+                "Engineering",
+                "Medical",
+                "MBA",
+                "MCA",
+                "Architecture"
+            ]
+        },
+        "collateral": {
+            "upto_7_5_lakhs": "No collateral required",
+            "above_7_5_lakhs": "Tangible collateral or third-party guarantee"
+        },
+        "repayment": {
+            "moratorium": "Course period + 12 months",
+            "tenure": "Up to 15 years after moratorium"
+        },
+        "subsidy": {
+            "scheme": "Central Interest Subsidy Scheme (CISS)",
+            "eligibility": "EWS students with family income < 4.5 Lakhs",
+            "benefit": "Full interest subsidy during moratorium period"
+        },
+        "documents": [
+            "Admission letter",
+            "Fee structure",
+            "Mark sheets (10th, 12th)",
+            "Identity proof",
+            "Income proof",
+            "Bank statements (6 months)"
+        ],
+        "apply_at": "Any SBI branch or online at sbi.co.in"
+    },
+    {
+        "loan_id": "LOAN002",
+        "bank": "Canara Bank",
+        "scheme_name": "Vidya Turant",
+        "type": "Education Loan",
+        "loan_amount": {
+            "india_max": 2000000,
+            "abroad_max": 4000000
+        },
+        "interest_rate": {
+            "base_rate": 9.00,
+            "female_discount": 0.50
+        },
+        "eligibility": {
+            "nationality": "Indian",
+            "education": "Admission in IIT/IIM/NIT/State Engg colleges",
+            "courses": [
+                "Engineering",
+                "Management",
+                "Medical"
+            ]
+        },
+        "collateral": {
+            "upto_7_5_lakhs": "No collateral",
+            "above_7_5_lakhs": "Tangible security required"
+        },
+        "repayment": {
+            "moratorium": "Course period + 6 months",
+            "tenure": "Up to 15 years"
+        },
+        "special_features": [
+            "Instant sanction for IIT/IIM/NIT students",
+            "Online application available",
+            "Quick doorstep service"
+        ],
+        "apply_at": "Any Canara Bank branch"
+    },
+    {
+        "loan_id": "LOAN003",
+        "bank": "Bank of Baroda",
+        "scheme_name": "Baroda Vidya",
+        "type": "Education Loan",
+        "loan_amount": {
+            "india_max": 1000000,
+            "abroad_max": 2000000
+        },
+        "interest_rate": {
+            "base_rate": 8.70,
+            "female_discount": 0.50
+        },
+        "eligibility": {
+            "nationality": "Indian",
+            "age": "Above 18",
+            "education": "UG/PG courses in recognized institutions"
+        },
+        "collateral": {
+            "upto_4_lakhs": "No collateral, no margin",
+            "upto_7_5_lakhs": "Third party guarantee",
+            "above_7_5_lakhs": "Tangible collateral"
+        },
+        "repayment": {
+            "moratorium": "Course period + 12 months",
+            "tenure": "Up to 15 years"
+        },
+        "apply_at": "Bank of Baroda branches"
+    },
+    {
+        "loan_id": "LOAN004",
+        "bank": "Punjab National Bank (PNB)",
+        "scheme_name": "PNB Saraswati",
+        "type": "Education Loan",
+        "loan_amount": {
+            "india_max": 1500000,
+            "abroad_max": 2500000
+        },
+        "interest_rate": {
+            "base_rate": 9.20,
+            "female_discount": 0.50
+        },
+        "eligibility": {
+            "nationality": "Indian",
+            "education": "Technical/Professional courses"
+        },
+        "coverage": [
+            "Tuition fees",
+            "Exam/Library fees",
+            "Hostel fees",
+            "Books and equipment",
+            "Travel expenses (for study abroad)"
+        ],
+        "repayment": {
+            "moratorium": "Course + 1 year",
+            "tenure": "5-7 years (extendable to 15)"
+        },
+        "apply_at": "PNB branches"
+    },
+    {
+        "loan_id": "LOAN005",
+        "bank": "Union Bank of India",
+        "scheme_name": "Union Education",
+        "type": "Education Loan",
+        "loan_amount": {
+            "india_max": 1000000,
+            "abroad_max": 2000000
+        },
+        "interest_rate": {
+            "base_rate": 9.40,
+            "female_discount": 0.50
+        },
+        "eligibility": {
+            "education": "Degree/Diploma courses in India"
+        },
+        "collateral": {
+            "upto_7_5_lakhs": "No collateral"
+        },
+        "apply_at": "Union Bank branches"
+    },
+    {
+        "loan_id": "LOAN006",
+        "bank": "Central Government Scheme",
+        "scheme_name": "Vidyalakshmi Portal - Central Interest Subsidy",
+        "type": "Government Subsidy",
+        "loan_amount": {
+            "max_subsidy_amount": 1000000
+        },
+        "interest_rate": {
+            "subsidy": "100% interest during moratorium"
+        },
+        "eligibility": {
+            "family_income": "Below 4.5 Lakhs per annum",
+            "first_time_loan": true,
+            "education": "Technical/Professional courses"
+        },
+        "benefit": "Full interest subsidy during course period + 1 year",
+        "apply_at": "Apply through Vidyalakshmi portal (www.vidyalakshmi.co.in)",
+        "documents": [
+            "Income certificate",
+            "Admission letter",
+            "Bank account details",
+            "Aadhaar card"
+        ],
+        "note": "This subsidy can be availed with education loan from any nationalized bank"
+    },
+    {
+        "loan_id": "LOAN007",
+        "bank": "Karnataka State Financial Corporation (KSFC)",
+        "scheme_name": "KSFC Education Loan",
+        "type": "State Government Loan",
+        "loan_amount": {
+            "max": 1000000
+        },
+        "interest_rate": {
+            "base_rate": 10.0,
+            "subsidized_rate": 7.0
+        },
+        "eligibility": {
+            "domicile": "Karnataka",
+            "education": "Professional courses in Karnataka"
+        },
+        "special_features": [
+            "Priority for rural students",
+            "Concessional rate for SC/ST students",
+            "No collateral up to 5 lakhs"
+        ],
+        "apply_at": "KSFC offices across Karnataka"
+    },
+    {
+        "loan_id": "LOAN008",
+        "bank": "HDFC Credila",
+        "scheme_name": "HDFC Credila Education Loan",
+        "type": "Private Education Loan",
+        "loan_amount": {
+            "india_max": 7500000,
+            "abroad_max": 20000000
+        },
+        "interest_rate": {
+            "base_rate": 10.50,
+            "range": "10.50% - 13.50%"
+        },
+        "eligibility": {
+            "nationality": "Indian",
+            "education": "Any recognized course"
+        },
+        "special_features": [
+            "Higher loan amounts",
+            "Faster processing",
+            "Covers all expenses including living costs"
+        ],
+        "apply_at": "Online at hdfccredila.com"
+    }
+]
