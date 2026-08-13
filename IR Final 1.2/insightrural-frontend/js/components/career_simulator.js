@@ -141,9 +141,8 @@ const CareerSimulatorComponent = {
 
         try {
             // Call Backend API
-            const response = await fetch('http://127.0.0.1:5000/api/simulate-career', {
+            const response = await AppState.authFetch(`${API_BASE_URL}/api/simulate-career`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     rank: rank,
                     category: category,

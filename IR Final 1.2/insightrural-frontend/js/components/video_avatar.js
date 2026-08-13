@@ -242,41 +242,48 @@ const VideoAvatarComponent = {
         if (!this.synthesis) return;
 
         this.synthesis.cancel();
+        this.isSpeaking = true;
         this.startSpeakingAnimation();
 
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = language;
-        utterance.rate = 0.85;
-        utterance.pitch = 1;
+        // Split text into chunks to prevent browser speech cutoff
+        const chunks = text.match(/[^.!?]+[.!?]*/g) || [text];
+        let chunkIndex = 0;
 
-        // Try to find a voice for the language
-        const voices = this.synthesis.getVoices();
-        const langVoice = voices.find(v => v.lang.startsWith(language.split('-')[0]));
-        if (langVoice) {
-            utterance.voice = langVoice;
-        }
-
-        utterance.onstart = () => {
-            this.isSpeaking = true;
-            this.startSpeakingAnimation();
-        };
-
-        utterance.onend = () => {
-            this.isSpeaking = false;
-            this.stopSpeakingAnimation();
-
-            // Award XP
-            if (window.ProgressComponent) {
-                ProgressComponent.addXP(15, 'video_avatar');
+        const speakNextChunk = () => {
+            if (chunkIndex >= chunks.length || !this.isSpeaking) {
+                this.isSpeaking = false;
+                this.stopSpeakingAnimation();
+                if (window.ProgressComponent) {
+                    ProgressComponent.addXP(15, 'video_avatar');
+                }
+                return;
             }
+
+            const utterance = new SpeechSynthesisUtterance(chunks[chunkIndex]);
+            utterance.lang = language;
+            utterance.rate = 0.85;
+            utterance.pitch = 1;
+
+            const voices = this.synthesis.getVoices();
+            const langVoice = voices.find(v => v.lang.startsWith(language.split('-')[0]));
+            if (langVoice) {
+                utterance.voice = langVoice;
+            }
+
+            utterance.onend = () => {
+                chunkIndex++;
+                speakNextChunk();
+            };
+
+            utterance.onerror = () => {
+                this.isSpeaking = false;
+                this.stopSpeakingAnimation();
+            };
+
+            this.synthesis.speak(utterance);
         };
 
-        utterance.onerror = () => {
-            this.isSpeaking = false;
-            this.stopSpeakingAnimation();
-        };
-
-        this.synthesis.speak(utterance);
+        speakNextChunk();
     },
 
     startSpeakingAnimation() {

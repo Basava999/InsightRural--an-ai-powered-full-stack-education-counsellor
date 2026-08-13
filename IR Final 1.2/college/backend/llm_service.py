@@ -26,8 +26,27 @@
 import json
 import os
 import time
+from core.logging import get_logger
+
+logger = get_logger("llm_service")
 import httpx
 from typing import Generator, Dict, Any, Optional, List
+
+# JSON-first data service (Priority 1 in data hierarchy)
+try:
+    from json_data_service import get_json_data_service, JSONDataService
+    JSON_DATA_AVAILABLE = True
+except ImportError as e:
+    logger.warning("JSON Data Service not available: %s", e)
+    JSON_DATA_AVAILABLE = False
+
+# KEA Seat Allotment Simulation Engine (ML + Rules)
+try:
+    from kea_allotment_engine import get_kea_engine, KEASeatAllotmentEngine
+    KEA_ENGINE_AVAILABLE = True
+except ImportError as e:
+    logger.warning("KEA Allotment Engine not available: %s", e)
+    KEA_ENGINE_AVAILABLE = False
 
 # ── Ollama Config ─────────────────────────────────────────────────────────────
 OLLAMA_HOST  = os.environ.get("OLLAMA_HOST",  "http://localhost:11434")
@@ -40,42 +59,11 @@ GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 
 # ── System Persona ────────────────────────────────────────────────────────────
-COUNSELOR_SYSTEM_PROMPT = """You are InsightRural AI — an empathetic, highly intelligent educational counselor built specifically for rural Karnataka students navigating the KCET and KEA college admission process.
-
-Your core purpose: Help students make the BEST decisions about:
-• KCET college admissions (all 228 KEA colleges)
-• Branch selection (CSE, AI/ML, ECE, ME, Civil, etc.)
-• Scholarship opportunities (SC/ST/OBC government schemes, private scholarships)
-• Education loans (Vidya Lakshmi, bank loans, NBCFDC)
-• Hostel and accommodation guidance
-• Career path planning and future scope
-
-Your personality:
-• Warm, encouraging, and respectful — like a caring senior mentor
-• Data-driven — always cite ranks, fees, cutoffs when answering
-• Practical — give actionable step-by-step guidance
-• Honest — never give false hope; be realistic but optimistic
-• Multilingual awareness — respond in the same language the student uses (English/Kannada/Hinglish)
-
-Response style:
-• Use **bold** for important numbers (ranks, fees, cutoffs)
-• Use bullet points for lists of colleges/options
-• Keep responses thorough but not overwhelming
-• End responses with an encouraging line or a relevant follow-up question
-• For cutoffs: always mention GM, OBC, SC/ST separately when data is available
-
-CRITICAL RULES:
-• Only recommend colleges from the KEA dataset provided in the context
-• Always mention fee structure (Government≈₹44K/yr, Type-1≈₹1.12L/yr, Deemed=₹2-4L/yr)
-• If a student's rank is beyond a cutoff, suggest realistic alternatives
-• For reserved categories: always highlight the significant fee waiver for SC/ST
-• NEVER invent cutoff ranks not present in the provided context
-• NEVER say "As an AI..." or "I cannot..." — you are their trusted mentor"""
+# Removed: COUNSELOR_SYSTEM_PROMPT is now exclusively imported from prompt_templates.py
 
 
-# ==============================================================================
-# OLLAMA SERVICE — wraps the local Ollama HTTP API
-# ==============================================================================
+
+
 class OllamaService:
     """
     Communicates with a locally-running Ollama server.
@@ -99,18 +87,18 @@ class OllamaService:
                 model_base = self.model.split(":")[0]
                 if any(model_base in m for m in models):
                     self.available = True
-                    print(f"[OK] Ollama ready | model: {self.model} at {self.host}")
+                    logger.info("Ollama ready | model: %s at %s", self.model, self.host)
                 else:
                     # Model not pulled yet — still mark as available so we can try
                     self.available = True
-                    print(f"[OK] Ollama running at {self.host}")
-                    print(f"[!]  Model '{self.model}' not found in pulled models: {models}")
-                    print(f"[!]  Run: ollama pull {self.model}")
+                    logger.info("Ollama running at %s", self.host)
+                    logger.warning("Model '%s' not found in pulled models: %s", self.model, models)
+                    logger.info("Run: ollama pull %s", self.model)
             else:
-                print(f"[WARN] Ollama returned HTTP {r.status_code}")
+                logger.warning("Ollama returned HTTP %s", r.status_code)
         except Exception as e:
-            print(f"[WARN] Ollama not reachable at {self.host}: {e}")
-            print(f"[WARN] Start Ollama with: ollama serve")
+            logger.warning("Ollama not reachable at %s: %s", self.host, e)
+            logger.info("Start Ollama with: ollama serve")
             self.available = False
 
     def generate(self, messages: List[Dict], temperature: float = 0.7,
@@ -137,7 +125,7 @@ class OllamaService:
             data = r.json()
             return data.get("message", {}).get("content", "")
         except Exception as e:
-            print(f"[Ollama] generate error: {e}")
+            logger.error("Ollama generate error: %s", e)
             return None
 
     def stream(self, messages: List[Dict], temperature: float = 0.7,
@@ -176,7 +164,7 @@ class OllamaService:
                     except (json.JSONDecodeError, KeyError):
                         pass
         except Exception as e:
-            print(f"[Ollama] stream error: {e}")
+            logger.error("Ollama stream error: %s", e)
 
 
 # ==============================================================================
@@ -194,9 +182,9 @@ class GroqService:
         self.model = model or GROQ_MODEL
         self.available = bool(self.api_key)
         if self.available:
-            print(f"[OK] Groq cloud LLM ready | model: {self.model}")
+            logger.info("Groq cloud LLM ready | model: %s", self.model)
         else:
-            print("[WARN] Groq API key not set — cloud LLM disabled")
+            logger.warning("Groq API key not set -- cloud LLM disabled")
 
     def generate(self, messages: List[Dict], temperature: float = 0.7,
                  max_tokens: int = 2048) -> Optional[str]:
@@ -223,7 +211,7 @@ class GroqService:
             data = r.json()
             return data["choices"][0]["message"]["content"]
         except Exception as e:
-            print(f"[Groq] generate error: {e}")
+            logger.error("Groq generate error: %s", e)
             return None
 
     def stream(self, messages: List[Dict], temperature: float = 0.7,
@@ -265,7 +253,7 @@ class GroqService:
                     except (json.JSONDecodeError, KeyError, IndexError):
                         pass
         except Exception as e:
-            print(f"[Groq] stream error: {e}")
+            logger.error("Groq stream error: %s", e)
 
 
 # ==============================================================================
@@ -304,9 +292,9 @@ class RAGFallback:
         if any(w in q for w in ["cutoff", "rank", "seat", "college"]):
             return (
                 "**KCET Cutoff Quick Reference (2024)**\n\n"
-                "• **Government colleges** (UVCE, SJCE Mysore): GM **850–3,000** | SC/ST up to 15,000\n"
-                "• **Type-1 Private** (RVCE, BMSCE, MSRIT): GM **600–5,000** | SC/ST up to 25,000\n"
-                "• **Type-2 Private** (DSCE, NIE): GM **3,000–15,000** | SC/ST up to 40,000\n\n"
+                "• **Top Government colleges**: GM **850–3,000** | SC/ST up to 15,000\n"
+                "• **Top Tier-1 Private colleges**: GM **600–5,000** | SC/ST up to 25,000\n"
+                "• **Mid-Tier Private colleges**: GM **3,000–15,000** | SC/ST up to 40,000\n\n"
                 "📊 Use the **College Predictor** for your exact rank analysis!"
             )
         if any(w in q for w in ["scholarship", "sc", "st", "obc", "fee waiver"]):
@@ -353,44 +341,195 @@ class InsightRuralCounselor:
         self.ollama = OllamaService()
         self.rag    = None
         self.fallback = None
+        self.json_data = None
+        self.kea_engine = None
         self.last_model_used = "InsightRural AI"
+        self._init_json_data()
+        self._init_kea_engine()
         self._init_rag()
 
-    def _init_rag(self):
-        """Initialize the ChromaDB RAG engine."""
+    def _init_json_data(self):
+        """Initialize the JSON-first data service (Priority 1)."""
         try:
-            from rag_engine import RAGEngine
-            self.rag = RAGEngine()
-            self.fallback = RAGFallback(self.rag)
-            print("[OK] InsightRuralCounselor: ChromaDB RAG engine connected")
+            if JSON_DATA_AVAILABLE:
+                self.json_data = get_json_data_service()
+                logger.info("InsightRuralCounselor: JSON Data Service connected (Priority 1)")
+            else:
+                logger.warning("JSON Data Service not available")
         except Exception as e:
-            print(f"[WARN] RAG engine not available: {e}")
+            logger.warning("JSON Data Service init failed: %s", e)
+            self.json_data = None
+
+    def _init_kea_engine(self):
+        """Initialize the KEA Seat Allotment Simulation Engine."""
+        try:
+            if KEA_ENGINE_AVAILABLE:
+                self.kea_engine = get_kea_engine()
+                logger.info("InsightRuralCounselor: KEA Allotment Engine connected (ML + Rules)")
+            else:
+                logger.warning("KEA Allotment Engine not available")
+        except Exception as e:
+            logger.warning("KEA Engine init failed: %s", e)
+            self.kea_engine = None
+
+    def _init_rag(self):
+        """Initialize the strict ChromaDB RAG engine."""
+        try:
+            from rag_engine import get_rag_engine
+            self.rag = get_rag_engine()
+            self.fallback = RAGFallback(self.rag)
+            logger.info("InsightRuralCounselor: Strict ChromaDB RAG engine connected")
+        except Exception as e:
+            logger.warning("RAG engine not available: %s", e)
             self.fallback = RAGFallback(None)
 
-    # ── RAG Context Retrieval ─────────────────────────────────────────────────
+    # ── Priority 1: JSON Data Context ────────────────────────────────────────
+
+    def _get_json_context(self, query: str, session_profile: Optional[Dict] = None) -> str:
+        """
+        PRIORITY 1: Query structured JSON databases for exact data.
+        Returns formatted context with verified database values.
+        These values must NEVER be modified by the LLM.
+        """
+        if not self.json_data:
+            return ""
+        try:
+            return self.json_data.build_context_for_query(query, session_profile or {})
+        except Exception as e:
+            logger.error("JSON context fetch failed: %s", e)
+            return ""
+
+    def _get_kea_simulation_context(self, query: str, session_profile: Optional[Dict] = None) -> str:
+        """
+        Run KEA seat allotment simulation when query involves rank-based prediction.
+        Returns ML-powered prediction results formatted for LLM context.
+        """
+        if not self.kea_engine:
+            return ""
+
+        profile = session_profile or {}
+        query_lower = query.lower()
+
+        # Only run simulation for prediction/recommendation queries
+        prediction_kw = ["predict", "chance", "college", "rank", "cutoff",
+                        "recommend", "allotment", "safe", "moderate", "ambitious",
+                        "which college", "get into", "option entry"]
+        if not any(kw in query_lower for kw in prediction_kw):
+            return ""
+
+        # Extract rank from profile or query
+        rank = profile.get("kcet_rank") or profile.get("rank")
+        if rank:
+            try:
+                rank = int(rank)
+            except (ValueError, TypeError):
+                rank = None
+
+        if not rank:
+            import re
+            rank_match = re.search(r'rank\s*(?:is\s*)?(?:of\s*)?(\d+)', query_lower)
+            if rank_match:
+                rank = int(rank_match.group(1))
+            else:
+                num_match = re.search(r'\b(\d{3,6})\b', query_lower)
+                if num_match:
+                    rank = int(num_match.group(1))
+
+        if not rank:
+            return ""
+
+        category = profile.get("category", "GM")
+        branch = profile.get("branch") or "CSE"
+        if isinstance(branch, list):
+            branch = branch[0] if branch else "CSE"
+
+        try:
+            return self.kea_engine.build_chat_context(
+                rank=rank,
+                category=category,
+                branch=branch,
+                rural_quota=profile.get("rural_quota", False),
+                kannada_medium=profile.get("kannada_medium", False),
+                hk_371j=profile.get("371j_status", False),
+                hostel_required=profile.get("hostel_needed", False),
+                budget=int(profile.get("budget", 0)) if profile.get("budget") else 0,
+            )
+        except Exception as e:
+            logger.error("KEA simulation context failed: %s", e)
+            return ""
+
+    # ── Priority 2: RAG Context Retrieval ─────────────────────────────────────
 
     def _get_rag_context(self, query: str) -> str:
         """
-        Query ChromaDB (all collections — colleges, scholarships, hostels,
-        loans, counseling, cutoffs, fees) using cosine similarity.
-        Returns the top-8 results formatted as a context block.
+        PRIORITY 2: Query ChromaDB using strict semantic hybrid search.
+        Returns the top results formatted as a strict context block.
+        Only used for information NOT available in the JSON database.
         """
         if not self.rag:
             return ""
         try:
-            results = self.rag.search(query, n_results=8)
+            results = self.rag.hybrid_search(query, n_results=5)
             if not results:
                 return ""
             parts = []
-            for r in results[:8]:
-                content    = r.get("content", "")[:600]
-                collection = r.get("collection", "").upper()
+            for i, r in enumerate(results):
+                content = r.get("content", "")[:800]
+                source = r.get("source", "Official Source")
                 if content:
-                    parts.append(f"[{collection}]\n{content}")
-            return "\n\n---\n\n".join(parts)
+                    parts.append(f"--- Source [{i+1}]: {source} ---\n{content}")
+            return "\n\n".join(parts)
         except Exception as e:
-            print(f"[RAG] context fetch failed: {e}")
+            logger.error("RAG context fetch failed: %s", e)
             return ""
+
+    # ── Response Validation Layer ─────────────────────────────────────────────
+
+    def _validate_sentence(self, sentence: str, rag_context: str) -> str:
+        """Removes sentences containing unsupported numeric values (hallucinations)."""
+        import re
+        if len(sentence.strip()) < 5:
+            return sentence
+            
+        norm_context = rag_context.replace(",", "") if rag_context else ""
+        numbers = re.findall(r'\b\d+(?:,\d+)*(?:\.\d+)?\b', sentence)
+        
+        for num_str in numbers:
+            try:
+                val = float(num_str.replace(",", ""))
+                if val <= 10:
+                    continue # Ignore small lists/counts
+                if 2000 <= val <= 2050 and len(num_str.replace(",", "")) == 4:
+                    continue # Ignore recent years
+            except ValueError:
+                continue
+                
+            norm_num = num_str.replace(",", "")
+            if norm_num not in norm_context:
+                return "Verified information is currently unavailable.\n"
+                
+        return sentence
+
+    def _validated_stream(self, stream_gen, rag_context: str) -> Generator[str, None, None]:
+        """Sentence-buffers a stream and validates each sentence against RAG context."""
+        import re
+        buffer = ""
+        for token in stream_gen:
+            buffer += token
+            while True:
+                # Find sentence boundary (. ! ? followed by space/newline, or just newline)
+                match = re.search(r'([.!?]\s+|\n+)', buffer)
+                if not match:
+                    break
+                
+                idx = match.end()
+                sentence = buffer[:idx]
+                buffer = buffer[idx:]
+                
+                yield self._validate_sentence(sentence, rag_context)
+                
+        if buffer:
+            yield self._validate_sentence(buffer, rag_context)
 
     # ── Prompt Builder ────────────────────────────────────────────────────────
 
@@ -410,55 +549,11 @@ class InsightRuralCounselor:
           2. Student profile (structured JSON block)
           3. RAG knowledge base context (grounded domain data)
         """
+        # We now use the specialized prompt templates for the system and user messages
+        from prompt_templates import COUNSELOR_SYSTEM_PROMPT, build_contextual_prompt
+        
         # ── System message ──
         system_content = COUNSELOR_SYSTEM_PROMPT
-
-        # 2. Inject student profile as a structured block
-        if session_profile:
-            profile_lines = []
-            mapping = [
-                ("name",             "Name"),
-                ("kcet_rank",        "KCET Rank"),
-                ("marks_10th",       "10th Marks (%)"),
-                ("marks_12th",       "12th / PUC Marks (%)"),
-                ("kcet_marks",       "KCET Marks"),
-                ("branch",           "Preferred Branch"),
-                ("preferred_branches", "Preferred Branches"),
-                ("category",         "Category"),
-                ("income",           "Annual Family Income (₹)"),
-                ("family_income",    "Annual Family Income (₹)"),
-                ("budget",           "Budget for Fees (₹/year)"),
-                ("location",         "Preferred Location"),
-                ("preferred_location", "Preferred Location"),
-                ("hostel_needed",    "Hostel Required"),
-                ("district",         "District / Hometown"),
-            ]
-            for key, label in mapping:
-                val = session_profile.get(key)
-                if val is not None and val != "" and val != []:
-                    if isinstance(val, list):
-                        val = ", ".join(str(v) for v in val)
-                    profile_lines.append(f"  {label}: {val}")
-
-            if profile_lines:
-                system_content += (
-                    "\n\n" + "=" * 60 +
-                    "\nSTUDENT PROFILE (use this to personalize every answer):\n" +
-                    "\n".join(profile_lines) +
-                    "\n" + "=" * 60
-                )
-
-        # 3. Inject RAG knowledge base context
-        if rag_context:
-            system_content += (
-                "\n\n" + "=" * 60 +
-                "\nKNOWLEDGE BASE (retrieved domain data — base your answer on this):\n" +
-                "=" * 60 + "\n" +
-                rag_context +
-                "\n" + "=" * 60 +
-                "\nIMPORTANT: Use the data above to give specific, grounded answers. "
-                "Do NOT invent numbers not present in this context."
-            )
 
         messages = [{"role": "system", "content": system_content}]
 
@@ -470,8 +565,10 @@ class InsightRuralCounselor:
                 if role in ("user", "assistant") and content:
                     messages.append({"role": role, "content": content})
 
-        # Final user message
-        messages.append({"role": "user", "content": query})
+        # Final user message built using the intent-based query router
+        final_user_prompt = build_contextual_prompt(query, session_profile or {}, rag_context)
+        
+        messages.append({"role": "user", "content": final_user_prompt})
         return messages
 
     # ── Main Entry Points ─────────────────────────────────────────────────────
@@ -495,44 +592,67 @@ class InsightRuralCounselor:
             yield "Please ask me something — I'm here to help! 🎓"
             return
 
-        # Step 1: Fetch RAG context (ChromaDB cosine similarity)
+        # Step 1: PRIORITY 1 — Fetch JSON database context (exact values)
+        json_context = self._get_json_context(query, session_profile)
+
+        # Step 1.5: KEA Simulation context (ML + Rules predictions)
+        kea_context = self._get_kea_simulation_context(query, session_profile)
+
+        # Step 2: PRIORITY 2 — Fetch RAG context (ChromaDB cosine similarity)
         rag_context = self._get_rag_context(query)
 
-        # Step 2: Build prompt (system + profile + RAG + history + query)
+        # Step 3: Combine contexts (JSON first, then KEA simulation, then RAG)
+        combined_context = ""
+        if json_context:
+            combined_context = json_context
+        if kea_context:
+            if combined_context:
+                combined_context += f"\n\n{kea_context}"
+            else:
+                combined_context = kea_context
+        if rag_context:
+            if combined_context:
+                combined_context += f"\n\n=== PRIORITY 2: CHROMADB RETRIEVED CONTEXT ===\n\n{rag_context}\n\n=== END CHROMADB ==="
+            else:
+                combined_context = rag_context
+
+        # Step 4: Build prompt (system + profile + combined context + history + query)
         messages = self._build_messages(
-            query, rag_context, chat_history, session_profile
+            query, combined_context, chat_history, session_profile
         )
 
-        # Step 3: Try Groq first (fast cloud, 1-3 seconds)
-        yielded = False
-        if self.groq.available:
-            try:
-                for token in self.groq.stream(messages):
-                    yield token
-                    yielded = True
-                if yielded:
-                    self.last_model_used = f"LLaMA 3.3 70B (Groq)"
-                    return
-            except Exception as e:
-                print(f"[Counselor] Groq stream failed: {e}")
+        # Step 5: Define the raw generation stream
+        def _get_raw_stream():
+            yielded = False
+            if self.groq.available:
+                try:
+                    for token in self.groq.stream(messages):
+                        yield token
+                        yielded = True
+                    if yielded:
+                        self.last_model_used = f"LLaMA 3.3 70B (Groq)"
+                        return
+                except Exception as e:
+                    logger.error("Groq stream failed: %s", e)
 
-        # Step 4: Fallback to Ollama (local, slower)
-        if not yielded and self.ollama.available:
-            try:
-                for token in self.ollama.stream(messages):
-                    yield token
-                    yielded = True
-                if yielded:
-                    self.last_model_used = f"LLaMA 3 (Ollama Local)"
-                    return
-            except Exception as e:
-                print(f"[Counselor] Ollama stream failed: {e}")
+            if not yielded and self.ollama.available:
+                try:
+                    for token in self.ollama.stream(messages):
+                        yield token
+                        yielded = True
+                    if yielded:
+                        self.last_model_used = f"LLaMA 3 (Ollama Local)"
+                        return
+                except Exception as e:
+                    logger.error("Ollama stream failed: %s", e)
 
-        # Step 5: Last resort — RAG-only response
-        if not yielded:
-            print("[Counselor] All LLMs unavailable — serving RAG fallback")
-            self.last_model_used = "RAG Knowledge Base"
-            yield self.fallback.generate(query)
+            if not yielded:
+                logger.warning("All LLMs unavailable -- serving RAG fallback")
+                self.last_model_used = "RAG Knowledge Base"
+                yield self.fallback.generate(query)
+                
+        # Step 6: Validate the entire stream against combined context (JSON + RAG)
+        yield from self._validated_stream(_get_raw_stream(), combined_context)
 
     def generate_response(
         self,

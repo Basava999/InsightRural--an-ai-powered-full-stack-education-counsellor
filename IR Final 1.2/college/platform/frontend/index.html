@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InsightRural — Karnataka AI Counselling Platform</title>
+  <meta name="description" content="AI-powered Karnataka engineering college admissions counselling. Get accurate KCET predictions, scholarship eligibility, and hostel recommendations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ── App Shell ──────────────────────────────────────────────────────────── -->
+<div id="app">
+
+  <!-- SIDEBAR NAV -->
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div class="logo-text">
+        <span class="logo-brand">InsightRural</span>
+        <span class="logo-version">v2.0 AI Platform</span>
+      </div>
+    </div>
+
+    <ul class="nav-menu">
+      <li class="nav-item active" data-page="dashboard">
+        <i class="fas fa-chart-line"></i>
+        <span>Dashboard</span>
+      </li>
+      <li class="nav-item" data-page="predictor">
+        <i class="fas fa-brain"></i>
+        <span>College Predictor</span>
+        <span class="badge">AI</span>
+      </li>
+      <li class="nav-item" data-page="colleges">
+        <i class="fas fa-university"></i>
+        <span>College Explorer</span>
+      </li>
+      <li class="nav-item" data-page="compare">
+        <i class="fas fa-balance-scale"></i>
+        <span>Compare Colleges</span>
+      </li>
+      <li class="nav-item" data-page="scholarships">
+        <i class="fas fa-rupee-sign"></i>
+        <span>Scholarships</span>
+      </li>
+      <li class="nav-item" data-page="hostels">
+        <i class="fas fa-bed"></i>
+        <span>Hostel Finder</span>
+      </li>
+      <li class="nav-item" data-page="analytics">
+        <i class="fas fa-chart-bar"></i>
+        <span>Analytics</span>
+      </li>
+      <li class="nav-item" data-page="chat">
+        <i class="fas fa-comments"></i>
+        <span>AI Counsellor</span>
+        <span class="badge pulse">Live</span>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <div class="ai-status" id="aiStatus">
+        <span class="status-dot online"></span>
+        <span>AI Engine Active</span>
+      </div>
+      <p class="disclaimer">Data sourced from KEA official records</p>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content" id="mainContent">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+      <div class="topbar-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="globalSearch" placeholder="Search colleges, branches, locations..." />
+      </div>
+      <div class="topbar-actions">
+        <div class="stat-pill"><i class="fas fa-university"></i><span id="tbColleges">--</span> Colleges</div>
+        <div class="stat-pill"><i class="fas fa-map-marker-alt"></i><span id="tbLocations">--</span> Cities</div>
+        <div class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+          <i class="fas fa-moon"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- PAGE VIEWS -->
+    <div class="page-container" id="pageContainer">
+
+      <!-- ── DASHBOARD ─────────────────────────────────────────────── -->
+      <section class="page active" id="page-dashboard">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Welcome to InsightRural</h1>
+            <p class="page-subtitle">Karnataka's most accurate AI-powered KCET counselling platform</p>
+          </div>
+        </div>
+
+        <div class="hero-section">
+          <div class="hero-card">
+            <div class="hero-badge"><i class="fas fa-shield-alt"></i> Deterministic Engine</div>
+            <h2>Get Your KCET Rank Analysis</h2>
+            <p>Our AI counselling engine runs 200+ rules deterministically. Zero hallucinations. Every recommendation is backed by official KEA data.</p>
+            <div class="quick-predict-form">
+              <div class="qp-row">
+                <div class="qp-field">
+                  <label>KCET Rank</label>
+                  <input type="number" id="qpRank" placeholder="e.g., 12000" min="1" max="300000" />
+                </div>
+                <div class="qp-field">
+                  <label>Category</label>
+                  <select id="qpCategory">
+                    <option value="GM">GM (General)</option>
+                    <option value="2A">2A (OBC)</option>
+                    <option value="2B">2B (OBC)</option>
+                    <option value="3A">3A (OBC)</option>
+                    <option value="3B">3B (OBC)</option>
+                    <option value="SC">SC</option>
+                    <option value="ST">ST</option>
+                    <option value="CAT1">Category-1</option>
+                  </select>
+                </div>
+                <div class="qp-field">
+                  <label>Branch</label>
+                  <select id="qpBranch">
+                    <option value="CSE">CSE</option>
+                    <option value="ISE">ISE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="ME">Mechanical</option>
+                    <option value="CIVIL">Civil</option>
+                    <option value="AI_DS">AI & Data Science</option>
+                    <option value="CY">Cyber Security</option>
+                    <option value="ML">Machine Learning</option>
+                  </select>
+                </div>
+                <button class="btn-primary btn-lg" id="quickPredictBtn">
+                  <i class="fas fa-rocket"></i> Predict Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="stats-grid" id="dashboardStats">
+          <div class="stat-card">
+            <div class="stat-icon blue"><i class="fas fa-university"></i></div>
+            <div class="stat-content">
+              <span class="stat-value" id="statColleges">--</span>
+              <span class="stat-label">Colleges in DB</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green"><i class="fas fa-code-branch"></i></div>
+            <div class="stat-content">
+              <span class="stat-value" id="statBranches">--</span>
+              <span class="stat-label">Branches Tracked</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon purple"><i class="fas fa-rupee-sign"></i></div>
+            <div class="stat-content">
+              <span class="stat-value">10+</span>
+              <span class="stat-label">Scholarship Schemes</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange"><i class="fas fa-chart-bar"></i></div>
+            <div class="stat-content">
+              <span class="stat-value">5 yrs</span>
+              <span class="stat-label">Historical Cutoffs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+          <div class="feature-card" data-goto="predictor">
+            <div class="feature-icon"><i class="fas fa-brain"></i></div>
+            <h3>ML College Predictor</h3>
+            <p>Random Forest + XGBoost trained on 5 years of KEA cutoff data. Safe/Moderate/Ambitious classification.</p>
+            <span class="feature-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+          <div class="feature-card" data-goto="scholarships">
+            <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
+            <h3>Scholarship Eligibility</h3>
+            <p>Deterministic eligibility check for 10+ government schemes. Official portal links. Zero guesswork.</p>
+            <span class="feature-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+          <div class="feature-card" data-goto="compare">
+            <div class="feature-icon"><i class="fas fa-balance-scale"></i></div>
+            <h3>College Comparison</h3>
+            <p>Side-by-side comparison of fees, placements, NAAC grades, hostel availability and cutoff trends.</p>
+            <span class="feature-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+          <div class="feature-card" data-goto="chat">
+            <div class="feature-icon"><i class="fas fa-robot"></i></div>
+            <h3>AI Counsellor Chat</h3>
+            <p>Chat naturally. The AI extracts your profile, runs the engine, and explains results — never invents them.</p>
+            <span class="feature-arrow"><i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Architecture Callout -->
+        <div class="arch-callout">
+          <div class="arch-icon"><i class="fas fa-cogs"></i></div>
+          <div class="arch-content">
+            <h4>How Our AI Works</h4>
+            <p>The LLM <strong>never</strong> decides colleges, rankings, or probabilities. All decisions are made by deterministic algorithms using official KEA data. The AI only explains results in plain language.</p>
+          </div>
+          <div class="arch-pipeline">
+            <span>Your Query</span>
+            <i class="fas fa-arrow-right"></i>
+            <span>Profile Extraction</span>
+            <i class="fas fa-arrow-right"></i>
+            <span>Constraint Engine</span>
+            <i class="fas fa-arrow-right"></i>
+            <span>ML Predictor</span>
+            <i class="fas fa-arrow-right"></i>
+            <span>AI Explanation</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── COLLEGE PREDICTOR ──────────────────────────────────────── -->
+      <section class="page" id="page-predictor">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title"><i class="fas fa-brain"></i> KCET College Predictor</h1>
+            <p class="page-subtitle">ML-powered predictions using 5 years of official KEA cutoff data</p>
+          </div>
+        </div>
+
+        <div class="predictor-layout">
+          <!-- Input Form -->
+          <div class="predictor-form-panel">
+            <div class="form-card">
+              <h3><i class="fas fa-user"></i> Student Profile</h3>
+
+              <div class="form-group">
+                <label>KCET Rank *</label>
+                <input type="number" id="predRank" placeholder="Enter rank (1-300000)" class="form-input" />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Category *</label>
+                  <select id="predCategory" class="form-input">
+                    <option value="GM">GM</option>
+                    <option value="2A">2A</option>
+                    <option value="2B">2B</option>
+                    <option value="3A">3A</option>
+                    <option value="3B">3B</option>
+                    <option value="SC">SC</option>
+                    <option value="ST">ST</option>
+                    <option value="CAT1">CAT-1</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Gender</label>
+                  <select id="predGender" class="form-input">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Preferred Branches (select multiple)</label>
+                <div class="branch-chips" id="branchChips"></div>
+              </div>
+
+              <div class="form-group">
+                <label>Preferred City</label>
+                <select id="predLocation" class="form-input">
+                  <option value="">Any City</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>College Type</label>
+                  <select id="predCollegeType" class="form-input">
+                    <option value="">Any</option>
+                    <option value="Government">Government</option>
+                    <option value="Aided">Government Aided</option>
+                    <option value="Private">Private</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Annual Budget (₹)</label>
+                  <input type="number" id="predBudget" placeholder="e.g., 100000" class="form-input" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Special Quotas</label>
+                <div class="quota-checkboxes">
+                  <label class="checkbox-label"><input type="checkbox" id="quotaHostel" /> Hostel Required</label>
+                  <label class="checkbox-label"><input type="checkbox" id="quotaRural" /> Rural Quota</label>
+                  <label class="checkbox-label"><input type="checkbox" id="quotaKannada" /> Kannada Medium</label>
+                  <label class="checkbox-label"><input type="checkbox" id="quota371j" /> 371(J) HK Region</label>
+                  <label class="checkbox-label"><input type="checkbox" id="quotaSNQ" /> PwD / Ex-Serviceman (SNQ)</label>
+                </div>
+              </div>
+
+              <button class="btn-primary btn-full" id="runPredictor">
+                <i class="fas fa-rocket"></i> Run Prediction Engine
+              </button>
+            </div>
+          </div>
+
+          <!-- Results Panel -->
+          <div class="predictor-results-panel" id="predictorResults">
+            <div class="results-placeholder">
+              <i class="fas fa-brain fa-3x"></i>
+              <p>Enter your profile and click "Run Prediction Engine"</p>
+              <p class="hint">Results are deterministic — same input always gives same output</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── COLLEGE EXPLORER ──────────────────────────────────────── -->
+      <section class="page" id="page-colleges">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title"><i class="fas fa-university"></i> College Explorer</h1>
+            <p class="page-subtitle">Browse all <span id="collegeTotal">--</span> Karnataka engineering colleges</p>
+          </div>
+        </div>
+
+        <div class="explorer-filters">
+          <div class="filter-bar">
+            <div class="filter-search">
+              <i class="fas fa-search"></i>
+              <input type="text" id="collegeSearch" placeholder="Search by name or location..." />
+            </div>
+            <select id="filterBranch" class="filter-select">
+              <option value="">All Branches</option>
+            </select>
+            <select id="filterLocation" class="filter-select">
+              <option value="">All Cities</option>
+            </select>
+            <select id="filterType" class="filter-select">
+              <option value="">All Types</option>
+              <option value="Government">Government</option>
+              <option value="Aided">Aided</option>
+              <option value="Private">Private</option>
+            </select>
+            <button class="btn-outline" id="clearFilters"><i class="fas fa-times"></i> Clear</button>
+          </div>
+        </div>
+
+        <div id="collegeGrid" class="college-grid"></div>
+        <div id="collegePagination" class="pagination-bar"></div>
+        <div id="collegeLoading" class="loading-state hidden">
+          <div class="spinner-large"></div>
+          <p>Loading colleges...</p>
+        </div>
+      </section>
+
+      <!-- ── COMPARE ────────────────────────────────────────────────── -->
+      <section class="page" id="page-compare">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title"><i class="fas fa-balance-scale"></i> Compare Colleges</h1>
+            <p class="page-subtitle">Side-by-side comparison of up to 4 colleges</p>
+          </div>
+        </div>
+
+        <div class="compare-selector">
+          <div class="compare-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="compareSearch" placeholder="Search college to add for comparison..." />
+            <div id="compareSuggestions" class="compare-dropdown"></div>
+          </div>
+          <div id="compareSelected" class="compare-tags"></div>
+        </div>
+
+        <button class="btn-primary" id="runCompare" disabled>
+          <i class="fas fa-balance-scale"></i> Compare Selected Colleges
+        </button>
+
+        <div id="compareTable" class="compare-table-container"></div>
+      </section>
+
+      <!-- ── SCHOLARSHIPS ────────────────────────────────────────────── -->
+      <section class="page" id="page-scholarships">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title"><i class="fas fa-rupee-sign"></i> Scholarship Finder</h1>
+            <p class="page-subtitle">Deterministic eligibility check — no guesswork, official sources only</p>
+          </div>
+        </div>
+
+        <div class="scholarship-layout">
+          <div class="scholarship-form-panel">
+            <div class="form-card">
+              <h3><i class="fas fa-user-check"></i> Check Your Eligibility</h3>
+              <div class="form-group">
+                <label>Category</label>
+                <select id="schCategory" class="form-input">
+                  <option value="GM">GM (General Merit)</option>
+                  <option value="2A">2A (OBC)</option>
+                  <option value="2B">2B (OBC)</option>
+                  <option value="3A">3A (OBC)</option>
+                  <option value="3B">3B (OBC)</option>
+                  <option value="SC">SC (Scheduled Caste)</option>
+                  <option value="ST">ST (Scheduled Tribe)</option>
+                  <option value="CAT1">Category-1</option>
+                  <option value="EWS">EWS</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Annual Family Income (₹)</label>
+                <input type="number" id="schIncome" placeholder="e.g., 200000" class="form-input" />
+              </div>
+              <div class="form-group">
+                <label>Special Situations</label>
+                <div class="quota-checkboxes">
+                  <label class="checkbox-label"><input type="checkbox" id="schRural" /> Rural Background (1st-10th in rural school)</label>
+                  <label class="checkbox-label"><input type="checkbox" id="sch371j" /> Hyderabad-Karnataka 371(J) Student</label>
+                  <label class="checkbox-label"><input type="checkbox" id="schSNQ" /> Parent is Ex-Serviceman (for PMSS)</label>
+                </div>
+              </div>
+              <button class="btn-primary btn-full" id="checkScholarships">
+                <i class="fas fa-search"></i> Check Eligibility
+              </button>
+            </div>
+          </div>
+
+          <div class="scholarship-results-panel" id="scholarshipResults">
+            <div class="results-placeholder">
+              <i class="fas fa-rupee-sign fa-3x"></i>
+              <p>Fill in your profile to check eligibility for 10+ government scholarship schemes</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── HOSTELS ────────────────────────────────────────────────── -->
+      <section class="page" id="page-hostels">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title"><i class="fas fa-bed"></i> Hostel Finder</h1>
+            <p class="page-subtitle">Find colleges with hostel facilities — filtered by location & budget</p>
+          </div>
+        </div>
+
+        <div class="hostel-filters">
+          <div class="filter-bar">
+            <select id="hostelLocation" class="filter-select">
+              <option value="">All Cities</option>
+            </select>
+            <div class="budget-filter">
+              <label>Max Annual Hostel Fee: <span id="hostelBudgetVal">₹1,00,000</span></label>
+              <input type="range" id="hostelBudget" min="20000" max="300000" value="100000" step="5000" />
+            </div>
+            <button class="btn-primary" id="findHostels"><i class="fas fa-search"></i> Find Hostels</button>
+          </div>
+        </div>
+
+        <div id="hostelGrid" class="hostel-grid"></div>
+      </section>
+
+      <!-- ── ANALYTICS ──────────────────────────────────────────────── -->
+      <section class="page" id="page-analytics">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title"><i class="fas fa-chart-bar"></i> Analytics Dashboard</h1>
+            <p class="page-subtitle">5-year cutoff trends, placement data, fee analysis</p>
+          </div>
+        </div>
+
+        <div class="analytics-controls">
+          <select id="analyticsBranch" class="filter-select">
+            <option value="CSE">CSE</option>
+            <option value="ISE">ISE</option>
+            <option value="ECE">ECE</option>
+            <option value="AI_DS">AI & DS</option>
+            <option value="ME">Mechanical</option>
+          </select>
+          <select id="analyticsCategory" class="filter-select">
+            <option value="GM">GM</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+          </select>
+          <button class="btn-primary" id="loadAnalytics"><i class="fas fa-sync"></i> Load Analytics</button>
+        </div>
+
+        <div class="analytics-grid">
+          <div class="chart-card">
+            <h3>Cutoff Trends (2020-2024)</h3>
+            <div id="cutoffChart" class="chart-container"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Placement Overview</h3>
+            <div id="placementChart" class="chart-container"></div>
+          </div>
+          <div class="chart-card span-2">
+            <h3>Top Colleges by Cutoff Trend</h3>
+            <div id="trendTable" class="table-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── AI COUNSELLOR CHAT ──────────────────────────────────────── -->
+      <section class="page" id="page-chat">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title"><i class="fas fa-comments"></i> AI Counsellor</h1>
+            <p class="page-subtitle">Chat naturally — the AI extracts your profile and runs the engine</p>
+          </div>
+        </div>
+
+        <div class="chat-layout">
+          <!-- Chat Window -->
+          <div class="chat-window">
+            <div class="chat-messages" id="chatMessages">
+              <div class="chat-message bot-message">
+                <div class="msg-avatar"><i class="fas fa-robot"></i></div>
+                <div class="msg-content">
+                  <div class="msg-bubble">
+                    <p>👋 Hello! I'm your Karnataka engineering admission counsellor.</p>
+                    <p>Just tell me about yourself, like:<br/>
+                    <em>"My KCET rank is 12000. I'm from the OBC 2A category. I want AI&DS in Bangalore with hostel below ₹1 lakh."</em></p>
+                    <p>I'll extract your profile automatically and give you accurate, deterministic recommendations.</p>
+                  </div>
+                  <span class="msg-time">Now</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-input-area">
+              <div class="chat-suggestions" id="chatSuggestions">
+                <button class="suggest-chip" data-msg="My KCET rank is 12000. OBC 2A category. I want CSE in Bangalore.">
+                  CSE in Bangalore
+                </button>
+                <button class="suggest-chip" data-msg="My rank is 5000 GM category. Which top government colleges can I get?">
+                  Top govt colleges
+                </button>
+                <button class="suggest-chip" data-msg="I'm SC category rank 25000. What scholarships am I eligible for?">
+                  Scholarship eligibility
+                </button>
+                <button class="suggest-chip" data-msg="Compare RVCE, MSRIT, and BMS College of Engineering">
+                  Compare colleges
+                </button>
+              </div>
+              <div class="chat-input-row">
+                <input type="text" id="chatInput" placeholder="Type your query... (e.g., My rank is 15000, category OBC, want ECE in Mysore)" />
+                <button class="btn-send" id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Sidebar -->
+          <div class="chat-profile-panel">
+            <div class="profile-card">
+              <h3><i class="fas fa-user-circle"></i> Your Profile</h3>
+              <div id="profileDisplay">
+                <div class="profile-empty">
+                  <i class="fas fa-user-plus"></i>
+                  <p>Profile will be extracted from your messages</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- end page-container -->
+  </main><!-- end main-content -->
+</div><!-- end app -->
+
+<!-- COLLEGE DETAIL MODAL -->
+<div id="collegeModal" class="modal-overlay hidden">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-header">
+      <h2 id="modalCollegeName">College Details</h2>
+      <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div id="toastContainer" class="toast-container"></div>
+
+<!-- LOADING OVERLAY -->
+<div id="loadingOverlay" class="loading-overlay hidden">
+  <div class="loading-spinner">
+    <div class="spinner-ring"></div>
+    <p id="loadingText">Running prediction engine...</p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

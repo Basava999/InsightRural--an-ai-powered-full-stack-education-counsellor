@@ -5,7 +5,7 @@ import os
 DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
 
 def get_colleges_data():
-    path = os.path.join(DATA_DIR, 'kea_colleges_complete.json')
+    path = os.path.join(DATA_DIR, 'Production_Ready_Colleges.json')
     try:
         with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
@@ -24,85 +24,72 @@ def get_counseling_guide():
 
 def generate_option_entry_list(rank, category, branches):
     """
-    Generate a prioritized list of colleges for Option Entry.
+    Generate a prioritized list of colleges for Option Entry using the upgraded ML Predictor.
     Buckets:
-    - Ambitious (Red): Cutoff < Rank (Hard to get, but try)
-    - Realistic (Yellow): Cutoff approx == Rank (High chance)
-    - Safe (Green): Cutoff > Rank (Guaranteed backup)
+    - Ambitious (Red): ML Probability 'Dream'
+    - Realistic (Yellow): ML Probability 'Moderate'
+    - Safe (Green): ML Probability 'Safe'
     """
-    colleges = get_colleges_data()
-    options = []
+    try:
+        from ml_predictor import get_predictor
+        predictor = get_predictor()
+    except ImportError as e:
+        print(f"Error importing ml_predictor: {e}")
+        return {"summary": {"total_options": 0, "safe_count": 0, "realistic_count": 0, "ambitious_count": 0}, "options": []}
     
-    # Standardize inputs
-    rank = int(rank)
+    # Predict using the new ML pipeline (top_n=50 for a broad option list)
     if not isinstance(branches, list):
         branches = [branches]
-    
-    # Map KEA category codes to cutoff_2024 keys (data uses GM, OBC, SC, ST)
-    category_lookup = category
-    if category in ("2A", "2B", "3A", "3B", "OBC"):
-        category_lookup = "OBC"
-    elif category in ("GM", "General", "1G"):
-        category_lookup = "GM"
-    
-    for college in colleges:
-        cutoffs = college.get('cutoff_2024', {})
         
-        for branch in branches:
-            if branch in cutoffs:
-                branch_data = cutoffs[branch]
-                # Get cutoff for category, fallback to GM, then infinite
-                cutoff_rank = branch_data.get(category_lookup) or branch_data.get(category)
-                if not cutoff_rank:
-                    cutoff_rank = branch_data.get("GM", 999999)
-                
-                # Logic for categorization
-                chance = "Unknown"
-                color = "gray"
-                
-                # Deviation factor
-                # Ambitious: Cutoff is 70% to 100% of User Rank (e.g. Rank 10k, Cutoff 7k-10k)
-                # Matches: Cutoff is 100% to 120% of User Rank (e.g. Rank 10k, Cutoff 10k-12k)
-                # Safe: Cutoff > 120% of User Rank (e.g. Rank 10k, Cutoff > 12k)
-                
-                if cutoff_rank < rank * 0.7:
-                    chance = "Dream (Very Hard)"
-                    prob_type = "dream" # Too hard, maybe skip? or keep as top priority
-                elif rank * 0.7 <= cutoff_rank < rank:
-                    chance = "Ambitious"
-                    prob_type = "ambitious"
-                elif rank <= cutoff_rank <= rank * 1.3:
-                    chance = "Realistic"
-                    prob_type = "realistic"
-                else:
-                    chance = "Safe"
-                    prob_type = "safe"
-
-                option = {
-                    "college_name": college['name'],
-                    "college_code": college['college_id'],
-                    "branch": branch,
-                    "cutoff": cutoff_rank,
-                    "location": college['location'],
-                    "fee": college.get('annual_fee', {}).get(category.lower(), 'N/A'),
-                    "chance": chance,
-                    "type": prob_type
-                }
-                
-                # Filter out impossible ones (e.g. Rank 50k trying for RVCE CSE cutoff 500)
-                # Logic: Only show if cutoff is at least 20% of rank? 
-                # Actually for Option Entry, students should put top colleges first anyway.
-                # So we include everything, but sorted intelligently.
-                options.append(option)
-
-    # Sorting Logic for Option Entry
-    # 1. First sort by Preference buckets: Dream -> Ambitious -> Realistic -> Safe
-    #    Actually Option Entry should be ordered by Quality (Cutoff), not probability.
-    #    Because if you put Safe college 1st, you get it and lose chance for Ambitious.
-    #    The "correct" order is always best college first.
+    result = predictor.predict(
+        kcet_rank=int(rank),
+        category=category,
+        preferred_branches=branches,
+        top_n=50
+    )
     
-    # Sort purely by Cutoff (Ascending implies Quality)
-    options.sort(key=lambda x: x['cutoff'])
+    if not result.get("success", False):
+        print(f"Prediction failed: {result.get('error', 'Unknown error')}")
+        return {"summary": {"total_options": 0, "safe_count": 0, "realistic_count": 0, "ambitious_count": 0}, "options": []}
+    
+    options = []
+    recs = result.get("predictions", [])
+    
+    safe_count = 0
+    realistic_count = 0
+    ambitious_count = 0
+    
+    for rec in recs:
+        # Map ML Predictor labels to frontend expected types
+        label = rec.get("admission_chance", "Moderate")
+        
+        if label == "Safe":
+            prob_type = "safe"
+            chance = "Safe"
+            safe_count += 1
+        elif label == "Moderate":
+            prob_type = "realistic"
+            chance = "Realistic"
+            realistic_count += 1
+        else:
+            prob_type = "ambitious"
+            chance = "Ambitious"
+            ambitious_count += 1
+            
+        options.append({
+            "college_name": rec.get("college_name"),
+            "college_code": rec.get("college_id", "N/A"),
+            "branch": rec.get("branch"),
+            "cutoff": rec.get("predicted_cutoff", "N/A"),
+            "location": rec.get("location", "N/A"),
+            "fee": "N/A",  # Could be added if needed, UI hides it mostly
+            "chance": chance,
+            "type": prob_type,
+            "score": rec.get("recommendation_score", 0)
+        })
+        
+    # Sort purely by Cutoff (Ascending implies Quality) for the Option Entry List
+    options.sort(key=lambda x: x['cutoff'] if isinstance(x['cutoff'], (int, float)) else 999999)
     
     # Add temporary sequence number
     for idx, opt in enumerate(options, 1):
@@ -111,9 +98,10 @@ def generate_option_entry_list(rank, category, branches):
     return {
         "summary": {
             "total_options": len(options),
-            "safe_count": len([x for x in options if x['type'] == 'safe']),
-            "realistic_count": len([x for x in options if x['type'] == 'realistic']),
-            "ambitious_count": len([x for x in options if x['type'] in ['ambitious', 'dream']])
+            "safe_count": safe_count,
+            "realistic_count": realistic_count,
+            "ambitious_count": ambitious_count
         },
         "options": options
     }
+

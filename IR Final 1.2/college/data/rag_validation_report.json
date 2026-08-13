@@ -1,0 +1,14 @@
+{
+  "personalization_leakage_count": 0,
+  "incorrect_college_classifications": 1,
+  "metadata_inconsistencies": 1,
+  "hallucination_risks": 0,
+  "final_deployment_readiness_score": 100,
+  "changes_applied": [
+    {
+      "college": "Sir M.Visvesvaraya Institute of Technology",
+      "old_type": "Government",
+      "new_type": "Private"
+    }
+  ]
+}

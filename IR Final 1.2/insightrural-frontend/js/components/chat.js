@@ -158,8 +158,22 @@ const ChatComponent = {
 
     // ─── Send Message ─────────────────────────────────────────────────────────
     async sendMessage() {
+        if (!AppState.isLoggedIn()) {
+            if (window.Toast) {
+                window.Toast.show('Please sign in to chat with the AI Counselor', 'warning', 5000);
+            }
+            if (window.ModalComponent) {
+                window.ModalComponent.showModal('login-modal');
+            }
+            return;
+        }
+
         const msg = this.chatInput.value.trim();
         if (!msg || this.isStreaming) return;
+
+        if (typeof window.playChime === 'function') {
+            window.playChime('send');
+        }
 
         document.getElementById('ir-welcome')?.remove();
 
@@ -189,12 +203,18 @@ const ChatComponent = {
         this.abortController = new AbortController();
 
         try {
-            const res = await fetch(`${API_BASE_URL}/api/chat/stream`, {
+            const timeoutMs = 45000; // 45 second timeout for demo safety
+            const timeoutId = setTimeout(() => {
+                if (this.abortController) this.abortController.abort();
+            }, timeoutMs);
+
+            const res = await AppState.authFetch(`${API_BASE_URL}/api/chat/stream`, {
                 method:  'POST',
-                headers: { 'Content-Type': 'application/json' },
                 body:    JSON.stringify({ message: userMsg, profile, history: chatHistory }),
                 signal:  this.abortController.signal
             });
+
+            clearTimeout(timeoutId);
 
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             await this.readStream(res);
@@ -216,9 +236,8 @@ const ChatComponent = {
                 console.warn('Stream failed, trying non-streaming…', err);
                 try {
                     this.abortController = new AbortController();
-                    const res2 = await fetch(`${API_BASE_URL}/api/chat`, {
+                    const res2 = await AppState.authFetch(`${API_BASE_URL}/api/chat`, {
                         method:  'POST',
-                        headers: { 'Content-Type': 'application/json' },
                         body:    JSON.stringify({ message: userMsg, profile, history: chatHistory, session_id: AppState.getSessionId() }),
                         signal:  this.abortController.signal
                     });
@@ -233,6 +252,7 @@ const ChatComponent = {
                     const fallback = this.buildFallback(userMsg);
                     this.appendBubble('ai', fallback);
                     AppState.addMessage('ai', fallback);
+                    if (window.Toast) window.Toast.show('AI is taking longer than usual. Showing cached data.', 'warning');
                 }
             }
         } finally {
@@ -288,6 +308,9 @@ const ChatComponent = {
                             this.attachCopyButtons(bubble);
                             this.attachMessageActions(bubble);
                             AppState.addMessage('ai', fullText);
+                            if (typeof window.playChime === 'function') {
+                                window.playChime('success');
+                            }
                         }
                     } catch { /* ignore parse errors */ }
                 }

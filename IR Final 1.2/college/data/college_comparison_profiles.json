@@ -1,0 +1,123 @@
+[
+  {
+    "college": "Indian Institute of Technology Bombay",
+    "type": "IIT",
+    "location": "Mumbai, Maharashtra",
+    "annual_fee": 230000,
+    "hostel": true,
+    "average_package_lpa": 23.5,
+    "highest_package_lpa": 100,
+    "placement": "Excellent",
+    "strengths": ["CSE", "Electrical", "Research", "Startup ecosystem"]
+  },
+  {
+    "college": "Indian Institute of Technology Delhi",
+    "type": "IIT",
+    "location": "New Delhi",
+    "annual_fee": 235000,
+    "hostel": true,
+    "average_package_lpa": 22.0,
+    "highest_package_lpa": 100,
+    "placement": "Excellent",
+    "strengths": ["CSE", "Electrical", "Product roles", "Research"]
+  },
+  {
+    "college": "Indian Institute of Technology Madras",
+    "type": "IIT",
+    "location": "Chennai, Tamil Nadu",
+    "annual_fee": 225000,
+    "hostel": true,
+    "average_package_lpa": 20.5,
+    "highest_package_lpa": 95,
+    "placement": "Excellent",
+    "strengths": ["Research", "Core engineering", "Data science", "Incubation"]
+  },
+  {
+    "college": "National Institute of Technology Karnataka Surathkal",
+    "type": "NIT",
+    "location": "Surathkal, Karnataka",
+    "annual_fee": 170000,
+    "hostel": true,
+    "average_package_lpa": 15.5,
+    "highest_package_lpa": 54,
+    "placement": "Excellent",
+    "strengths": ["CSE", "ECE", "Coastal campus", "Strong alumni"]
+  },
+  {
+    "college": "National Institute of Technology Tiruchirappalli",
+    "type": "NIT",
+    "location": "Tiruchirappalli, Tamil Nadu",
+    "annual_fee": 175000,
+    "hostel": true,
+    "average_package_lpa": 17.0,
+    "highest_package_lpa": 52,
+    "placement": "Excellent",
+    "strengths": ["CSE", "ECE", "Core engineering", "Brand value"]
+  },
+  {
+    "college": "Indian Institute of Information Technology Allahabad",
+    "type": "IIIT",
+    "location": "Prayagraj, Uttar Pradesh",
+    "annual_fee": 180000,
+    "hostel": true,
+    "average_package_lpa": 20.0,
+    "highest_package_lpa": 82,
+    "placement": "Excellent",
+    "strengths": ["IT", "CSE", "Competitive coding", "Software placements"]
+  },
+  {
+    "college": "Bangalore Medical College and Research Institute",
+    "type": "Government Medical",
+    "location": "Bengaluru, Karnataka",
+    "annual_fee": 70000,
+    "hostel": true,
+    "average_package_lpa": 9.0,
+    "highest_package_lpa": 24,
+    "placement": "Strong clinical exposure",
+    "strengths": ["MBBS", "Government hospital exposure", "PG preparation"]
+  },
+  {
+    "college": "St. John's Medical College Bengaluru",
+    "type": "Private Medical",
+    "location": "Bengaluru, Karnataka",
+    "annual_fee": 750000,
+    "hostel": true,
+    "average_package_lpa": 8.0,
+    "highest_package_lpa": 20,
+    "placement": "Strong clinical network",
+    "strengths": ["MBBS", "Clinical training", "Hospital ecosystem"]
+  },
+  {
+    "college": "R.V. College of Engineering",
+    "type": "Private Engineering",
+    "location": "Bengaluru, Karnataka",
+    "annual_fee": 112000,
+    "hostel": true,
+    "average_package_lpa": 12.0,
+    "highest_package_lpa": 60,
+    "placement": "Excellent",
+    "strengths": ["CSE", "ISE", "ECE", "Bengaluru tech access"]
+  },
+  {
+    "college": "BMS College of Engineering",
+    "type": "Private Engineering",
+    "location": "Bengaluru, Karnataka",
+    "annual_fee": 112000,
+    "hostel": true,
+    "average_package_lpa": 9.5,
+    "highest_package_lpa": 45,
+    "placement": "Very Good",
+    "strengths": ["CSE", "ECE", "Campus location", "Alumni network"]
+  },
+  {
+    "college": "MS Ramaiah Institute of Technology",
+    "type": "Private Engineering",
+    "location": "Bengaluru, Karnataka",
+    "annual_fee": 112000,
+    "hostel": true,
+    "average_package_lpa": 9.0,
+    "highest_package_lpa": 50,
+    "placement": "Very Good",
+    "strengths": ["CSE", "ISE", "Medical campus ecosystem", "Research"]
+  }
+]

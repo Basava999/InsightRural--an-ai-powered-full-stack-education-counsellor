@@ -1,4 +1,4 @@
-﻿from flask import Flask, jsonify, request, abort, Response, stream_with_context
+from flask import Flask, jsonify, request, abort, Response, stream_with_context
 from flask_cors import CORS
 from sqlalchemy import or_, func
 import json
@@ -14,11 +14,25 @@ except ImportError:
     print("[!] python-dotenv not installed. Run: pip install python-dotenv")
 
 from db import SessionLocal, engine, Base
-from models import College, FeeStructure
+from db_models import College, FeeStructure, User
+from werkzeug.security import generate_password_hash, check_password_hash
+import hmac
+import hashlib
+import base64
+import time
+from functools import wraps
+
+# Secret key for signing custom JWT tokens
+SECRET_KEY = os.environ.get("JWT_SECRET_KEY")
+if not SECRET_KEY:
+    import warnings
+    warnings.warn("JWT_SECRET_KEY env var not set. Using local development key.", UserWarning)
+    SECRET_KEY = "insightrural_secret_viva_2026_key"
+
 
 # AI modules for chat functionality
 try:
-    from rag_engine import get_rag_engine, RAGEngine
+    from rag_engine import get_rag_engine, StrictRAGEngine
     from llm_service import get_llm_service, MultiLLMOrchestrator
     AI_MODULES_AVAILABLE = True
 except ImportError as e:
@@ -73,11 +87,134 @@ except ImportError as e:
     print(f"Warning: Counseling Service not available: {e}")
     COUNSELING_SERVICE_AVAILABLE = False
 
+# Unified JEE / NEET Admission Counseling Services
+try:
+    from admission_probability import calculate_admission_probability
+    from admissions_service import (
+        answer_admission_query,
+        build_neet_counseling_plan,
+        compare_colleges as compare_colleges_service,
+        compare_jee_options,
+        generate_career_roadmap,
+        get_jee_cutoffs,
+        get_neet_cutoffs,
+        predict_jee,
+        predict_neet,
+    )
+    ADMISSIONS_SERVICE_AVAILABLE = True
+except ImportError as e:
+    print(f"Warning: Admissions Service not available: {e}")
+    ADMISSIONS_SERVICE_AVAILABLE = False
+
+# Risk Analyzer Engine
+try:
+    from risk_analyzer import analyze_risk, generate_ai_explanation
+    RISK_ANALYZER_AVAILABLE = True
+except ImportError as e:
+    print(f"Warning: Risk Analyzer not available: {e}")
+    RISK_ANALYZER_AVAILABLE = False
+
+# JSON-First Data Service (Priority 1)
+try:
+    from json_data_service import get_json_data_service
+    JSON_DATA_SERVICE_AVAILABLE = True
+    print("[OK] JSON Data Service loaded for API endpoints")
+except ImportError as e:
+    print(f"Warning: JSON Data Service not available: {e}")
+    JSON_DATA_SERVICE_AVAILABLE = False
+
+# Recommendation Service Orchestrator
+try:
+    from services.recommendation_service import RecommendationService
+    from models.schemas import PredictRequest
+    from pydantic import ValidationError
+    RECOMMENDATION_SERVICE_AVAILABLE = True
+except ImportError as e:
+    print(f"Warning: Recommendation Service not available: {e}")
+    RECOMMENDATION_SERVICE_AVAILABLE = False
+
+# KEA Seat Allotment Simulation Engine
+try:
+    from kea_allotment_engine import get_kea_engine
+    KEA_ENGINE_AVAILABLE = True
+    print("[OK] KEA Allotment Engine loaded for API endpoints")
+except ImportError as e:
+    print(f"Warning: KEA Allotment Engine not available: {e}")
+    KEA_ENGINE_AVAILABLE = False
+
 # Trigger Reload: Updated at 2026-01-29 - Counseling Suite v2
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
+# Setup Flask-Limiter for API rate limiting
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["200 per day", "50 per hour"],
+    storage_uri="memory://"
+)
+# Custom HMAC-SHA256 JWT implementation (pyjwt independent)
+def b64url_encode(data: bytes) -> str:
+    return base64.urlsafe_b64encode(data).decode('utf-8').rstrip('=')
+
+def b64url_decode(data: str) -> bytes:
+    padding = '=' * (4 - (len(data) % 4))
+    return base64.urlsafe_b64decode(data + padding)
+
+def generate_token(user_id: int, expires_in: int = 86400 * 7) -> str:
+    """Generate a custom JWT token signed with HMAC-SHA256."""
+    header = {"alg": "HS256", "typ": "JWT"}
+    payload = {
+        "user_id": user_id,
+        "exp": int(time.time()) + expires_in
+    }
+    header_b64 = b64url_encode(json.dumps(header).encode('utf-8'))
+    payload_b64 = b64url_encode(json.dumps(payload).encode('utf-8'))
+    signing_input = f"{header_b64}.{payload_b64}".encode('utf-8')
+    signature = hmac.new(SECRET_KEY.encode('utf-8'), signing_input, hashlib.sha256).digest()
+    signature_b64 = b64url_encode(signature)
+    return f"{header_b64}.{payload_b64}.{signature_b64}"
+
+def decode_token(token: str):
+    """Decode and verify custom JWT token. Returns user_id if valid, else None."""
+    try:
+        parts = token.split('.')
+        if len(parts) != 3:
+            return None
+        header_b64, payload_b64, signature_b64 = parts
+        signing_input = f"{header_b64}.{payload_b64}".encode('utf-8')
+        expected_sig = hmac.new(SECRET_KEY.encode('utf-8'), signing_input, hashlib.sha256).digest()
+        expected_sig_b64 = b64url_encode(expected_sig)
+        if not hmac.compare_digest(signature_b64.encode('utf-8'), expected_sig_b64.encode('utf-8')):
+            return None
+        payload = json.loads(b64url_decode(payload_b64).decode('utf-8'))
+        if payload.get("exp", 0) < time.time():
+            return None
+        return payload.get("user_id")
+    except Exception:
+        return None
+
+def token_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        token = None
+        auth_header = request.headers.get("Authorization")
+        if auth_header and auth_header.startswith("Bearer "):
+            token = auth_header.split(" ")[1]
+        if not token:
+            return jsonify({"success": False, "error": "Authentication token is missing"}), 401
+        user_id = decode_token(token)
+        if not user_id:
+            return jsonify({"success": False, "error": "Invalid or expired token"}), 401
+        request.user_id = user_id
+        return f(*args, **kwargs)
+    return decorated
+
 Base.metadata.create_all(bind=engine)
+
 
 def college_to_dict(col):
     return {
@@ -104,7 +241,105 @@ def fee_to_dict(fee):
         "cat1_above_2_5_lakhs": fee.cat1_above_2_5_lakhs
     }
 
+# ============================================================================
+# AUTHENTICATION ENDPOINTS
+# ============================================================================
+
+@app.route("/api/auth/signup", methods=["POST"])
+def auth_signup():
+    data = request.get_json(silent=True) or {}
+    email = (data.get("email") or "").strip().lower()
+    password = data.get("password") or ""
+    profile = data.get("profile") or {}
+    
+    if not email or not password:
+        return jsonify({"success": False, "error": "Email and password are required"}), 400
+        
+    session = SessionLocal()
+    try:
+        existing_user = session.query(User).filter(User.email == email).first()
+        if existing_user:
+            return jsonify({"success": False, "error": "An account with this email already exists"}), 400
+            
+        password_hash = generate_password_hash(password)
+        new_user = User(
+            email=email,
+            password_hash=password_hash,
+            profile=profile
+        )
+        session.add(new_user)
+        session.commit()
+        
+        token = generate_token(new_user.id)
+        return jsonify({
+            "success": True,
+            "token": token,
+            "user": {
+                "id": new_user.id,
+                "email": new_user.email,
+                "profile": new_user.profile or {}
+            }
+        }), 201
+    except Exception as e:
+        session.rollback()
+        print(f"[ERROR] /api/auth/signup: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+    finally:
+        session.close()
+
+@app.route("/api/auth/login", methods=["POST"])
+def auth_login():
+    data = request.get_json(silent=True) or {}
+    email = (data.get("email") or "").strip().lower()
+    password = data.get("password") or ""
+    
+    if not email or not password:
+        return jsonify({"success": False, "error": "Email and password are required"}), 400
+        
+    session = SessionLocal()
+    try:
+        user = session.query(User).filter(User.email == email).first()
+        if not user or not check_password_hash(user.password_hash, password):
+            return jsonify({"success": False, "error": "Invalid email or password"}), 401
+            
+        token = generate_token(user.id)
+        return jsonify({
+            "success": True,
+            "token": token,
+            "user": {
+                "id": user.id,
+                "email": user.email,
+                "profile": user.profile or {}
+            }
+        })
+    except Exception as e:
+        print(f"[ERROR] /api/auth/login: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+    finally:
+        session.close()
+
+@app.route("/api/auth/me", methods=["GET"])
+@token_required
+def auth_me():
+    session = SessionLocal()
+    try:
+        user = session.query(User).filter(User.id == request.user_id).first()
+        if not user:
+            return jsonify({"success": False, "error": "User not found"}), 404
+            
+        return jsonify({
+            "success": True,
+            "user": {
+                "id": user.id,
+                "email": user.email,
+                "profile": user.profile or {}
+            }
+        })
+    finally:
+        session.close()
+
 @app.route("/api/colleges", methods=["GET"])
+
 def get_colleges():
     session = SessionLocal()
     try:
@@ -187,8 +422,10 @@ def get_colleges():
         print("Response data prepared successfully")
         return jsonify(response_data)
         
+    except ValidationError as ve:
+        return jsonify({"error": "Validation Error", "details": ve.errors()}), 400
     except Exception as e:
-        print(f"âŒ ERROR in get_colleges: {str(e)}")
+        print(f"â Œ ERROR in get_colleges: {str(e)}")
         print(traceback.format_exc())
         return jsonify({
             "error": str(e),
@@ -416,9 +653,6 @@ def debug_info():
 # AI CHAT ENDPOINTS
 # ============================================================================
 
-# Store for student profiles (in production, use database)
-student_profiles = {}
-
 @app.route("/api/chat", methods=["POST"])
 def chat():
     """
@@ -431,18 +665,33 @@ def chat():
     try:
         data        = request.json or {}
         user_message = data.get("message", "").strip()
-        profile      = data.get("profile", {})
         session_id   = data.get("session_id", "default")
         chat_history = data.get("history", [])
+        language     = data.get("language", "en-IN")
 
         if not user_message:
             return jsonify({"response": "Please enter a message.", "error": True}), 400
 
-        # Persist student profile for session
-        if profile:
-            student_profiles[session_id] = profile
-        else:
-            profile = student_profiles.get(session_id, {})
+        if language == "kn-IN":
+            user_message += " [CRITICAL INSTRUCTION: You MUST reply entirely in Kannada script.]"
+        elif language == "hi-IN":
+            user_message += " [CRITICAL INSTRUCTION: You MUST reply entirely in Hindi script.]"
+
+        # Retrieve student profile from authenticated user in SQLite
+        profile = data.get("profile", {})
+        db_session = None
+        try:
+            db_session = SessionLocal()
+            user_id = getattr(request, "user_id", None)
+            if user_id:
+                user = db_session.query(User).filter(User.id == user_id).first()
+                if user and user.profile:
+                    profile = user.profile
+        except Exception:
+            pass
+        finally:
+            if db_session:
+                db_session.close()
 
         orchestrator = get_llm_service()
         response = orchestrator.generate_response(
@@ -455,9 +704,9 @@ def chat():
         return jsonify({"response": response, "session_id": session_id})
 
     except Exception as e:
-        print(f"[ERROR] /api/chat: {e}")
-        import traceback; print(traceback.format_exc())
-        return jsonify({"response": "Sorry, something went wrong. Please try again.", "error": True}), 500
+        err_msg = traceback.format_exc()
+        print(f"[ERROR] /api/chat: {err_msg}")
+        return jsonify({"response": "I'm having a small issue right now. Please try again!", "error": True}), 500
 
 
 @app.route("/api/chat/stream", methods=["POST"])
@@ -472,17 +721,33 @@ def chat_stream():
 
     data         = request.json or {}
     user_message = data.get("message", "").strip()
-    profile      = data.get("profile", {})
     session_id   = data.get("session_id", "default")
     chat_history = data.get("history", [])
-
-    if profile:
-        student_profiles[session_id] = profile
-    else:
-        profile = student_profiles.get(session_id, {})
+    language     = data.get("language", "en-IN")
 
     if not user_message:
         return jsonify({"error": "No message provided"}), 400
+
+    if language == "kn-IN":
+        user_message += " [CRITICAL INSTRUCTION: You MUST reply entirely in Kannada script.]"
+    elif language == "hi-IN":
+        user_message += " [CRITICAL INSTRUCTION: You MUST reply entirely in Hindi script.]"
+
+    # Retrieve student profile from authenticated user in SQLite
+    profile = data.get("profile", {})
+    db_session = None
+    try:
+        db_session = SessionLocal()
+        user_id = getattr(request, "user_id", None)
+        if user_id:
+            user = db_session.query(User).filter(User.id == user_id).first()
+            if user and user.profile:
+                profile = user.profile
+    except Exception:
+        pass
+    finally:
+        if db_session:
+            db_session.close()
 
     def generate():
         try:
@@ -514,47 +779,50 @@ def chat_stream():
         },
     )
 
+
 @app.route("/api/recommend/colleges", methods=["POST"])
 def recommend_colleges():
     """
     Get college recommendations based on student profile.
     Accepts: { "kcet_rank": 5000, "branch": "CSE", "category": "OBC" }
+    Legacy endpoint mapped to new RecommendationService.
     """
+    if not RECOMMENDATION_SERVICE_AVAILABLE or not JSON_DATA_SERVICE_AVAILABLE:
+        return jsonify({"error": "Recommendation Service not available"}), 500
+        
     try:
-        data = request.json
+        data = request.json or {}
         rank = int(data.get("kcet_rank", 0))
         branch = data.get("branch", "CSE")
         category = data.get("category", "GM")
         
         if rank <= 0:
             return jsonify({"error": "Please provide a valid KCET rank"}), 400
-        
-        if AI_MODULES_AVAILABLE:
-            rag_engine = get_rag_engine()
-            colleges = rag_engine.get_colleges_by_rank(rank, branch, category)
-        else:
-            # Fallback to JSON file
-            import os
-            data_file = os.path.join(os.path.dirname(__file__), '..', 'data', 'kea_colleges_complete.json')
-            with open(data_file, 'r', encoding='utf-8') as f:
-                all_colleges = json.load(f)
             
-            colleges = []
-            for college in all_colleges:
-                cutoffs = college.get('cutoff_2024', {})
-                branch_cutoff = cutoffs.get(branch, {})
-                if isinstance(branch_cutoff, dict):
-                    cat_cutoff = branch_cutoff.get(category, branch_cutoff.get('GM', float('inf')))
-                    if rank <= cat_cutoff:
-                        colleges.append({
-                            "college": college['name'],
-                            "location": college['location'],
-                            "type": college['type'],
-                            "cutoff": cat_cutoff,
-                            "fee": college.get('annual_fee', {}),
-                            "branch": branch
-                        })
-            colleges.sort(key=lambda x: x['cutoff'])
+        json_svc = get_json_data_service()
+        rec_svc = RecommendationService(json_svc)
+        
+        req = PredictRequest(
+            kcet_rank=rank,
+            preferred_branches=[branch],
+            category=category
+        )
+        
+        response = rec_svc.recommend(req.to_student_profile())
+        
+        # Flatten safe/moderate/ambitious for legacy response format
+        colleges = []
+        for c in response.safe + response.moderate + response.ambitious:
+            colleges.append({
+                "college": c.college_name,
+                "location": c.location,
+                "type": c.college_type,
+                "cutoff": c.cutoff_rank,
+                "fee": {"gm": c.annual_fee}, # approximated for legacy format
+                "branch": c.branch
+            })
+            
+        colleges.sort(key=lambda x: x['cutoff'])
         
         return jsonify({
             "rank": rank,
@@ -564,8 +832,10 @@ def recommend_colleges():
             "colleges": colleges[:20]  # Top 20
         })
         
+    except ValidationError as ve:
+        return jsonify({"error": "Validation Error", "details": ve.errors()}), 400
     except Exception as e:
-        print(f"âŒ ERROR in recommend_colleges: {str(e)}")
+        print(f"â Œ ERROR in recommend_colleges: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
 
@@ -580,28 +850,29 @@ def recommend_scholarships():
         category = data.get("category", "General")
         income = int(data.get("income", 500000))
         
-        if AI_MODULES_AVAILABLE:
-            rag_engine = get_rag_engine()
-            scholarships = rag_engine.get_eligible_scholarships(category, income)
-        else:
-            # Fallback to JSON file
-            import os
-            data_file = os.path.join(os.path.dirname(__file__), '..', 'data', 'scholarships.json')
-            with open(data_file, 'r', encoding='utf-8') as f:
-                all_scholarships = json.load(f)
+        # Always use the JSON fallback for rules-based recommendation
+        import os
+        data_file = os.path.join(os.path.dirname(__file__), '..', 'data', 'scholarships.json')
+        with open(data_file, 'r', encoding='utf-8') as f:
+            all_scholarships = json.load(f)
+        
+        scholarships = []
+        category_lower = category.lower()
+        for sch in all_scholarships:
+            eligibility = sch.get('eligibility', {})
+            income_limit = eligibility.get('income_limit', float('inf'))
+            sch_categories = [c.lower() for c in eligibility.get('category', [])]
             
-            scholarships = []
-            category_lower = category.lower()
-            for sch in all_scholarships:
-                eligibility = sch.get('eligibility', {})
-                income_limit = eligibility.get('income_limit', float('inf'))
-                sch_categories = [c.lower() for c in eligibility.get('category', [])]
-                
-                if income <= income_limit:
-                    if category_lower in ['sc', 'st'] and (category_lower in str(sch_categories) or 'sc' in str(sch_categories)):
-                        scholarships.append(sch)
-                    elif 'obc' in category_lower and 'category' in str(sch_categories):
-                        scholarships.append(sch)
+            if income <= income_limit:
+                # Check if 'all categories' scholarship
+                if 'all categories' in sch_categories or 'all' in sch_categories:
+                    scholarships.append(sch)
+                elif category_lower in ['sc', 'st'] and (category_lower in sch_categories or 'sc/st' in sch_categories):
+                    scholarships.append(sch)
+                elif 'obc' in category_lower and ('obc' in sch_categories or '2a' in sch_categories or '3a' in sch_categories or '3b' in sch_categories):
+                    scholarships.append(sch)
+                elif category_lower in ['gm', 'general', 'ews'] and ('general' in sch_categories or 'gm' in sch_categories or 'ews' in sch_categories or 'all categories' in sch_categories):
+                    scholarships.append(sch)
         
         return jsonify({
             "category": category,
@@ -611,22 +882,271 @@ def recommend_scholarships():
         })
         
     except Exception as e:
-        print(f"âŒ ERROR in recommend_scholarships: {str(e)}")
+        print(f"â Œ ERROR in recommend_scholarships: {str(e)}")
+        print(f"❌ ERROR in recommend_scholarships: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
 
-@app.route("/api/profile", methods=["POST", "GET"])
-def manage_profile():
-    """Store or retrieve student profile."""
-    session_id = request.args.get("session_id", "default")
+# ============================================================================
+# JSON-FIRST DATA ENDPOINTS (Priority 1 — exact database values)
+# ============================================================================
+
+@app.route("/api/v2/recommend/colleges", methods=["POST"])
+def recommend_colleges_v2():
+    """
+    Enhanced college recommendations using RecommendationService Pipeline.
+    Returns SAFE / MODERATE / AMBITIOUS classifications with exact cutoff data.
+    Accepts: { "kcet_rank": 5000, "branch": "CSE", "category": "OBC",
+               "location": "Bengaluru", "hostel_needed": true, "budget": 120000 }
+    """
+    if not RECOMMENDATION_SERVICE_AVAILABLE or not JSON_DATA_SERVICE_AVAILABLE:
+        return jsonify({"error": "Recommendation Service not available"}), 500
+
+    try:
+        data = request.json or {}
+        rank = int(data.get("kcet_rank", 0))
+        branch = data.get("branch", "CSE")
+        category = data.get("category", "GM")
+        location = data.get("location")
+        hostel_needed = data.get("hostel_needed", False)
+        budget = data.get("budget")
+
+        if rank <= 0:
+            return jsonify({"error": "Please provide a valid KCET rank"}), 400
+
+        json_svc = get_json_data_service()
+        rec_svc = RecommendationService(json_svc)
+        
+        req = PredictRequest(
+            kcet_rank=rank,
+            preferred_branches=[branch] if branch else ["CSE"],
+            category=category,
+            preferred_locations=[location] if location else None,
+            hostel_required=hostel_needed,
+            budget=int(budget) if budget else None,
+        )
+        
+        response = rec_svc.recommend(req.to_student_profile())
+        
+        # Convert Pydantic models back to dict for jsonify
+        safe_list = [c.model_dump() for c in response.safe]
+        moderate_list = [c.model_dump() for c in response.moderate]
+        ambitious_list = [c.model_dump() for c in response.ambitious]
+
+        return jsonify({
+            "rank": rank,
+            "branch": branch,
+            "category": category,
+            "location": location,
+            "total_matches": len(safe_list) + len(moderate_list) + len(ambitious_list),
+            "safe": safe_list,
+            "moderate": moderate_list,
+            "ambitious": ambitious_list,
+            "counselling_guidance": response.counselling_guidance,
+            "confidence": response.confidence
+        })
+
+    except Exception as e:
+        print(f"❌ ERROR in recommend_colleges_v2: {str(e)}")
+        import traceback; traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/api/v2/hostel", methods=["POST"])
+def get_hostel_v2():
+    """
+    Get hostel information from verified JSON database.
+    Accepts: { "college": "RVCE", "location": "Bangalore", "category": "SC" }
+    """
+    if not JSON_DATA_SERVICE_AVAILABLE:
+        return jsonify({"error": "JSON Data Service not available"}), 500
+
+    try:
+        data = request.json or {}
+        svc = get_json_data_service()
+        info = svc.get_hostel_info(
+            college_name=data.get("college"),
+            location=data.get("location"),
+            category=data.get("category"),
+        )
+        if not info:
+            return jsonify({
+                "message": "Verified hostel information is not currently available for this query.",
+                "hostels": [],
+            })
+        return jsonify({"info": info, "source": "Structured JSON Database"})
+
+    except Exception as e:
+        print(f"❌ ERROR in get_hostel_v2: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/api/v2/scholarships", methods=["POST"])
+def get_scholarships_v2():
+    """
+    Get verified scholarships from JSON database.
+    Accepts: { "category": "SC", "income": 200000, "gender": "Female" }
+    """
+    if not JSON_DATA_SERVICE_AVAILABLE:
+        return jsonify({"error": "JSON Data Service not available"}), 500
+
+    try:
+        data = request.json or {}
+        svc = get_json_data_service()
+        info = svc.get_scholarships(
+            category=data.get("category"),
+            income=int(data.get("income")) if data.get("income") else None,
+            gender=data.get("gender"),
+        )
+        if not info:
+            return jsonify({
+                "message": "No matching scholarships found for this profile.",
+                "scholarships": [],
+            })
+        return jsonify({"info": info, "source": "Structured JSON Database"})
+
+    except Exception as e:
+        print(f"❌ ERROR in get_scholarships_v2: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/api/v2/cutoff-trends", methods=["POST"])
+def get_cutoff_trends_v2():
+    """
+    Get multi-year cutoff trends for a specific college.
+    Accepts: { "college": "RVCE", "branch": "CSE", "category": "GM" }
+    """
+    if not JSON_DATA_SERVICE_AVAILABLE:
+        return jsonify({"error": "JSON Data Service not available"}), 500
+
+    try:
+        data = request.json or {}
+        college = data.get("college", "")
+        branch = data.get("branch", "CSE")
+        category = data.get("category", "GM")
+
+        if not college:
+            return jsonify({"error": "College name is required"}), 400
+
+        svc = get_json_data_service()
+        info = svc.get_cutoff_trends(college, branch, category)
+        if not info:
+            return jsonify({
+                "message": "Cutoff trend data not available for this college.",
+            })
+        return jsonify({"info": info, "source": "Structured JSON Database"})
+
+    except Exception as e:
+        print(f"ERROR in get_cutoff_trends_v2: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+
+# ============================================================================
+# KEA SEAT ALLOTMENT SIMULATION (ML + Rules Engine)
+# ============================================================================
+
+@app.route("/api/v2/simulate", methods=["POST"])
+def kea_simulate():
+    """
+    Full KEA seat allotment simulation.
+    Uses ML models + rule-based engine to predict colleges.
+    Returns SAFE / MODERATE / AMBITIOUS with confidence scores.
     
-    if request.method == "POST":
-        profile = request.json
-        student_profiles[session_id] = profile
-        return jsonify({"status": "saved", "profile": profile})
-    else:
-        profile = student_profiles.get(session_id, {})
-        return jsonify(profile)
+    Accepts: {
+        "kcet_rank": 5000,
+        "category": "OBC",
+        "gender": "Male",
+        "branch_preference": ["CSE", "ISE", "ECE"],
+        "district_preference": ["Bengaluru Urban"],
+        "rural_quota": false,
+        "kannada_medium": false,
+        "snq": false,
+        "371j_status": false,
+        "minority_status": false,
+        "annual_income": 400000,
+        "hostel_required": false,
+        "budget": 120000,
+        "top_n": 15
+    }
+    """
+    if not KEA_ENGINE_AVAILABLE:
+        return jsonify({"error": "KEA Allotment Engine not available"}), 500
+
+    try:
+        data = request.json or {}
+        rank = int(data.get("kcet_rank", 0))
+        if rank <= 0:
+            return jsonify({"error": "Please provide a valid KCET rank"}), 400
+
+        engine = get_kea_engine()
+        result = engine.simulate(
+            rank=rank,
+            category=data.get("category", "GM"),
+            gender=data.get("gender", "Male"),
+            branch_preference=data.get("branch_preference", ["CSE", "ISE", "ECE"]),
+            district_preference=data.get("district_preference"),
+            college_preference=data.get("college_preference"),
+            rural_quota=data.get("rural_quota", False),
+            kannada_medium=data.get("kannada_medium", False),
+            snq=data.get("snq", False),
+            special_reservation=data.get("special_reservation"),
+            hk_371j=data.get("371j_status", False),
+            minority_status=data.get("minority_status", False),
+            annual_income=int(data.get("annual_income", 0)),
+            hostel_required=data.get("hostel_required", False),
+            budget=int(data.get("budget", 0)) if data.get("budget") else 0,
+            top_n=int(data.get("top_n", 15)),
+        )
+
+        return jsonify(result)
+
+    except Exception as e:
+        print(f"ERROR in kea_simulate: {str(e)}")
+        import traceback; traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/api/v2/ml-info", methods=["GET"])
+def ml_info():
+    """Get information about the trained ML models."""
+    if not KEA_ENGINE_AVAILABLE:
+        return jsonify({"error": "KEA Engine not available"}), 500
+
+    try:
+        engine = get_kea_engine()
+        return jsonify({
+            "ml_model": engine.ml_engine.best_model_name or "Rule-based",
+            "is_trained": engine.ml_engine.is_trained,
+            "model_comparison": engine.ml_engine.metrics,
+            "total_colleges": len(engine.colleges),
+            "feature_names": engine.ml_engine.feature_names,
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/profile", methods=["POST", "GET"])
+@token_required
+def manage_profile():
+    """Store or retrieve student profile in database."""
+    session = SessionLocal()
+    try:
+        user = session.query(User).filter(User.id == request.user_id).first()
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+            
+        if request.method == "POST":
+            profile = request.json or {}
+            user.profile = profile
+            session.commit()
+            return jsonify({"status": "saved", "profile": profile})
+        else:
+            return jsonify(user.profile or {})
+    except Exception as e:
+        session.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        session.close()
+
 
 
 @app.route("/api/ai/status", methods=["GET"])
@@ -651,6 +1171,191 @@ def ai_status():
             pass
 
     return jsonify(status)
+
+
+# ============================================================================
+# UNIFIED ADMISSION COUNSELING ENDPOINTS (JEE + NEET)
+# ============================================================================
+
+@app.route("/api/admission-probability", methods=["POST"])
+def admission_probability_endpoint():
+    """Calculate rank-vs-cutoff admission probability from 0 to 100."""
+    if not ADMISSIONS_SERVICE_AVAILABLE:
+        return jsonify({"success": False, "error": "Admissions service unavailable"}), 503
+
+    data = request.get_json(silent=True) or {}
+    rank = data.get("rank")
+    previous_cutoff = data.get("previous_cutoff") or data.get("cutoff")
+    category = data.get("category", "OPEN")
+
+    if data.get("colleges"):
+        results = []
+        for college in data.get("colleges", []):
+            cutoff = college.get("cutoff") or college.get("previous_cutoff")
+            probability = calculate_admission_probability(rank, cutoff, category)
+            results.append({
+                "college": college.get("college") or college.get("name"),
+                "branch": college.get("branch") or college.get("course"),
+                "previous_cutoff": cutoff,
+                **probability,
+            })
+        return jsonify({"success": True, "results": results})
+
+    if not rank or not previous_cutoff:
+        return jsonify({"success": False, "error": "rank and previous_cutoff are required"}), 400
+
+    return jsonify({
+        "success": True,
+        "rank": rank,
+        "previous_cutoff": previous_cutoff,
+        "category": category,
+        **calculate_admission_probability(rank, previous_cutoff, category),
+    })
+
+
+@app.route("/api/jee/predict", methods=["POST"])
+def jee_predict_endpoint():
+    """Predict IIT, NIT, IIIT, and GFTI options from JEE ranks."""
+    if not ADMISSIONS_SERVICE_AVAILABLE:
+        return jsonify({"success": False, "error": "Admissions service unavailable"}), 503
+
+    try:
+        data = request.get_json(silent=True) or {}
+        if not data.get("jee_main_rank") and not data.get("jee_advanced_rank"):
+            return jsonify({"success": False, "error": "Provide JEE Main rank or JEE Advanced rank"}), 400
+        return jsonify(predict_jee(data))
+    except Exception as e:
+        print(f"JEE prediction error: {e}")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/jee/compare", methods=["POST"])
+def jee_compare_endpoint():
+    """Compare JEE options or named colleges."""
+    if not ADMISSIONS_SERVICE_AVAILABLE:
+        return jsonify({"success": False, "error": "Admissions service unavailable"}), 503
+
+    try:
+        data = request.get_json(silent=True) or {}
+        return jsonify(compare_jee_options(data))
+    except Exception as e:
+        print(f"JEE compare error: {e}")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/jee/cutoffs", methods=["GET"])
+def jee_cutoffs_endpoint():
+    """Return JEE cutoff rows with optional filters."""
+    if not ADMISSIONS_SERVICE_AVAILABLE:
+        return jsonify({"success": False, "error": "Admissions service unavailable"}), 503
+
+    try:
+        return jsonify(get_jee_cutoffs(request.args.to_dict()))
+    except Exception as e:
+        print(f"JEE cutoffs error: {e}")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/neet/predict", methods=["POST"])
+def neet_predict_endpoint():
+    """Predict AIQ, state, government, private, dental, and AYUSH options."""
+    if not ADMISSIONS_SERVICE_AVAILABLE:
+        return jsonify({"success": False, "error": "Admissions service unavailable"}), 503
+
+    try:
+        data = request.get_json(silent=True) or {}
+        if not data.get("neet_rank"):
+            return jsonify({"success": False, "error": "NEET rank is required"}), 400
+        return jsonify(predict_neet(data))
+    except Exception as e:
+        print(f"NEET prediction error: {e}")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/neet/cutoffs", methods=["POST"])
+def neet_cutoffs_endpoint():
+    """Return NEET cutoff rows with optional filters."""
+    if not ADMISSIONS_SERVICE_AVAILABLE:
+        return jsonify({"success": False, "error": "Admissions service unavailable"}), 503
+
+    try:
+        data = request.get_json(silent=True) or {}
+        return jsonify(get_neet_cutoffs(data))
+    except Exception as e:
+        print(f"NEET cutoffs error: {e}")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/neet/counseling", methods=["POST"])
+def neet_counseling_endpoint():
+    """Generate a NEET counseling plan with choice buckets and documents."""
+    if not ADMISSIONS_SERVICE_AVAILABLE:
+        return jsonify({"success": False, "error": "Admissions service unavailable"}), 503
+
+    try:
+        data = request.get_json(silent=True) or {}
+        if not data.get("neet_rank"):
+            return jsonify({"success": False, "error": "NEET rank is required"}), 400
+        return jsonify(build_neet_counseling_plan(data))
+    except Exception as e:
+        print(f"NEET counseling error: {e}")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/compare", methods=["POST"])
+def unified_compare_endpoint():
+    """Compare fees, placement, hostel, location, average and highest package."""
+    if not ADMISSIONS_SERVICE_AVAILABLE:
+        return jsonify({"success": False, "error": "Admissions service unavailable"}), 503
+
+    try:
+        data = request.get_json(silent=True) or {}
+        return jsonify(compare_colleges_service(data))
+    except Exception as e:
+        print(f"Unified compare error: {e}")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/career/roadmap", methods=["POST"])
+def career_roadmap_endpoint():
+    """Generate a deterministic 5-year roadmap and opportunity summary."""
+    if not ADMISSIONS_SERVICE_AVAILABLE:
+        return jsonify({"success": False, "error": "Admissions service unavailable"}), 503
+
+    try:
+        data = request.get_json(silent=True) or {}
+        return jsonify(generate_career_roadmap(data))
+    except Exception as e:
+        print(f"Career roadmap error: {e}")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@app.route("/api/admission-counselor", methods=["POST"])
+def admission_counselor_endpoint():
+    """RAG-style admission counselor for JEE/NEET questions."""
+    if not ADMISSIONS_SERVICE_AVAILABLE:
+        return jsonify({"success": False, "error": "Admissions service unavailable"}), 503
+
+    try:
+        data = request.get_json(silent=True) or {}
+        message = (data.get("message") or "").strip()
+        if not message:
+            return jsonify({"success": False, "error": "message is required"}), 400
+
+        llm = get_llm_service() if AI_MODULES_AVAILABLE else None
+        return jsonify(answer_admission_query(message, data.get("profile", {}), llm=llm))
+    except Exception as e:
+        print(f"Admission counselor error: {e}")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
 
 
 # ============================================
@@ -681,11 +1386,18 @@ def predict_college():
         # Get predictor instance
         predictor = get_predictor()
         
+        # Determine branches (handle single branch fallback)
+        branches = data.get('preferred_branches')
+        if not branches and data.get('branch'):
+            branches = [data.get('branch')]
+        if not branches:
+            branches = ['CSE', 'ECE', 'ISE']
+
         # Make prediction
         result = predictor.predict(
             kcet_rank=int(data['kcet_rank']),
             category=data['category'].upper(),
-            preferred_branches=data.get('preferred_branches', ['CSE', 'ECE', 'ISE']),
+            preferred_branches=branches,
             preferred_locations=data.get('preferred_locations'),
             budget=data.get('budget'),
             college_type_pref=data.get('college_type_pref'),
@@ -710,6 +1422,67 @@ def predict_college():
 # GEN AI CAREER SIMULATOR ENDPOINT
 # ============================================================================
 
+def _career_simulation_fallback(rank, category, branch, interests):
+    roadmap = generate_career_roadmap({
+        "branch": branch,
+        "interests": interests,
+    }) if ADMISSIONS_SERVICE_AVAILABLE else {}
+
+    branch_label = str(branch or "CSE").upper()
+    interest_label = str(interests or "technology").title()
+
+    return {
+        "paths": [
+            {
+                "name": "Placement Track",
+                "description": f"Build strong fundamentals in {branch_label}, complete internships, and target campus placements.",
+                "color": "#2563eb",
+                "probability": 72,
+                "milestones": [
+                    {"year": 2026, "title": "Admission", "desc": f"Join {branch_label} and finish bridge courses", "salary": None, "icon": "1"},
+                    {"year": 2027, "title": "Skill Build", "desc": "Projects, coding/core labs, communication practice", "salary": None, "icon": "2"},
+                    {"year": 2028, "title": "Internship", "desc": "Summer internship or hospital/industry exposure", "salary": "Rs. 15K-35K/month", "icon": "3"},
+                    {"year": 2029, "title": "Campus Placement", "desc": "Target product/service/core companies", "salary": roadmap.get("expected_salary", "6-12 LPA"), "icon": "4"},
+                    {"year": 2030, "title": "Growth", "desc": "Specialize and move to higher-impact roles", "salary": "12-24 LPA", "icon": "5"}
+                ]
+            },
+            {
+                "name": "Higher Studies Track",
+                "description": "Prepare for GATE/GRE/NEET PG/CAT depending on your course and build a research profile.",
+                "color": "#059669",
+                "probability": 58,
+                "milestones": [
+                    {"year": 2026, "title": "Foundation", "desc": "Maintain CGPA and identify target exams", "salary": None, "icon": "1"},
+                    {"year": 2027, "title": "Research Start", "desc": "Mini-projects, papers, open-source or clinical audits", "salary": None, "icon": "2"},
+                    {"year": 2028, "title": "Exam Prep", "desc": "Structured test preparation and mentorship", "salary": None, "icon": "3"},
+                    {"year": 2029, "title": "Admission", "desc": "M.Tech/MS/MD/MBA pathway", "salary": None, "icon": "4"},
+                    {"year": 2030, "title": "Specialist Role", "desc": "Research, specialist, or leadership track", "salary": "10-22 LPA", "icon": "5"}
+                ]
+            },
+            {
+                "name": "Startup Track",
+                "description": f"Use your {interest_label} interest to solve a student, rural, health, or industry problem.",
+                "color": "#f97316",
+                "probability": 36,
+                "milestones": [
+                    {"year": 2026, "title": "Problem Discovery", "desc": "Talk to users and validate one real pain point", "salary": None, "icon": "1"},
+                    {"year": 2027, "title": "Prototype", "desc": "Build MVP with a small student team", "salary": None, "icon": "2"},
+                    {"year": 2028, "title": "Pilot", "desc": "Run pilots through campus/incubation cells", "salary": None, "icon": "3"},
+                    {"year": 2029, "title": "Funding/Revenue", "desc": "Apply for grants or earn first revenue", "salary": "Variable", "icon": "4"},
+                    {"year": 2030, "title": "Scale", "desc": "Convert project into company or strong portfolio", "salary": "Variable", "icon": "5"}
+                ]
+            }
+        ],
+        "future_artifact": {
+            "type": "news_headline",
+            "date": "2030",
+            "source": "InsightRural FutureVision",
+            "content": f"Student with rank {rank} turns {branch_label} roadmap into a high-impact {interest_label} career."
+        },
+        "roadmap": roadmap
+    }
+
+
 @app.route('/api/simulate-career', methods=['POST'])
 def simulate_career():
     """
@@ -717,10 +1490,7 @@ def simulate_career():
     Accepts: { "rank": 5000, "category": "2A", "branch": "CSE", "interests": "Robotics, AI" }
     Returns: JSON with 3 career paths + Future Artifact
     """
-    if not AI_MODULES_AVAILABLE:
-        return jsonify({"error": "AI modules not available"}), 503
-        
-    data = request.json
+    data = request.get_json(silent=True) or {}
     rank = data.get('rank')
     category = data.get('category')
     branch = data.get('branch')
@@ -728,6 +1498,13 @@ def simulate_career():
     
     if not all([rank, category, branch]):
         return jsonify({"error": "Missing required fields"}), 400
+
+    if not AI_MODULES_AVAILABLE:
+        return jsonify({
+            "success": True,
+            "data": _career_simulation_fallback(rank, category, branch, interests),
+            "mode": "deterministic-fallback"
+        })
         
     try:
         from prompt_templates import CAREER_SIMULATION_SYSTEM_PROMPT, CAREER_SIMULATION_USER_PROMPT
@@ -768,14 +1545,21 @@ def simulate_career():
         except json.JSONDecodeError:
             print(f"[!] Invalid JSON from LLM: {response_text[:100]}...")
             return jsonify({
-                "success": False,
-                "error": "Failed to generate valid simulation data. Please try again."
-            }), 500
+                "success": True,
+                "data": _career_simulation_fallback(rank, category, branch, interests),
+                "mode": "deterministic-fallback",
+                "warning": "LLM returned invalid JSON, so a fallback simulation was used."
+            })
             
     except Exception as e:
         print(f"[ERROR] in simulate_career: {str(e)}")
         print(traceback.format_exc())
-        return jsonify({"success": False, "error": str(e)}), 500
+        return jsonify({
+            "success": True,
+            "data": _career_simulation_fallback(rank, category, branch, interests),
+            "mode": "deterministic-fallback",
+            "warning": str(e)
+        })
 
 
 @app.route('/api/predict/status', methods=['GET'])
@@ -786,6 +1570,8 @@ def predict_status():
         "model_loaded": ML_PREDICTOR_AVAILABLE,
         "version": "KEA_UPGRADE_V1"
     })
+
+
 
 
 # ============================================
@@ -885,7 +1671,7 @@ def whatsapp_webhook():
         if ML_PREDICTOR_AVAILABLE:
             try:
                 predictor = get_predictor()
-            except:
+            except Exception:
                 pass
         
         bot = get_whatsapp_bot(predictor)
@@ -926,7 +1712,7 @@ def whatsapp_test():
         if ML_PREDICTOR_AVAILABLE:
             try:
                 predictor = get_predictor()
-            except:
+            except Exception:
                 pass
         
         bot = get_whatsapp_bot(predictor)
@@ -1197,7 +1983,16 @@ def smart_match():
     try:
         data = request.json
         category = data.get("category", "").upper()
-        income = int(data.get("income", 500000))
+        raw_income = data.get("income", 500000)
+        # Handle text labels like "Low", "Medium", "High" from frontend
+        income_map = {"low": 200000, "medium": 500000, "high": 1000000}
+        if isinstance(raw_income, str) and raw_income.lower() in income_map:
+            income = income_map[raw_income.lower()]
+        else:
+            try:
+                income = int(raw_income)
+            except (ValueError, TypeError):
+                income = 500000
         gender = data.get("gender", "").lower()
         location = data.get("location", "").lower()
         
@@ -1282,7 +2077,428 @@ def smart_match():
         print(f"Smart Match Error: {e}")
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
+# ==============================================================================
+# JEE COUNSELING MODULE ENDPOINTS
+# ==============================================================================
 
+@app.route('/api/jee/colleges', methods=['GET'])
+def jee_colleges_list():
+    from db_models import JeeCollege
+    db = SessionLocal()
+    try:
+        page = int(request.args.get('page', 1))
+        limit = int(request.args.get('limit', 20))
+        institute_type = request.args.get('institute_type', '').strip()
+        state = request.args.get('state', '').strip()
+        search = request.args.get('search', '').strip()
+        
+        query = db.query(JeeCollege)
+        if institute_type:
+            query = query.filter(JeeCollege.institute_type == institute_type)
+        if state:
+            query = query.filter(JeeCollege.state == state)
+        if search:
+            query = query.filter(JeeCollege.name.ilike(f'%{search}%'))
+            
+        total = query.count()
+        colleges = query.offset((page - 1) * limit).limit(limit).all()
+        
+        result = []
+        for c in colleges:
+            result.append({
+                "id": c.id,
+                "name": c.name,
+                "institute_type": c.institute_type,
+                "location": c.location,
+                "state": c.state,
+                "fees": c.fees,
+                "hostel": c.hostel,
+                "placement_stats": c.placement_stats
+            })
+            
+        return jsonify({
+            "success": True,
+            "total": total,
+            "page": page,
+            "limit": limit,
+            "colleges": result
+        })
+    finally:
+        db.close()
+
+@app.route('/api/jee/college/<college_id>', methods=['GET'])
+def jee_college_detail(college_id):
+    from db_models import JeeCollege, JeeCutoff
+    db = SessionLocal()
+    try:
+        college = db.query(JeeCollege).filter(JeeCollege.id == college_id).first()
+        if not college:
+            return jsonify({"success": False, "error": "College not found"}), 404
+            
+        cutoffs = db.query(JeeCutoff).filter(JeeCutoff.college_id == college_id).all()
+        cutoff_list = []
+        for c in cutoffs:
+            cutoff_list.append({
+                "branch": c.branch,
+                "category": c.category,
+                "quota": c.quota,
+                "gender": c.gender,
+                "opening_rank": c.opening_rank,
+                "closing_rank": c.closing_rank,
+                "year": c.year,
+                "round": c.round
+            })
+            
+        return jsonify({
+            "success": True,
+            "college": {
+                "id": college.id,
+                "name": college.name,
+                "institute_type": college.institute_type,
+                "location": college.location,
+                "state": college.state,
+                "fees": college.fees,
+                "hostel": college.hostel,
+                "placement_stats": college.placement_stats,
+                "seat_matrix": college.seat_matrix
+            },
+            "cutoffs": cutoff_list
+        })
+    finally:
+        db.close()
+
+# NOTE: /api/jee/predict and /api/jee/compare are already defined above
+# (jee_predict_endpoint and jee_compare_endpoint) — removed duplicates to prevent override
+
+@app.route('/api/jee/statistics', methods=['GET'])
+def jee_statistics_api():
+    from db_models import JeeCollege, JeeCutoff
+    db = SessionLocal()
+    try:
+        total_colleges = db.query(JeeCollege).count()
+        types = db.query(JeeCollege.institute_type, func.count(JeeCollege.id)).group_by(JeeCollege.institute_type).all()
+        type_counts = {t[0]: t[1] for t in types}
+        return jsonify({
+            "success": True,
+            "total_colleges": total_colleges,
+            "institute_types": type_counts
+        })
+    finally:
+        db.close()
+
+# ==============================================================================
+# NEET COUNSELING MODULE ENDPOINTS
+# ==============================================================================
+
+@app.route('/api/neet/colleges', methods=['GET'])
+def neet_colleges_list():
+    from db_models import NeetCollege
+    db = SessionLocal()
+    try:
+        page = int(request.args.get('page', 1))
+        limit = int(request.args.get('limit', 20))
+        track_type = request.args.get('type', '').strip()
+        state = request.args.get('state', '').strip()
+        search = request.args.get('search', '').strip()
+        
+        query = db.query(NeetCollege)
+        if track_type:
+            query = query.filter(NeetCollege.type == track_type)
+        if state:
+            query = query.filter(NeetCollege.state == state)
+        if search:
+            query = query.filter(NeetCollege.name.ilike(f'%{search}%'))
+            
+        total = query.count()
+        colleges = query.offset((page - 1) * limit).limit(limit).all()
+        
+        result = []
+        for c in colleges:
+            result.append({
+                "id": c.id,
+                "name": c.name,
+                "type": c.type,
+                "state": c.state,
+                "fees": c.fees,
+                "hostel": c.hostel
+            })
+            
+        return jsonify({
+            "success": True,
+            "total": total,
+            "page": page,
+            "limit": limit,
+            "colleges": result
+        })
+    finally:
+        db.close()
+
+@app.route('/api/neet/college/<college_id>', methods=['GET'])
+def neet_college_detail(college_id):
+    from db_models import NeetCollege, NeetCutoff
+    db = SessionLocal()
+    try:
+        college = db.query(NeetCollege).filter(NeetCollege.id == college_id).first()
+        if not college:
+            return jsonify({"success": False, "error": "College not found"}), 404
+            
+        cutoffs = db.query(NeetCutoff).filter(NeetCutoff.college_id == college_id).all()
+        cutoff_list = []
+        for c in cutoffs:
+            cutoff_list.append({
+                "course": c.course,
+                "category": c.category,
+                "quota": c.quota,
+                "gender": c.gender,
+                "opening_rank": c.opening_rank,
+                "closing_rank": c.closing_rank,
+                "year": c.year,
+                "round": c.round
+            })
+            
+        return jsonify({
+            "success": True,
+            "college": {
+                "id": college.id,
+                "name": college.name,
+                "type": college.type,
+                "state": college.state,
+                "fees": college.fees,
+                "hostel": college.hostel,
+                "seat_matrix": college.seat_matrix
+            },
+            "cutoffs": cutoff_list
+        })
+    finally:
+        db.close()
+
+# NOTE: /api/neet/predict is already defined above (neet_predict_endpoint) — removed duplicate
+# /api/neet/compare uses the unified compare endpoint
+
+@app.route('/api/neet/statistics', methods=['GET'])
+def neet_statistics_api():
+    from db_models import NeetCollege
+    db = SessionLocal()
+    try:
+        total_colleges = db.query(NeetCollege).count()
+        types = db.query(NeetCollege.type, func.count(NeetCollege.id)).group_by(NeetCollege.type).all()
+        type_counts = {t[0]: t[1] for t in types}
+        return jsonify({
+            "success": True,
+            "total_colleges": total_colleges,
+            "college_types": type_counts
+        })
+    finally:
+        db.close()
+
+
+# NOTE: /api/chat/stream is already defined above (chat_stream function at line 659)
+# Removed duplicate that used different JSON keys ({content} vs {chunk}) which broke frontend
+
+
+# ============================================================================
+# AI STUDENT SUCCESS & COUNSELING RISK ANALYZER
+# ============================================================================
+
+@app.route("/api/analyze/risk", methods=["POST"])
+def analyze_risk_endpoint():
+    """
+    AI Student Success & Counseling Risk Analyzer.
+    Accepts full student profile and returns 11-dimensional risk analysis.
+    """
+    try:
+        data = request.get_json(silent=True) or {}
+
+        if not RISK_ANALYZER_AVAILABLE:
+            return jsonify({"success": False, "error": "Risk Analyzer engine not available"}), 503
+
+        # Run full analysis pipeline
+        risk_analysis = analyze_risk(data)
+
+        # Generate AI explanation
+        ai_explanation = generate_ai_explanation(data, risk_analysis)
+
+        # Save to database
+        db_session = None
+        try:
+            db_session = SessionLocal()
+            from db_models import StudentRiskProfile
+
+            # Normalize inputs for DB
+            interests = data.get("interests", "")
+            if isinstance(interests, list):
+                interests = ", ".join(interests)
+            skills = data.get("skills", "")
+            if isinstance(skills, list):
+                skills = ", ".join(skills)
+            preferred_branches = data.get("branch", "")
+
+            income_raw = float(data.get("income", 0))
+            income_lakhs = income_raw / 100000 if income_raw > 100 else income_raw
+
+            risk_profile = StudentRiskProfile(
+                exam=data.get("exam", "KCET"),
+                rank=int(data.get("rank", 0)) if data.get("rank") else None,
+                category=data.get("category", "GM"),
+                income_lakhs=income_lakhs,
+                interests=interests,
+                career_goals=data.get("career_goals", ""),
+                preferred_branches=preferred_branches,
+                preferred_colleges=", ".join(data.get("preferred_colleges", [])) if isinstance(data.get("preferred_colleges"), list) else data.get("preferred_colleges", ""),
+                success_score=risk_analysis["success_score"],
+                academic_risk=risk_analysis["academic_risk"],
+                financial_risk=risk_analysis["financial_risk"],
+                placement_risk=risk_analysis["placement_risk"],
+                regret_probability=risk_analysis["regret_probability"],
+                branch_compatibility_score=risk_analysis["branch_compatibility_score"],
+                roi_score=risk_analysis["roi_label"],
+                ai_explanation=ai_explanation
+            )
+            db_session.add(risk_profile)
+            db_session.commit()
+        except Exception as db_err:
+            print(f"[WARN] Could not save risk profile: {db_err}")
+            if db_session:
+                db_session.rollback()
+        finally:
+            if db_session:
+                db_session.close()
+
+        return jsonify({
+            "success": True,
+            "risk_analysis": risk_analysis,
+            "ai_explanation": ai_explanation
+        })
+
+    except Exception as e:
+        err_msg = traceback.format_exc()
+        print(f"[ERROR] /api/analyze/risk: {err_msg}")
+        return jsonify({"success": False, "error": "Risk analysis encountered an issue. Please try again."}), 500
+
+# ============================================================================
+# ADMIN DASHBOARD ENDPOINTS
+# ============================================================================
+import os
+import sys
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), 'data', 'uploads')
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+ALLOWED_EXTENSIONS = {'pdf', 'json', 'csv'}
+
+# Import the existing KEA PDF parser from data_pipeline
+try:
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'data_pipeline'))
+    from pdf_parser import KEAPDFParser as PipelinePDFParser
+    PDF_PARSER_AVAILABLE = True
+except ImportError:
+    PDF_PARSER_AVAILABLE = False
+    print("[!] data_pipeline/pdf_parser.py not available for admin uploads")
+
+def _allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route("/api/admin/upload", methods=["POST"])
+def admin_upload_endpoint():
+    """
+    Admin Upload Dashboard endpoint.
+    Accepts files (PDF, JSON, CSV) and automatically processes them:
+      - PDF  → KEA cutoff parsing + RAG vector ingestion
+      - JSON → Merge into json_data_service college data
+      - CSV  → Saved for manual review
+    """
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part in the request"}), 400
+
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({"error": "No selected file"}), 400
+
+    if not _allowed_file(file.filename):
+        return jsonify({"error": f"File type not allowed. Accepted: {', '.join(ALLOWED_EXTENSIONS)}"}), 400
+
+    filename = secure_filename(file.filename)
+    file_path = os.path.join(UPLOAD_FOLDER, filename)
+    file.save(file_path)
+
+    processing_results = {"file": filename, "saved": True, "actions": []}
+    ext = filename.rsplit('.', 1)[1].lower()
+
+    # ── PDF Processing ────────────────────────────────────────────────────
+    if ext == 'pdf':
+        # 1) Structured cutoff parsing via existing data_pipeline parser
+        if PDF_PARSER_AVAILABLE:
+            try:
+                parser = PipelinePDFParser()
+                df = parser.parse_pdf(file_path)
+                record_count = len(df) if not df.empty else 0
+                processing_results["actions"].append({
+                    "step": "kea_cutoff_parse",
+                    "status": "success" if record_count > 0 else "no_data",
+                    "records_extracted": record_count,
+                })
+            except Exception as e:
+                processing_results["actions"].append({
+                    "step": "kea_cutoff_parse",
+                    "status": "error",
+                    "detail": str(e),
+                })
+        else:
+            processing_results["actions"].append({
+                "step": "kea_cutoff_parse",
+                "status": "skipped",
+                "detail": "PDF parser module not available",
+            })
+
+        # 2) RAG vector ingestion for AI chat retrieval
+        if AI_MODULES_AVAILABLE:
+            try:
+                rag = get_rag_engine()
+                rag.ingest_document(file_path, doc_type="counseling_rules")
+                processing_results["actions"].append({
+                    "step": "rag_ingestion",
+                    "status": "success",
+                })
+            except Exception as e:
+                processing_results["actions"].append({
+                    "step": "rag_ingestion",
+                    "status": "error",
+                    "detail": str(e),
+                })
+
+    # ── JSON Processing ───────────────────────────────────────────────────
+    elif ext == 'json':
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                uploaded_data = json.load(f)
+
+            record_count = len(uploaded_data) if isinstance(uploaded_data, list) else 1
+            processing_results["actions"].append({
+                "step": "json_load",
+                "status": "success",
+                "records_loaded": record_count,
+                "detail": "Data loaded. Use /api/admin/apply-json to merge into live service.",
+            })
+        except json.JSONDecodeError as e:
+            processing_results["actions"].append({
+                "step": "json_load",
+                "status": "error",
+                "detail": f"Invalid JSON: {str(e)}",
+            })
+
+    # ── CSV Processing ────────────────────────────────────────────────────
+    elif ext == 'csv':
+        processing_results["actions"].append({
+            "step": "csv_saved",
+            "status": "success",
+            "detail": "CSV saved for review. Use /api/admin/apply-csv to import.",
+        })
+
+    return jsonify({
+        "success": True,
+        "message": f"File '{filename}' uploaded and processed.",
+        "processing": processing_results,
+    })
 
 if __name__ == "__main__":
     print("\n" + "="*50)
@@ -1318,4 +2534,4 @@ if __name__ == "__main__":
     print("  POST /api/report/generate     - Generate PDF Report")
     print("  GET  /api/report/status       - PDF Generator Status")
     
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=True, use_reloader=False)

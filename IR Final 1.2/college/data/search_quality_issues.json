@@ -1,0 +1,34 @@
+{
+  "audit_summary": {
+    "total_documents": 1108,
+    "total_colleges": 225,
+    "embedding_dimensions": [
+      384
+    ],
+    "average_chunk_length": 205.49
+  },
+  "issues_detected": {
+    "missing_metadata": 0,
+    "inconsistent_schema_collections": [],
+    "orphan_embeddings": 0,
+    "duplicate_documents": 40,
+    "duplicate_embeddings": 44,
+    "duplicate_colleges": 6,
+    "spelling_inconsistencies": {
+      "kletechnologicaluniversity": [
+        "KLE Technological University",
+        "K L E Technological University"
+      ],
+      "kvgcollegeofengineering": [
+        "KVG College of Engineering",
+        "K V G College of Engineering"
+      ],
+      "visvesvarayatechnologicaluniversity": [
+        "Visvesvaraya Technological University",
+        "VISVESVARAYA TECHNOLOGICAL UNIVERSITY"
+      ]
+    },
+    "suboptimal_chunks_count": 8
+  },
+  "general_issues": []
+}

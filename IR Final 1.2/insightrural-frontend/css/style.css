@@ -109,21 +109,38 @@ body {
 
 /* ---- Scrollbar ---- */
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: rgba(16, 163, 127, 0.02);
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--border-color);
-    border-radius: 3px;
+    background: linear-gradient(180deg, rgba(16, 163, 127, 0.4) 0%, rgba(59, 130, 246, 0.4) 100%);
+    border-radius: 4px;
+    transition: background 0.3s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--text-muted);
+    background: linear-gradient(180deg, rgba(16, 163, 127, 0.8) 0%, rgba(59, 130, 246, 0.8) 100%);
+}
+
+/* Premium Gradient Text Utility */
+.text-gradient-premium {
+    background: linear-gradient(135deg, #10a37f 0%, #3b82f6 50%, #8b5cf6 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGradientShift 4s linear infinite;
+}
+
+@keyframes textGradientShift {
+    to {
+        background-position: 200% center;
+    }
 }
 
 /* ============================================
@@ -290,11 +307,31 @@ body {
     background: linear-gradient(135deg, #10a37f, #0d9488);
     color: white;
     box-shadow: 0 4px 15px rgba(16, 163, 127, 0.25);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+    transform: skewX(-20deg);
+    z-index: -1;
+    animation: btnShine 3s infinite;
+}
+
+@keyframes btnShine {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
 }
 
 .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(16, 163, 127, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 163, 127, 0.4);
     filter: brightness(1.1);
 }
 
@@ -459,4 +496,77 @@ body {
     .brand h1 {
         display: none;
     }
+}
+
+/* ============================================================================
+   PREDICTOR CARDS — Theme-Aware (Works in Light + Dark Mode)
+   ============================================================================ */
+.prediction-card,
+.guidance-section,
+.kea-round-badge,
+.results-summary,
+.cutoff-table-wrap,
+.match-meter-spotlight,
+.what-if-section,
+.checklist-progress,
+.checklist-item {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.prediction-card h4,
+.prediction-card p,
+.prediction-card span,
+.prediction-card strong,
+.prediction-card td,
+.prediction-card th,
+.prediction-card small,
+.guidance-section p,
+.guidance-section strong,
+.checklist-item strong,
+.checklist-item small,
+.what-if-section h3,
+.what-if-section p,
+.what-if-section strong,
+.cutoff-toggle {
+    color: var(--text-primary);
+}
+
+.prediction-card .details,
+.prediction-card .details span,
+.prediction-card .details a {
+    color: var(--text-secondary);
+}
+
+.cutoff-table {
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.cutoff-table thead tr {
+    background: var(--bg-primary);
+}
+
+.cutoff-table thead th {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.cutoff-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cutoff-table tbody tr:hover {
+    background: var(--bg-hover);
+}
+
+.cutoff-table tbody td {
+    color: var(--text-primary);
+}
+
+.cutoff-toggle {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
 }

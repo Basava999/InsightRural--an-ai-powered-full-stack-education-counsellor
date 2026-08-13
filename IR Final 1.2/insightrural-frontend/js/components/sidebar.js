@@ -56,6 +56,35 @@ const SidebarComponent = {
                     return;
                 }
 
+                // 🔹 RISK ANALYZER SECTION
+                if (feature === "risk-analyzer") {
+                    this.showSection('risk-analyzer');
+                    if (window.RiskAnalyzerComponent) {
+                        window.RiskAnalyzerComponent.activate();
+                    }
+                    if (window.innerWidth <= 768) this.hideSidebar();
+                    return;
+                }
+
+                // JEE / NEET COUNSELING
+                if (feature === "jee") {
+                    this.showSection(feature);
+                    if (window.JeeComponent) {
+                        window.JeeComponent.activate();
+                    }
+                    if (window.innerWidth <= 768) this.hideSidebar();
+                    return;
+                }
+
+                if (feature === "neet") {
+                    this.showSection(feature);
+                    if (window.NeetComponent) {
+                        window.NeetComponent.activate();
+                    }
+                    if (window.innerWidth <= 768) this.hideSidebar();
+                    return;
+                }
+
                 // 🔹 DASHBOARD SECTION
                 if (feature === "dashboard") {
                     this.showSection('dashboard');
@@ -187,7 +216,7 @@ const SidebarComponent = {
         if (predictorSection) predictorSection.classList.remove('active');
 
         // Hide ALL feature sections (unified approach)
-        ['dashboard', 'documents', 'career', 'voice', 'scanner', 'simulator', 'avatar', 'scholarships', 'hostels', 'counseling'].forEach(id => {
+        ['dashboard', 'documents', 'career', 'jee', 'neet', 'risk-analyzer', 'voice', 'scanner', 'simulator', 'avatar', 'scholarships', 'hostels', 'counseling'].forEach(id => {
             const el = document.getElementById(`${id}-section`);
             if (el) {
                 el.style.display = 'none';
@@ -210,6 +239,21 @@ const SidebarComponent = {
                 break;
             case 'dashboard': {
                 const el = document.getElementById('dashboard-section');
+                if (el) { el.style.display = 'block'; el.classList.add('active'); }
+                break;
+            }
+            case 'jee': {
+                const el = document.getElementById('jee-section');
+                if (el) { el.style.display = 'block'; el.classList.add('active'); }
+                break;
+            }
+            case 'neet': {
+                const el = document.getElementById('neet-section');
+                if (el) { el.style.display = 'block'; el.classList.add('active'); }
+                break;
+            }
+            case 'risk-analyzer': {
+                const el = document.getElementById('risk-analyzer-section');
                 if (el) { el.style.display = 'block'; el.classList.add('active'); }
                 break;
             }

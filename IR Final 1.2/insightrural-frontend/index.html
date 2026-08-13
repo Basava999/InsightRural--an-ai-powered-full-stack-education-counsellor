@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/components/dashboard.css">
     <link rel="stylesheet" href="css/components/features.css">
     <link rel="stylesheet" href="css/components/scholarship-hostel.css">
+    <link rel="stylesheet" href="css/components/risk-analyzer.css">
     <link rel="stylesheet" href="css/components/landing.css">
 
     <!-- Font -->
@@ -46,7 +47,7 @@
             </button>
             <div class="brand">
                 <div class="logo">IR</div>
-                <h1>InsightRural</h1>
+                <h1 class="text-gradient-premium">InsightRural</h1>
             </div>
         </div>
 
@@ -114,6 +115,11 @@
                 <div class="nav-icon">🎯</div>
                 <span>College Predictor</span>
                 <span class="nav-badge">ML</span>
+            </div>
+            <div class="nav-item" data-feature="risk-analyzer" id="risk-analyzer-nav">
+                <div class="nav-icon">🧠</div>
+                <span style="font-weight: bold; background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Risk Analyzer</span>
+                <span class="nav-badge live" style="background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);">PRO</span>
             </div>
             <div class="nav-item" data-feature="career" id="career-nav">
                 <div class="nav-icon">🧭</div>
@@ -277,6 +283,15 @@
 
         <!-- Counseling Suite Section -->
         <div id="counseling-section" class="feature-section" style="display: none;"></div>
+
+        <!-- JEE Counseling Section -->
+        <div id="jee-section" class="feature-section" style="display: none;"></div>
+
+        <!-- NEET Counseling Section -->
+        <div id="neet-section" class="feature-section" style="display: none;"></div>
+
+        <!-- Risk Analyzer Section -->
+        <div id="risk-analyzer-section" class="feature-section" style="display: none;"></div>
     </main>
 
     <div class="modal" id="login-modal" style="display: none;"></div>
@@ -307,6 +322,9 @@
     <script src="js/components/scholarship_writer.js"></script>
     <script src="js/components/hostel_explorer.js"></script>
     <script src="js/components/counseling_component.js"></script>
+    <script src="js/components/jee_component.js"></script>
+    <script src="js/components/neet_component.js"></script>
+    <script src="js/components/risk_analyzer_component.js"></script>
     <script src="js/pwa.js"></script>
     <script src="js/core/app.js"></script>
 </body>

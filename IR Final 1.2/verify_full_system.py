@@ -11,6 +11,8 @@ class Colors:
     FAIL = '\033[91m'
     ENDC = '\033[0m'
 
+HEADERS = {}
+
 def print_result(name, passed, elapsed=0, msg=""):
     status = "[OK]" if passed else "[FAIL]"
     print(f"{status} {name} ({elapsed:.2f}s) {msg}")
@@ -21,9 +23,9 @@ def test_endpoint(name, method, endpoint, data=None):
         start_time = time.time()
         
         if method == "GET":
-            response = requests.get(url)
+            response = requests.get(url, headers=HEADERS)
         else:
-            response = requests.post(url, json=data)
+            response = requests.post(url, json=data, headers=HEADERS)
             
         elapsed = time.time() - start_time
         
@@ -123,9 +125,29 @@ def test_counseling_suite():
     return True
 
 def run_full_system_verification():
+    global HEADERS
     print("STARTING FULL SYSTEM HEALTH CHECK")
     print("="*50)
     
+    print("\n--- AUTHENTICATION INITIALIZATION ---")
+    test_email = f"sys_verify_{int(time.time())}@example.com"
+    test_pwd = "Password123"
+    
+    try:
+        resp = requests.post(f"{BASE_URL}/auth/signup", json={
+            "email": test_email,
+            "password": test_pwd,
+            "profile": {"name": "System Verifier"}
+        })
+        if resp.status_code == 201:
+            token = resp.json().get("token")
+            HEADERS = {"Authorization": f"Bearer {token}"}
+            print(f"{Colors.GREEN}[OK] Temporary Test Account Created Successfully.{Colors.ENDC}")
+        else:
+            print(f"{Colors.FAIL}[FAIL] Temporary Test Account Creation Failed: {resp.status_code} - {resp.text}{Colors.ENDC}")
+    except Exception as e:
+        print(f"{Colors.FAIL}[FAIL] Auth Initialization Error: {e}{Colors.ENDC}")
+        
     # --- CORE FEATURES ---
     print("\n--- CORE FEATURES ---")
     

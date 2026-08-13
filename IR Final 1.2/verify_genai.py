@@ -75,7 +75,7 @@ def run_verification():
         "branch": "CSE",
         "interests": "Artificial Intelligence, Space Tech"
     }
-    test_endpoint("Career Simulator", "POST", "/api/simulate-career", career_data)
+    test_endpoint("Career Simulator", "POST", "/simulate-career", career_data)
 
     print("\n" + "="*50)
     print("Verification Complete")

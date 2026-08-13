@@ -1,0 +1,34 @@
+:root {
+  --primary: #2563eb;
+  --safe: #16a34a;
+  --moderate: #ca8a04;
+  --ambitious: #dc2626;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: var(--primary); text-decoration: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.badge-safe { background: #dcfce7; color: var(--safe); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; }
+.badge-moderate { background: #fef9c3; color: var(--moderate); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; }
+.badge-ambitious { background: #fee2e2; color: var(--ambitious); padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; }

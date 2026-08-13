@@ -75,11 +75,24 @@ const ModalComponent = {
                 const educationInput = document.getElementById('education');
                 const financeInput = document.getElementById('finance');
                 const interestsInput = document.getElementById('interests');
+                const kcetRankInput = document.getElementById('kcet_rank');
+                const categoryInput = document.getElementById('category');
+                const ruralQuotaInput = document.getElementById('rural_quota');
+                const kannadaMediumInput = document.getElementById('kannada_medium');
+                const snqQuotaInput = document.getElementById('snq_quota');
+                const hkRegionInput = document.getElementById('hyderabad_karnataka');
+
                 if (nameInput && profile.name) nameInput.value = profile.name;
                 if (locationInput && profile.location) locationInput.value = profile.location;
                 if (educationInput && profile.education) educationInput.value = profile.education;
                 if (financeInput && profile.finance) financeInput.value = profile.finance;
                 if (interestsInput && profile.interests) interestsInput.value = profile.interests;
+                if (kcetRankInput && profile.kcet_rank) kcetRankInput.value = profile.kcet_rank;
+                if (categoryInput && profile.category) categoryInput.value = profile.category;
+                if (ruralQuotaInput) ruralQuotaInput.checked = !!profile.rural_quota;
+                if (kannadaMediumInput) kannadaMediumInput.checked = !!profile.kannada_medium;
+                if (snqQuotaInput) snqQuotaInput.checked = !!profile.snq_quota;
+                if (hkRegionInput) hkRegionInput.checked = !!profile.hyderabad_karnataka;
             }
         }
     },
@@ -92,44 +105,81 @@ const ModalComponent = {
         }
     },
 
-    handleLogin() {
+    async handleLogin() {
         const email = document.getElementById('auth-email')?.value?.trim();
-        if (!email) {
-            alert('Please enter your email or phone number');
+        const password = document.getElementById('auth-password')?.value?.trim();
+        if (!email || !password) {
+            alert('Please enter both email and password');
             return;
         }
-        // Store login state
-        localStorage.setItem('insightrural-user', JSON.stringify({
-            email: email,
-            loggedIn: true,
-            loginTime: new Date().toISOString()
-        }));
-        this.hideModal('login-modal');
-        // Update UI
-        const loginBtn = document.getElementById('login-sidebar-btn');
-        if (loginBtn) {
-            loginBtn.querySelector('span').textContent = email.split('@')[0] || email;
-        }
-        if (typeof ChatComponent !== 'undefined') {
-            ChatComponent.addMessage('ai', `✅ Welcome! You're now logged in. Your progress will be saved.`);
+        
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+            const data = await response.json();
+            
+            if (data.success) {
+                AppState.setAuth(data.token, data.user);
+                this.hideModal('login-modal');
+                
+                const loginBtn = document.getElementById('login-sidebar-btn');
+                if (loginBtn) {
+                    loginBtn.querySelector('span').textContent = email.split('@')[0];
+                }
+                
+                if (typeof ChatComponent !== 'undefined') {
+                    ChatComponent.addMessage('ai', `✅ Welcome back! You are logged in successfully.`);
+                }
+                
+                setTimeout(() => window.location.reload(), 1000);
+            } else {
+                alert('Login failed: ' + (data.error || 'Invalid credentials'));
+            }
+        } catch (e) {
+            console.error('Login error:', e);
+            alert('Could not connect to authentication server.');
         }
     },
 
-    handleSignup() {
+    async handleSignup() {
         const email = document.getElementById('auth-email')?.value?.trim();
         const password = document.getElementById('auth-password')?.value?.trim();
         if (!email || !password) {
             alert('Please fill in all fields');
             return;
         }
-        localStorage.setItem('insightrural-user', JSON.stringify({
-            email: email,
-            loggedIn: true,
-            loginTime: new Date().toISOString()
-        }));
-        this.hideModal('login-modal');
-        if (typeof ChatComponent !== 'undefined') {
-            ChatComponent.addMessage('ai', `✅ Account created! Welcome to InsightRural.`);
+        
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/auth/signup`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password, profile: AppState.profile })
+            });
+            const data = await response.json();
+            
+            if (data.success) {
+                AppState.setAuth(data.token, data.user);
+                this.hideModal('login-modal');
+                
+                const loginBtn = document.getElementById('login-sidebar-btn');
+                if (loginBtn) {
+                    loginBtn.querySelector('span').textContent = email.split('@')[0];
+                }
+                
+                if (typeof ChatComponent !== 'undefined') {
+                    ChatComponent.addMessage('ai', `✅ Account successfully created! Welcome to InsightRural.`);
+                }
+                
+                setTimeout(() => window.location.reload(), 1000);
+            } else {
+                alert('Registration failed: ' + (data.error || 'Unknown error'));
+            }
+        } catch (e) {
+            console.error('Signup error:', e);
+            alert('Could not connect to authentication server.');
         }
     },
 
@@ -139,13 +189,25 @@ const ModalComponent = {
         const education = document.getElementById('education')?.value;
         const finance = document.getElementById('finance')?.value;
         const interests = document.getElementById('interests')?.value?.trim();
+        const kcet_rank = document.getElementById('kcet_rank')?.value ? parseInt(document.getElementById('kcet_rank').value, 10) : null;
+        const category = document.getElementById('category')?.value || 'GM';
+        const rural_quota = document.getElementById('rural_quota')?.checked || false;
+        const kannada_medium = document.getElementById('kannada_medium')?.checked || false;
+        const snq_quota = document.getElementById('snq_quota')?.checked || false;
+        const hyderabad_karnataka = document.getElementById('hyderabad_karnataka')?.checked || false;
 
         const profileData = {
             name: name || '',
             location: location || '',
             education: education || '',
             finance: finance || '',
-            interests: interests || ''
+            interests: interests || '',
+            kcet_rank: kcet_rank,
+            category: category,
+            rural_quota: rural_quota,
+            kannada_medium: kannada_medium,
+            snq_quota: snq_quota,
+            hyderabad_karnataka: hyderabad_karnataka
         };
 
         if (typeof AppState !== 'undefined') {
@@ -257,6 +319,40 @@ const ModalComponent = {
                         <div class="form-group">
                             <label for="location">Location</label>
                             <input type="text" id="location" placeholder="District, State">
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="kcet_rank">KCET Rank</label>
+                                <input type="number" id="kcet_rank" placeholder="e.g. 5000">
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select id="category">
+                                    <option value="GM" selected>GM</option>
+                                    <option value="OBC">OBC (2A/2B/3A/3B)</option>
+                                    <option value="SC">SC</option>
+                                    <option value="ST">ST</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Special Quotas</label>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px;">
+                                <label style="display: flex; align-items: center; gap: 8px; font-weight: 500; cursor: pointer;">
+                                    <input type="checkbox" id="rural_quota"> Rural Quota
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px; font-weight: 500; cursor: pointer;">
+                                    <input type="checkbox" id="kannada_medium"> Kannada Medium
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px; font-weight: 500; cursor: pointer;">
+                                    <input type="checkbox" id="snq_quota"> SNQ Quota
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px; font-weight: 500; cursor: pointer;">
+                                    <input type="checkbox" id="hyderabad_karnataka"> HK Region (371J)
+                                </label>
+                            </div>
                         </div>
                         
                         <div class="form-group">

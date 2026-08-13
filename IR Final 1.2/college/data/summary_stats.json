@@ -1,0 +1,12 @@
+{
+  "total_original_colleges": 228,
+  "total_cleaned_colleges": 209,
+  "duplicates_removed": 19,
+  "names_corrected": 6,
+  "tier_distribution": {
+    "1": 5,
+    "2": 8,
+    "3": 158,
+    "4": 38
+  }
+}

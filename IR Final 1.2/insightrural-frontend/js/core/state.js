@@ -13,6 +13,8 @@ const AppState = {
     currentFeature: 'colleges',
     chatHistory: [],
     sessionId: null,
+    token: null,
+    user: null,
 
     // Enhanced profile for KEA students
     profile: {
@@ -24,13 +26,29 @@ const AppState = {
         location: '',
         preferred_location: 'Bangalore',
         hostel_needed: null,
-        budget: null
+        budget: null,
+        // Special Quotas
+        rural_quota: false,
+        kannada_medium: false,
+        snq_quota: false,
+        hyderabad_karnataka: false
     },
 
     init() {
         // Generate session ID
         this.sessionId = localStorage.getItem('insightrural-session') || this.generateSessionId();
         localStorage.setItem('insightrural-session', this.sessionId);
+
+        // Load JWT Token & User
+        this.token = localStorage.getItem('insightrural-token');
+        const savedUser = localStorage.getItem('insightrural-user');
+        if (savedUser) {
+            try {
+                this.user = JSON.parse(savedUser);
+            } catch (e) {
+                console.log('Could not parse user');
+            }
+        }
 
         // Load theme
         const savedTheme = localStorage.getItem('insightrural-theme') || 'light';
@@ -56,6 +74,55 @@ const AppState = {
             }
         }
     },
+
+    setAuth(token, user) {
+        this.token = token;
+        this.user = user;
+        localStorage.setItem('insightrural-token', token);
+        localStorage.setItem('insightrural-user', JSON.stringify(user));
+        if (user && user.profile) {
+            this.profile = { ...this.profile, ...user.profile };
+            localStorage.setItem('insightrural-profile', JSON.stringify(this.profile));
+        }
+    },
+
+    logout() {
+        this.token = null;
+        this.user = null;
+        localStorage.removeItem('insightrural-token');
+        localStorage.removeItem('insightrural-user');
+        localStorage.removeItem('insightrural-profile');
+        localStorage.removeItem('insightrural-chat');
+        this.profile = {
+            name: '',
+            kcet_rank: null,
+            branch: 'CSE',
+            category: 'GM',
+            income: null,
+            location: '',
+            preferred_location: 'Bangalore',
+            hostel_needed: null,
+            budget: null
+        };
+        this.chatHistory = [];
+        window.location.reload();
+    },
+
+    isLoggedIn() {
+        return !!this.token;
+    },
+
+    async authFetch(url, options = {}) {
+        options.headers = options.headers || {};
+        if (this.token) {
+            options.headers['Authorization'] = `Bearer ${this.token}`;
+        }
+        if (!options.headers['Content-Type'] && !(options.body instanceof FormData)) {
+            options.headers['Content-Type'] = 'application/json';
+        }
+        return fetch(url, options);
+    },
+
 
     generateSessionId() {
         return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
@@ -134,10 +201,10 @@ const AppState = {
     },
 
     async syncProfileToBackend() {
+        if (!this.isLoggedIn()) return;
         try {
-            await fetch(`${API_BASE_URL}/api/profile?session_id=` + this.sessionId, {
+            await this.authFetch(`${API_BASE_URL}/api/profile`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(this.profile)
             });
         } catch (e) {

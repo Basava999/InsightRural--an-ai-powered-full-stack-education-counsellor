@@ -1,172 +1,259 @@
 /**
- * InsightRural — Animated Landing Page
- * Million-Dollar Interactive Splash Experience
+ * ============================================================================
+ * InsightRural — Cinematic Landing Experience
+ * World-Class AI Admission Intelligence Platform
+ * Inspired by: Apple, OpenAI, Stripe, Tesla, Vercel
+ * ============================================================================
  */
 
 (function () {
     'use strict';
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // FEATURE CARDS DATA
+    // INTELLIGENCE PILLARS DATA
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    const FEATURES = [
-        {
-            icon: '🤖',
-            title: 'AI Chat Counselor',
-            tag: 'RAG · LLM',
-            feature: 'chat',
-            demo: 'chat',
-            demoTexts: [
-                'Best CSE colleges for KCET rank 5000?',
-                'Scholarship for SC rural students?',
-                'VTU fee structure 2025...',
-            ],
-        },
-        {
-            icon: '🎯',
-            title: 'College Predictor',
-            tag: 'ML · KEA',
-            feature: 'predictor',
-            demo: 'bars',
-        },
-        {
-            icon: '💰',
-            title: 'Scholarship Autopilot',
-            tag: 'Auto-Apply',
-            feature: 'scholarships',
-            demo: 'progress',
-            progressValue: 72,
-        },
-        {
-            icon: '📊',
-            title: 'Live Dashboard',
-            tag: 'LIVE',
-            feature: 'dashboard',
-            demo: 'chart',
-        },
-        {
-            icon: '🧭',
-            title: 'Career Counselor',
-            tag: 'AI · Gen',
-            feature: 'career',
-            demo: 'typing',
-            demoTexts: [
-                'Your path: Computer Science → SDE',
-                'Salary range ₹8–22 LPA in 5 years',
-                'Recommended: Data Structures, DSA',
-            ],
-        },
-        {
-            icon: '🏛️',
-            title: 'KEA Counseling Suite',
-            tag: 'Round 1–3',
-            feature: 'counseling',
-            demo: 'badge',
-        },
+    const PILLARS = [
+        { icon: '🏛️', title: 'College Intelligence', desc: 'AI-powered seat prediction with 98% accuracy' },
+        { icon: '🎓', title: 'Scholarship Intelligence', desc: 'Auto-detect eligible scholarships & fee waivers' },
+        { icon: '🧭', title: 'Career Intelligence', desc: '5-year roadmap with salary & growth projections' },
+        { icon: '🧠', title: 'Risk Intelligence', desc: '11-dimension success & regret analysis' },
+        { icon: '🚀', title: 'Future Intelligence', desc: 'ROI calculator, placement outlook & breakeven' },
     ];
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // MARQUEE TAGS — scrolling tech strip
+    // TRUST SOURCES DATA
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    const MARQUEE_ITEMS = [
-        { icon: '🦙', label: 'LLaMA 3 Local' },
-        { icon: '🔍', label: 'ChromaDB RAG' },
-        { icon: '🏛️', label: 'KEA Algorithm' },
-        { icon: '🤖', label: 'Ollama Engine' },
-        { icon: '📈', label: 'ML Predictor' },
-        { icon: '🎙️', label: 'Voice AI' },
-        { icon: '🔒', label: '100% Private' },
-        { icon: '🗂️', label: 'Document Vault' },
-        { icon: '🌐', label: 'PWA Ready' },
-        { icon: '🎬', label: 'Video Counselor' },
-        { icon: '📋', label: 'Serial Dictatorship' },
-        { icon: '⚡', label: 'Realtime Updates' },
+    const TRUST_SOURCES = [
+        { icon: '🏛️', name: 'KEA', desc: 'Karnataka Examinations Authority' },
+        { icon: '📋', name: 'JoSAA', desc: 'Joint Seat Allocation Authority' },
+        { icon: '⚕️', name: 'MCC', desc: 'Medical Counselling Committee' },
+        { icon: '🎓', name: 'AICTE', desc: 'All India Council for Technical Education' },
+        { icon: '🏫', name: 'UGC', desc: 'University Grants Commission' },
+        { icon: '📊', name: 'NIRF', desc: 'National Institutional Ranking Framework' },
+        { icon: '💰', name: 'NSP', desc: 'National Scholarship Portal' },
     ];
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // TYPEWRITER PHRASES
+    // PROBLEM STATEMENTS
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    const TYPEWRITER_PHRASES = [
-        'Your AI Guide to Karnataka Colleges',
-        'Predict Your Perfect College Seat',
-        'Never Miss a Scholarship Again',
-        'Voice-Powered Career Counseling',
-        'From Village to Varsity with AI',
+    const PROBLEMS = [
+        { icon: '😰', text: 'Confusing counseling processes' },
+        { icon: '❌', text: 'Wrong branch choices leading to regret' },
+        { icon: '💸', text: 'Financial uncertainty & hidden fees' },
+        { icon: '🤷', text: 'Missed scholarship opportunities' },
+        { icon: '🔮', text: 'No clarity on career outcomes' },
     ];
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     // STATS
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     const STATS = [
-        { value: 230000, label: 'Candidates', prefix: '', suffix: '+' },
-        { value: 200, label: 'Colleges', prefix: '', suffix: '+' },
-        { value: 5, label: 'Cr Scholarships', prefix: '₹', suffix: 'Cr' },
-        { value: 98, label: 'Accuracy', prefix: '', suffix: '%' },
+        { value: 230000, label: 'Students Guided', prefix: '', suffix: '+' },
+        { value: 200, label: 'Colleges Mapped', prefix: '', suffix: '+' },
+        { value: 5, label: 'Cr Scholarships', prefix: '₹', suffix: '' },
+        { value: 98, label: '% Accuracy', prefix: '', suffix: '%' },
     ];
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // BUILD THE LANDING HTML
+    // AI CONVERSATION DATA
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    const AI_CONVERSATION = [
+        {
+            type: 'user',
+            text: 'I got KCET rank 8500. What are my options?',
+            delay: 800,
+        },
+        {
+            type: 'typing',
+            delay: 1500,
+        },
+        {
+            type: 'ai',
+            text: 'Based on your rank and 3-year cutoff trends, here are your personalized insights:',
+            delay: 600,
+        },
+        {
+            type: 'cards',
+            cards: [
+                { label: '🏛️ 12 Colleges', cls: 'chip-college' },
+                { label: '🎓 3 Scholarships', cls: 'chip-scholarship' },
+                { label: '🏠 Hostel Options', cls: 'chip-hostel' },
+                { label: '🧭 Career Roadmap', cls: 'chip-career' },
+                { label: '🧠 Risk Analysis', cls: 'chip-risk' },
+            ],
+            delay: 400,
+        },
+    ];
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // EMOTIONAL HEADLINES (rotate)
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    const EMOTIONAL_HEADLINES = [
+        '"Every student deserves <em>clarity</em> about their future."',
+        '"Transforming <em>uncertainty</em> into opportunity."',
+        '"Your future deserves <em>better guidance</em>."',
+    ];
+
+    let particleRAF = null;
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // BUILD THE COMPLETE LANDING HTML
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     function buildLanding() {
         const landing = document.createElement('div');
         landing.id = 'landing-screen';
         landing.setAttribute('role', 'main');
+
         landing.innerHTML = `
-            <!-- Grid & canvas & blobs -->
-            <div class="landing-grid"></div>
-            <canvas id="landing-canvas"></canvas>
-            <div class="landing-blob landing-blob-1"></div>
-            <div class="landing-blob landing-blob-2"></div>
-            <div class="landing-blob landing-blob-3"></div>
-            <div class="landing-blob landing-blob-4"></div>
-
-            <!-- Skip -->
-            <button id="landing-skip">Skip →</button>
-
-            <div class="landing-content">
-                <!-- Logo -->
-                <div class="landing-logomark">IR</div>
-
-                <!-- Live pill -->
-                <div class="landing-pill">
-                    <div class="dot"></div>
-                    AI-Powered · Karnataka Education · Free Forever
-                </div>
-
-                <!-- Headline -->
-                <h1 class="landing-headline">
-                    <span class="headline-static">InsightRural</span>
-                    <span class="headline-dynamic" id="landing-typewriter">
-                        Your AI Guide to Karnataka Colleges<span class="tw-cursor"></span>
-                    </span>
-                </h1>
-
-                <!-- Sub -->
-                <p class="landing-sub">
-                    Helping rural Karnataka students navigate college admissions, scholarships, loans &amp; career paths — powered by local AI, completely free.
-                </p>
-
-                <!-- Stats -->
-                <div class="landing-stats" id="landing-stats"></div>
-
-                <!-- Feature Cards -->
-                <div class="landing-features" id="landing-features"></div>
-
-                <!-- Marquee -->
-                <div class="landing-marquee-wrap">
-                    <div class="landing-marquee-track" id="landing-marquee"></div>
-                </div>
-
-                <!-- CTA -->
-                <div class="landing-cta-wrap">
-                    <button class="landing-cta-btn" id="landing-enter">
-                        Explore InsightRural
-                        <span class="cta-arrow">→</span>
-                    </button>
-                    <span class="landing-cta-hint">Free · No Sign-up Required · Works Offline</span>
-                </div>
+            <!-- Aurora Background -->
+            <div class="landing-aurora">
+                <div class="aurora-layer aurora-1"></div>
+                <div class="aurora-layer aurora-2"></div>
+                <div class="aurora-layer aurora-3"></div>
+                <div class="aurora-layer aurora-4"></div>
             </div>
+
+            <!-- Grid Overlay -->
+            <div class="landing-grid"></div>
+
+            <!-- Particle Canvas -->
+            <canvas id="landing-canvas"></canvas>
+
+            <!-- Skip Button -->
+            <button id="landing-skip">Skip &#8594;</button>
+
+            <!-- ═══════════════════════════════════════════
+                 PHASE 1: LOGO REVEAL + WELCOME
+                 ═══════════════════════════════════════════ -->
+            <section class="landing-phase-logo">
+                <div class="landing-logo-wrap">
+                    <div class="landing-logo-glow"></div>
+                    <img src="img/logo.jpg" alt="InsightRural Logo" class="landing-logo-img" />
+                </div>
+
+                <div class="landing-welcome-text">
+                    <div class="landing-welcome-label">Welcome to</div>
+                    <div class="landing-welcome-brand">InsightRural</div>
+                    <div class="landing-welcome-sub">AI Admission Intelligence Platform</div>
+                </div>
+
+                <div class="landing-emotion">
+                    <div class="landing-emotion-text" id="landing-emotion-text">
+                        ${EMOTIONAL_HEADLINES[0]}
+                    </div>
+                </div>
+
+                <div class="landing-scroll-hint" id="scroll-hint">
+                    <span>Discover More</span>
+                    <div class="scroll-arrow"></div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════
+                 PHASE 2: HERO — INTELLIGENCE PILLARS
+                 ═══════════════════════════════════════════ -->
+            <section class="landing-phase-hero">
+                <div class="hero-cinematic-title reveal">
+                    <h2>Not a website. <span>An AI Counselor.</span></h2>
+                    <p>Five pillars of intelligence working together to guide your most important decision.</p>
+                </div>
+
+                <div class="hero-pillars" id="hero-pillars">
+                    ${PILLARS.map((p, i) => `
+                        <div class="hero-pillar reveal reveal-delay-${i + 1}">
+                            <span class="pillar-icon">${p.icon}</span>
+                            <div class="pillar-title">${p.title}</div>
+                            <div class="pillar-desc">${p.desc}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════
+                 PHASE 3: TRUST BUILDING
+                 ═══════════════════════════════════════════ -->
+            <section class="landing-phase-trust">
+                <div class="trust-section-label reveal">Powered by Official Data</div>
+                <div class="trust-section-title reveal">Trusted Sources. Verified Intelligence.</div>
+
+                <div class="trust-grid" id="trust-grid">
+                    ${TRUST_SOURCES.map((t, i) => `
+                        <div class="trust-badge reveal reveal-delay-${(i % 5) + 1}">
+                            <div class="trust-badge-icon">${t.icon}</div>
+                            <div>
+                                <div class="trust-badge-name">${t.name}</div>
+                                <div class="trust-badge-desc">${t.desc}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════
+                 PHASE 4: AI SHOWCASE — LIVE PREVIEW
+                 ═══════════════════════════════════════════ -->
+            <section class="landing-phase-ai">
+                <div class="trust-section-label reveal">Live AI Preview</div>
+                <div class="trust-section-title reveal">See the Intelligence in Action</div>
+
+                <div class="ai-showcase-window reveal">
+                    <div class="ai-window-bar">
+                        <div class="ai-window-dot"></div>
+                        <div class="ai-window-dot"></div>
+                        <div class="ai-window-dot"></div>
+                        <div class="ai-window-title">InsightRural AI Counselor</div>
+                    </div>
+                    <div class="ai-chat-body" id="ai-chat-body"></div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════
+                 PHASE 5: EMOTIONAL STORYTELLING
+                 ═══════════════════════════════════════════ -->
+            <section class="landing-phase-story">
+                <div class="trust-section-label reveal">The Problem We Solve</div>
+                <div class="trust-section-title reveal">Millions of students struggle with...</div>
+
+                <div class="story-problem-grid" id="story-problems">
+                    ${PROBLEMS.map((p, i) => `
+                        <div class="story-problem-card reveal reveal-delay-${i + 1}">
+                            <div class="story-problem-icon">${p.icon}</div>
+                            <div class="story-problem-text">${p.text}</div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="story-solution reveal">
+                    <div class="story-solution-badge">
+                        <span>&#10003;</span> Our AI Solves This
+                    </div>
+                    <h3>One platform. Complete clarity.</h3>
+                    <p>InsightRural uses local AI, official government data, and 11-dimensional risk analysis to give every student — especially rural students — the guidance they deserve.</p>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════
+                 STATS SECTION
+                 ═══════════════════════════════════════════ -->
+            <section class="landing-stats-section">
+                <div class="landing-stats" id="landing-stats"></div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════
+                 PHASE 6: FINAL CTA
+                 ═══════════════════════════════════════════ -->
+            <section class="landing-phase-cta">
+                <div class="cta-headline reveal">Ready to discover your future?</div>
+                <div class="cta-sub reveal">Join thousands of students who found their perfect college, scholarship, and career path.</div>
+
+                <button class="landing-cta-btn reveal" id="landing-enter">
+                    Get Started — It's Free
+                    <span class="cta-arrow">&#8594;</span>
+                </button>
+                <div class="cta-hint reveal">No sign-up required &middot; Works offline &middot; 100% private</div>
+            </section>
         `;
+
         document.body.insertBefore(landing, document.body.firstChild);
         return landing;
     }
@@ -177,9 +264,9 @@
     function buildStats() {
         const container = document.getElementById('landing-stats');
         if (!container) return;
-        STATS.forEach((s) => {
+        STATS.forEach((s, i) => {
             const el = document.createElement('div');
-            el.className = 'landing-stat';
+            el.className = `landing-stat reveal reveal-delay-${i + 1}`;
             el.innerHTML = `
                 <span class="stat-value" data-target="${s.value}" data-prefix="${s.prefix}" data-suffix="${s.suffix}">
                     ${s.prefix}0${s.suffix}
@@ -191,107 +278,8 @@
     }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // BUILD FEATURE CARDS
+    // PARTICLE ENGINE (Premium Canvas)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    function buildFeatureCards() {
-        const container = document.getElementById('landing-features');
-        if (!container) return;
-
-        FEATURES.forEach((f, i) => {
-            const card = document.createElement('div');
-            card.className = 'landing-feature-card';
-            card.dataset.demo = f.demo;
-            card.dataset.idx = i;
-            card.dataset.feature = f.feature; // Map card → sidebar section
-
-            let demoHtml = '';
-            if (f.demo === 'chat' || f.demo === 'typing') {
-                demoHtml = `<div class="card-demo"><div class="card-demo-text" id="demo-text-${i}"></div></div>`;
-            } else if (f.demo === 'bars') {
-                const heights = [55, 80, 40, 95, 65];
-                const bars = heights.map(h =>
-                    `<div class="mini-bar" style="height:${h}%;"></div>`
-                ).join('');
-                demoHtml = `<div class="card-demo"><div class="mini-bars">${bars}</div></div>`;
-            } else if (f.demo === 'progress') {
-                const circum = 88;
-                const val = f.progressValue || 70;
-                const offset = circum - (circum * val / 100);
-                demoHtml = `
-                    <div class="card-demo progress-ring-wrap">
-                        <svg width="42" height="42" viewBox="0 0 42 42">
-                            <circle cx="21" cy="21" r="14" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="4"/>
-                            <circle class="progress-ring" cx="21" cy="21" r="14" fill="none"
-                                stroke-dasharray="${circum}" stroke-dashoffset="${circum}"
-                                stroke="var(--card-color, #8b5cf6)" stroke-width="4" stroke-linecap="round"
-                                id="progress-ring-${i}"/>
-                        </svg>
-                        <span style="position:absolute;font-size:10px;font-weight:700;color:#f1f5f9;">${val}%</span>
-                    </div>`;
-            } else if (f.demo === 'chart') {
-                demoHtml = `<div class="card-demo"><div class="mini-bars">
-                    <div class="mini-bar" style="height:60%;background:#10a37f;"></div>
-                    <div class="mini-bar" style="height:85%;background:#3b82f6;"></div>
-                    <div class="mini-bar" style="height:45%;background:#8b5cf6;"></div>
-                    <div class="mini-bar" style="height:100%;background:#f59e0b;"></div>
-                    <div class="mini-bar" style="height:70%;background:#ec4899;"></div>
-                </div></div>`;
-            } else if (f.demo === 'badge') {
-                demoHtml = `<div class="card-demo" style="justify-content:center;gap:4px;">
-                    <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;background:rgba(6,182,212,0.15);color:#06b6d4;border:1px solid rgba(6,182,212,0.25);">Round 1</span>
-                    <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;background:rgba(6,182,212,0.15);color:#06b6d4;border:1px solid rgba(6,182,212,0.25);">Round 2</span>
-                    <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;background:rgba(6,182,212,0.15);color:#06b6d4;border:1px solid rgba(6,182,212,0.25);">Mock</span>
-                </div>`;
-            }
-
-            card.innerHTML = `
-                <div class="card-icon-wrap">
-                    <span>${f.icon}</span>
-                    <div class="card-icon-pulse"></div>
-                </div>
-                <div class="card-title">${f.title}</div>
-                <div class="card-tag">${f.tag}</div>
-                ${demoHtml}
-                <div class="card-explore-hint">Click to explore →</div>
-            `;
-
-            // ── Click handler: dismiss landing and navigate to section ──
-            card.addEventListener('click', () => {
-                const feature = f.feature;
-                dismissLanding();
-                // Wait for landing exit animation then navigate
-                setTimeout(() => {
-                    if (typeof SidebarComponent !== 'undefined' && SidebarComponent.showSection) {
-                        SidebarComponent.showSection(feature);
-                    }
-                }, 750);
-            });
-
-            container.appendChild(card);
-        });
-    }
-
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // BUILD MARQUEE
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    function buildMarquee() {
-        const track = document.getElementById('landing-marquee');
-        if (!track) return;
-        // Double the items for seamless looping
-        const allItems = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
-        allItems.forEach((item) => {
-            const pill = document.createElement('div');
-            pill.className = 'marquee-pill';
-            pill.innerHTML = `<span>${item.icon}</span>${item.label}`;
-            track.appendChild(pill);
-        });
-    }
-
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // PARTICLE ENGINE (Canvas)
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    let particleRAF = null;
-
     function initParticles() {
         const canvas = document.getElementById('landing-canvas');
         if (!canvas) return;
@@ -304,19 +292,21 @@
         resize();
         window.addEventListener('resize', resize);
 
-        const N = Math.min(70, Math.floor(window.innerWidth / 18));
+        const N = Math.min(60, Math.floor(window.innerWidth / 22));
         const particles = Array.from({ length: N }, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.5) * 0.4,
-            r: Math.random() * 2 + 0.8,
-            a: Math.random() * 0.5 + 0.15,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            r: Math.random() * 1.5 + 0.5,
+            a: Math.random() * 0.4 + 0.1,
+            color: ['16,163,127', '59,130,246', '139,92,246'][Math.floor(Math.random() * 3)],
         }));
 
-        const CONNECT_DIST = 130;
+        const CONNECT_DIST = 140;
 
         function loop() {
+            if (!document.getElementById('landing-canvas')) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             particles.forEach((p) => {
@@ -327,23 +317,22 @@
 
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(16, 163, 127, ${p.a})`;
+                ctx.fillStyle = `rgba(${p.color}, ${p.a})`;
                 ctx.fill();
             });
 
-            // Draw connections
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < CONNECT_DIST) {
-                        const alpha = (1 - dist / CONNECT_DIST) * 0.18;
+                        const alpha = (1 - dist / CONNECT_DIST) * 0.12;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(16, 163, 127, ${alpha})`;
-                        ctx.lineWidth = 0.8;
+                        ctx.strokeStyle = `rgba(${particles[i].color}, ${alpha})`;
+                        ctx.lineWidth = 0.6;
                         ctx.stroke();
                     }
                 }
@@ -355,65 +344,113 @@
     }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // TYPEWRITER ENGINE
+    // EMOTIONAL HEADLINE ROTATION
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    let twIdx = 0;
-    let twCharIdx = 0;
-    let twDeleting = false;
-    let twTimeout = null;
+    let emotionIdx = 0;
+    let emotionInterval = null;
 
-    function runTypewriter() {
-        const el = document.getElementById('landing-typewriter');
+    function startEmotionRotation() {
+        const el = document.getElementById('landing-emotion-text');
         if (!el) return;
 
-        const phrase = TYPEWRITER_PHRASES[twIdx];
-        const cursor = '<span class="tw-cursor"></span>';
-
-        function tick() {
+        emotionInterval = setInterval(() => {
             if (!document.getElementById('landing-screen')) {
-                clearTimeout(twTimeout);
+                clearInterval(emotionInterval);
                 return;
             }
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                emotionIdx = (emotionIdx + 1) % EMOTIONAL_HEADLINES.length;
+                el.innerHTML = EMOTIONAL_HEADLINES[emotionIdx];
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 400);
+        }, 4000);
 
-            if (!twDeleting) {
-                twCharIdx++;
-                el.innerHTML = phrase.slice(0, twCharIdx) + cursor;
-                if (twCharIdx >= phrase.length) {
-                    twDeleting = true;
-                    twTimeout = setTimeout(tick, 2200);
-                    return;
+        el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    }
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // AI CHAT SHOWCASE ANIMATION
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    let aiChatStarted = false;
+
+    function startAIChatDemo() {
+        if (aiChatStarted) return;
+        aiChatStarted = true;
+
+        const body = document.getElementById('ai-chat-body');
+        if (!body) return;
+
+        let totalDelay = 0;
+
+        AI_CONVERSATION.forEach((item) => {
+            totalDelay += item.delay;
+
+            setTimeout(() => {
+                if (!document.getElementById('landing-screen')) return;
+
+                if (item.type === 'user') {
+                    const msg = document.createElement('div');
+                    msg.className = 'ai-msg ai-msg-user';
+                    msg.textContent = item.text;
+                    body.appendChild(msg);
+                    body.scrollTop = body.scrollHeight;
+                } else if (item.type === 'typing') {
+                    const typing = document.createElement('div');
+                    typing.className = 'ai-typing';
+                    typing.id = 'ai-typing-indicator';
+                    typing.innerHTML = '<div class="ai-typing-dot"></div><div class="ai-typing-dot"></div><div class="ai-typing-dot"></div>';
+                    body.appendChild(typing);
+                    body.scrollTop = body.scrollHeight;
+                } else if (item.type === 'ai') {
+                    // Remove typing indicator
+                    const typing = document.getElementById('ai-typing-indicator');
+                    if (typing) typing.remove();
+
+                    const msg = document.createElement('div');
+                    msg.className = 'ai-msg ai-msg-ai';
+                    msg.textContent = item.text;
+                    body.appendChild(msg);
+                    body.scrollTop = body.scrollHeight;
+                } else if (item.type === 'cards') {
+                    const wrap = document.createElement('div');
+                    wrap.className = 'ai-response-cards';
+                    item.cards.forEach((card, ci) => {
+                        setTimeout(() => {
+                            if (!document.getElementById('landing-screen')) return;
+                            const chip = document.createElement('div');
+                            chip.className = `ai-card-chip ${card.cls}`;
+                            chip.textContent = card.label;
+                            wrap.appendChild(chip);
+                        }, ci * 200);
+                    });
+                    body.appendChild(wrap);
+                    body.scrollTop = body.scrollHeight;
                 }
-                twTimeout = setTimeout(tick, 55);
-            } else {
-                twCharIdx--;
-                el.innerHTML = phrase.slice(0, twCharIdx) + cursor;
-                if (twCharIdx <= 0) {
-                    twDeleting = false;
-                    twIdx = (twIdx + 1) % TYPEWRITER_PHRASES.length;
-                    twTimeout = setTimeout(tick, 320);
-                    return;
-                }
-                twTimeout = setTimeout(tick, 28);
-            }
-        }
-        tick();
+            }, totalDelay);
+        });
     }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     // COUNTER ANIMATION
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    let countersAnimated = false;
+
     function animateCounters() {
+        if (countersAnimated) return;
+        countersAnimated = true;
+
         const els = document.querySelectorAll('#landing-stats .stat-value');
         els.forEach((el) => {
             const target = parseInt(el.dataset.target, 10);
             const prefix = el.dataset.prefix || '';
             const suffix = el.dataset.suffix || '';
-            const duration = 1800;
+            const duration = 2000;
             const startTime = performance.now();
 
-            function easeOut(t) {
-                return 1 - Math.pow(1 - t, 3);
-            }
+            function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
 
             function update(now) {
                 const elapsed = now - startTime;
@@ -437,90 +474,75 @@
     }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // CARD DEMO TYPEWRITERS
+    // INTERSECTION OBSERVER — Scroll Reveals
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    function initCardDemos() {
-        FEATURES.forEach((f, i) => {
-            if ((f.demo === 'chat' || f.demo === 'typing') && f.demoTexts) {
-                const textEl = document.getElementById(`demo-text-${i}`);
-                if (!textEl) return;
-                let idx = 0;
-                let charIdx = 0;
+    function initScrollReveals() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
 
-                function tick() {
-                    if (!document.getElementById('landing-screen')) return;
-                    const phrase = f.demoTexts[idx];
-                    charIdx++;
-                    textEl.textContent = phrase.slice(0, charIdx);
-                    if (charIdx >= phrase.length) {
-                        idx = (idx + 1) % f.demoTexts.length;
-                        charIdx = 0;
-                        setTimeout(tick, 2000);
-                        return;
+                    // Trigger AI chat when showcase is visible
+                    if (entry.target.closest('.landing-phase-ai')) {
+                        startAIChatDemo();
                     }
-                    setTimeout(tick, Math.random() * 40 + 30);
-                }
-                setTimeout(tick, 600 + i * 300);
-            }
 
-            // Animate progress ring
-            if (f.demo === 'progress') {
-                const ring = document.getElementById(`progress-ring-${i}`);
-                if (ring) {
-                    const circumference = 88;
-                    const target = f.progressValue || 70;
-                    const targetOffset = circumference - (circumference * target / 100);
-                    let startTime = null;
-
-                    function animateRing(now) {
-                        if (!startTime) startTime = now;
-                        const t = Math.min((now - startTime) / 1500, 1);
-                        const ease = 1 - Math.pow(1 - t, 3);
-                        ring.style.strokeDashoffset = circumference - (ease * (circumference - targetOffset));
-                        if (t < 1) requestAnimationFrame(animateRing);
+                    // Trigger counter animation when stats visible
+                    if (entry.target.closest('.landing-stats-section')) {
+                        animateCounters();
                     }
-                    setTimeout(() => requestAnimationFrame(animateRing), 800);
                 }
-            }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px',
+        });
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
         });
     }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // DISMISS LANDING
+    // DISMISS LANDING (Cinematic Exit)
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     function dismissLanding() {
         const landing = document.getElementById('landing-screen');
         if (!landing) return;
 
-        // Stop particle loop
+        // Stop animations
         if (particleRAF) {
             cancelAnimationFrame(particleRAF);
             particleRAF = null;
         }
-        clearTimeout(twTimeout);
+        if (emotionInterval) clearInterval(emotionInterval);
 
-        // Animate out
+        // Cinematic exit
         landing.classList.add('exit');
+
         setTimeout(() => {
             landing.remove();
 
-            // Show main app
+            // Reveal main app with smooth entrance
             const appContent = document.getElementById('app-content');
             if (appContent) {
                 appContent.style.display = '';
                 appContent.style.opacity = '0';
-                appContent.style.transition = 'opacity 0.4s ease';
+                appContent.style.transform = 'scale(0.98)';
+                appContent.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
                         appContent.style.opacity = '1';
+                        appContent.style.transform = 'scale(1)';
                     });
                 });
                 setTimeout(() => {
                     appContent.style.transition = '';
                     appContent.style.opacity = '';
-                }, 500);
+                    appContent.style.transform = '';
+                }, 700);
             }
-        }, 700);
+        }, 1000);
     }
 
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -529,18 +551,22 @@
     function bindEvents() {
         const enterBtn = document.getElementById('landing-enter');
         const skipBtn = document.getElementById('landing-skip');
+        const scrollHint = document.getElementById('scroll-hint');
 
         if (enterBtn) {
             enterBtn.addEventListener('click', dismissLanding);
-            enterBtn.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') dismissLanding();
-            });
         }
         if (skipBtn) {
             skipBtn.addEventListener('click', dismissLanding);
         }
+        if (scrollHint) {
+            scrollHint.addEventListener('click', () => {
+                const hero = document.querySelector('.landing-phase-hero');
+                if (hero) hero.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
 
-        // Keyboard shortcut: press Enter or Space anywhere on landing
+        // Keyboard: Enter to dismiss
         document.addEventListener('keydown', function onKey(e) {
             if (!document.getElementById('landing-screen')) {
                 document.removeEventListener('keydown', onKey);
@@ -563,30 +589,27 @@
     function init() {
         // Skip if already seen this session
         if (sessionStorage.getItem('ir_landing_seen')) {
-            showAppContent(); // Still need to reveal the app
+            showAppContent();
             return;
         }
 
-        // Build & insert landing
+        // Build landing
         buildLanding();
         buildStats();
-        buildFeatureCards();
-        buildMarquee();
 
-        // Start animations after a tiny delay to ensure DOM is painted
+        // Start animations
         requestAnimationFrame(() => {
             initParticles();
             bindEvents();
-            setTimeout(runTypewriter, 600);
-            setTimeout(animateCounters, 700);
-            setTimeout(initCardDemos, 800);
+            initScrollReveals();
+            setTimeout(startEmotionRotation, 2000);
         });
 
-        // Mark as seen for this session
+        // Mark as seen
         sessionStorage.setItem('ir_landing_seen', '1');
     }
 
-    // Run as early as possible (before DOMContentLoaded ensures faster load)
+    // Run ASAP
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

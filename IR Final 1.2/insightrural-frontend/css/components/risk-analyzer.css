@@ -1,0 +1,872 @@
+/* ============================================================================
+   AI Student Success & Counseling Risk Analyzer — Premium Design System
+   Inspired by: Apple, Stripe, OpenAI, Linear, Vercel
+   ============================================================================ */
+
+/* ---- Container ---- */
+.risk-analyzer-container {
+    padding: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    animation: riskFadeIn 0.6s ease-out forwards;
+    opacity: 0;
+    overflow-y: auto;
+    height: calc(100vh - var(--top-nav-height, 64px));
+    scrollbar-width: thin;
+}
+
+@keyframes riskFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(12px); }
+}
+
+/* ---- Hero Section ---- */
+.risk-hero {
+    text-align: center;
+    padding: 48px 32px 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+.risk-hero::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(139,92,246,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(236,72,153,0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.risk-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.risk-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(236,72,153,0.12));
+    border: 1px solid rgba(139,92,246,0.2);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #8b5cf6;
+    margin-bottom: 16px;
+}
+
+[data-theme="dark"] .risk-hero-badge {
+    background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(236,72,153,0.15));
+    color: #a78bfa;
+}
+
+.risk-hero h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 40%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.risk-hero p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ---- Main Grid Layout ---- */
+.risk-main-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 28px;
+    padding: 0 32px 48px;
+}
+
+@media (max-width: 1024px) {
+    .risk-main-grid {
+        grid-template-columns: 1fr;
+        padding: 0 16px 32px;
+    }
+}
+
+/* ---- Form Card ---- */
+.risk-form-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 28px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+    box-shadow: var(--shadow-md);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.risk-form-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(139,92,246,0.2);
+}
+
+.risk-form-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.risk-form-subtitle {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.risk-form-section {
+    margin-bottom: 20px;
+}
+
+.risk-form-section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.risk-input-group {
+    margin-bottom: 14px;
+}
+
+.risk-input-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.risk-input-group input,
+.risk-input-group select,
+.risk-input-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.risk-input-group input:focus,
+.risk-input-group select:focus,
+.risk-input-group textarea:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139,92,246,0.1);
+}
+
+.risk-input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.risk-checkbox-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 4px;
+}
+
+.risk-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.risk-checkbox-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #8b5cf6;
+    cursor: pointer;
+}
+
+/* ---- Analyze Button ---- */
+.risk-analyze-btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(139,92,246,0.3);
+    position: relative;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.risk-analyze-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.risk-analyze-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(139,92,246,0.4);
+}
+
+.risk-analyze-btn:hover::before {
+    opacity: 1;
+}
+
+.risk-analyze-btn:active {
+    transform: translateY(0);
+}
+
+.risk-analyze-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ---- Analyzing Spinner ---- */
+.risk-btn-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: riskSpin 0.7s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+@keyframes riskSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---- Results Section ---- */
+.risk-results-area {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ---- Empty State ---- */
+.risk-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-color);
+    border-radius: 20px;
+    transition: border-color 0.3s;
+}
+
+.risk-empty-state:hover {
+    border-color: rgba(139,92,246,0.3);
+}
+
+.risk-empty-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+    animation: riskFloat 3s ease-in-out infinite;
+}
+
+@keyframes riskFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.risk-empty-state h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.risk-empty-state p {
+    color: var(--text-muted);
+    max-width: 340px;
+    font-size: 0.9rem;
+}
+
+/* ---- Score Cards Grid ---- */
+.risk-score-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 900px) {
+    .risk-score-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .risk-score-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.risk-score-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.risk-score-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.risk-score-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 0 0 16px 16px;
+}
+
+.risk-score-card.card-success::after { background: linear-gradient(90deg, #10b981, #34d399); }
+.risk-score-card.card-danger::after { background: linear-gradient(90deg, #ef4444, #f87171); }
+.risk-score-card.card-info::after { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.risk-score-card.card-warning::after { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.risk-score-card.card-purple::after { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+
+.risk-score-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.risk-score-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.risk-score-value.color-success { color: #10b981; }
+.risk-score-value.color-danger { color: #ef4444; }
+.risk-score-value.color-info { color: #3b82f6; }
+.risk-score-value.color-warning { color: #f59e0b; }
+.risk-score-value.color-purple { color: #8b5cf6; }
+
+.risk-score-sublabel {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+/* ---- Circular Gauge ---- */
+.risk-gauge-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.risk-gauge {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.risk-gauge svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.risk-gauge-track {
+    fill: none;
+    stroke: var(--border-color);
+    stroke-width: 5;
+}
+
+.risk-gauge-fill {
+    fill: none;
+    stroke-width: 5;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.risk-gauge-text {
+    font-size: 1.3rem;
+    font-weight: 800;
+    z-index: 1;
+}
+
+/* ---- Risk Radar Section ---- */
+.risk-radar-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+}
+
+.risk-radar-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.risk-radar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .risk-radar-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.risk-radar-item {
+    padding: 16px;
+    border-radius: 14px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.risk-radar-item:hover {
+    border-color: rgba(139,92,246,0.25);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.risk-radar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.risk-radar-name {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--text-primary);
+}
+
+.risk-level-badge {
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.risk-level-badge.level-low {
+    background: rgba(16,185,129,0.12);
+    color: #059669;
+}
+
+.risk-level-badge.level-medium {
+    background: rgba(245,158,11,0.12);
+    color: #b45309;
+}
+
+.risk-level-badge.level-high {
+    background: rgba(239,68,68,0.12);
+    color: #dc2626;
+}
+
+.risk-radar-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.risk-radar-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 0%;
+}
+
+.risk-radar-bar-fill.bar-low { background: linear-gradient(90deg, #10b981, #34d399); }
+.risk-radar-bar-fill.bar-medium { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.risk-radar-bar-fill.bar-high { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+.risk-radar-reason {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ---- Detail Cards ---- */
+.risk-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 700px) {
+    .risk-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.risk-detail-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.risk-detail-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.risk-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.risk-detail-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.risk-detail-icon.icon-roi { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(52,211,153,0.12)); }
+.risk-detail-icon.icon-scholarship { background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(251,191,36,0.12)); }
+.risk-detail-icon.icon-career { background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(96,165,250,0.12)); }
+.risk-detail-icon.icon-placement { background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(167,139,250,0.12)); }
+
+.risk-detail-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.risk-detail-score {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.risk-detail-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.risk-detail-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.risk-detail-stat {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    padding: 4px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.risk-detail-stat:last-child {
+    border-bottom: none;
+}
+
+.risk-detail-stat-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ---- Scholarship Badges ---- */
+.risk-scholarship-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.risk-scholarship-badge {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: rgba(245,158,11,0.08);
+    color: #b45309;
+    border: 1px solid rgba(245,158,11,0.15);
+}
+
+/* ---- AI Explanation Card ---- */
+.risk-ai-card {
+    background: linear-gradient(135deg, var(--bg-secondary), rgba(139,92,246,0.03));
+    border: 1px solid var(--border-color);
+    border-left: 4px solid #8b5cf6;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.risk-ai-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(139,92,246,0.04), transparent 70%);
+    pointer-events: none;
+}
+
+.risk-ai-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.risk-ai-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.risk-ai-meta {
+    flex: 1;
+}
+
+.risk-ai-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.risk-ai-role {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.risk-ai-body {
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text-primary);
+}
+
+.risk-ai-body p {
+    margin-bottom: 10px;
+}
+
+/* ---- Regret Probability Indicator ---- */
+.risk-regret-section {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+}
+
+.risk-regret-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.risk-regret-meter {
+    width: 100%;
+    height: 12px;
+    background: var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.risk-regret-meter::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+        #10b981 0%,
+        #10b981 30%,
+        #f59e0b 30%,
+        #f59e0b 60%,
+        #ef4444 60%,
+        #ef4444 100%
+    );
+    opacity: 0.15;
+    border-radius: 6px;
+}
+
+.risk-regret-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 0%;
+    position: relative;
+    z-index: 1;
+}
+
+.risk-regret-reasons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.risk-regret-reason-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    padding: 6px 0;
+}
+
+.risk-regret-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ---- Typewriter Animation for AI Text ---- */
+.risk-typewriter {
+    overflow: hidden;
+    border-right: 2px solid #8b5cf6;
+    animation: riskBlink 0.8s step-end infinite;
+}
+
+@keyframes riskBlink {
+    0%, 100% { border-color: #8b5cf6; }
+    50% { border-color: transparent; }
+}
+
+/* ---- Animate In ---- */
+.risk-animate-in {
+    animation: riskSlideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes riskSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Count Up Numbers ---- */
+.risk-countup {
+    transition: opacity 0.3s;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .risk-hero h2 {
+        font-size: 1.6rem;
+    }
+
+    .risk-hero {
+        padding: 32px 16px 20px;
+    }
+
+    .risk-form-card {
+        position: static;
+    }
+
+    .risk-score-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .risk-hero h2 {
+        font-size: 1.35rem;
+    }
+
+    .risk-score-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .risk-score-card {
+        padding: 14px;
+    }
+
+    .risk-score-value {
+        font-size: 1.6rem;
+    }
+}

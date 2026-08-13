@@ -117,19 +117,37 @@ const PredictorComponent = {
                 </div>
                 
                 <!-- KEA Reservation Quotas -->
-                <div class="form-group" style="grid-column: 1 / -1; background: var(--bg-secondary, #f8f9fa); padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border-color, #e0e0e0);">
-                    <label style="font-weight: 600; margin-bottom: 6px; display: block;">
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label style="font-weight: 600; margin-bottom: 10px; display: block;">
                         🎫 Special Reservations <span style="font-weight: 400; font-size: 12px; color: var(--text-tertiary, #888);">(Select all applicable)</span>
                     </label>
-                    <div class="checkbox-group" style="margin-top: 5px;">
-                        <label class="checkbox-item">
-                            <input type="checkbox" id="res-rural"> 🌾 Rural (1-10 Std) — 15% quota
+                    <div class="reservation-cards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 5px;">
+                        <label class="premium-checkbox-card checkbox-item">
+                            <div class="card-icon">🌾</div>
+                            <div class="card-content">
+                                <h4>Rural Quota</h4>
+                                <p>15% state seats</p>
+                            </div>
+                            <input type="checkbox" id="res-rural">
+                            <div class="card-indicator"></div>
                         </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" id="res-kannada"> 🕉️ Kannada Medium — 5% quota
+                        <label class="premium-checkbox-card checkbox-item">
+                            <div class="card-icon">🕉️</div>
+                            <div class="card-content">
+                                <h4>Kannada Medium</h4>
+                                <p>5% state seats</p>
+                            </div>
+                            <input type="checkbox" id="res-kannada">
+                            <div class="card-indicator"></div>
                         </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" id="res-hk"> 🏛️ Hyderabad-Karnataka (Art. 371J) — 8% state quota
+                        <label class="premium-checkbox-card checkbox-item">
+                            <div class="card-icon">🏛️</div>
+                            <div class="card-content">
+                                <h4>HK Region (371J)</h4>
+                                <p>Up to 70% local seats</p>
+                            </div>
+                            <input type="checkbox" id="res-hk">
+                            <div class="card-indicator"></div>
                         </label>
                     </div>
                 </div>
@@ -213,17 +231,17 @@ const PredictorComponent = {
     },
 
     setupCheckboxToggles() {
+        // We attach 'change' event to inputs instead of 'click' to label to prevent double toggling
         document.querySelectorAll('.checkbox-item').forEach(item => {
-            const checkbox = item.querySelector('input');
-            if (checkbox && checkbox.checked) {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            if (!checkbox) return;
+            
+            // Initialize state
+            if (checkbox.checked) {
                 item.classList.add('selected');
             }
 
-            item.addEventListener('click', (e) => {
-                if (!checkbox) return;
-                if (e.target !== checkbox) {
-                    checkbox.checked = !checkbox.checked;
-                }
+            checkbox.addEventListener('change', () => {
                 item.classList.toggle('selected', checkbox.checked);
             });
         });
@@ -299,9 +317,8 @@ const PredictorComponent = {
         this.setLoading(true);
 
         try {
-            const response = await fetch(`${API_BASE_URL}/api/predict/college`, {
+            const response = await AppState.authFetch(`${API_BASE_URL}/api/predict/college`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
 
@@ -312,6 +329,9 @@ const PredictorComponent = {
                 this.lastFormData = formData;
                 this.renderResults(result);
                 this.launchConfetti();
+                if (typeof window.playChime === 'function') {
+                    window.playChime('success');
+                }
                 // Refresh other tabs with new data
                 if (this.activeTab === 'analytics') this.renderAnalytics();
             } else {
@@ -352,9 +372,8 @@ const PredictorComponent = {
         }
 
         try {
-            const response = await fetch(`${API_BASE_URL}/api/report/generate`, {
+            const response = await AppState.authFetch(`${API_BASE_URL}/api/report/generate`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     prediction_result: this.lastPredictionResult,
                     student_profile: this.lastFormData

@@ -103,6 +103,54 @@ def run_tests():
     test("POST /api/counseling/generate-options no rank", "POST", "/api/counseling/generate-options", json_body={}, expected_status=400)
     test("POST /api/counseling/generate-options", "POST", "/api/counseling/generate-options", json_body={"rank": 5000, "category": "GM", "branches": ["CSE"]}, accept_optional=(200, 503))
 
+    # ---- Unified JEE / NEET admission counseling ----
+    test("POST /api/admission-probability", "POST", "/api/admission-probability", json_body={
+        "rank": 5000, "previous_cutoff": 8000, "category": "OPEN"
+    })
+    test("POST /api/jee/predict", "POST", "/api/jee/predict", json_body={
+        "jee_main_rank": 12000,
+        "jee_advanced_rank": 900,
+        "category": "OPEN",
+        "gender": "Gender Neutral",
+        "home_state": "Karnataka",
+        "preferred_branches": ["CSE", "ECE"]
+    })
+    test("POST /api/jee/compare", "POST", "/api/jee/compare", json_body={
+        "jee_main_rank": 12000,
+        "jee_advanced_rank": 900,
+        "category": "OPEN",
+        "preferred_branches": ["CSE"]
+    })
+    test("GET /api/jee/cutoffs", "GET", "/api/jee/cutoffs?institute_type=NIT&branch=CSE")
+    test("POST /api/neet/predict", "POST", "/api/neet/predict", json_body={
+        "neet_rank": 20000,
+        "neet_score": 635,
+        "category": "OPEN",
+        "state": "Karnataka",
+        "gender": "All"
+    })
+    test("POST /api/neet/cutoffs", "POST", "/api/neet/cutoffs", json_body={
+        "course": "MBBS",
+        "state": "Karnataka"
+    })
+    test("POST /api/neet/counseling", "POST", "/api/neet/counseling", json_body={
+        "neet_rank": 20000,
+        "neet_score": 635,
+        "category": "OPEN",
+        "state": "Karnataka"
+    })
+    test("POST /api/compare", "POST", "/api/compare", json_body={
+        "colleges": ["IIT Bombay", "NIT Karnataka Surathkal", "IIIT Allahabad"]
+    })
+    test("POST /api/career/roadmap", "POST", "/api/career/roadmap", json_body={
+        "branch": "CSE",
+        "interests": "startup"
+    })
+    test("POST /api/admission-counselor", "POST", "/api/admission-counselor", json_body={
+        "message": "Can I get AIIMS Delhi with AIR 200?",
+        "profile": {"category": "OPEN", "neet_rank": 200}
+    }, accept_optional=(200, 500))
+
     # ---- Scholarships ----
     test("POST /api/scholarships/generate-essay", "POST", "/api/scholarships/generate-essay", json_body={
         "student_data": {"name": "Test", "income": "2 Lakh"}, "scholarship": "Test Scholarship", "reason": "Need"

@@ -19,6 +19,12 @@ const VoiceCounselorComponent = {
     init() {
         this.setupSpeechRecognition();
         this.injectStyles();
+        
+        // Ensure voices load reliably for all browsers
+        if (this.synthesis && this.synthesis.onvoiceschanged !== undefined) {
+            this.synthesis.onvoiceschanged = () => this.synthesis.getVoices();
+        }
+        
         console.log('🎙️ Voice Counselor initialized');
     },
 
@@ -218,13 +224,29 @@ const VoiceCounselorComponent = {
         }
     },
 
+    formatMarkdown(text) {
+        if (!text) return '';
+        let html = text;
+        // Bold
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Lists
+        html = html.replace(/^\s*[-•*]\s+(.*)/gm, '<li>$1</li>');
+        html = html.replace(/(<li>.*<\/li>)/s, '<ul style="padding-left: 20px; margin: 8px 0;">$1</ul>');
+        // New lines
+        html = html.replace(/\n/g, '<br>');
+        return html;
+    },
+
     updateResponseBox(text) {
         const responseBox = document.getElementById('response-box');
         const responseText = document.getElementById('response-text');
 
         if (responseBox && responseText) {
             responseBox.classList.add('active');
-            responseText.textContent = text;
+            responseText.innerHTML = this.formatMarkdown(text);
+            
+            // Smooth auto-scroll
+            responseText.scrollTop = responseText.scrollHeight;
         }
     },
 
@@ -275,31 +297,116 @@ const VoiceCounselorComponent = {
     async processVoiceInput(text) {
         if (!text.trim()) return;
 
-        this.updateUI('processing');
+        if (!AppState.isLoggedIn()) {
+            alert('🔐 Authentication required. Please register/login to speak with the AI Counselor.');
+            if (window.ModalComponent) {
+                window.ModalComponent.showModal('login-modal');
+            }
+            this.updateUI('error', 'Login required');
+            return;
+        }
 
-        // Add to history
+        this.updateUI('processing');
         this.addToHistory('user', text);
+        this.updateResponseBox('...');
 
         try {
-            const response = await fetch(`${API_BASE_URL}/api/chat`, {
+            const token = localStorage.getItem('insightrural-token') || localStorage.getItem('token') || '';
+            const headers = { 'Content-Type': 'application/json' };
+            if (token) headers['Authorization'] = `Bearer ${token}`;
+
+            const response = await fetch(`${API_BASE_URL}/api/chat/stream`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: headers,
                 body: JSON.stringify({
                     message: text,
                     feature: 'voice',
-                    language: this.currentLanguage
+                    language: this.currentLanguage,
+                    history: this.conversationHistory
                 })
             });
 
-            const data = await response.json();
-            const aiResponse = data.response || 'Sorry, I could not process that.';
+            if (!response.ok) throw new Error('Network response was not ok');
 
-            // Display and speak response
-            this.updateResponseBox(aiResponse);
-            this.addToHistory('assistant', aiResponse);
-            this.speak(aiResponse);
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder("utf-8");
+            let fullResponse = '';
+            let sentenceBuffer = '';
 
-            // Award XP for using voice
+            this.updateUI('speaking');
+            this.isSpeaking = true;
+            this.synthesis.cancel();
+
+            const speakSentence = (sentence) => {
+                if (!sentence.trim()) return;
+                const utterance = new SpeechSynthesisUtterance(sentence.trim());
+                utterance.lang = this.currentLanguage;
+                utterance.rate = 0.95;
+                utterance.pitch = 1;
+                
+                const voices = this.synthesis.getVoices();
+                let langVoice = voices.find(v => v.lang.replace('_', '-').toLowerCase() === this.currentLanguage.toLowerCase() && (v.name.includes('Google') || v.name.includes('Microsoft')));
+                if (!langVoice) langVoice = voices.find(v => v.lang.startsWith(this.currentLanguage.split('-')[0]));
+                if (langVoice) utterance.voice = langVoice;
+
+                utterance.onend = () => {
+                    if (!this.isSpeaking && fullResponse.endsWith(sentence.trim())) {
+                        this.updateUI('idle');
+                    }
+                };
+                this.synthesis.speak(utterance);
+            };
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                const chunk = decoder.decode(value, { stream: true });
+                const lines = chunk.split('\n');
+                
+                for (let line of lines) {
+                    if (line.startsWith('data: ')) {
+                        const dataStr = line.substring(6);
+                        try {
+                            const dataObj = JSON.parse(dataStr);
+                            if (dataObj.chunk) {
+                                fullResponse += dataObj.chunk;
+                                sentenceBuffer += dataObj.chunk;
+                                this.updateResponseBox(fullResponse);
+
+                                // Speak complete sentences dynamically
+                                if (/[.!?।]/.test(dataObj.chunk)) {
+                                    const match = sentenceBuffer.match(/[^.!?।]+[.!?।]*/g);
+                                    if (match) {
+                                        for (let i = 0; i < match.length - 1; i++) {
+                                            speakSentence(match[i]);
+                                        }
+                                        sentenceBuffer = match[match.length - 1];
+                                        if (/[.!?।]$/.test(sentenceBuffer)) {
+                                            speakSentence(sentenceBuffer);
+                                            sentenceBuffer = '';
+                                        }
+                                    }
+                                }
+                            }
+                            if (dataObj.done && sentenceBuffer.trim()) {
+                                speakSentence(sentenceBuffer);
+                            }
+                        } catch (e) {}
+                    }
+                }
+            }
+
+            this.addToHistory('assistant', fullResponse);
+            
+            const checkDone = setInterval(() => {
+                if (!this.synthesis.speaking) {
+                    this.isSpeaking = false;
+                    this.updateUI('idle');
+                    clearInterval(checkDone);
+                }
+            }, 500);
+
             if (window.ProgressComponent) {
                 ProgressComponent.addXP(15, 'voice_query');
                 ProgressComponent.unlockBadge('voice_pioneer');
@@ -319,36 +426,50 @@ const VoiceCounselorComponent = {
 
         // Cancel any ongoing speech
         this.synthesis.cancel();
+        this.isSpeaking = true;
+        this.updateUI('speaking');
 
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = this.currentLanguage;
-        utterance.rate = 0.9;
-        utterance.pitch = 1;
+        // Split text into chunks to prevent browser speech cutoff, handling Hindi/Kannada punctuation
+        const chunks = text.match(/[^.!?।]+[.!?।]*/g) || [text];
+        let chunkIndex = 0;
 
-        // Try to find a voice for the language
-        const voices = this.synthesis.getVoices();
-        const langVoice = voices.find(v => v.lang.startsWith(this.currentLanguage.split('-')[0]));
-        if (langVoice) {
-            utterance.voice = langVoice;
-        }
+        const speakNextChunk = () => {
+            if (chunkIndex >= chunks.length || !this.isSpeaking) {
+                this.isSpeaking = false;
+                this.updateUI('idle');
+                return;
+            }
 
-        utterance.onstart = () => {
-            this.isSpeaking = true;
-            this.updateUI('speaking');
+            const utterance = new SpeechSynthesisUtterance(chunks[chunkIndex]);
+            utterance.lang = this.currentLanguage;
+            utterance.rate = 0.95;
+            utterance.pitch = 1;
+
+            // Priority to high-quality native voices
+            const voices = this.synthesis.getVoices();
+            let langVoice = voices.find(v => v.lang.replace('_', '-').toLowerCase() === this.currentLanguage.toLowerCase() && (v.name.includes('Google') || v.name.includes('Microsoft')));
+            if (!langVoice) {
+                langVoice = voices.find(v => v.lang.startsWith(this.currentLanguage.split('-')[0]));
+            }
+            if (langVoice) {
+                utterance.voice = langVoice;
+            }
+
+            utterance.onend = () => {
+                chunkIndex++;
+                speakNextChunk();
+            };
+
+            utterance.onerror = (e) => {
+                console.error('Speech error:', e);
+                this.isSpeaking = false;
+                this.updateUI('idle');
+            };
+
+            this.synthesis.speak(utterance);
         };
 
-        utterance.onend = () => {
-            this.isSpeaking = false;
-            this.updateUI('idle');
-        };
-
-        utterance.onerror = (e) => {
-            console.error('Speech error:', e);
-            this.isSpeaking = false;
-            this.updateUI('idle');
-        };
-
-        this.synthesis.speak(utterance);
+        speakNextChunk();
     },
 
     stopSpeaking() {
@@ -548,18 +669,23 @@ const VoiceCounselorComponent = {
 
             .transcript-box,
             .response-box {
-                background: var(--card-bg, #1a1a2e);
-                border: 1px solid var(--border-color, #333);
-                border-radius: 12px;
-                padding: 1rem;
-                margin-bottom: 1rem;
-                opacity: 0.5;
-                transition: opacity 0.3s;
+                background: rgba(26, 26, 46, 0.6);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+                border-radius: 16px;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                opacity: 0;
+                transform: translateY(15px);
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             }
 
             .transcript-box.active,
             .response-box.active {
                 opacity: 1;
+                transform: translateY(0);
             }
 
             .transcript-label,
@@ -581,7 +707,27 @@ const VoiceCounselorComponent = {
 
             .response-text {
                 color: var(--text-primary, #fff);
-                line-height: 1.6;
+                line-height: 1.7;
+                font-size: 1.05rem;
+                max-height: 250px;
+                overflow-y: auto;
+                padding-right: 10px;
+            }
+            
+            /* Custom Scrollbar for response box */
+            .response-text::-webkit-scrollbar {
+                width: 6px;
+            }
+            .response-text::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 4px;
+            }
+            .response-text::-webkit-scrollbar-thumb {
+                background: rgba(30, 144, 255, 0.5);
+                border-radius: 4px;
+            }
+            .response-text::-webkit-scrollbar-thumb:hover {
+                background: rgba(30, 144, 255, 0.8);
             }
 
             .voice-controls {

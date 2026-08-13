@@ -1,1 +1,1 @@
-# Tests package
+# InsightRural Test Suite

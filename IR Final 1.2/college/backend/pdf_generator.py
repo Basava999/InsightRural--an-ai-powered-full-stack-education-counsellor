@@ -1,4 +1,4 @@
-﻿# PDF Report Generator for InsightRural
+# PDF Report Generator for InsightRural
 # Generates downloadable college recommendation reports
 
 from fpdf import FPDF
@@ -12,7 +12,15 @@ class CollegeReportPDF(FPDF):
     def __init__(self):
         super().__init__()
         self.set_auto_page_break(auto=True, margin=15)
-        
+
+    @staticmethod
+    def _sanitize(text):
+        """Strip characters outside the Latin-1 range to avoid FPDFUnicodeEncodingException."""
+        if not isinstance(text, str):
+            text = str(text)
+        # Keep only chars that Helvetica can render (U+0000..U+00FF)
+        return ''.join(ch for ch in text if ord(ch) < 256)
+
     def header(self):
         # Logo/Brand
         self.set_font('Helvetica', 'B', 20)
@@ -39,28 +47,28 @@ class CollegeReportPDF(FPDF):
     def add_section_title(self, title, emoji=""):
         self.set_font('Helvetica', 'B', 14)
         self.set_text_color(30, 144, 255)  # Blue
-        self.cell(0, 10, f'{emoji} {title}', ln=True)
+        self.cell(0, 10, self._sanitize(f'{emoji} {title}'), ln=True)
         self.ln(2)
         
     def add_subsection(self, title):
         self.set_font('Helvetica', 'B', 11)
         self.set_text_color(60, 60, 60)
-        self.cell(0, 8, title, ln=True)
+        self.cell(0, 8, self._sanitize(title), ln=True)
         
     def add_text(self, text, bold=False):
         self.set_font('Helvetica', 'B' if bold else '', 10)
         self.set_text_color(0, 0, 0)
-        self.multi_cell(0, 6, text)
+        self.multi_cell(0, 6, self._sanitize(text))
         self.ln(2)
         
     def add_key_value(self, key, value, key_width=50):
         self.set_font('Helvetica', 'B', 10)
         self.set_text_color(60, 60, 60)
-        self.cell(key_width, 6, f'{key}:', align='L')
+        self.cell(key_width, 6, self._sanitize(f'{key}:'), align='L')
         
         self.set_font('Helvetica', '', 10)
         self.set_text_color(0, 0, 0)
-        self.cell(0, 6, str(value), ln=True)
+        self.cell(0, 6, self._sanitize(str(value)), ln=True)
 
 
 def generate_college_report(prediction_result: dict, student_profile: dict) -> bytes:
@@ -170,7 +178,7 @@ def generate_college_report(prediction_result: dict, student_profile: dict) -> b
         ]
         
         for i, data in enumerate(row_data):
-            pdf.cell(col_widths[i], 7, data, border=1, align='C', fill=True)
+            pdf.cell(col_widths[i], 7, pdf._sanitize(data), border=1, align='C', fill=True)
         pdf.ln()
     
     pdf.ln(10)
@@ -210,7 +218,7 @@ def generate_college_report(prediction_result: dict, student_profile: dict) -> b
             pdf.cell(10, 6, f'{i}.', align='R')
             pdf.set_text_color(0, 0, 0)
             college_display = option.get('college_name') or option.get('college', '')
-            pdf.cell(0, 6, f" {college_display} - {option.get('branch', '')} ({category_label})", ln=True)
+            pdf.cell(0, 6, pdf._sanitize(f" {college_display} - {option.get('branch', '')} ({category_label})"), ln=True)
     
     # ===== IMPORTANT NOTES =====
     pdf.ln(10)
@@ -227,7 +235,7 @@ def generate_college_report(prediction_result: dict, student_profile: dict) -> b
     pdf.set_font('Helvetica', '', 9)
     pdf.set_text_color(80, 80, 80)
     for note in notes:
-        pdf.multi_cell(0, 5, note)
+        pdf.multi_cell(0, 5, pdf._sanitize(note))
         pdf.ln(1)
     
     # Return PDF as bytes
