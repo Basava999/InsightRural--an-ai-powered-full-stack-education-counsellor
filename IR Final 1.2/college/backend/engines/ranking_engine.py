@@ -281,8 +281,17 @@ class RankingEngine:
         if not profile.preferred_locations:
             return 75.0  # No preference → neutral
 
-        college_location = (college.get("location", "") or "").lower()
-        college_district = (college.get("district", "") or "").lower()
+        loc_val = college.get("location", "")
+        if isinstance(loc_val, dict):
+            college_location = " ".join(str(v) for v in loc_val.values()).lower()
+        else:
+            college_location = str(loc_val or "").lower()
+
+        dist_val = college.get("district", "")
+        if isinstance(dist_val, dict):
+            college_district = " ".join(str(v) for v in dist_val.values()).lower()
+        else:
+            college_district = str(dist_val or "").lower()
 
         for loc in profile.preferred_locations:
             loc_lower = loc.lower().strip()

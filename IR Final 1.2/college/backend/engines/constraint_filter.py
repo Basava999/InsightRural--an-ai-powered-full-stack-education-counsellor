@@ -157,13 +157,25 @@ class ConstraintFilter:
         result = []
         for college in colleges:
             college_branches = college.get("branches", [])
-            if not college_branches:
-                continue
+            college_branches_upper = set()
+            for b in college_branches:
+                if isinstance(b, dict):
+                    if b.get("branch_code"):
+                        college_branches_upper.add(str(b["branch_code"]).upper().replace(" ", "_"))
+                    if b.get("branch_name"):
+                        college_branches_upper.add(str(b["branch_name"]).upper().replace(" ", "_"))
+                elif isinstance(b, str):
+                    college_branches_upper.add(b.upper().replace(" ", "_"))
 
-            # Normalize college branch names
-            college_branches_upper = {
-                str(b).upper().replace(" ", "_") for b in college_branches
-            }
+            if college.get("matched_branch"):
+                college_branches_upper.add(str(college["matched_branch"]).upper().replace(" ", "_"))
+            cutoff_dict = college.get("cutoff_2024")
+            if isinstance(cutoff_dict, dict):
+                for k in cutoff_dict.keys():
+                    college_branches_upper.add(str(k).upper().replace(" ", "_"))
+
+            if not college_branches_upper:
+                continue
 
             # Check if any preferred branch is offered
             if branches_upper.intersection(college_branches_upper):
@@ -187,9 +199,23 @@ class ConstraintFilter:
 
         result = []
         for college in colleges:
-            college_location = (college.get("location", "") or "").lower().strip()
-            college_district = (college.get("district", "") or "").lower().strip()
-            college_city = (college.get("city", "") or "").lower().strip()
+            loc_val = college.get("location", "")
+            if isinstance(loc_val, dict):
+                college_location = " ".join(str(v) for v in loc_val.values()).lower().strip()
+            else:
+                college_location = str(loc_val or "").lower().strip()
+
+            dist_val = college.get("district", "")
+            if isinstance(dist_val, dict):
+                college_district = " ".join(str(v) for v in dist_val.values()).lower().strip()
+            else:
+                college_district = str(dist_val or "").lower().strip()
+
+            city_val = college.get("city", "")
+            if isinstance(city_val, dict):
+                college_city = " ".join(str(v) for v in city_val.values()).lower().strip()
+            else:
+                college_city = str(city_val or "").lower().strip()
 
             # Check all location fields
             match = False

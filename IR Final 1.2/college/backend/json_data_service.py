@@ -45,6 +45,29 @@ def _load_json(filename: str) -> Any:
         return [] if filename != "counseling_guide.json" else {}
 
 
+def _get_location_text(loc: Any) -> str:
+    """Safely extract location string whether it is a dict, string, or None."""
+    if isinstance(loc, dict):
+        parts = [str(v) for k, v in loc.items() if k in ("district", "city", "state", "place") and v]
+        if not parts:
+            parts = [str(v) for v in loc.values() if isinstance(v, str)]
+        return ", ".join(parts) if parts else ""
+    return str(loc or "")
+
+
+def _matches_location(loc: Any, target_loc: str) -> bool:
+    """Safely check if target location string matches location object."""
+    if not target_loc:
+        return True
+    t = str(target_loc).lower().strip()
+    if isinstance(loc, dict):
+        for v in loc.values():
+            if isinstance(v, str) and t in v.lower():
+                return True
+        return False
+    return t in str(loc or "").lower()
+
+
 class JSONDataService:
     """
     Priority-1 data source for the KCET College Advisor.
@@ -334,9 +357,7 @@ class JSONDataService:
         for college in self.colleges:
             # Filter by location if specified
             if location:
-                col_location = (college.get("location", "") or "").lower()
-                col_district = (college.get("district", "") or "").lower()
-                if location.lower() not in col_location and location.lower() not in col_district:
+                if not _matches_location(college.get("location"), location) and not _matches_location(college.get("district"), location):
                     continue
 
             # Filter by hostel
@@ -440,8 +461,7 @@ class JSONDataService:
                 else:
                     score += 5
             # 5% location preference
-            loc = (c.get("location", "")).lower()
-            if location and location.lower() in loc:
+            if location and (_matches_location(c.get("location"), location) or _matches_location(c.get("district"), location)):
                 score += 5
             return score
 
@@ -489,8 +509,9 @@ class JSONDataService:
             parts.append(f"\n### {label} ({len(colleges)} colleges)")
             for c in colleges[:7]:  # Top 7 per tier
                 fee_str = f"₹{c['annual_fee']:,.0f}" if isinstance(c['annual_fee'], (int, float)) else str(c['annual_fee'])
+                loc_disp = _get_location_text(c.get('location')) or 'Karnataka'
                 parts.append(
-                    f"- {emoji} **{c['name']}** ({c['location']})\n"
+                    f"- {emoji} **{c['name']}** ({loc_disp})\n"
                     f"  Cutoff: {c['cutoff_rank']} | Fee: {fee_str}/yr | "
                     f"Type: {c['type']} | "
                     f"Avg Pkg: {c.get('placement_avg_lpa', 'N/A')} LPA"
@@ -560,13 +581,12 @@ class JSONDataService:
 
         for h in self.hostels:
             h_college = (h.get("college", "") or h.get("name", "")).lower()
-            h_location = (h.get("location", "")).lower()
             h_categories = [c.lower() for c in (h.get("category", []) if isinstance(h.get("category"), list) else [])]
 
             # Filter
             if college_name and college_name.lower() not in h_college:
                 continue
-            if location and location.lower() not in h_location:
+            if location and not _matches_location(h.get("location"), location):
                 continue
             if category:
                 if h_categories and category.lower() not in " ".join(h_categories):
@@ -581,7 +601,8 @@ class JSONDataService:
         for h in results:
             name = h.get("college") or h.get("name", "Unknown")
             parts.append(f"\n### {name}")
-            parts.append(f"- **Location**: {h.get('location', 'N/A')}")
+            h_loc = _get_location_text(h.get('location')) or 'N/A'
+            parts.append(f"- **Location**: {h_loc}")
             parts.append(f"- **Type**: {h.get('type', 'N/A')}")
 
             # Facilities

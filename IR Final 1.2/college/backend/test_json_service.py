@@ -5,6 +5,12 @@ Run from the backend directory: python test_json_service.py
 import sys
 import os
 
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 # Add parent dir for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 

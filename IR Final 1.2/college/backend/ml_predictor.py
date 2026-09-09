@@ -341,8 +341,9 @@ class CollegePredictor:
             benefits_applied.append("Kannada Medium (5% quota)")
 
         if reservations.get('hk_region', False):
+            loc_str = " ".join(str(v) for v in college_location.values()).lower() if isinstance(college_location, dict) else str(college_location or "").lower()
             is_hk_college = any(
-                d.lower() in college_location.lower()
+                d.lower() in loc_str
                 for d in self.HK_DISTRICTS
             )
             if is_hk_college:
@@ -487,9 +488,15 @@ class CollegePredictor:
             cat_score = 50.0  # Fallback to competing under General Merit seats
 
         # 4. Location Preference Match (10%)
+        col_loc = college.get("location", "")
+        if isinstance(col_loc, dict):
+            col_loc_str = " ".join(str(v) for v in col_loc.values()).lower()
+        else:
+            col_loc_str = str(col_loc or "").lower()
+
         if not preferred_locations:
             location_score = 100.0
-        elif college.get("location") in preferred_locations:
+        elif any(pl.lower() in col_loc_str for pl in preferred_locations):
             location_score = 100.0
         else:
             location_score = 0.0
@@ -567,11 +574,14 @@ class CollegePredictor:
             college_name = college["name"]
             college_type = college.get("type", "Type1_Unaided")
             location = college.get("location", "Unknown")
+            loc_str = " ".join(str(v) for v in location.values()) if isinstance(location, dict) else str(location or "Unknown")
             coordinates = college.get("coordinates", None)
 
             # Location Filters
-            if preferred_locations and location not in preferred_locations:
-                continue
+            if preferred_locations:
+                loc_lower = loc_str.lower()
+                if not any(pl.lower() in loc_lower for pl in preferred_locations):
+                    continue
 
             # College Type Filters
             if college_type_pref and college_type_pref != "Any":
@@ -603,7 +613,7 @@ class CollegePredictor:
                     base_cutoff = int(base_cutoff * self.OBC_SUB_RELAXATION[category])
 
                 reservation_result = self._apply_kea_reservation(
-                    base_cutoff, category, reservations, location
+                    base_cutoff, category, reservations, loc_str
                 )
                 effective_cutoff = reservation_result["effective_cutoff"]
 
@@ -672,7 +682,7 @@ class CollegePredictor:
                     "college_id": college_id,
                     "college_name": college_name,
                     "branch": branch,
-                    "location": location,
+                    "location": loc_str,
                     "coordinates": coordinates,
                     "map_link": map_link,
                     "college_type": college_type,

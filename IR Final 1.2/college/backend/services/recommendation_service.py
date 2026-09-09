@@ -287,10 +287,33 @@ class RecommendationService:
         if not reason:
             reason = f"Recommended based on your rank ({profile.rank}) and preferences"
 
+        col_name = college.get("name") or college.get("college_name", "Unknown")
+        loc_val = college.get("location", "Unknown")
+        if isinstance(loc_val, dict):
+            col_loc = loc_val.get("district") or loc_val.get("city") or " ".join(str(v) for v in loc_val.values() if isinstance(v, str)) or "Karnataka"
+        else:
+            col_loc = str(loc_val or "Unknown")
+
+        matched_br = college.get("matched_branch", profile.preferred_branches[0])
+        trends = college.get("cutoff_trends", {})
+        hist_cutoffs = {}
+        if isinstance(trends, dict):
+            for yr, yr_data in trends.items():
+                if isinstance(yr_data, dict):
+                    br_data = yr_data.get(matched_br, {})
+                    if isinstance(br_data, dict):
+                        val = br_data.get(profile.dataset_category) or br_data.get("GM")
+                        if isinstance(val, (int, float)):
+                            hist_cutoffs[str(yr)] = int(val)
+                    elif isinstance(br_data, (int, float)):
+                        hist_cutoffs[str(yr)] = int(br_data)
+                elif isinstance(yr_data, (int, float)):
+                    hist_cutoffs[str(yr)] = int(yr_data)
+
         return CollegeRecommendation(
             college_id=college.get("college_id", ""),
-            college_name=college.get("name", "Unknown"),
-            location=college.get("location", "Unknown"),
+            college_name=col_name,
+            location=col_loc,
             college_type=college.get("type", "Unknown"),
             branch=college.get("matched_branch", profile.preferred_branches[0]),
             cutoff_rank=college.get("cutoff_rank", 0),
@@ -327,7 +350,7 @@ class RecommendationService:
             placement_avg_lpa=college.get("placement_avg_lpa"),
             placement_highest_lpa=college.get("placement_highest_lpa"),
             trend_direction=college.get("trend_direction", "stable"),
-            historical_cutoffs=college.get("cutoff_trends", {}),
+            historical_cutoffs=hist_cutoffs,
             reason=reason,
         )
 

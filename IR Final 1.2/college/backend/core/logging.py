@@ -56,6 +56,18 @@ def setup_logging(
     # Remove any existing handlers to prevent duplicate output
     root_logger.handlers.clear()
 
+    # Ensure stdout/stderr use UTF-8 on all platforms
+    if hasattr(sys.stdout, "reconfigure"):
+        try:
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
+    if hasattr(sys.stderr, "reconfigure"):
+        try:
+            sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
+
     # Console handler
     handler = logging.StreamHandler(sys.stdout)
     handler.setLevel(getattr(logging, log_level.upper(), logging.INFO))

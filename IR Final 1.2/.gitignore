@@ -1,3 +1,7 @@
+# ==============================================================================
+# InsightRural — .gitignore
+# ==============================================================================
+
 # Python
 __pycache__/
 *.py[cod]
@@ -39,7 +43,9 @@ vector_db/
 chroma_db/
 chroma_db_backup/
 
-# Trained Models & Large Binaries
+# Trained ML model cache (auto-regenerated on first run)
+college/backend/models/*.joblib
+college/backend/models/*.pkl
 *.pkl
 *.h5
 *.onnx
@@ -73,3 +79,4 @@ htmlcov/
 .idea/
 .vscode/
 .DS_Store
+Thumbs.db

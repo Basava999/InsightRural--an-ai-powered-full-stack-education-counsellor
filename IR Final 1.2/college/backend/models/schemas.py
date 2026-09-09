@@ -207,6 +207,16 @@ class CollegeRecommendation(BaseModel):
     location: str
     college_type: str
 
+    @field_validator("location", mode="before")
+    @classmethod
+    def normalize_rec_location(cls, v):
+        if isinstance(v, dict):
+            parts = [str(val) for k, val in v.items() if k in ("district", "city", "state", "place") and val]
+            if not parts:
+                parts = [str(val) for val in v.values() if isinstance(val, str)]
+            return ", ".join(parts) if parts else "Karnataka"
+        return str(v or "Unknown")
+
     # Branch & cutoff
     branch: str
     cutoff_rank: int
@@ -231,7 +241,7 @@ class CollegeRecommendation(BaseModel):
 
     # Trend data
     trend_direction: str = Field(default="stable")
-    historical_cutoffs: Dict[str, int] = Field(default_factory=dict)
+    historical_cutoffs: Dict[str, Any] = Field(default_factory=dict)
 
     # Explainability
     reason: str = Field(description="Why this college is recommended")

@@ -415,6 +415,28 @@ class MLPredictionEngine:
         if not SKLEARN_AVAILABLE or not NUMPY_AVAILABLE:
             return {"error": "scikit-learn or numpy not available", "trained": False}
 
+        cache_dir = os.path.join(os.path.dirname(__file__), "models")
+        cache_path = os.path.join(cache_dir, "kea_ml_models.joblib")
+        if os.path.exists(cache_path):
+            try:
+                import joblib
+                cached_data = joblib.load(cache_path)
+                self.models = cached_data.get("models", {})
+                self.best_model_name = cached_data.get("best_model_name")
+                self.best_model = cached_data.get("best_model")
+                self.metrics = cached_data.get("metrics", {})
+                self.is_trained = self.best_model is not None
+                if self.is_trained:
+                    logger.info(f"[ML] Loaded cached models from {cache_path} (Best: {self.best_model_name})")
+                    return {
+                        "trained": True,
+                        "best_model": self.best_model_name,
+                        "model_comparison": self.metrics,
+                        "cached": True,
+                    }
+            except Exception as e:
+                logger.warning(f"[ML] Could not load cached models: {e}")
+
         X, y = self._build_training_data(colleges)
         if X is None or len(X) < 20:
             return {"error": f"Insufficient training data ({len(X) if X is not None else 0} rows)", "trained": False}
@@ -494,8 +516,21 @@ class MLPredictionEngine:
 
         self.metrics = results
         self.is_trained = self.best_model is not None
-
         logger.info(f"[ML] Best model: {self.best_model_name} (CV-MAE: {best_mae:.1f})")
+
+        if self.is_trained:
+            try:
+                import joblib
+                os.makedirs(cache_dir, exist_ok=True)
+                joblib.dump({
+                    "models": self.models,
+                    "best_model_name": self.best_model_name,
+                    "best_model": self.best_model,
+                    "metrics": self.metrics,
+                }, cache_path)
+                logger.info(f"[ML] Saved trained models to {cache_path}")
+            except Exception as e:
+                logger.warning(f"[ML] Could not cache models: {e}")
 
         return {
             "trained": self.is_trained,
@@ -736,8 +771,9 @@ class KEASeatAllotmentEngine:
 
         # 371(J) - Hyderabad-Karnataka
         if quotas.get("hk_371j"):
+            loc_str = " ".join(str(v) for v in college_location.values()).lower() if isinstance(college_location, dict) else str(college_location or "").lower()
             is_hk_college = any(
-                d in college_location.lower() for d in HK_DISTRICTS
+                d.lower() in loc_str for d in HK_DISTRICTS
             )
             if is_hk_college:
                 multiplier += 0.80
@@ -993,13 +1029,26 @@ class KEASeatAllotmentEngine:
             cid = college.get("college_id", "")
             college_name = college.get("name", "")
             location = college.get("location", "")
+            loc_str = " ".join(str(v) for v in location.values()).lower() if isinstance(location, dict) else str(location or "").lower()
             district = college.get("district", "")
+            dist_str = " ".join(str(v) for v in district.values()).lower() if isinstance(district, dict) else str(district or "").lower()
             ctype = college.get("type", "Type1_Unaided")
-            branches = college.get("branches", [])
+
+            college_branches = set()
+            for b in college.get("branches", []):
+                if isinstance(b, dict):
+                    if b.get("branch_code"): college_branches.add(str(b["branch_code"]).upper())
+                    if b.get("branch_name"): college_branches.add(str(b["branch_name"]).upper())
+                elif isinstance(b, str):
+                    college_branches.add(b.upper())
+            cutoff_dict = college.get("cutoff_2024", {})
+            if isinstance(cutoff_dict, dict):
+                for k in cutoff_dict.keys():
+                    college_branches.add(str(k).upper())
 
             # District filter
             if district_preference:
-                if not any(d.lower() in district.lower() or d.lower() in location.lower()
+                if not any(d.lower() in dist_str or d.lower() in loc_str
                           for d in district_preference):
                     continue
 
@@ -1015,7 +1064,7 @@ class KEASeatAllotmentEngine:
 
             # Process each preferred branch
             for branch in branch_preference:
-                if branch not in branches:
+                if branch.upper() not in college_branches:
                     continue
 
                 # Get cutoff data
@@ -1029,7 +1078,7 @@ class KEASeatAllotmentEngine:
 
                 # Apply reservation
                 reservation = self.apply_reservation(
-                    base_cutoff, category, quotas, location
+                    base_cutoff, category, quotas, loc_str
                 )
                 effective_cutoff = reservation["effective_cutoff"]
 
