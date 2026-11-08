@@ -207,8 +207,8 @@ class StrictRAGEngine:
         self._bm25_index = BM25Index()
         self._cross_encoder = None
 
-        if not CHROMADB_AVAILABLE:
-            logger.error("chromadb not installed — RAG Engine disabled")
+        if not CHROMADB_AVAILABLE or not os.path.exists(persist_dir):
+            logger.info("ChromaDB storage not found or disabled (%s) — skipping dense RAG init", persist_dir)
             return
 
         try:
@@ -396,6 +396,8 @@ class StrictRAGEngine:
                 continue
 
             try:
+                if coll.count() == 0:
+                    continue
                 search_kwargs = {"query_texts": [query], "n_results": n_results}
                 if filters:
                     search_kwargs["where"] = filters

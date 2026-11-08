@@ -630,12 +630,17 @@ class InsightRuralCounselor:
             self.kea_engine = None
 
     def _init_rag(self):
-        """Initialize the strict ChromaDB RAG engine."""
+        """Initialize ChromaDB RAG engine only if storage exists."""
         try:
-            from rag_engine import get_rag_engine
-            self.rag = get_rag_engine()
-            self.fallback = RAGFallback(self.rag)
-            logger.info("InsightRuralCounselor: Strict ChromaDB RAG engine connected")
+            if os.path.exists("./chroma_db"):
+                from rag_engine import get_rag_engine
+                self.rag = get_rag_engine()
+                self.fallback = RAGFallback(self.rag)
+                logger.info("InsightRuralCounselor: Strict ChromaDB RAG engine connected")
+            else:
+                self.rag = None
+                self.fallback = RAGFallback(None)
+                logger.info("ChromaDB storage not present -- operating in JSON Data + ML + Live Web mode")
         except Exception as e:
             logger.warning("RAG engine not available: %s", e)
             self.fallback = RAGFallback(None)

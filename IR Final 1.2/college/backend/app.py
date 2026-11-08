@@ -2596,6 +2596,16 @@ def serve_frontend(path):
     return jsonify({"service": "InsightRural Full-Stack AI Counselor", "status": "running", "api": "/api/health"}), 200
 
 
+# Warm up AI Counselor service in background so first user request responds in <1s
+import threading
+def _background_warmup():
+    try:
+        get_llm_service()
+    except Exception as _w_err:
+        pass
+threading.Thread(target=_background_warmup, daemon=True).start()
+
+
 if __name__ == "__main__":
     print("\n" + "="*50)
     print("[*] Starting InsightRural AI Counselor API")
