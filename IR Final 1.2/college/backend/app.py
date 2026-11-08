@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, abort, Response, stream_with_context
+from flask import Flask, jsonify, request, abort, Response, stream_with_context, send_from_directory
 from flask_cors import CORS
 from sqlalchemy import or_, func
 import json
@@ -2563,6 +2563,26 @@ def admin_upload_endpoint():
         "message": f"File '{filename}' uploaded and processed.",
         "processing": processing_results,
     })
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# SERVE FRONTEND STATIC APPLICATION (Single All-in-One Live Deployment)
+# ══════════════════════════════════════════════════════════════════════════════
+FRONTEND_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "insightrural-frontend"))
+
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve_frontend(path):
+    # Never intercept backend /api routes
+    if path.startswith("api/"):
+        abort(404)
+    target = os.path.join(FRONTEND_DIR, path)
+    if path and os.path.exists(target) and not os.path.isdir(target):
+        return send_from_directory(FRONTEND_DIR, path)
+    if os.path.exists(os.path.join(FRONTEND_DIR, "index.html")):
+        return send_from_directory(FRONTEND_DIR, "index.html")
+    return jsonify({"service": "InsightRural Full-Stack AI Counselor", "status": "running", "api": "/api/health"}), 200
+
 
 if __name__ == "__main__":
     print("\n" + "="*50)

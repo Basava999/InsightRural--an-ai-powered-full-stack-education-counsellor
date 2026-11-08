@@ -46,7 +46,7 @@ python-dotenv>=1.0.0
 twilio>=8.0.0
 
 # ── Production Server (Linux/macOS) ─────────────────────────────────────────
-# gunicorn>=21.0.0   # Uncomment on Linux/macOS only
+gunicorn>=21.2.0
 
 # ── Testing ──────────────────────────────────────────────────────────────────
 pytest>=7.4.0

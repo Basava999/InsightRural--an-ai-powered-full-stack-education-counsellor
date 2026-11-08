@@ -1,13 +1,15 @@
 // Application State Management - Enhanced for KEA AI Counselor
 
 // Global API Base URL - shared across all components
-const API_BASE_URL = (
-    window.location.hostname === 'localhost' ||
-    window.location.hostname === '127.0.0.1' ||
-    window.location.protocol === 'file:'
-)
-    ? 'http://127.0.0.1:5000'
-    : 'https://insightrural-backend.onrender.com';
+const API_BASE_URL = window.INSIGHTRURAL_API_URL ||
+    localStorage.getItem('insightrural_api_url') ||
+    (window.location.protocol === 'file:'
+        ? 'http://127.0.0.1:5000'
+        : (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+            ? `http://${window.location.hostname}:5000`
+            : (window.location.hostname.endsWith('github.io') || window.location.hostname.endsWith('vercel.app'))
+                ? 'https://insightrural-backend.onrender.com'
+                : window.location.origin);
 
 const AppState = {
     currentFeature: 'colleges',

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: insightrural
+    env: python
+    plan: free
+    region: singapore
+    buildCommand: pip install -r "IR Final 1.2/college/backend/requirements.txt"
+    startCommand: cd "IR Final 1.2/college/backend" && gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 120
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: FAST_CLOUD_MODEL
+        value: openai-fast
