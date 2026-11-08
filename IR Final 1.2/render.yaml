@@ -5,7 +5,7 @@ services:
     plan: free
     region: singapore
     buildCommand: pip install -r "IR Final 1.2/college/backend/requirements.txt"
-    startCommand: cd "IR Final 1.2/college/backend" && gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 120
+    startCommand: cd "IR Final 1.2/college/backend" && gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 2 --timeout 120 --max-requests 500
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.13
@@ -13,3 +13,7 @@ services:
         generateValue: true
       - key: FAST_CLOUD_MODEL
         value: openai-fast
+      - key: MALLOC_ARENA_MAX
+        value: "2"
+      - key: PYTHONUNBUFFERED
+        value: "1"
