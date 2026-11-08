@@ -146,6 +146,23 @@ except ImportError as e:
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
+# Background warmup so the first user query doesn't suffer cold-start latency
+def _bg_service_warmup():
+    import time
+    time.sleep(1.5)  # Let gunicorn bind to $PORT first
+    try:
+        if AI_MODULES_AVAILABLE:
+            get_llm_service()
+            print("[OK] Background warmup: AI Counselor & Datasets pre-loaded")
+        if ML_PREDICTOR_AVAILABLE:
+            get_predictor()
+            print("[OK] Background warmup: ML Predictor pre-loaded")
+    except Exception as e:
+        print(f"[!] Background warmup note: {e}")
+
+import threading
+threading.Thread(target=_bg_service_warmup, daemon=True, name="insightrural_bg_warmup").start()
+
 # Setup Flask-Limiter for API rate limiting
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address

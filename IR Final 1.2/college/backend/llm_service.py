@@ -417,13 +417,13 @@ class FastCloudLLMService:
                         "messages": payload_msgs,
                         "stream": False,
                     },
-                    timeout=httpx.Timeout(4.5, connect=2.0),
+                    timeout=httpx.Timeout(2.5, connect=1.2),
                 )
                 if r.status_code in (402, 429):
-                    self._cooldown_until = time.time() + 45.0
+                    self._cooldown_until = time.time() + 20.0
                     return None
                 if r.status_code == 200:
-                    self._cooldown_until = time.time() + 45.0
+                    self._cooldown_until = 0.0
                     try:
                         data = r.json()
                         if isinstance(data, dict) and "choices" in data:
@@ -457,14 +457,14 @@ class FastCloudLLMService:
                         "messages": payload_msgs,
                         "stream": True,
                     },
-                    timeout=httpx.Timeout(4.5, connect=2.0),
+                    timeout=httpx.Timeout(2.5, connect=1.2),
                 ) as response:
                     if response.status_code in (402, 429):
-                        self._cooldown_until = time.time() + 45.0
+                        self._cooldown_until = time.time() + 20.0
                         return
                     if response.status_code != 200:
                         continue
-                    self._cooldown_until = time.time() + 45.0
+                    self._cooldown_until = 0.0
                     for line in response.iter_lines():
                         line = line.strip()
                         if not line:
@@ -554,6 +554,11 @@ class RAGFallback:
             "• 📚 **Career roadmaps, coding, science, math & general questions**\n"
             "• 🏛️ **Hostels, fee structures & counseling guidance**"
         )
+
+
+from concurrent.futures import ThreadPoolExecutor
+
+_GLOBAL_CTX_EXECUTOR = ThreadPoolExecutor(max_workers=4, thread_name_prefix="ctx_worker")
 
 
 # ==============================================================================
@@ -823,67 +828,53 @@ class InsightRuralCounselor:
           query → concurrent (JSON DB + KEA ML + ChromaDB RAG + Live Web Search)
                 → prompt build → Fast Cloud / Gemini / Groq / Ollama stream → tokens
         """
-        from concurrent.futures import ThreadPoolExecutor
-
         query = (query or "").strip()
         if not query:
             yield "Please ask me something — I'm here to help! 🎓"
             return
 
-        # Step 1: Concurrently fetch Local DB, KEA ML Simulation, ChromaDB RAG, and Live Internet Search
-        json_context = ""
-        kea_context = ""
-        rag_context = ""
-        web_context = ""
-
-        with ThreadPoolExecutor(max_workers=4) as executor:
-            fut_json = executor.submit(self._get_json_context, query, session_profile)
-            fut_kea  = executor.submit(self._get_kea_simulation_context, query, session_profile)
-            fut_rag  = executor.submit(self._get_rag_context, query)
-            fut_web  = executor.submit(self._get_web_context, query)
-
-            try:
-                json_context = fut_json.result(timeout=2.5) or ""
-            except Exception:
-                json_context = ""
-            try:
-                kea_context = fut_kea.result(timeout=2.5) or ""
-            except Exception:
-                kea_context = ""
-            try:
-                rag_context = fut_rag.result(timeout=2.5) or ""
-            except Exception:
-                rag_context = ""
-            try:
-                web_context = fut_web.result(timeout=2.2) or ""
-            except Exception:
-                web_context = ""
-
-        # Step 2: Combine contexts (Local Verified DB -> KEA ML -> RAG -> Live Internet Search)
-        context_blocks = []
-        if json_context:
-            context_blocks.append(json_context)
-        if kea_context:
-            context_blocks.append(kea_context)
-        if rag_context:
-            context_blocks.append(f"=== CHROMADB RETRIEVED CONTEXT ===\n{rag_context}\n=== END CHROMADB ===")
-        if web_context:
-            context_blocks.append(web_context)
-
-        combined_context = "\n\n".join(context_blocks)
-        if len(combined_context) > 10000:
-            combined_context = combined_context[:10000]
-
-        # Step 3: Build prompt (system + history + contextualized query)
-        messages = self._build_messages(
-            query, combined_context, chat_history, session_profile
+        q_lower = query.lower()
+        is_non_kea_topic = any(w in q_lower for w in [
+            "jee", "neet", "iit", "nit", "aiims", "iiit", "bitsat", "upsc", "gate",
+            "python", "java", "c++", "javascript", "binary search", "algorithm", "code", "program",
+            "isro", "nasa", "gaganyaan", "chandrayaan", "quantum", "gravity", "photosynthesis",
+            "relativity", "history", "prime minister", "president", "weather", "stock", "bitcoin"
+        ])
+        is_kea_topic = (not is_non_kea_topic) and (
+            any(w in q_lower for w in [
+                "kcet", "kea", "rvce", "bmsce", "msrit", "pes", "uvce", "sjce", "nie", "sit",
+                "bit", "dsce", "nmit", "cmrit", "rnsit", "bnmit", "kls", "git", "bvb", "kle",
+                "sdm", "nmam", "ssp", "vidyasiri", "snq", "vidya lakshmi", "karnataka",
+                "bengaluru", "bangalore", "mysore", "mysuru", "hubli", "belgaum", "mangalore",
+                "tumkur", "davangere", "gulbarga", "kalaburagi", "shimoga", "hassan", "mandya",
+                "hostel", "scholarship", "education loan", "option entry", "counseling",
+                "counselling", "371j", "2a", "2b", "3a", "3b", "cat-1", "1g", "cutoff",
+                "agriculture", "bsc ag", "b.pharm", "top colleges"
+            ]) or ("rank" in q_lower and not is_non_kea_topic)
         )
 
-        # Step 4: Stream from the fastest available LLM
         yielded = False
 
-        # 1. Google Gemini (if API key configured)
+        # Priority A: Paid/User-configured Cloud LLMs (Gemini / Groq)
         if self.gemini.available:
+            # Concurrently fetch DB & Web Context
+            fut_json = _GLOBAL_CTX_EXECUTOR.submit(self._get_json_context, query, session_profile)
+            fut_kea  = _GLOBAL_CTX_EXECUTOR.submit(self._get_kea_simulation_context, query, session_profile)
+            fut_web  = _GLOBAL_CTX_EXECUTOR.submit(self._get_web_context, query)
+            try:
+                json_ctx = fut_json.result(timeout=1.2) or ""
+            except Exception:
+                json_ctx = ""
+            try:
+                kea_ctx = fut_kea.result(timeout=1.2) or ""
+            except Exception:
+                kea_ctx = ""
+            try:
+                web_ctx = fut_web.result(timeout=1.2) or ""
+            except Exception:
+                web_ctx = ""
+            combined = "\n\n".join(b for b in [json_ctx, kea_ctx, web_ctx] if b)
+            messages = self._build_messages(query, combined, chat_history, session_profile)
             try:
                 for token in self.gemini.stream(messages):
                     yield token
@@ -894,8 +885,24 @@ class InsightRuralCounselor:
             except Exception as e:
                 logger.error("Gemini stream failed: %s", e)
 
-        # 2. Groq Cloud (if API key configured)
         if not yielded and self.groq.available:
+            fut_json = _GLOBAL_CTX_EXECUTOR.submit(self._get_json_context, query, session_profile)
+            fut_kea  = _GLOBAL_CTX_EXECUTOR.submit(self._get_kea_simulation_context, query, session_profile)
+            fut_web  = _GLOBAL_CTX_EXECUTOR.submit(self._get_web_context, query)
+            try:
+                json_ctx = fut_json.result(timeout=1.2) or ""
+            except Exception:
+                json_ctx = ""
+            try:
+                kea_ctx = fut_kea.result(timeout=1.2) or ""
+            except Exception:
+                kea_ctx = ""
+            try:
+                web_ctx = fut_web.result(timeout=1.2) or ""
+            except Exception:
+                web_ctx = ""
+            combined = "\n\n".join(b for b in [json_ctx, kea_ctx, web_ctx] if b)
+            messages = self._build_messages(query, combined, chat_history, session_profile)
             try:
                 for token in self.groq.stream(messages):
                     yield token
@@ -906,8 +913,32 @@ class InsightRuralCounselor:
             except Exception as e:
                 logger.error("Groq stream failed: %s", e)
 
-        # 3. Fast Cloud LLM (Zero-key OpenAI-compatible high-speed cloud LLM + Web Search)
-        if not yielded and self.fast_cloud.available:
+        # Priority B: Instant Intelligent Admission Engine for KEA / Karnataka / Rank queries (0.05s latency)
+        if not yielded and is_kea_topic and self.intelligent_engine:
+            try:
+                for token in self.intelligent_engine.stream_response(query, session_profile):
+                    yield token
+                    yielded = True
+                if yielded:
+                    self.last_model_used = "InsightRural Neural AI (KEA Fine-Tuned)"
+                    return
+            except Exception as e:
+                logger.error("Intelligent engine stream failed: %s", e)
+
+        # Priority C: Fast Cloud LLM for General / National Exam / Coding / Science queries
+        if not yielded and self.fast_cloud.available and (time.time() >= self.fast_cloud._cooldown_until):
+            fut_json = _GLOBAL_CTX_EXECUTOR.submit(self._get_json_context, query, session_profile)
+            fut_web  = _GLOBAL_CTX_EXECUTOR.submit(self._get_web_context, query)
+            try:
+                json_ctx = fut_json.result(timeout=1.0) or ""
+            except Exception:
+                json_ctx = ""
+            try:
+                web_ctx = fut_web.result(timeout=1.2) or ""
+            except Exception:
+                web_ctx = ""
+            combined = "\n\n".join(b for b in [json_ctx, web_ctx] if b)
+            messages = self._build_messages(query, combined, chat_history, session_profile)
             try:
                 for token in self.fast_cloud.stream(messages):
                     yield token
@@ -916,11 +947,12 @@ class InsightRuralCounselor:
                     self.last_model_used = "InsightRural AI (Hybrid DB + Live Web LLM)"
                     return
             except Exception as e:
-                logger.error("FastCloudLLM stream failed: %s", e)
+                logger.warning("FastCloudLLM stream warning: %s", e)
 
-        # 4. Local Ollama (if running locally and responsive)
+        # Priority D: Local Ollama (if running and enabled)
         if not yielded and self.ollama.available:
             try:
+                messages = self._build_messages(query, "", chat_history, session_profile)
                 for token in self.ollama.stream(messages, max_tokens=600):
                     yield token
                     yielded = True
@@ -930,64 +962,38 @@ class InsightRuralCounselor:
             except Exception as e:
                 logger.error("Ollama stream failed: %s", e)
 
-        # 5. High-Speed Domain & Live Web Synthesis Engine (when Cloud LLM is on cooldown)
+        # Priority E: Live Internet Search + Domain Synthesis Engine (Instant answers for ANY topic)
+        if not yielded and self.web_search:
+            try:
+                synthesized = self.web_search.synthesize_answer(query)
+                if synthesized:
+                    self.last_model_used = "InsightRural AI (Hybrid DB + Live Web Search)"
+                    words = synthesized.split(" ")
+                    for i in range(0, len(words), 6):
+                        chunk = " ".join(words[i:i+6])
+                        if i + 6 < len(words):
+                            chunk += " "
+                        yield chunk
+                    return
+            except Exception as e:
+                logger.error("Web synthesis stream failed: %s", e)
+
+        # Priority F: Intelligent Engine Fallback
+        if not yielded and self.intelligent_engine:
+            try:
+                for token in self.intelligent_engine.stream_response(query, session_profile):
+                    yield token
+                    yielded = True
+                if yielded:
+                    self.last_model_used = "InsightRural Neural AI"
+                    return
+            except Exception:
+                pass
+
+        # Priority G: Static RAG Knowledge Base Fallback
         if not yielded:
-            q_lower = query.lower()
-            is_non_kea_topic = any(w in q_lower for w in [
-                "jee", "neet", "iit", "nit", "aiims", "iiit", "bitsat", "upsc", "gate",
-                "python", "java", "c++", "javascript", "binary search", "algorithm", "code", "program",
-                "isro", "nasa", "gaganyaan", "chandrayaan", "quantum", "gravity", "photosynthesis",
-                "relativity", "history", "prime minister", "president", "weather", "stock", "bitcoin"
-            ])
-            is_kea_topic = (not is_non_kea_topic) and (
-                any(w in q_lower for w in [
-                    "kcet", "kea", "rvce", "bmsce", "msrit", "pes", "uvce", "sjce", "nie", "sit",
-                    "bit", "dsce", "nmit", "cmrit", "rnsit", "bnmit", "kls", "git", "bvb", "kle",
-                    "sdm", "nmam", "ssp", "vidyasiri", "snq", "vidya lakshmi", "karnataka",
-                    "bengaluru", "bangalore", "mysore", "mysuru", "hubli", "belgaum", "mangalore",
-                    "tumkur", "davangere", "gulbarga", "kalaburagi", "shimoga", "hassan", "mandya",
-                    "hostel", "scholarship", "education loan", "option entry", "counseling",
-                    "counselling", "371j", "2a", "2b", "3a", "3b", "cat-1", "1g", "cutoff",
-                    "agriculture", "bsc ag", "b.pharm"
-                ]) or ("rank" in q_lower and not is_non_kea_topic)
-            )
-
-            if is_kea_topic and self.intelligent_engine:
-                try:
-                    for token in self.intelligent_engine.stream_response(query, session_profile):
-                        yield token
-                        yielded = True
-                    if yielded:
-                        self.last_model_used = "InsightRural Neural AI (KEA Fine-Tuned)"
-                        return
-                except Exception as e:
-                    logger.error("Intelligent engine stream failed: %s", e)
-
-            if self.web_search:
-                try:
-                    synthesized = self.web_search.synthesize_answer(query)
-                    if synthesized:
-                        self.last_model_used = "InsightRural AI (Hybrid DB + Live Web Search)"
-                        words = synthesized.split(" ")
-                        for i in range(0, len(words), 6):
-                            chunk = " ".join(words[i:i+6])
-                            if i + 6 < len(words):
-                                chunk += " "
-                            yield chunk
-                        return
-                except Exception as e:
-                    logger.error("Web synthesis stream failed: %s", e)
-
-            if self.intelligent_engine:
-                try:
-                    for token in self.intelligent_engine.stream_response(query, session_profile):
-                        yield token
-                        yielded = True
-                    if yielded:
-                        self.last_model_used = "InsightRural Neural AI"
-                        return
-                except Exception:
-                    pass
+            self.last_model_used = "RAG Knowledge Base"
+            yield self.fallback.generate(query)
 
             logger.warning("All LLMs unavailable -- serving RAG fallback")
             self.last_model_used = "RAG Knowledge Base"
