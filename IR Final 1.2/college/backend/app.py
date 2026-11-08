@@ -218,18 +218,6 @@ def token_required(f):
 
 Base.metadata.create_all(bind=engine)
 
-# Auto-seed if SQLite DB is empty on first cloud deployment
-try:
-    _init_session = SessionLocal()
-    if _init_session.query(College).count() == 0:
-        print("[*] Empty database detected on startup. Auto-seeding from JSON data...")
-        from seed import seed
-        seed()
-        print("[OK] Database auto-seeded successfully!")
-    _init_session.close()
-except Exception as _seed_err:
-    print(f"[!] Auto-seed check warning: {_seed_err}")
-
 
 def college_to_dict(col):
     return {
@@ -2594,16 +2582,6 @@ def serve_frontend(path):
     if os.path.exists(os.path.join(FRONTEND_DIR, "index.html")):
         return send_from_directory(FRONTEND_DIR, "index.html")
     return jsonify({"service": "InsightRural Full-Stack AI Counselor", "status": "running", "api": "/api/health"}), 200
-
-
-# Warm up AI Counselor service in background so first user request responds in <1s
-import threading
-def _background_warmup():
-    try:
-        get_llm_service()
-    except Exception as _w_err:
-        pass
-threading.Thread(target=_background_warmup, daemon=True).start()
 
 
 if __name__ == "__main__":

@@ -15,7 +15,10 @@ package-lock.json
 ir/
 
 # Database
-insightrural.db
+*.db
+*.sqlite
+*.sqlite3
+!IR Final 1.2/college/backend/insightrural.db
 
 # OS files
 .DS_Store

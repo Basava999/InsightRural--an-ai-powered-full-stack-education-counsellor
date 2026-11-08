@@ -34,11 +34,8 @@ wheels/
 !.env.example
 
 # Databases & Vector Stores
-*.db
-*.sqlite
-*.sqlite3
-insightrural.db
-insightrural_core.db
+# college/backend/insightrural.db tracked for zero-setup cloud deploy
+!college/backend/insightrural.db
 vector_db/
 chroma_db/
 chroma_db_backup/
