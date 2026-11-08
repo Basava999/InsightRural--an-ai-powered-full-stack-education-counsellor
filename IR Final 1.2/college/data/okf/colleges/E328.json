@@ -1,0 +1,169 @@
+{
+  "college_id": "E328",
+  "name": "Engineering College E328",
+  "short_name": "Engineering College E328",
+  "type": "Type1_Unaided",
+  "location": "Karnataka",
+  "district": "Bangalore Urban",
+  "state": "Karnataka",
+  "affiliation": "Visvesvaraya Technological University (VTU)",
+  "hostel_available": true,
+  "branches": [
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Type1_Unaided",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://engineeringcoll.ac.in",
+  "phone": "+91-80-22000328",
+  "email": "principal@engineeringcoll.ac.in",
+  "established": 1988,
+  "total_seats": 600,
+  "naac_grade": "B+",
+  "nba_accredited": true,
+  "placement_avg_lpa": 6.5,
+  "placement_highest_lpa": 20.8,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "Capgemini",
+    "Tech Mahindra",
+    "L&T Technology Services",
+    "Mindtree",
+    "HCL"
+  ],
+  "facilities": [
+    "Central Library & Digital E-Resource Centre",
+    "Boys Hostel on Campus",
+    "Girls Hostel on Campus",
+    "High-Speed Wi-Fi Campus",
+    "Modern Computing & AI/ML Labs",
+    "Multi-Sport Grounds & Indoor Gymnasium",
+    "Hygienic Cafeteria & Food Court",
+    "College Bus / Transport Service",
+    "24/7 Medical Health Centre & Ambulance",
+    "Innovation, Incubation & Entrepreneurship Cell"
+  ],
+  "highlights": [
+    "Accredited NAAC Grade B+ with modern engineering laboratories",
+    "Official KEA code E328 with 600 approved total engineering seats",
+    "Strong placement record with average package of 6.5 LPA (highest: 20.8 LPA)",
+    "Comprehensive campus facilities including on-campus hostels, Wi-Fi, and library"
+  ],
+  "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Engineering+College+E328+Karnataka+Karnataka",
+  "cutoffs": {
+    "2026": {
+      "CIVIL": {
+        "GM": 278096,
+        "OBC": 375429,
+        "SC": 1446099,
+        "ST": 1140193
+      },
+      "ME": {
+        "GM": 228502,
+        "OBC": 308477,
+        "SC": 1188210,
+        "ST": 936858
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2026": {
+      "CIVIL": {
+        "GM": 278096,
+        "OBC": 375429,
+        "SC": 1446099,
+        "ST": 1140193
+      },
+      "ME": {
+        "GM": 228502,
+        "OBC": 308477,
+        "SC": 1188210,
+        "ST": 936858
+      }
+    }
+  },
+  "cutoff_rounds": {
+    "2026": {
+      "Mock_Special": {
+        "CIVIL": {
+          "GM": 271990,
+          "OBC": 367186,
+          "SC": 1414348,
+          "ST": 1115159,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 271990
+          }
+        },
+        "ME": {
+          "GM": 216609,
+          "OBC": 292422,
+          "SC": 1126366,
+          "ST": 888096,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 216609
+          }
+        }
+      },
+      "Mock1": {
+        "CIVIL": {
+          "GM": 244573,
+          "OBC": 330173,
+          "SC": 1271779,
+          "ST": 1002749,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 244573
+          }
+        },
+        "ME": {
+          "GM": 228502,
+          "OBC": 308477,
+          "SC": 1188210,
+          "ST": 936858,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 228502
+          }
+        }
+      },
+      "Mock2": {
+        "CIVIL": {
+          "GM": 278096,
+          "OBC": 375429,
+          "SC": 1446099,
+          "ST": 1140193,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 278096
+          }
+        }
+      }
+    }
+  },
+  "cutoff_2024": {},
+  "cutoff_2025": {},
+  "data_quality_score": 100,
+  "search_keywords": [
+    "engineering college e328",
+    "e328",
+    "karnataka",
+    "bangalore urban",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

@@ -27,19 +27,19 @@ class JeeCounselingComponent {
                     <!-- PREDICT TAB -->
                     <div id="jee-tab-predict" class="${this.activeTab === 'predict' ? '' : 'hidden'}">
                         <div class="generator-layout" style="display:grid; grid-template-columns: 1fr 2fr; gap:20px;">
-                            <div class="generator-form card" style="background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+                            <div class="generator-form card" style="background:var(--bg-secondary); color:var(--text-primary); padding:20px; border-radius:12px; border:1px solid var(--border-color); box-shadow:0 4px 6px rgba(0,0,0,0.05);">
                                 <h3>JEE Predictor</h3>
                                 <div class="form-group" style="margin-bottom:15px;">
                                     <label style="display:block; margin-bottom:5px;">JEE Main Rank</label>
-                                    <input type="number" id="jee-main-rank" placeholder="e.g. 15000" style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc;">
+                                    <input type="number" id="jee-main-rank" placeholder="e.g. 15000" style="width:100%; padding:10px; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-primary); color:var(--text-primary);">
                                 </div>
                                 <div class="form-group" style="margin-bottom:15px;">
                                     <label style="display:block; margin-bottom:5px;">JEE Advanced Rank (Optional)</label>
-                                    <input type="number" id="jee-adv-rank" placeholder="e.g. 5000" style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc;">
+                                    <input type="number" id="jee-adv-rank" placeholder="e.g. 5000" style="width:100%; padding:10px; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-primary); color:var(--text-primary);">
                                 </div>
                                 <div class="form-group" style="margin-bottom:15px;">
                                     <label style="display:block; margin-bottom:5px;">Category</label>
-                                    <select id="jee-category" style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc;">
+                                    <select id="jee-category" style="width:100%; padding:10px; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-primary); color:var(--text-primary);">
                                         <option value="OPEN">OPEN (General)</option>
                                         <option value="OBC-NCL">OBC-NCL</option>
                                         <option value="SC">SC</option>
@@ -49,7 +49,7 @@ class JeeCounselingComponent {
                                 </div>
                                 <div class="form-group" style="margin-bottom:15px;">
                                     <label style="display:block; margin-bottom:5px;">Home State</label>
-                                    <input type="text" id="jee-state" placeholder="e.g. Karnataka" style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc;">
+                                    <input type="text" id="jee-state" placeholder="e.g. Karnataka" style="width:100%; padding:10px; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-primary); color:var(--text-primary);">
                                 </div>
                                 <button id="jee-btn-predict" class="btn-primary" style="width:100%; padding:12px; background:#10a37f; color:white; border:none; border-radius:6px; cursor:pointer;">Generate Predictions</button>
                             </div>
@@ -57,7 +57,7 @@ class JeeCounselingComponent {
                             <div class="results-column">
                                 <h3>Predicted Options</h3>
                                 <div id="jee-prediction-results" style="display:flex; flex-direction:column; gap:15px; margin-top:15px;">
-                                    <div style="color:#666;">Enter your ranks and click generate to see predictions.</div>
+                                    <div style="color:var(--text-secondary);">Enter your ranks and click generate to see predictions.</div>
                                 </div>
                             </div>
                         </div>
@@ -66,8 +66,8 @@ class JeeCounselingComponent {
                     <!-- COLLEGES TAB -->
                     <div id="jee-tab-colleges" class="${this.activeTab === 'colleges' ? '' : 'hidden'}">
                         <div style="margin-bottom:20px; display:flex; gap:10px;">
-                            <input type="text" id="jee-search" placeholder="Search colleges..." style="padding:10px; border-radius:6px; border:1px solid #ccc; flex:1;">
-                            <select id="jee-filter-type" style="padding:10px; border-radius:6px; border:1px solid #ccc;">
+                            <input type="text" id="jee-search" placeholder="Search colleges..." style="padding:10px; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-primary); color:var(--text-primary); flex:1;">
+                            <select id="jee-filter-type" style="padding:10px; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-primary); color:var(--text-primary);">
                                 <option value="">All Types</option>
                                 <option value="IIT">IIT</option>
                                 <option value="NIT">NIT</option>
@@ -134,24 +134,24 @@ class JeeCounselingComponent {
             
             if (result.success) {
                 resultsDiv.innerHTML = result.predictions.map(p => `
-                    <div style="background:#fff; border-radius:8px; padding:15px; box-shadow:0 2px 5px rgba(0,0,0,0.05); border-left:4px solid ${this.getColor(p.admission_chance)}">
+                    <div style="background:var(--bg-secondary); color:var(--text-primary); border-radius:8px; padding:15px; border:1px solid var(--border-color); box-shadow:0 2px 5px rgba(0,0,0,0.05); border-left:4px solid ${this.getColor(p.admission_chance)}">
                         <div style="display:flex; justify-content:space-between;">
-                            <h4 style="margin:0; font-size:16px;">${p.college}</h4>
+                            <h4 style="margin:0; font-size:16px; color:var(--text-primary);">${p.college}</h4>
                             <span style="background:${this.getColor(p.admission_chance)}20; color:${this.getColor(p.admission_chance)}; padding:4px 8px; border-radius:12px; font-size:12px; font-weight:bold;">${p.admission_chance}</span>
                         </div>
-                        <p style="margin:5px 0; color:#555; font-size:14px;">${p.branch} &bull; ${p.institute_type} &bull; ${p.quota} Quota</p>
-                        <div style="display:flex; justify-content:space-between; font-size:13px; color:#777; margin-top:10px;">
+                        <p style="margin:5px 0; color:var(--text-secondary); font-size:14px;">${p.branch} &bull; ${p.institute_type} &bull; ${p.quota} Quota</p>
+                        <div style="display:flex; justify-content:space-between; font-size:13px; color:var(--text-secondary); margin-top:10px;">
                             <span>Expected Cutoff: <b>${p.predicted_cutoff}</b></span>
                             <span>Probability: <b>${Math.round(p.probability)}%</b></span>
                         </div>
                     </div>
                 `).join('');
             } else {
-                resultsDiv.innerHTML = `<div style="color:red;">Error fetching predictions.</div>`;
+                resultsDiv.innerHTML = `<div style="color:#ef4444;">${result.error || 'Error fetching predictions.'}</div>`;
             }
         } catch (e) {
             console.error("JEE predict error", e);
-            resultsDiv.innerHTML = `<div style="color:red;">Failed to connect to server.</div>`;
+            resultsDiv.innerHTML = `<div style="color:#ef4444;">Failed to connect to server.</div>`;
         } finally {
             btn.disabled = false;
             btn.innerText = "Generate Predictions";
@@ -171,10 +171,10 @@ class JeeCounselingComponent {
             
             if (data.success && data.colleges.length > 0) {
                 listDiv.innerHTML = data.colleges.map(c => `
-                    <div style="background:#fff; border-radius:8px; padding:15px; border:1px solid #eee;">
+                    <div style="background:var(--bg-secondary); color:var(--text-primary); border-radius:8px; padding:15px; border:1px solid var(--border-color);">
                         <span style="font-size:11px; font-weight:bold; color:#10a37f; text-transform:uppercase;">${c.institute_type}</span>
-                        <h4 style="margin:5px 0;">${c.name}</h4>
-                        <p style="margin:0; font-size:13px; color:#666;">${c.state}</p>
+                        <h4 style="margin:5px 0; color:var(--text-primary);">${c.name}</h4>
+                        <p style="margin:0; font-size:13px; color:var(--text-secondary);">${c.state}</p>
                     </div>
                 `).join('');
             } else {
@@ -192,3 +192,5 @@ class JeeCounselingComponent {
         return "#ef4444";
     }
 }
+
+window.JeeComponent = window.JeeComponent || new JeeCounselingComponent();

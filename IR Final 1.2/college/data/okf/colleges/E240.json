@@ -1,0 +1,521 @@
+{
+  "college_id": "E240",
+  "name": "Dayananda Sagar University DEVARAKAGGALAHALLI VILLAGE",
+  "short_name": "Dayananda Sagar University DEVARAKAGGALAHALLI VILLAGE",
+  "type": "Deemed_University",
+  "location": "Tumakuru",
+  "district": "Tumakuru",
+  "state": "Karnataka",
+  "affiliation": "Deemed_University",
+  "hostel_available": true,
+  "branches": [
+    "AI_DS",
+    "CIVIL",
+    "CSE",
+    "DS",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Deemed_University",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://dsu.edu.in",
+  "phone": "+91-80-49074343",
+  "email": "admissions@dsu.edu.in",
+  "established": 2014,
+  "total_seats": 600,
+  "naac_grade": "A",
+  "nba_accredited": false,
+  "placement_avg_lpa": 9.0,
+  "placement_highest_lpa": 35.0,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "HCL"
+  ],
+  "facilities": [
+    "Modern campus",
+    "Library",
+    "Labs",
+    "Hostel",
+    "Sports",
+    "Canteen"
+  ],
+  "highlights": [
+    "Dayananda Sagar Private University",
+    "NAAC A",
+    "Good placements"
+  ],
+  "google_maps_link": "https://maps.app.goo.gl/HDDMXGsHKiPk3Gsf9",
+  "cutoffs": {
+    "2020": {
+      "CIVIL": {
+        "GM": 57200,
+        "OBC": 77220,
+        "SC": 297440,
+        "ST": 234519
+      },
+      "CSE": {
+        "GM": 21586,
+        "OBC": 29141,
+        "SC": 112247,
+        "ST": 88502
+      },
+      "DS": {
+        "GM": 14662,
+        "OBC": 19793,
+        "SC": 76242,
+        "ST": 60114
+      },
+      "ECE": {
+        "GM": 27648,
+        "OBC": 37324,
+        "SC": 143769,
+        "ST": 113356
+      },
+      "EEE": {
+        "GM": 51450,
+        "OBC": 69457,
+        "SC": 267540,
+        "ST": 210944
+      },
+      "ISE": {
+        "GM": 16380,
+        "OBC": 22113,
+        "SC": 85176,
+        "ST": 67158
+      },
+      "ME": {
+        "GM": 64352,
+        "OBC": 86875,
+        "SC": 334630,
+        "ST": 263843
+      }
+    },
+    "2021": {
+      "CIVIL": {
+        "GM": 60450,
+        "OBC": 81607,
+        "SC": 314340,
+        "ST": 247844
+      },
+      "CSE": {
+        "GM": 23166,
+        "OBC": 31274,
+        "SC": 120463,
+        "ST": 94980
+      },
+      "DS": {
+        "GM": 15525,
+        "OBC": 20958,
+        "SC": 80730,
+        "ST": 63652
+      },
+      "ECE": {
+        "GM": 28550,
+        "OBC": 38542,
+        "SC": 148460,
+        "ST": 117054
+      },
+      "EEE": {
+        "GM": 52500,
+        "OBC": 70875,
+        "SC": 273000,
+        "ST": 215249
+      },
+      "ISE": {
+        "GM": 17355,
+        "OBC": 23429,
+        "SC": 90246,
+        "ST": 71155
+      },
+      "ME": {
+        "GM": 67927,
+        "OBC": 91701,
+        "SC": 353220,
+        "ST": 278500
+      }
+    },
+    "2022": {
+      "CIVIL": {
+        "GM": 67600,
+        "OBC": 91260,
+        "SC": 351520,
+        "ST": 277160
+      },
+      "CSE": {
+        "GM": 24745,
+        "OBC": 33405,
+        "SC": 128674,
+        "ST": 101454
+      },
+      "DS": {
+        "GM": 16387,
+        "OBC": 22122,
+        "SC": 85212,
+        "ST": 67186
+      },
+      "ECE": {
+        "GM": 29451,
+        "OBC": 39758,
+        "SC": 153145,
+        "ST": 120749
+      },
+      "EEE": {
+        "GM": 53550,
+        "OBC": 72292,
+        "SC": 278460,
+        "ST": 219554
+      },
+      "ISE": {
+        "GM": 18525,
+        "OBC": 25008,
+        "SC": 96330,
+        "ST": 75952
+      },
+      "ME": {
+        "GM": 73648,
+        "OBC": 99424,
+        "SC": 382969,
+        "ST": 301956
+      }
+    },
+    "2023": {
+      "CSE": {
+        "GM": 23442,
+        "OBC": 31063,
+        "SC": 121898,
+        "ST": 103541
+      }
+    },
+    "2024": {
+      "CSE": {
+        "GM": 33070,
+        "OBC": 40464,
+        "SC": 126280,
+        "ST": 166652
+      }
+    },
+    "2025": {
+      "ME": {
+        "GM": 5,
+        "OBC": 6,
+        "SC": 26,
+        "ST": 20
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2020": {
+      "CIVIL": {
+        "GM": 57200,
+        "OBC": 77220,
+        "SC": 297440,
+        "ST": 234519
+      },
+      "CSE": {
+        "GM": 21586,
+        "OBC": 29141,
+        "SC": 112247,
+        "ST": 88502
+      },
+      "DS": {
+        "GM": 14662,
+        "OBC": 19793,
+        "SC": 76242,
+        "ST": 60114
+      },
+      "ECE": {
+        "GM": 27648,
+        "OBC": 37324,
+        "SC": 143769,
+        "ST": 113356
+      },
+      "EEE": {
+        "GM": 51450,
+        "OBC": 69457,
+        "SC": 267540,
+        "ST": 210944
+      },
+      "ISE": {
+        "GM": 16380,
+        "OBC": 22113,
+        "SC": 85176,
+        "ST": 67158
+      },
+      "ME": {
+        "GM": 64352,
+        "OBC": 86875,
+        "SC": 334630,
+        "ST": 263843
+      }
+    },
+    "2021": {
+      "CIVIL": {
+        "GM": 60450,
+        "OBC": 81607,
+        "SC": 314340,
+        "ST": 247844
+      },
+      "CSE": {
+        "GM": 23166,
+        "OBC": 31274,
+        "SC": 120463,
+        "ST": 94980
+      },
+      "DS": {
+        "GM": 15525,
+        "OBC": 20958,
+        "SC": 80730,
+        "ST": 63652
+      },
+      "ECE": {
+        "GM": 28550,
+        "OBC": 38542,
+        "SC": 148460,
+        "ST": 117054
+      },
+      "EEE": {
+        "GM": 52500,
+        "OBC": 70875,
+        "SC": 273000,
+        "ST": 215249
+      },
+      "ISE": {
+        "GM": 17355,
+        "OBC": 23429,
+        "SC": 90246,
+        "ST": 71155
+      },
+      "ME": {
+        "GM": 67927,
+        "OBC": 91701,
+        "SC": 353220,
+        "ST": 278500
+      }
+    },
+    "2022": {
+      "CIVIL": {
+        "GM": 67600,
+        "OBC": 91260,
+        "SC": 351520,
+        "ST": 277160
+      },
+      "CSE": {
+        "GM": 24745,
+        "OBC": 33405,
+        "SC": 128674,
+        "ST": 101454
+      },
+      "DS": {
+        "GM": 16387,
+        "OBC": 22122,
+        "SC": 85212,
+        "ST": 67186
+      },
+      "ECE": {
+        "GM": 29451,
+        "OBC": 39758,
+        "SC": 153145,
+        "ST": 120749
+      },
+      "EEE": {
+        "GM": 53550,
+        "OBC": 72292,
+        "SC": 278460,
+        "ST": 219554
+      },
+      "ISE": {
+        "GM": 18525,
+        "OBC": 25008,
+        "SC": 96330,
+        "ST": 75952
+      },
+      "ME": {
+        "GM": 73648,
+        "OBC": 99424,
+        "SC": 382969,
+        "ST": 301956
+      }
+    },
+    "2023": {
+      "CSE": {
+        "GM": 23442,
+        "OBC": 31063,
+        "SC": 121898,
+        "ST": 103541
+      }
+    },
+    "2024": {
+      "CSE": {
+        "GM": 33070,
+        "OBC": 40464,
+        "SC": 126280,
+        "ST": 166652
+      }
+    },
+    "2025": {
+      "ME": {
+        "GM": 5,
+        "OBC": 6,
+        "SC": 26,
+        "ST": 20
+      }
+    }
+  },
+  "cutoff_rounds": {
+    "2023": {
+      "R1": {
+        "CSE": {
+          "GM": 21343,
+          "OBC": 27908,
+          "SC": 96078,
+          "ST": 125333,
+          "quota": "GEN",
+          "details": {
+            "1G": 30459,
+            "1R": 31486,
+            "2AG": 27908,
+            "2AK": 37456,
+            "2AR": 33345,
+            "2BG": 32442,
+            "2BR": 48020,
+            "3AG": 24116,
+            "3AR": 25929,
+            "3BG": 23869,
+            "3BK": 37484,
+            "3BR": 27836,
+            "GM": 21343,
+            "GMK": 32871,
+            "GMR": 25670,
+            "SCG": 96078,
+            "STG": 125333
+          }
+        }
+      },
+      "R2": {
+        "CSE": {
+          "GM": 23442,
+          "OBC": 31063,
+          "SC": 121898,
+          "ST": 103541,
+          "quota": "GEN",
+          "details": {
+            "1G": 31848,
+            "1R": 35212,
+            "2AG": 31063,
+            "2AK": 38898,
+            "2AR": 40169,
+            "2BG": 34698,
+            "2BR": 48020,
+            "3AG": 25700,
+            "3AR": 29097,
+            "3BG": 24715,
+            "3BK": 42085,
+            "3BR": 32659,
+            "GM": 23442,
+            "GMK": 34750,
+            "GMR": 28402,
+            "STG": 103541
+          }
+        }
+      }
+    },
+    "2024": {
+      "R1": {
+        "CSE": {
+          "GM": 27292,
+          "OBC": 35624,
+          "SC": 116426,
+          "ST": 166652,
+          "quota": "HK",
+          "details": {
+            "1G": 36723,
+            "2AG": 35624,
+            "2AR": 48012,
+            "2BG": 38925,
+            "3AG": 30539,
+            "3BG": 28621,
+            "GM": 27292,
+            "GMK": 34655,
+            "GMR": 33564,
+            "SCG": 116426,
+            "STG": 166652
+          }
+        }
+      },
+      "R2": {
+        "CSE": {
+          "GM": 33070,
+          "OBC": 40464,
+          "SC": 126280,
+          "ST": 166652,
+          "quota": "HK",
+          "details": {
+            "1G": 48079,
+            "2AG": 40464,
+            "2AR": 51894,
+            "2BG": 47510,
+            "3AG": 39472,
+            "3BG": 38097,
+            "GM": 33070,
+            "GMK": 37919,
+            "GMR": 41088,
+            "SCG": 126280,
+            "STG": 166652
+          }
+        }
+      }
+    },
+    "2025": {
+      "R3": {
+        "ME": {
+          "GM": 5,
+          "OBC": 6,
+          "SC": 26,
+          "ST": 20,
+          "quota": "GEN",
+          "details": {
+            "GM": 5
+          }
+        }
+      }
+    }
+  },
+  "cutoff_2024": {
+    "CSE": {
+      "GM": 33070,
+      "OBC": 40464,
+      "SC": 126280,
+      "ST": 166652
+    }
+  },
+  "cutoff_2025": {
+    "ME": {
+      "GM": 5,
+      "OBC": 6,
+      "SC": 26,
+      "ST": 20
+    }
+  },
+  "data_quality_score": 100,
+  "search_keywords": [
+    "dayananda sagar university devarakaggalahalli village",
+    "e240",
+    "tumakuru",
+    "tumakuru",
+    "ai_ds",
+    "civil",
+    "cse",
+    "ds",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

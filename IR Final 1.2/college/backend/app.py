@@ -153,9 +153,12 @@ from flask_limiter.util import get_remote_address
 limiter = Limiter(
     get_remote_address,
     app=app,
-    default_limits=["200 per day", "50 per hour"],
+    default_limits=["2000 per day", "500 per hour"],
     storage_uri="memory://"
 )
+
+# In-memory session profile fallback for unauthenticated users
+_SESSION_PROFILES = {}
 # Custom HMAC-SHA256 JWT implementation (pyjwt independent)
 def b64url_encode(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).decode('utf-8').rstrip('=')
@@ -701,7 +704,11 @@ def chat():
             session_profile=profile if profile else None,
         )
 
-        return jsonify({"response": response, "session_id": session_id})
+        return jsonify({
+            "response": response,
+            "session_id": session_id,
+            "model": getattr(orchestrator, "last_model_used", "InsightRural AI")
+        })
 
     except Exception as e:
         err_msg = traceback.format_exc()
@@ -761,7 +768,7 @@ def chat_stream():
             ):
                 yield f"data: {json.dumps({'chunk': token})}\n\n"
 
-            yield f"data: {json.dumps({'done': True, 'model': 'LLaMA 3 (Ollama)'})}\n\n"
+            yield f"data: {json.dumps({'done': True, 'model': getattr(counselor, 'last_model_used', 'InsightRural AI')})}\n\n"
 
         except Exception as e:
             print(f"[ERROR] /api/chat/stream generate(): {e}")
@@ -1125,22 +1132,38 @@ def ml_info():
         return jsonify({"error": str(e)}), 500
 
 @app.route("/api/profile", methods=["POST", "GET"])
-@token_required
 def manage_profile():
-    """Store or retrieve student profile in database."""
+    """Store or retrieve student profile in database (or session fallback for guests)."""
+    auth_header = request.headers.get("Authorization")
+    user_id = None
+    if auth_header and auth_header.startswith("Bearer "):
+        token = auth_header.split(" ")[1]
+        user_id = decode_token(token)
+
+    session_id = request.args.get("session_id") or (request.json or {}).get("session_id") or "default"
+
+    if not user_id:
+        if request.method == "POST":
+            profile = request.json or {}
+            _SESSION_PROFILES[session_id] = profile
+            return jsonify({"status": "saved", "profile": profile})
+        else:
+            return jsonify(_SESSION_PROFILES.get(session_id, {}))
+
     session = SessionLocal()
     try:
-        user = session.query(User).filter(User.id == request.user_id).first()
+        user = session.query(User).filter(User.id == user_id).first()
         if not user:
-            return jsonify({"error": "User not found"}), 404
-            
+            return jsonify(_SESSION_PROFILES.get(session_id, {}))
+
         if request.method == "POST":
             profile = request.json or {}
             user.profile = profile
             session.commit()
+            _SESSION_PROFILES[session_id] = profile
             return jsonify({"status": "saved", "profile": profile})
         else:
-            return jsonify(user.profile or {})
+            return jsonify(user.profile or _SESSION_PROFILES.get(session_id, {}))
     except Exception as e:
         session.rollback()
         return jsonify({"error": str(e)}), 500
@@ -1151,22 +1174,39 @@ def manage_profile():
 
 @app.route("/api/ai/status", methods=["GET"])
 def ai_status():
-    """Check AI system status (Ollama + ChromaDB RAG)."""
+    """Check AI system status (Gemini + Groq + FastCloud + WebSearch + Ollama + ChromaDB RAG)."""
     status = {
         "ai_modules_available": AI_MODULES_AVAILABLE,
         "ollama_connected":     False,
         "ollama_model":         "llama3",
+        "fast_cloud_available": True,
+        "web_search_available": True,
         "rag_indexed":          False,
-        "pipeline":             "local-ollama-llama3-chromadb-rag",
+        "pipeline":             "gemini -> groq -> fast-cloud-llm (+ live-web-search) -> ollama-local -> fallback",
+        "model":                "InsightRural AI (Hybrid DB + Live Web LLM)",
     }
 
     if AI_MODULES_AVAILABLE:
         try:
             counselor = get_llm_service()
             detail = counselor.get_status()
-            status["ollama_connected"] = detail.get("ollama", {}).get("available", False)
-            status["ollama_model"]     = detail.get("ollama", {}).get("model", "llama3")
-            status["rag_indexed"]      = detail.get("rag_engine", {}).get("available", False)
+            status["ollama_connected"]     = detail.get("ollama", {}).get("available", False)
+            status["ollama_model"]         = detail.get("ollama", {}).get("model", "llama3")
+            status["gemini_available"]     = detail.get("gemini", {}).get("available", False)
+            status["groq_available"]       = detail.get("groq", {}).get("available", False)
+            status["fast_cloud_available"] = detail.get("fast_cloud", {}).get("available", True)
+            status["web_search_available"] = detail.get("web_search", {}).get("available", True)
+            status["rag_indexed"]          = detail.get("rag_engine", {}).get("available", False)
+            if status.get("gemini_available"):
+                status["model"] = "Google Gemini 2.0 Flash"
+            elif status.get("groq_available"):
+                status["model"] = "Groq LLaMA 3.3 70B"
+            elif status.get("fast_cloud_available"):
+                status["model"] = "InsightRural AI (Hybrid DB + Live Web LLM)"
+            elif status.get("ollama_connected"):
+                status["model"] = f"Local Ollama {status['ollama_model'].title()}"
+            else:
+                status["model"] = "InsightRural Neural AI (KEA Fine-Tuned)"
         except Exception:
             pass
 
@@ -1429,7 +1469,10 @@ def _career_simulation_fallback(rank, category, branch, interests):
     }) if ADMISSIONS_SERVICE_AVAILABLE else {}
 
     branch_label = str(branch or "CSE").upper()
-    interest_label = str(interests or "technology").title()
+    if isinstance(interests, (list, tuple)):
+        interest_label = ", ".join(str(i) for i in interests).title()
+    else:
+        interest_label = str(interests or "technology").title()
 
     return {
         "paths": [
@@ -1862,20 +1905,41 @@ def get_hostels():
         
         filtered = all_hostels
         
-        if location:
-            filtered = [h for h in filtered if h.get('location', '').lower() == location]
+        if location and location != 'all':
+            loc_aliases = {'bangalore', 'bengaluru'} if location in ('bangalore', 'bengaluru') else {location}
+            filtered = [
+                h for h in filtered
+                if any(loc in h.get('location', '').lower() or loc in h.get('address', '').lower() for loc in loc_aliases)
+            ]
         
-        if hostel_type:
-            filtered = [h for h in filtered if hostel_type in h.get('type', '').lower()]
+        if hostel_type and hostel_type != 'all':
+            if hostel_type == 'government':
+                filtered = [
+                    h for h in filtered
+                    if any(k in h.get('type', '').lower() for k in ['government', 'bcm', 'sc/st', 'minority', 'social welfare'])
+                ]
+            else:
+                filtered = [h for h in filtered if hostel_type in h.get('type', '').lower()]
         
-        if gender:
+        if gender and gender != 'all':
             if gender == 'boys':
                 filtered = [h for h in filtered if h.get('facilities', {}).get('boys_hostel', False)]
             elif gender == 'girls':
                 filtered = [h for h in filtered if h.get('facilities', {}).get('girls_hostel', False)]
         
-        if category:
+        if category and category != 'all':
             filtered = [h for h in filtered if category.upper() in str(h.get('category', []))]
+
+        # Normalize fee fields so frontend never displays ₹undefined
+        for h in filtered:
+            fees = h.get('fees', {})
+            if isinstance(fees, dict) and 'total_yearly' not in fees and 'total_monthly' not in fees:
+                shared = fees.get('shared_room_monthly') or fees.get('single_room_monthly')
+                if isinstance(shared, dict) and 'min' in shared:
+                    fees['total_monthly'] = f"{shared['min']:,} - {shared.get('max', shared['min']):,}"
+                    fees['total_yearly'] = int(shared['min']) * 12
+                else:
+                    fees['total_yearly'] = 0
         
         return jsonify({
             "total": len(filtered),

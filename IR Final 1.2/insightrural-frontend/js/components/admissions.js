@@ -306,14 +306,6 @@ const AdmissionsComponent = {
     },
 
     async handlePredictionSubmit() {
-        if (!AppState.isLoggedIn()) {
-            alert('🔐 Authentication required. Please register/login to use our unified AI prediction counseling.');
-            if (window.ModalComponent) {
-                window.ModalComponent.showModal('login-modal');
-            }
-            return;
-        }
-
         this.setLoading(true);
         const isJee = this.examType === 'jee';
         const url = isJee ? `${API_BASE_URL}/api/jee/predict` : `${API_BASE_URL}/api/neet/predict`;
@@ -363,12 +355,6 @@ const AdmissionsComponent = {
     },
 
     async handleMiniChatSubmit() {
-        if (!AppState.isLoggedIn()) {
-            alert('Please login to query the AI admissions counselor.');
-            if (window.ModalComponent) window.ModalComponent.showModal('login-modal');
-            return;
-        }
-
         const input = document.getElementById('mini-chat-input');
         const query = input?.value?.trim();
         if (!query) return;

@@ -1,0 +1,234 @@
+{
+  "college_id": "E183",
+  "name": "Engineering College E183",
+  "short_name": "Engineering College E183",
+  "type": "Type1_Unaided",
+  "location": "Karnataka",
+  "district": "Bangalore Urban",
+  "state": "Karnataka",
+  "affiliation": "Visvesvaraya Technological University (VTU)",
+  "hostel_available": true,
+  "branches": [
+    "AERO",
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Type1_Unaided",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://engineeringcoll.ac.in",
+  "phone": "+91-80-22000183",
+  "email": "principal@engineeringcoll.ac.in",
+  "established": 1993,
+  "total_seats": 600,
+  "naac_grade": "B+",
+  "nba_accredited": true,
+  "placement_avg_lpa": 6.5,
+  "placement_highest_lpa": 20.8,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "Capgemini",
+    "Tech Mahindra",
+    "L&T Technology Services",
+    "Mindtree",
+    "HCL"
+  ],
+  "facilities": [
+    "Central Library & Digital E-Resource Centre",
+    "Boys Hostel on Campus",
+    "Girls Hostel on Campus",
+    "High-Speed Wi-Fi Campus",
+    "Modern Computing & AI/ML Labs",
+    "Multi-Sport Grounds & Indoor Gymnasium",
+    "Hygienic Cafeteria & Food Court",
+    "College Bus / Transport Service",
+    "24/7 Medical Health Centre & Ambulance",
+    "Innovation, Incubation & Entrepreneurship Cell"
+  ],
+  "highlights": [
+    "Accredited NAAC Grade B+ with modern engineering laboratories",
+    "Official KEA code E183 with 600 approved total engineering seats",
+    "Strong placement record with average package of 6.5 LPA (highest: 20.8 LPA)",
+    "Comprehensive campus facilities including on-campus hostels, Wi-Fi, and library"
+  ],
+  "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Engineering+College+E183+Karnataka+Karnataka",
+  "cutoffs": {
+    "2023": {
+      "AERO": {
+        "GM": 172891,
+        "OBC": 194025,
+        "SC": 899033,
+        "ST": 708853
+      },
+      "CSE": {
+        "GM": 94368,
+        "OBC": 106138,
+        "SC": 151422,
+        "ST": 117806
+      },
+      "ECE": {
+        "GM": 118106,
+        "OBC": 132937,
+        "SC": 127984,
+        "ST": 484234
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2023": {
+      "AERO": {
+        "GM": 172891,
+        "OBC": 194025,
+        "SC": 899033,
+        "ST": 708853
+      },
+      "CSE": {
+        "GM": 94368,
+        "OBC": 106138,
+        "SC": 151422,
+        "ST": 117806
+      },
+      "ECE": {
+        "GM": 118106,
+        "OBC": 132937,
+        "SC": 127984,
+        "ST": 484234
+      }
+    }
+  },
+  "cutoff_rounds": {
+    "2023": {
+      "R1": {
+        "AERO": {
+          "GM": 133742,
+          "OBC": 137583,
+          "SC": 695458,
+          "ST": 189281,
+          "quota": "GEN",
+          "details": {
+            "1G": 134956,
+            "2AG": 137583,
+            "2AR": 140337,
+            "3AG": 123002,
+            "3BG": 133742,
+            "GMR": 139731,
+            "STG": 189281
+          }
+        },
+        "CSE": {
+          "GM": 82221,
+          "OBC": 88612,
+          "SC": 132124,
+          "ST": 117806,
+          "quota": "GEN",
+          "details": {
+            "1G": 87155,
+            "2AG": 88612,
+            "2AR": 95850,
+            "2BG": 83924,
+            "3AG": 84554,
+            "3AK": 98364,
+            "3AR": 92147,
+            "3BG": 83166,
+            "3BR": 86373,
+            "GM": 82221,
+            "GMR": 85038,
+            "SCG": 132124,
+            "STG": 117806
+          }
+        },
+        "ECE": {
+          "GM": 99672,
+          "OBC": 150344,
+          "SC": 108461,
+          "ST": 201942,
+          "quota": "GEN",
+          "details": {
+            "2AG": 150344,
+            "2BG": 117213,
+            "3AG": 101349,
+            "GM": 99672,
+            "SCG": 108461,
+            "STG": 201942
+          }
+        }
+      },
+      "R2": {
+        "AERO": {
+          "GM": 172891,
+          "OBC": 194025,
+          "SC": 899033,
+          "ST": 708853,
+          "quota": "GEN",
+          "details": {
+            "1G": 166532,
+            "2AG": 194025,
+            "3AG": 173928,
+            "3BG": 172891,
+            "GMR": 157219
+          }
+        },
+        "CSE": {
+          "GM": 94368,
+          "OBC": 106138,
+          "SC": 151422,
+          "ST": 117806,
+          "quota": "GEN",
+          "details": {
+            "1G": 103608,
+            "2AG": 106138,
+            "2AR": 112665,
+            "2BG": 99150,
+            "3AG": 97537,
+            "3AR": 125770,
+            "3BG": 98070,
+            "3BR": 108461,
+            "GM": 94368,
+            "GMR": 97246,
+            "SCG": 151422,
+            "STG": 117806
+          }
+        },
+        "ECE": {
+          "GM": 118106,
+          "OBC": 132937,
+          "SC": 127984,
+          "ST": 484234,
+          "quota": "GEN",
+          "details": {
+            "1G": 127429,
+            "2AG": 132937,
+            "2BG": 175932,
+            "3AG": 123582,
+            "GM": 118106,
+            "SCG": 127984
+          }
+        }
+      }
+    }
+  },
+  "cutoff_2024": {},
+  "cutoff_2025": {},
+  "data_quality_score": 100,
+  "search_keywords": [
+    "engineering college e183",
+    "e183",
+    "karnataka",
+    "bangalore urban",
+    "aero",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

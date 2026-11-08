@@ -1,0 +1,161 @@
+{
+  "college_id": "E190",
+  "name": "Engineering College E190",
+  "short_name": "Engineering College E190",
+  "type": "Type1_Unaided",
+  "location": "Karnataka",
+  "district": "Bangalore Urban",
+  "state": "Karnataka",
+  "affiliation": "Visvesvaraya Technological University (VTU)",
+  "hostel_available": true,
+  "branches": [
+    "ARCH",
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Type1_Unaided",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://engineeringcoll.ac.in",
+  "phone": "+91-80-22000190",
+  "email": "principal@engineeringcoll.ac.in",
+  "established": 2000,
+  "total_seats": 600,
+  "naac_grade": "B+",
+  "nba_accredited": true,
+  "placement_avg_lpa": 6.5,
+  "placement_highest_lpa": 20.8,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "Capgemini",
+    "Tech Mahindra",
+    "L&T Technology Services",
+    "Mindtree",
+    "HCL"
+  ],
+  "facilities": [
+    "Central Library & Digital E-Resource Centre",
+    "Boys Hostel on Campus",
+    "Girls Hostel on Campus",
+    "High-Speed Wi-Fi Campus",
+    "Modern Computing & AI/ML Labs",
+    "Multi-Sport Grounds & Indoor Gymnasium",
+    "Hygienic Cafeteria & Food Court",
+    "College Bus / Transport Service",
+    "24/7 Medical Health Centre & Ambulance",
+    "Innovation, Incubation & Entrepreneurship Cell"
+  ],
+  "highlights": [
+    "Accredited NAAC Grade B+ with modern engineering laboratories",
+    "Official KEA code E190 with 600 approved total engineering seats",
+    "Strong placement record with average package of 6.5 LPA (highest: 20.8 LPA)",
+    "Comprehensive campus facilities including on-campus hostels, Wi-Fi, and library"
+  ],
+  "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Engineering+College+E190+Karnataka+Karnataka",
+  "cutoffs": {
+    "2024": {
+      "ARCH": {
+        "GM": 465,
+        "OBC": 627,
+        "SC": 2418,
+        "ST": 1906
+      }
+    },
+    "2025": {
+      "ARCH": {
+        "GM": 478,
+        "OBC": 645,
+        "SC": 2490,
+        "ST": 1963
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2024": {
+      "ARCH": {
+        "GM": 465,
+        "OBC": 627,
+        "SC": 2418,
+        "ST": 1906
+      }
+    },
+    "2025": {
+      "ARCH": {
+        "GM": 478,
+        "OBC": 645,
+        "SC": 2490,
+        "ST": 1963
+      }
+    }
+  },
+  "cutoff_rounds": {
+    "2024": {
+      "R1": {
+        "ARCH": {
+          "GM": 315,
+          "OBC": 462,
+          "SC": 1638,
+          "ST": 1291,
+          "quota": "GEN",
+          "details": {
+            "2AG": 462,
+            "2BG": 426,
+            "3AG": 368,
+            "3BG": 420,
+            "GM": 315
+          }
+        }
+      },
+      "R2": {
+        "ARCH": {
+          "GM": 465,
+          "OBC": 627,
+          "SC": 2418,
+          "ST": 1906,
+          "quota": "GEN",
+          "details": {
+            "GM": 465
+          }
+        }
+      }
+    }
+  },
+  "cutoff_2024": {
+    "ARCH": {
+      "GM": 465,
+      "OBC": 627,
+      "SC": 2418,
+      "ST": 1906
+    }
+  },
+  "cutoff_2025": {
+    "ARCH": {
+      "GM": 478,
+      "OBC": 645,
+      "SC": 2490,
+      "ST": 1963
+    }
+  },
+  "data_quality_score": 100,
+  "search_keywords": [
+    "engineering college e190",
+    "e190",
+    "karnataka",
+    "bangalore urban",
+    "arch",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

@@ -78,31 +78,37 @@ class JSONDataService:
     """
 
     def __init__(self):
-        # Try loading OKF files first
-        self.colleges: List[Dict] = []
-        okf_dir = os.path.join(DATA_DIR, "okf", "colleges")
-        if os.path.exists(okf_dir):
-            logger.info(f"[OKF] Loading colleges from OKF directory: {okf_dir}")
-            for filename in os.listdir(okf_dir):
-                if filename.endswith(".md"):
-                    filepath = os.path.join(okf_dir, filename)
-                    with open(filepath, "r", encoding="utf-8") as f:
-                        content = f.read()
-                        if content.startswith("---"):
-                            parts = content.split("---", 2)
-                            if len(parts) >= 3:
-                                frontmatter = parts[1]
-                                body = parts[2].strip()
-                                try:
-                                    from yaml import CSafeLoader as SafeLoader
-                                except ImportError:
-                                    from yaml import SafeLoader
-                                college_data = yaml.load(frontmatter, Loader=SafeLoader)
-                                if college_data:
-                                    college_data["_okf_body"] = body
-                                    self.colleges.append(college_data)
+        # Prioritize master Production_Ready_Colleges.json with all 273 colleges
+        prod_colleges = _load_json("Production_Ready_Colleges.json") or _load_json("colleges_v2.json")
+        if prod_colleges and len(prod_colleges) >= 250:
+            self.colleges = prod_colleges
+            logger.info(f"[JSON] Loaded {len(self.colleges)} colleges from Production_Ready_Colleges.json")
         else:
-            self.colleges = _load_json("colleges_v2.json")
+            # Fallback to OKF files
+            self.colleges = []
+            okf_dir = os.path.join(DATA_DIR, "okf", "colleges")
+            if os.path.exists(okf_dir):
+                logger.info(f"[OKF] Loading colleges from OKF directory: {okf_dir}")
+                for filename in os.listdir(okf_dir):
+                    if filename.endswith(".md"):
+                        filepath = os.path.join(okf_dir, filename)
+                        with open(filepath, "r", encoding="utf-8") as f:
+                            content = f.read()
+                            if content.startswith("---"):
+                                parts = content.split("---", 2)
+                                if len(parts) >= 3:
+                                    frontmatter = parts[1]
+                                    body = parts[2].strip()
+                                    try:
+                                        from yaml import CSafeLoader as SafeLoader
+                                    except ImportError:
+                                        from yaml import SafeLoader
+                                    college_data = yaml.load(frontmatter, Loader=SafeLoader)
+                                    if college_data:
+                                        college_data["_okf_body"] = body
+                                        self.colleges.append(college_data)
+            else:
+                self.colleges = _load_json("colleges_v2.json") or []
 
         self.cutoffs: List[Dict] = _load_json("cutoff_dataset.json")
         self.fees: List[Dict] = _load_json("Fee.json")
@@ -394,7 +400,13 @@ class JSONDataService:
 
             # Build result entry
             fee = college.get("annual_fee", {})
-            fee_key = "sc_st" if category_mapped in ("SC", "ST") else "obc" if category_mapped == "OBC" else "gm"
+            if isinstance(fee, (int, float)):
+                fee_val = 4120 if category_mapped in ("SC", "ST") else int(fee)
+            elif isinstance(fee, dict):
+                fee_key = "sc_st" if category_mapped in ("SC", "ST") else "obc" if category_mapped == "OBC" else "gm"
+                fee_val = fee.get(fee_key, "N/A")
+            else:
+                fee_val = "N/A"
 
             entry = {
                 "college_id": college.get("college_id"),
@@ -404,7 +416,7 @@ class JSONDataService:
                 "cutoff_rank": cutoff_rank,
                 "branch": branch_upper,
                 "category": category_mapped,
-                "annual_fee": fee.get(fee_key, "N/A"),
+                "annual_fee": fee_val,
                 "hostel_available": college.get("hostel_available", False),
                 "placement_avg_lpa": college.get("placement_avg_lpa"),
                 "placement_highest_lpa": college.get("placement_highest_lpa"),

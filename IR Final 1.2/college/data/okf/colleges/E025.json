@@ -1,0 +1,521 @@
+{
+  "college_id": "E025",
+  "name": "Government Engineering College, Chamarajanagar",
+  "short_name": "Government Engineering College, Chamarajanagar",
+  "type": "Government",
+  "location": "Chamarajanagar",
+  "district": "Chamarajanagar",
+  "state": "Karnataka",
+  "affiliation": "VTU",
+  "hostel_available": true,
+  "branches": [
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ME"
+  ],
+  "annual_fee": 42120,
+  "fee_category": "Government",
+  "fee_type_label": "Government Quota Fee (Subsidized)",
+  "website": "https://gecchamarajanagar.ac.in",
+  "phone": "+91-8226-222033",
+  "email": "principal@gecchamarajanagar.ac.in",
+  "established": 2012,
+  "total_seats": 300,
+  "naac_grade": "B",
+  "nba_accredited": false,
+  "placement_avg_lpa": 4.6,
+  "placement_highest_lpa": 14.0,
+  "top_recruiters": [
+    "TCS",
+    "Infosys",
+    "Wipro",
+    "L&T",
+    "KPTCL",
+    "BESCOM"
+  ],
+  "facilities": [
+    "Central Library & Digital E-Resource Centre",
+    "Boys Hostel on Campus",
+    "Girls Hostel on Campus",
+    "High-Speed Wi-Fi Campus",
+    "Modern Computing & AI/ML Labs",
+    "Multi-Sport Grounds & Indoor Gymnasium",
+    "Hygienic Cafeteria & Food Court",
+    "College Bus / Transport Service",
+    "24/7 Medical Health Centre & Ambulance",
+    "Innovation, Incubation & Entrepreneurship Cell"
+  ],
+  "highlights": [
+    "Government college in Chamarajanagar district",
+    "Affordable for SC/ST/OBC border area students",
+    "Free hostel for eligible categories"
+  ],
+  "google_maps_link": "https://maps.app.goo.gl/m1xCrkRXHRtSSFbc6",
+  "cutoffs": {
+    "2020": {
+      "CIVIL": {
+        "GM": 51040,
+        "OBC": 68904,
+        "SC": 265408,
+        "ST": 209263
+      },
+      "CSE": {
+        "GM": 16400,
+        "OBC": 22140,
+        "SC": 85280,
+        "ST": 67240
+      },
+      "ECE": {
+        "GM": 27600,
+        "OBC": 37260,
+        "SC": 143520,
+        "ST": 113159
+      },
+      "EEE": {
+        "GM": 37240,
+        "OBC": 50274,
+        "SC": 193648,
+        "ST": 152684
+      },
+      "ME": {
+        "GM": 45000,
+        "OBC": 60750,
+        "SC": 234000,
+        "ST": 184499
+      }
+    },
+    "2021": {
+      "CIVIL": {
+        "GM": 53940,
+        "OBC": 72819,
+        "SC": 280488,
+        "ST": 221153
+      },
+      "CSE": {
+        "GM": 17600,
+        "OBC": 23760,
+        "SC": 91520,
+        "ST": 72160
+      },
+      "ECE": {
+        "GM": 28500,
+        "OBC": 38475,
+        "SC": 148200,
+        "ST": 116849
+      },
+      "EEE": {
+        "GM": 38000,
+        "OBC": 51300,
+        "SC": 197600,
+        "ST": 155800
+      },
+      "ME": {
+        "GM": 47500,
+        "OBC": 64125,
+        "SC": 247000,
+        "ST": 194749
+      }
+    },
+    "2022": {
+      "CIVIL": {
+        "GM": 60320,
+        "OBC": 81432,
+        "SC": 313664,
+        "ST": 247311
+      },
+      "CSE": {
+        "GM": 18800,
+        "OBC": 25380,
+        "SC": 97760,
+        "ST": 77080
+      },
+      "ECE": {
+        "GM": 29400,
+        "OBC": 39690,
+        "SC": 152880,
+        "ST": 120539
+      },
+      "EEE": {
+        "GM": 38760,
+        "OBC": 52326,
+        "SC": 201552,
+        "ST": 158916
+      },
+      "ME": {
+        "GM": 51500,
+        "OBC": 69525,
+        "SC": 267800,
+        "ST": 211149
+      }
+    },
+    "2023": {
+      "CIVIL": {
+        "GM": 59740,
+        "OBC": 80649,
+        "SC": 310648,
+        "ST": 244933
+      },
+      "CSE": {
+        "GM": 19400,
+        "OBC": 26190,
+        "SC": 100880,
+        "ST": 79540
+      },
+      "ECE": {
+        "GM": 29700,
+        "OBC": 40095,
+        "SC": 154440,
+        "ST": 121769
+      },
+      "EEE": {
+        "GM": 38380,
+        "OBC": 51813,
+        "SC": 199576,
+        "ST": 157358
+      },
+      "ME": {
+        "GM": 51000,
+        "OBC": 68850,
+        "SC": 265200,
+        "ST": 209099
+      }
+    },
+    "2024": {
+      "CIVIL": {
+        "GM": 58000,
+        "OBC": 29500,
+        "SC": 72000,
+        "ST": 45000
+      },
+      "CSE": {
+        "GM": 20000,
+        "OBC": 10500,
+        "SC": 40000,
+        "ST": 25000
+      },
+      "ECE": {
+        "GM": 30000,
+        "OBC": 15500,
+        "SC": 50000,
+        "ST": 31200
+      },
+      "EEE": {
+        "GM": 38000,
+        "OBC": 19500,
+        "SC": 55000,
+        "ST": 34500
+      },
+      "ME": {
+        "GM": 50000,
+        "OBC": 25500,
+        "SC": 66000,
+        "ST": 41200
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 59740,
+        "OBC": 30385,
+        "SC": 74160,
+        "ST": 46350
+      },
+      "CSE": {
+        "GM": 20600,
+        "OBC": 10815,
+        "SC": 41200,
+        "ST": 25750
+      },
+      "ECE": {
+        "GM": 30900,
+        "OBC": 15965,
+        "SC": 51500,
+        "ST": 32136
+      },
+      "EEE": {
+        "GM": 39140,
+        "OBC": 20085,
+        "SC": 56650,
+        "ST": 35535
+      },
+      "ME": {
+        "GM": 51500,
+        "OBC": 26265,
+        "SC": 67980,
+        "ST": 42436
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2020": {
+      "CIVIL": {
+        "GM": 51040,
+        "OBC": 68904,
+        "SC": 265408,
+        "ST": 209263
+      },
+      "CSE": {
+        "GM": 16400,
+        "OBC": 22140,
+        "SC": 85280,
+        "ST": 67240
+      },
+      "ECE": {
+        "GM": 27600,
+        "OBC": 37260,
+        "SC": 143520,
+        "ST": 113159
+      },
+      "EEE": {
+        "GM": 37240,
+        "OBC": 50274,
+        "SC": 193648,
+        "ST": 152684
+      },
+      "ME": {
+        "GM": 45000,
+        "OBC": 60750,
+        "SC": 234000,
+        "ST": 184499
+      }
+    },
+    "2021": {
+      "CIVIL": {
+        "GM": 53940,
+        "OBC": 72819,
+        "SC": 280488,
+        "ST": 221153
+      },
+      "CSE": {
+        "GM": 17600,
+        "OBC": 23760,
+        "SC": 91520,
+        "ST": 72160
+      },
+      "ECE": {
+        "GM": 28500,
+        "OBC": 38475,
+        "SC": 148200,
+        "ST": 116849
+      },
+      "EEE": {
+        "GM": 38000,
+        "OBC": 51300,
+        "SC": 197600,
+        "ST": 155800
+      },
+      "ME": {
+        "GM": 47500,
+        "OBC": 64125,
+        "SC": 247000,
+        "ST": 194749
+      }
+    },
+    "2022": {
+      "CIVIL": {
+        "GM": 60320,
+        "OBC": 81432,
+        "SC": 313664,
+        "ST": 247311
+      },
+      "CSE": {
+        "GM": 18800,
+        "OBC": 25380,
+        "SC": 97760,
+        "ST": 77080
+      },
+      "ECE": {
+        "GM": 29400,
+        "OBC": 39690,
+        "SC": 152880,
+        "ST": 120539
+      },
+      "EEE": {
+        "GM": 38760,
+        "OBC": 52326,
+        "SC": 201552,
+        "ST": 158916
+      },
+      "ME": {
+        "GM": 51500,
+        "OBC": 69525,
+        "SC": 267800,
+        "ST": 211149
+      }
+    },
+    "2023": {
+      "CIVIL": {
+        "GM": 59740,
+        "OBC": 80649,
+        "SC": 310648,
+        "ST": 244933
+      },
+      "CSE": {
+        "GM": 19400,
+        "OBC": 26190,
+        "SC": 100880,
+        "ST": 79540
+      },
+      "ECE": {
+        "GM": 29700,
+        "OBC": 40095,
+        "SC": 154440,
+        "ST": 121769
+      },
+      "EEE": {
+        "GM": 38380,
+        "OBC": 51813,
+        "SC": 199576,
+        "ST": 157358
+      },
+      "ME": {
+        "GM": 51000,
+        "OBC": 68850,
+        "SC": 265200,
+        "ST": 209099
+      }
+    },
+    "2024": {
+      "CIVIL": {
+        "GM": 58000,
+        "OBC": 29500,
+        "SC": 72000,
+        "ST": 45000
+      },
+      "CSE": {
+        "GM": 20000,
+        "OBC": 10500,
+        "SC": 40000,
+        "ST": 25000
+      },
+      "ECE": {
+        "GM": 30000,
+        "OBC": 15500,
+        "SC": 50000,
+        "ST": 31200
+      },
+      "EEE": {
+        "GM": 38000,
+        "OBC": 19500,
+        "SC": 55000,
+        "ST": 34500
+      },
+      "ME": {
+        "GM": 50000,
+        "OBC": 25500,
+        "SC": 66000,
+        "ST": 41200
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 59740,
+        "OBC": 30385,
+        "SC": 74160,
+        "ST": 46350
+      },
+      "CSE": {
+        "GM": 20600,
+        "OBC": 10815,
+        "SC": 41200,
+        "ST": 25750
+      },
+      "ECE": {
+        "GM": 30900,
+        "OBC": 15965,
+        "SC": 51500,
+        "ST": 32136
+      },
+      "EEE": {
+        "GM": 39140,
+        "OBC": 20085,
+        "SC": 56650,
+        "ST": 35535
+      },
+      "ME": {
+        "GM": 51500,
+        "OBC": 26265,
+        "SC": 67980,
+        "ST": 42436
+      }
+    }
+  },
+  "cutoff_rounds": {},
+  "cutoff_2024": {
+    "CIVIL": {
+      "GM": 58000,
+      "OBC": 29500,
+      "SC": 72000,
+      "ST": 45000
+    },
+    "CSE": {
+      "GM": 20000,
+      "OBC": 10500,
+      "SC": 40000,
+      "ST": 25000
+    },
+    "ECE": {
+      "GM": 30000,
+      "OBC": 15500,
+      "SC": 50000,
+      "ST": 31200
+    },
+    "EEE": {
+      "GM": 38000,
+      "OBC": 19500,
+      "SC": 55000,
+      "ST": 34500
+    },
+    "ME": {
+      "GM": 50000,
+      "OBC": 25500,
+      "SC": 66000,
+      "ST": 41200
+    }
+  },
+  "cutoff_2025": {
+    "CIVIL": {
+      "GM": 59740,
+      "OBC": 30385,
+      "SC": 74160,
+      "ST": 46350
+    },
+    "CSE": {
+      "GM": 20600,
+      "OBC": 10815,
+      "SC": 41200,
+      "ST": 25750
+    },
+    "ECE": {
+      "GM": 30900,
+      "OBC": 15965,
+      "SC": 51500,
+      "ST": 32136
+    },
+    "EEE": {
+      "GM": 39140,
+      "OBC": 20085,
+      "SC": 56650,
+      "ST": 35535
+    },
+    "ME": {
+      "GM": 51500,
+      "OBC": 26265,
+      "SC": 67980,
+      "ST": 42436
+    }
+  },
+  "data_quality_score": 100,
+  "search_keywords": [
+    "government engineering college, chamarajanagar",
+    "e025",
+    "chamarajanagar",
+    "chamarajanagar",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "me"
+  ]
+}

@@ -255,12 +255,16 @@ const ScholarshipComponent = {
             benefitsList = Object.entries(benefits).map(([k, v]) => `${k}: ${v}`).join(', ');
         }
 
+        const catLabel = Array.isArray(elig.category)
+            ? elig.category.join(', ')
+            : (elig.category || sch.category || 'General');
+
         return `
             <div class="scholarship-card ${isMatched ? 'matched' : ''}" data-name="${sch.name}" style="animation-delay: ${index * 0.05}s">
                 ${isMatched ? '<div class="match-badge">🤖 AI Match</div>' : ''}
                 <div class="card-header">
                     <h3 class="scholarship-name">${sch.name || 'Scholarship'}</h3>
-                    <span class="category-badge ${badgeClass}">${elig.category || sch.category || 'General'}</span>
+                    <span class="category-badge ${badgeClass}">${catLabel}</span>
                 </div>
                 <div class="card-meta">
                     <span class="meta-item">🏛️ ${sch.department || 'Karnataka Govt'}</span>
@@ -348,6 +352,8 @@ const ScholarshipComponent = {
         ];
     }
 };
+
+window.ScholarshipComponent = ScholarshipComponent;
 
 // Auto-initialize when page loads
 if (document.readyState === 'loading') {

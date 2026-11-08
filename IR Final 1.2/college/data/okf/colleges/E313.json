@@ -1,0 +1,602 @@
+{
+  "college_id": "E313",
+  "name": "HARSHA INSTITUTE OF TECHNOLOGY VARADANAYAKANA HALLY VILLAGE",
+  "short_name": "HARSHA INSTITUTE OF TECHNOLOGY VARADANAYAKANA HALLY VILLAGE",
+  "type": "Private_Autonomous",
+  "location": "Bengaluru Urban",
+  "district": "Bengaluru Urban",
+  "state": "Karnataka",
+  "affiliation": "Autonomous",
+  "hostel_available": true,
+  "branches": [
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Private_Autonomous",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://harshainstituteoftec.ac.in",
+  "phone": "Contact KEA: 080-23460460",
+  "email": "principal@harshainstitut.ac.in",
+  "established": 1973,
+  "total_seats": 480,
+  "naac_grade": "A",
+  "nba_accredited": false,
+  "placement_avg_lpa": 7.0,
+  "placement_highest_lpa": 24.0,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "HCL"
+  ],
+  "facilities": [
+    "Library",
+    "Labs",
+    "Hostel",
+    "Canteen",
+    "Sports ground"
+  ],
+  "highlights": [
+    "Type-1 fees ~\u20b91.12L/year",
+    "VTU affiliated",
+    "Good industry connections"
+  ],
+  "google_maps_link": "https://www.google.com/maps/search/?api=1&query=HARSHA+INSTITUTE+OF+TECHNOLOGY+VARADANAYAKANA+HALLY+VILLAGE+Bengaluru+Urban+Karnataka",
+  "cutoffs": {
+    "2020": {
+      "CIVIL": {
+        "GM": 49280,
+        "OBC": 66528,
+        "SC": 256256,
+        "ST": 202047
+      },
+      "CSE": {
+        "GM": 6560,
+        "OBC": 8856,
+        "SC": 34112,
+        "ST": 26895
+      },
+      "ECE": {
+        "GM": 14720,
+        "OBC": 19872,
+        "SC": 76544,
+        "ST": 60351
+      },
+      "EEE": {
+        "GM": 27440,
+        "OBC": 37044,
+        "SC": 142688,
+        "ST": 112503
+      },
+      "ISE": {
+        "GM": 8736,
+        "OBC": 11793,
+        "SC": 45427,
+        "ST": 35817
+      },
+      "ME": {
+        "GM": 36000,
+        "OBC": 48600,
+        "SC": 187200,
+        "ST": 147600
+      }
+    },
+    "2021": {
+      "CIVIL": {
+        "GM": 52080,
+        "OBC": 70308,
+        "SC": 270816,
+        "ST": 213527
+      },
+      "CSE": {
+        "GM": 7040,
+        "OBC": 9504,
+        "SC": 36608,
+        "ST": 28863
+      },
+      "ECE": {
+        "GM": 15200,
+        "OBC": 20520,
+        "SC": 79040,
+        "ST": 62319
+      },
+      "EEE": {
+        "GM": 28000,
+        "OBC": 37800,
+        "SC": 145600,
+        "ST": 114799
+      },
+      "ISE": {
+        "GM": 9256,
+        "OBC": 12495,
+        "SC": 48131,
+        "ST": 37949
+      },
+      "ME": {
+        "GM": 38000,
+        "OBC": 51300,
+        "SC": 197600,
+        "ST": 155800
+      }
+    },
+    "2022": {
+      "CIVIL": {
+        "GM": 58240,
+        "OBC": 78624,
+        "SC": 302848,
+        "ST": 238783
+      },
+      "CSE": {
+        "GM": 7520,
+        "OBC": 10152,
+        "SC": 39104,
+        "ST": 30831
+      },
+      "ECE": {
+        "GM": 15680,
+        "OBC": 21168,
+        "SC": 81536,
+        "ST": 64287
+      },
+      "EEE": {
+        "GM": 28560,
+        "OBC": 38556,
+        "SC": 148512,
+        "ST": 117095
+      },
+      "ISE": {
+        "GM": 9880,
+        "OBC": 13338,
+        "SC": 51376,
+        "ST": 40508
+      },
+      "ME": {
+        "GM": 41200,
+        "OBC": 55620,
+        "SC": 214240,
+        "ST": 168919
+      }
+    },
+    "2023": {
+      "CIVIL": {
+        "GM": 57680,
+        "OBC": 77868,
+        "SC": 299936,
+        "ST": 236487
+      },
+      "CSE": {
+        "GM": 7760,
+        "OBC": 10476,
+        "SC": 40352,
+        "ST": 31815
+      },
+      "ECE": {
+        "GM": 15840,
+        "OBC": 21384,
+        "SC": 82368,
+        "ST": 64943
+      },
+      "EEE": {
+        "GM": 28280,
+        "OBC": 38178,
+        "SC": 147056,
+        "ST": 115947
+      },
+      "ISE": {
+        "GM": 10192,
+        "OBC": 13759,
+        "SC": 52998,
+        "ST": 41787
+      },
+      "ME": {
+        "GM": 40800,
+        "OBC": 55080,
+        "SC": 212160,
+        "ST": 167280
+      }
+    },
+    "2024": {
+      "CIVIL": {
+        "GM": 56000,
+        "OBC": 28000,
+        "SC": 65000,
+        "ST": 65000
+      },
+      "CSE": {
+        "GM": 8000,
+        "OBC": 4000,
+        "SC": 38400,
+        "ST": 24000
+      },
+      "ECE": {
+        "GM": 16000,
+        "OBC": 8000,
+        "SC": 65000,
+        "ST": 48000
+      },
+      "EEE": {
+        "GM": 28000,
+        "OBC": 14000,
+        "SC": 65000,
+        "ST": 65000
+      },
+      "ISE": {
+        "GM": 10400,
+        "OBC": 5200,
+        "SC": 49920,
+        "ST": 31200
+      },
+      "ME": {
+        "GM": 40000,
+        "OBC": 20000,
+        "SC": 65000,
+        "ST": 65000
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 57680,
+        "OBC": 28840,
+        "SC": 66950,
+        "ST": 66950
+      },
+      "CSE": {
+        "GM": 8240,
+        "OBC": 4120,
+        "SC": 39552,
+        "ST": 24720
+      },
+      "ECE": {
+        "GM": 16480,
+        "OBC": 8240,
+        "SC": 66950,
+        "ST": 49440
+      },
+      "EEE": {
+        "GM": 28840,
+        "OBC": 14420,
+        "SC": 66950,
+        "ST": 66950
+      },
+      "ISE": {
+        "GM": 10712,
+        "OBC": 5356,
+        "SC": 51417,
+        "ST": 32136
+      },
+      "ME": {
+        "GM": 41200,
+        "OBC": 20600,
+        "SC": 66950,
+        "ST": 66950
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2020": {
+      "CIVIL": {
+        "GM": 49280,
+        "OBC": 66528,
+        "SC": 256256,
+        "ST": 202047
+      },
+      "CSE": {
+        "GM": 6560,
+        "OBC": 8856,
+        "SC": 34112,
+        "ST": 26895
+      },
+      "ECE": {
+        "GM": 14720,
+        "OBC": 19872,
+        "SC": 76544,
+        "ST": 60351
+      },
+      "EEE": {
+        "GM": 27440,
+        "OBC": 37044,
+        "SC": 142688,
+        "ST": 112503
+      },
+      "ISE": {
+        "GM": 8736,
+        "OBC": 11793,
+        "SC": 45427,
+        "ST": 35817
+      },
+      "ME": {
+        "GM": 36000,
+        "OBC": 48600,
+        "SC": 187200,
+        "ST": 147600
+      }
+    },
+    "2021": {
+      "CIVIL": {
+        "GM": 52080,
+        "OBC": 70308,
+        "SC": 270816,
+        "ST": 213527
+      },
+      "CSE": {
+        "GM": 7040,
+        "OBC": 9504,
+        "SC": 36608,
+        "ST": 28863
+      },
+      "ECE": {
+        "GM": 15200,
+        "OBC": 20520,
+        "SC": 79040,
+        "ST": 62319
+      },
+      "EEE": {
+        "GM": 28000,
+        "OBC": 37800,
+        "SC": 145600,
+        "ST": 114799
+      },
+      "ISE": {
+        "GM": 9256,
+        "OBC": 12495,
+        "SC": 48131,
+        "ST": 37949
+      },
+      "ME": {
+        "GM": 38000,
+        "OBC": 51300,
+        "SC": 197600,
+        "ST": 155800
+      }
+    },
+    "2022": {
+      "CIVIL": {
+        "GM": 58240,
+        "OBC": 78624,
+        "SC": 302848,
+        "ST": 238783
+      },
+      "CSE": {
+        "GM": 7520,
+        "OBC": 10152,
+        "SC": 39104,
+        "ST": 30831
+      },
+      "ECE": {
+        "GM": 15680,
+        "OBC": 21168,
+        "SC": 81536,
+        "ST": 64287
+      },
+      "EEE": {
+        "GM": 28560,
+        "OBC": 38556,
+        "SC": 148512,
+        "ST": 117095
+      },
+      "ISE": {
+        "GM": 9880,
+        "OBC": 13338,
+        "SC": 51376,
+        "ST": 40508
+      },
+      "ME": {
+        "GM": 41200,
+        "OBC": 55620,
+        "SC": 214240,
+        "ST": 168919
+      }
+    },
+    "2023": {
+      "CIVIL": {
+        "GM": 57680,
+        "OBC": 77868,
+        "SC": 299936,
+        "ST": 236487
+      },
+      "CSE": {
+        "GM": 7760,
+        "OBC": 10476,
+        "SC": 40352,
+        "ST": 31815
+      },
+      "ECE": {
+        "GM": 15840,
+        "OBC": 21384,
+        "SC": 82368,
+        "ST": 64943
+      },
+      "EEE": {
+        "GM": 28280,
+        "OBC": 38178,
+        "SC": 147056,
+        "ST": 115947
+      },
+      "ISE": {
+        "GM": 10192,
+        "OBC": 13759,
+        "SC": 52998,
+        "ST": 41787
+      },
+      "ME": {
+        "GM": 40800,
+        "OBC": 55080,
+        "SC": 212160,
+        "ST": 167280
+      }
+    },
+    "2024": {
+      "CIVIL": {
+        "GM": 56000,
+        "OBC": 28000,
+        "SC": 65000,
+        "ST": 65000
+      },
+      "CSE": {
+        "GM": 8000,
+        "OBC": 4000,
+        "SC": 38400,
+        "ST": 24000
+      },
+      "ECE": {
+        "GM": 16000,
+        "OBC": 8000,
+        "SC": 65000,
+        "ST": 48000
+      },
+      "EEE": {
+        "GM": 28000,
+        "OBC": 14000,
+        "SC": 65000,
+        "ST": 65000
+      },
+      "ISE": {
+        "GM": 10400,
+        "OBC": 5200,
+        "SC": 49920,
+        "ST": 31200
+      },
+      "ME": {
+        "GM": 40000,
+        "OBC": 20000,
+        "SC": 65000,
+        "ST": 65000
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 57680,
+        "OBC": 28840,
+        "SC": 66950,
+        "ST": 66950
+      },
+      "CSE": {
+        "GM": 8240,
+        "OBC": 4120,
+        "SC": 39552,
+        "ST": 24720
+      },
+      "ECE": {
+        "GM": 16480,
+        "OBC": 8240,
+        "SC": 66950,
+        "ST": 49440
+      },
+      "EEE": {
+        "GM": 28840,
+        "OBC": 14420,
+        "SC": 66950,
+        "ST": 66950
+      },
+      "ISE": {
+        "GM": 10712,
+        "OBC": 5356,
+        "SC": 51417,
+        "ST": 32136
+      },
+      "ME": {
+        "GM": 41200,
+        "OBC": 20600,
+        "SC": 66950,
+        "ST": 66950
+      }
+    }
+  },
+  "cutoff_rounds": {},
+  "cutoff_2024": {
+    "CIVIL": {
+      "GM": 56000,
+      "OBC": 28000,
+      "SC": 65000,
+      "ST": 65000
+    },
+    "CSE": {
+      "GM": 8000,
+      "OBC": 4000,
+      "SC": 38400,
+      "ST": 24000
+    },
+    "ECE": {
+      "GM": 16000,
+      "OBC": 8000,
+      "SC": 65000,
+      "ST": 48000
+    },
+    "EEE": {
+      "GM": 28000,
+      "OBC": 14000,
+      "SC": 65000,
+      "ST": 65000
+    },
+    "ISE": {
+      "GM": 10400,
+      "OBC": 5200,
+      "SC": 49920,
+      "ST": 31200
+    },
+    "ME": {
+      "GM": 40000,
+      "OBC": 20000,
+      "SC": 65000,
+      "ST": 65000
+    }
+  },
+  "cutoff_2025": {
+    "CIVIL": {
+      "GM": 57680,
+      "OBC": 28840,
+      "SC": 66950,
+      "ST": 66950
+    },
+    "CSE": {
+      "GM": 8240,
+      "OBC": 4120,
+      "SC": 39552,
+      "ST": 24720
+    },
+    "ECE": {
+      "GM": 16480,
+      "OBC": 8240,
+      "SC": 66950,
+      "ST": 49440
+    },
+    "EEE": {
+      "GM": 28840,
+      "OBC": 14420,
+      "SC": 66950,
+      "ST": 66950
+    },
+    "ISE": {
+      "GM": 10712,
+      "OBC": 5356,
+      "SC": 51417,
+      "ST": 32136
+    },
+    "ME": {
+      "GM": 41200,
+      "OBC": 20600,
+      "SC": 66950,
+      "ST": 66950
+    }
+  },
+  "data_quality_score": 100,
+  "search_keywords": [
+    "harsha institute of technology varadanayakana hally village",
+    "e313",
+    "bengaluru urban",
+    "bengaluru urban",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

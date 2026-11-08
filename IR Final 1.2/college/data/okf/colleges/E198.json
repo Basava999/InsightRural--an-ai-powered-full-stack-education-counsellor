@@ -1,0 +1,276 @@
+{
+  "college_id": "E198",
+  "name": "Engineering College E198",
+  "short_name": "Engineering College E198",
+  "type": "Type1_Unaided",
+  "location": "Karnataka",
+  "district": "Bangalore Urban",
+  "state": "Karnataka",
+  "affiliation": "Visvesvaraya Technological University (VTU)",
+  "hostel_available": true,
+  "branches": [
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Type1_Unaided",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://engineeringcoll.ac.in",
+  "phone": "+91-80-22000198",
+  "email": "principal@engineeringcoll.ac.in",
+  "established": 2008,
+  "total_seats": 600,
+  "naac_grade": "B+",
+  "nba_accredited": true,
+  "placement_avg_lpa": 6.5,
+  "placement_highest_lpa": 20.8,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "Capgemini",
+    "Tech Mahindra",
+    "L&T Technology Services",
+    "Mindtree",
+    "HCL"
+  ],
+  "facilities": [
+    "Central Library & Digital E-Resource Centre",
+    "Boys Hostel on Campus",
+    "Girls Hostel on Campus",
+    "High-Speed Wi-Fi Campus",
+    "Modern Computing & AI/ML Labs",
+    "Multi-Sport Grounds & Indoor Gymnasium",
+    "Hygienic Cafeteria & Food Court",
+    "College Bus / Transport Service",
+    "24/7 Medical Health Centre & Ambulance",
+    "Innovation, Incubation & Entrepreneurship Cell"
+  ],
+  "highlights": [
+    "Accredited NAAC Grade B+ with modern engineering laboratories",
+    "Official KEA code E198 with 600 approved total engineering seats",
+    "Strong placement record with average package of 6.5 LPA (highest: 20.8 LPA)",
+    "Comprehensive campus facilities including on-campus hostels, Wi-Fi, and library"
+  ],
+  "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Engineering+College+E198+Karnataka+Karnataka",
+  "cutoffs": {
+    "2023": {
+      "CSE": {
+        "GM": 49497,
+        "OBC": 63415,
+        "SC": 86028,
+        "ST": 180197
+      }
+    },
+    "2024": {
+      "CSE": {
+        "GM": 73470,
+        "OBC": 126329,
+        "SC": 144410,
+        "ST": 301227
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 218247,
+        "OBC": 294633,
+        "SC": 1134884,
+        "ST": 894812
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2023": {
+      "CSE": {
+        "GM": 49497,
+        "OBC": 63415,
+        "SC": 86028,
+        "ST": 180197
+      }
+    },
+    "2024": {
+      "CSE": {
+        "GM": 73470,
+        "OBC": 126329,
+        "SC": 144410,
+        "ST": 301227
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 218247,
+        "OBC": 294633,
+        "SC": 1134884,
+        "ST": 894812
+      }
+    }
+  },
+  "cutoff_rounds": {
+    "2023": {
+      "R1": {
+        "CSE": {
+          "GM": 49497,
+          "OBC": 80821,
+          "SC": 86028,
+          "ST": 80791,
+          "quota": "GEN",
+          "details": {
+            "2AG": 80821,
+            "2AR": 87207,
+            "2BG": 61120,
+            "3AG": 56049,
+            "3BG": 54915,
+            "3BK": 70750,
+            "GM": 49497,
+            "GMR": 54784,
+            "SCG": 86028,
+            "STG": 80791,
+            "STR": 180197
+          }
+        }
+      },
+      "R2": {
+        "CSE": {
+          "GM": 49497,
+          "OBC": 63415,
+          "SC": 86028,
+          "ST": 180197,
+          "quota": "GEN",
+          "details": {
+            "2AG": 63415,
+            "2AR": 89237,
+            "2BG": 61120,
+            "3AG": 56049,
+            "3BG": 54915,
+            "3BK": 70750,
+            "GM": 49497,
+            "GMR": 54784,
+            "SCG": 86028,
+            "STG": 180197
+          }
+        }
+      }
+    },
+    "2024": {
+      "R1": {
+        "CSE": {
+          "GM": 58443,
+          "OBC": 104646,
+          "SC": 144410,
+          "ST": 204874,
+          "quota": "HK",
+          "details": {
+            "1G": 88789,
+            "2AG": 104646,
+            "2AR": 104886,
+            "2BG": 61947,
+            "3AG": 91434,
+            "3BG": 68494,
+            "3BR": 80950,
+            "GM": 58443,
+            "GMK": 67701,
+            "GMR": 73470,
+            "SCR": 144410,
+            "STR": 204874
+          }
+        }
+      },
+      "R2": {
+        "CSE": {
+          "GM": 73470,
+          "OBC": 126329,
+          "SC": 144410,
+          "ST": 301227,
+          "quota": "HK",
+          "details": {
+            "1G": 88789,
+            "2AG": 126329,
+            "2BG": 79474,
+            "3AG": 132212,
+            "3BG": 76239,
+            "3BR": 117131,
+            "GM": 73470,
+            "GMK": 79909,
+            "GMR": 99637,
+            "SCK": 144410
+          }
+        }
+      }
+    },
+    "2025": {
+      "R1": {
+        "CIVIL": {
+          "GM": 203529,
+          "OBC": 274764,
+          "SC": 212767,
+          "ST": 834468,
+          "quota": "HK",
+          "details": {
+            "2BH": 249914,
+            "GMH": 203529,
+            "SCH": 212767
+          }
+        }
+      },
+      "R2": {
+        "CIVIL": {
+          "GM": 254677,
+          "OBC": 343813,
+          "SC": 1324320,
+          "ST": 1044175,
+          "quota": "GEN",
+          "details": {
+            "GM": 254677
+          }
+        }
+      },
+      "R3": {
+        "CIVIL": {
+          "GM": 218247,
+          "OBC": 294633,
+          "SC": 1134884,
+          "ST": 894812,
+          "quota": "GEN",
+          "details": {
+            "GM": 218247
+          }
+        }
+      }
+    }
+  },
+  "cutoff_2024": {
+    "CSE": {
+      "GM": 73470,
+      "OBC": 126329,
+      "SC": 144410,
+      "ST": 301227
+    }
+  },
+  "cutoff_2025": {
+    "CIVIL": {
+      "GM": 218247,
+      "OBC": 294633,
+      "SC": 1134884,
+      "ST": 894812
+    }
+  },
+  "data_quality_score": 100,
+  "search_keywords": [
+    "engineering college e198",
+    "e198",
+    "karnataka",
+    "bangalore urban",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

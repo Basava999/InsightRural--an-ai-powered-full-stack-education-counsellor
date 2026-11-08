@@ -1,0 +1,179 @@
+{
+  "college_id": "E323",
+  "name": "Engineering College E323",
+  "short_name": "Engineering College E323",
+  "type": "Type1_Unaided",
+  "location": "Karnataka",
+  "district": "Bangalore Urban",
+  "state": "Karnataka",
+  "affiliation": "Visvesvaraya Technological University (VTU)",
+  "hostel_available": true,
+  "branches": [
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Type1_Unaided",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://engineeringcoll.ac.in",
+  "phone": "+91-80-22000323",
+  "email": "principal@engineeringcoll.ac.in",
+  "established": 1983,
+  "total_seats": 600,
+  "naac_grade": "B+",
+  "nba_accredited": true,
+  "placement_avg_lpa": 6.5,
+  "placement_highest_lpa": 20.8,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "Capgemini",
+    "Tech Mahindra",
+    "L&T Technology Services",
+    "Mindtree",
+    "HCL"
+  ],
+  "facilities": [
+    "Central Library & Digital E-Resource Centre",
+    "Boys Hostel on Campus",
+    "Girls Hostel on Campus",
+    "High-Speed Wi-Fi Campus",
+    "Modern Computing & AI/ML Labs",
+    "Multi-Sport Grounds & Indoor Gymnasium",
+    "Hygienic Cafeteria & Food Court",
+    "College Bus / Transport Service",
+    "24/7 Medical Health Centre & Ambulance",
+    "Innovation, Incubation & Entrepreneurship Cell"
+  ],
+  "highlights": [
+    "Accredited NAAC Grade B+ with modern engineering laboratories",
+    "Official KEA code E323 with 600 approved total engineering seats",
+    "Strong placement record with average package of 6.5 LPA (highest: 20.8 LPA)",
+    "Comprehensive campus facilities including on-campus hostels, Wi-Fi, and library"
+  ],
+  "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Engineering+College+E323+Karnataka+Karnataka",
+  "cutoffs": {
+    "2026": {
+      "CIVIL": {
+        "GM": 144710,
+        "OBC": 195358,
+        "SC": 752492,
+        "ST": 593311
+      },
+      "ME": {
+        "GM": 280310,
+        "OBC": 378418,
+        "SC": 1457612,
+        "ST": 1149271
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2026": {
+      "CIVIL": {
+        "GM": 144710,
+        "OBC": 195358,
+        "SC": 752492,
+        "ST": 593311
+      },
+      "ME": {
+        "GM": 280310,
+        "OBC": 378418,
+        "SC": 1457612,
+        "ST": 1149271
+      }
+    }
+  },
+  "cutoff_rounds": {
+    "2026": {
+      "Mock_Special": {
+        "CIVIL": {
+          "GM": 177006,
+          "OBC": 238958,
+          "SC": 920431,
+          "ST": 725724,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 177006
+          }
+        },
+        "ME": {
+          "GM": 234554,
+          "OBC": 316647,
+          "SC": 1219680,
+          "ST": 961671,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 234554
+          }
+        }
+      },
+      "Mock1": {
+        "CIVIL": {
+          "GM": 185853,
+          "OBC": 250901,
+          "SC": 966435,
+          "ST": 761997,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 185853
+          }
+        },
+        "ME": {
+          "GM": 280310,
+          "OBC": 378418,
+          "SC": 1457612,
+          "ST": 1149271,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 280310
+          }
+        }
+      },
+      "Mock2": {
+        "CIVIL": {
+          "GM": 144710,
+          "OBC": 195358,
+          "SC": 752492,
+          "ST": 593311,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 144710
+          }
+        },
+        "ME": {
+          "GM": 280310,
+          "OBC": 378418,
+          "SC": 1457612,
+          "ST": 1149271,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 280310
+          }
+        }
+      }
+    }
+  },
+  "cutoff_2024": {},
+  "cutoff_2025": {},
+  "data_quality_score": 100,
+  "search_keywords": [
+    "engineering college e323",
+    "e323",
+    "karnataka",
+    "bangalore urban",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

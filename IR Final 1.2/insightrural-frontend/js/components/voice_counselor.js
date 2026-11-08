@@ -297,15 +297,6 @@ const VoiceCounselorComponent = {
     async processVoiceInput(text) {
         if (!text.trim()) return;
 
-        if (!AppState.isLoggedIn()) {
-            alert('🔐 Authentication required. Please register/login to speak with the AI Counselor.');
-            if (window.ModalComponent) {
-                window.ModalComponent.showModal('login-modal');
-            }
-            this.updateUI('error', 'Login required');
-            return;
-        }
-
         this.updateUI('processing');
         this.addToHistory('user', text);
         this.updateResponseBox('...');
@@ -481,7 +472,7 @@ const VoiceCounselorComponent = {
     },
 
     addToHistory(role, text) {
-        this.conversationHistory.push({ role, text, time: new Date() });
+        this.conversationHistory.push({ role, content: text, text, time: new Date() });
         this.updateHistoryUI();
     },
 

@@ -218,14 +218,24 @@ class StrictRAGEngine:
             # Try the preferred function first; if the DB was built with a
             # different one ChromaDB raises an error, so fall back gracefully.
             api_key = os.getenv("OPENAI_API_KEY")
-            if api_key:
+            if api_key and not api_key.startswith("your_"):
                 self.embedding_fn = embedding_functions.OpenAIEmbeddingFunction(
                     api_key=api_key, model_name="text-embedding-3-small"
                 )
+            elif CROSS_ENCODER_AVAILABLE:
+                try:
+                    self.embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
+                        model_name="all-MiniLM-L6-v2"
+                    )
+                except Exception as e:
+                    logger.info("SentenceTransformer not available: %s. Using native DefaultEmbeddingFunction.", e)
+                    self.embedding_fn = embedding_functions.DefaultEmbeddingFunction()
             else:
-                self.embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-                    model_name="all-MiniLM-L6-v2"
-                )
+                try:
+                    self.embedding_fn = embedding_functions.DefaultEmbeddingFunction()
+                except Exception as de:
+                    logger.warning("DefaultEmbeddingFunction failed: %s", de)
+                    self.embedding_fn = None
 
             for name in self.COLLECTION_NAMES:
                 try:
@@ -233,24 +243,20 @@ class StrictRAGEngine:
                         name, embedding_function=self.embedding_fn
                     )
                 except Exception as emb_err:
-                    # Embedding function conflict — the persisted collection
-                    # was built with a different embedding.  Fall back to
-                    # sentence_transformer (original) or no explicit fn.
                     logger.warning(
-                        "Embedding conflict for %s, falling back: %s",
+                        "Embedding conflict for %s, recreating collection with active embedding: %s",
                         name, emb_err,
                     )
                     try:
-                        fallback_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-                            model_name="all-MiniLM-L6-v2"
-                        )
-                        self.collections[name] = self.client.get_or_create_collection(
-                            name, embedding_function=fallback_fn
-                        )
-                        self.embedding_fn = fallback_fn
+                        self.client.delete_collection(name)
                     except Exception:
-                        # Last resort: let ChromaDB use its persisted function
-                        self.collections[name] = self.client.get_or_create_collection(name)
+                        pass
+                    try:
+                        self.collections[name] = self.client.get_or_create_collection(
+                            name, embedding_function=self.embedding_fn
+                        )
+                    except Exception as coll_err:
+                        logger.error("Could not load collection %s: %s", name, coll_err)
 
             # Build BM25 index from all collections
             self._build_bm25_index()
@@ -520,16 +526,15 @@ class StrictRAGEngine:
             )
 
         prompt = f"""
-You are the InsightRural AI Admission Consultant. You must act as an expert counselor for KCET, JEE, and NEET.
+You are the InsightRural AI Assistant and Admission Consultant.
 
-CRITICAL INSTRUCTIONS:
-1. You MUST formulate your answer based ONLY on the provided Official Context below.
-2. If the context does not contain the answer, you MUST state: "I do not have the official data to answer that specific query." Do NOT guess or make up ranks/fees.
-3. You MUST cite your sources using the [Source Number] format inline when providing facts.
-4. When providing numerical data (ranks, fees, percentages), verify it appears verbatim in the context.
+INSTRUCTIONS:
+1. Prioritize the provided Official Context below for specific KEA/KCET/JEE/NEET facts, cutoffs, fees, and scholarships.
+2. If the context does not contain the answer or the user asks a broader/general question, use any provided Live Internet Search results and your full general knowledge to give a complete, accurate, and helpful answer.
+3. Cite sources inline when referencing specific retrieved documents.
 
 OFFICIAL CONTEXT:
-{context_str if context_str else "No official documents match this query."}
+{context_str if context_str else "No local documents match this query — use Live Web Search context and general knowledge."}
 
 USER QUERY:
 {user_query}

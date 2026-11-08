@@ -30,6 +30,15 @@ server_log.txt
 
 # Vector DB (large binary data)
 vector_db/
+chroma_db/
+chroma_db_backup/
+
+# Archives & Temporary Caches
+*.zip
+.pytest_cache/
+IR Final 1.2/college/backend/data/raw/*.pdf
+IR Final 1.2/college/backend/models/*.joblib
+IR Final 1.2/college/backend/models/*.pkl
 
 # IDE
 .vscode/

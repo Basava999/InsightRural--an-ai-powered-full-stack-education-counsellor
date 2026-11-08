@@ -7,8 +7,8 @@ def scan_document(image_base64: str, doc_type: str = "marksheet"):
     Simulate document scanning and OCR extraction.
     In a production environment, this would use Tesseract or a Vision LLM.
     """
-    # Simulate processing delay
-    time.sleep(1.5)
+    # Fast processing response
+    time.sleep(0.3)
     
     # Return simulated data based on document type
     # This matches the frontend simulation to ensure consistency
@@ -91,6 +91,32 @@ def scan_document(image_base64: str, doc_type: str = "marksheet"):
                 "Income < 2.5 Lakhs qualifies for full fee reimbursement.",
                 "Eligible for Vidyasiri (Food & Accommodation) scheme.",
                 "You can claim Supernumerary Quota (SNQ) seats."
+            ]
+        }
+
+    elif doc_type in ("certificate", "study", "rural", "kannada"):
+        return {
+            "confidence": random.randint(88, 97),
+            "data": {
+                "Certificate Type": "Study & Rural Quota Certificate",
+                "Student Name": "Rahul Kumar",
+                "Years Studied in Karnataka": "10 Years (1st to 10th Std)",
+                "Medium of Instruction": "Kannada / English",
+                "Countersigned By": "Block Education Officer (BEO)",
+                "Verification Status": "Verified (KEA Clause 'a')"
+            },
+            "verification": {
+                "status": "valid",
+                "messages": [
+                    "✅ Minimum 7-year Karnataka study requirement satisfied",
+                    "✅ BEO counter-signature and school seal verified",
+                    "✅ Eligible for Karnataka State & Rural Quota reservation"
+                ]
+            },
+            "suggestions": [
+                "You qualify under KEA Eligibility Clause (a) for Government seats.",
+                "Rural Quota (15% horizontal reservation) will improve your effective cutoff rank.",
+                "Keep the original BEO-countersigned Study Certificate ready for KEA document verification."
             ]
         }
 

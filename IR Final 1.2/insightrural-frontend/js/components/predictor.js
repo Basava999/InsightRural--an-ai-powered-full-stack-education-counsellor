@@ -482,9 +482,9 @@ const PredictorComponent = {
         ` : '';
 
         // Summary counts
-        const safeCount = predictions.filter(p => ['Safe', 'Very Safe'].includes(p.category)).length;
-        const moderateCount = predictions.filter(p => ['Moderate', 'Good Chance'].includes(p.category)).length;
-        const reachCount = predictions.filter(p => ['Reach', 'Long Shot', 'Very Unlikely'].includes(p.category)).length;
+        const safeCount = predictions.filter(p => ['Safe', 'Very Safe', 'Good Chance'].includes(p.category)).length;
+        const moderateCount = predictions.filter(p => ['Moderate'].includes(p.category)).length;
+        const reachCount = predictions.filter(p => ['Reach', 'Ambitious', 'Dream', 'Long Shot', 'Very Unlikely'].includes(p.category)).length;
 
         // KEA info banner
         const keaBanner = `
@@ -695,10 +695,9 @@ const PredictorComponent = {
     getCategoryClass(category) {
         if (!category) return 'moderate';
         const lower = category.toLowerCase();
-        if (lower.includes('safe')) return 'safe';
-        if (lower.includes('good')) return 'safe';
+        if (lower.includes('safe') || lower.includes('good')) return 'safe';
         if (lower.includes('moderate')) return 'moderate';
-        if (lower.includes('reach')) return 'reach';
+        if (lower.includes('reach') || lower.includes('ambitious') || lower.includes('dream')) return 'reach';
         if (lower.includes('long') || lower.includes('unlikely')) return 'reach';
         return 'moderate';
     },
@@ -862,7 +861,7 @@ const PredictorComponent = {
         // Category distribution
         const safeCount = preds.filter(p => ['Safe', 'Very Safe', 'Good Chance'].includes(p.category)).length;
         const modCount = preds.filter(p => p.category === 'Moderate').length;
-        const reachCount = preds.filter(p => ['Reach', 'Long Shot', 'Very Unlikely'].includes(p.category)).length;
+        const reachCount = preds.filter(p => ['Reach', 'Ambitious', 'Dream', 'Long Shot', 'Very Unlikely'].includes(p.category)).length;
         const total = preds.length;
         // Branch distribution
         const branchMap = {};

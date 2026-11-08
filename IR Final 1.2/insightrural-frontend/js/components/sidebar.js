@@ -43,9 +43,11 @@ const SidebarComponent = {
                 document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
                 item.classList.add('active');
 
-                // 🔹 COLLEGES - External link
+                // 🔹 COLLEGES - Switch to AI Chat with Colleges context
                 if (feature === "colleges") {
-                    window.location.href = "../college/frontend/index.html";
+                    this.showSection('chat');
+                    AppState.setFeature('colleges');
+                    if (window.innerWidth <= 768) this.hideSidebar();
                     return;
                 }
 

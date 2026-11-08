@@ -1,0 +1,183 @@
+{
+  "college_id": "E208",
+  "name": "Engineering College E208",
+  "short_name": "Engineering College E208",
+  "type": "Type1_Unaided",
+  "location": "Karnataka",
+  "district": "Bangalore Urban",
+  "state": "Karnataka",
+  "affiliation": "Visvesvaraya Technological University (VTU)",
+  "hostel_available": true,
+  "branches": [
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Type1_Unaided",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://engineeringcoll.ac.in",
+  "phone": "+91-80-22000208",
+  "email": "principal@engineeringcoll.ac.in",
+  "established": 1968,
+  "total_seats": 600,
+  "naac_grade": "B+",
+  "nba_accredited": true,
+  "placement_avg_lpa": 6.5,
+  "placement_highest_lpa": 20.8,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "Capgemini",
+    "Tech Mahindra",
+    "L&T Technology Services",
+    "Mindtree",
+    "HCL"
+  ],
+  "facilities": [
+    "Central Library & Digital E-Resource Centre",
+    "Boys Hostel on Campus",
+    "Girls Hostel on Campus",
+    "High-Speed Wi-Fi Campus",
+    "Modern Computing & AI/ML Labs",
+    "Multi-Sport Grounds & Indoor Gymnasium",
+    "Hygienic Cafeteria & Food Court",
+    "College Bus / Transport Service",
+    "24/7 Medical Health Centre & Ambulance",
+    "Innovation, Incubation & Entrepreneurship Cell"
+  ],
+  "highlights": [
+    "Accredited NAAC Grade B+ with modern engineering laboratories",
+    "Official KEA code E208 with 600 approved total engineering seats",
+    "Strong placement record with average package of 6.5 LPA (highest: 20.8 LPA)",
+    "Comprehensive campus facilities including on-campus hostels, Wi-Fi, and library"
+  ],
+  "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Engineering+College+E208+Karnataka+Karnataka",
+  "cutoffs": {
+    "2023": {
+      "CSE": {
+        "GM": 65790,
+        "OBC": 73968,
+        "SC": 121456,
+        "ST": 69767
+      },
+      "ECE": {
+        "GM": 88222,
+        "OBC": 92194,
+        "SC": 186430,
+        "ST": 361710
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2023": {
+      "CSE": {
+        "GM": 65790,
+        "OBC": 73968,
+        "SC": 121456,
+        "ST": 69767
+      },
+      "ECE": {
+        "GM": 88222,
+        "OBC": 92194,
+        "SC": 186430,
+        "ST": 361710
+      }
+    }
+  },
+  "cutoff_rounds": {
+    "2023": {
+      "R1": {
+        "CSE": {
+          "GM": 60161,
+          "OBC": 63621,
+          "SC": 120068,
+          "ST": 69767,
+          "quota": "GEN",
+          "details": {
+            "2AG": 63621,
+            "2AR": 73968,
+            "2BG": 65051,
+            "3BG": 62294,
+            "GM": 60161,
+            "GMK": 66391,
+            "GMR": 66256,
+            "SCG": 120068,
+            "STG": 69767
+          }
+        },
+        "ECE": {
+          "GM": 83190,
+          "OBC": 87937,
+          "SC": 175296,
+          "ST": 341078,
+          "quota": "GEN",
+          "details": {
+            "1G": 83582,
+            "2AG": 87937,
+            "3AG": 84580,
+            "GM": 83190,
+            "GMR": 88713,
+            "SCG": 175296
+          }
+        }
+      },
+      "R2": {
+        "CSE": {
+          "GM": 65790,
+          "OBC": 73968,
+          "SC": 121456,
+          "ST": 69767,
+          "quota": "GEN",
+          "details": {
+            "2AG": 73968,
+            "2AR": 81288,
+            "2BG": 73147,
+            "3BG": 75111,
+            "GM": 65790,
+            "GMK": 86814,
+            "GMR": 69646,
+            "SCG": 121456,
+            "STG": 69767
+          }
+        },
+        "ECE": {
+          "GM": 88222,
+          "OBC": 92194,
+          "SC": 186430,
+          "ST": 361710,
+          "quota": "GEN",
+          "details": {
+            "1G": 106041,
+            "2AG": 92194,
+            "3AG": 92882,
+            "GM": 88222,
+            "GMR": 91531,
+            "SCG": 186430
+          }
+        }
+      }
+    }
+  },
+  "cutoff_2024": {},
+  "cutoff_2025": {},
+  "data_quality_score": 100,
+  "search_keywords": [
+    "engineering college e208",
+    "e208",
+    "karnataka",
+    "bangalore urban",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

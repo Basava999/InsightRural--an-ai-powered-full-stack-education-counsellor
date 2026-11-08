@@ -132,25 +132,41 @@ class CollegePredictor:
         self._load_trained_models()
 
     def _load_data(self):
-        """Load datasets."""
-        cutoff_path = os.path.join(self.data_dir, "cutoff_dataset.json")
-        if os.path.exists(cutoff_path):
-            with open(cutoff_path, 'r', encoding='utf-8') as f:
-                self.cutoff_data = json.load(f)
-
+        """Load datasets with comprehensive 249-college database support."""
         master_path = os.path.join(self.data_dir, "Production_Ready_Colleges.json")
         fallback_path = os.path.join(self.data_dir, "colleges.json")
-        college_path = master_path if os.path.exists(master_path) else fallback_path
+        cutoff_path = os.path.join(self.data_dir, "cutoff_dataset.json")
 
+        college_path = master_path if os.path.exists(master_path) else fallback_path
         if os.path.exists(college_path):
             with open(college_path, 'r', encoding='utf-8') as f:
                 self.college_data = json.load(f)
+
+        # Normalize colleges and cutoffs across all 249 colleges
+        if self.college_data:
+            self.cutoff_data = []
+            for c in self.college_data:
+                college_copy = dict(c)
+                # Ensure cutoffs dictionary exists with 2024 and trend data
+                c_cutoffs = dict(college_copy.get("cutoffs") or {})
+                if not c_cutoffs:
+                    if college_copy.get("cutoff_trends"):
+                        c_cutoffs = dict(college_copy["cutoff_trends"])
+                    elif college_copy.get("cutoff_2024"):
+                        c_cutoffs = {"2024": college_copy["cutoff_2024"]}
+                if "2024" not in c_cutoffs and college_copy.get("cutoff_2024"):
+                    c_cutoffs["2024"] = college_copy["cutoff_2024"]
+                college_copy["cutoffs"] = c_cutoffs
+                self.cutoff_data.append(college_copy)
+        elif os.path.exists(cutoff_path):
+            with open(cutoff_path, 'r', encoding='utf-8') as f:
+                self.cutoff_data = json.load(f)
 
         # Quick lookup college_id -> cutoff_trends, placement, and fee info
         self.cutoff_trends_lookup = {}
         self.placement_lookup = {}
         self.fee_lookup = {}
-        for c in self.college_data:
+        for c in (self.college_data or self.cutoff_data):
             cid = c.get('college_id')
             if cid:
                 if c.get('cutoff_trends'):
@@ -282,12 +298,20 @@ class CollegePredictor:
                 except Exception:
                     global_predicted = 0.0
 
-        # 2. Get recent year benchmark (2024 closing)
+        # 2. Get recent year benchmark (2025 or 2024 closing)
         recent_cutoff = 0
         for college in self.cutoff_data:
-            if college["college_id"] == college_id:
-                latest = college.get("cutoffs", {}).get("2024", {}).get(branch, {})
-                recent_cutoff = latest.get(category, 0)
+            if college.get("college_id") == college_id:
+                latest = college.get("cutoffs", {}).get("2025", {}) or college.get("cutoffs", {}).get("2024", {})
+                if not latest and college.get("cutoff_2025"):
+                    latest = college.get("cutoff_2025", {})
+                elif not latest and college.get("cutoff_2024"):
+                    latest = college.get("cutoff_2024", {})
+                branch_cutoffs = latest.get(branch, {})
+                if isinstance(branch_cutoffs, dict):
+                    recent_cutoff = branch_cutoffs.get(category, 0)
+                elif isinstance(branch_cutoffs, (int, float)):
+                    recent_cutoff = int(branch_cutoffs)
                 break
 
         # 3. Ensemble Blending
@@ -436,8 +460,8 @@ class CollegePredictor:
             tier = "Moderate"
             predicted_round = "Round 2"
         else:
-            tier = "Dream"
-            predicted_round = "Later Round"
+            tier = "Ambitious"
+            predicted_round = "Extended Round"
 
         confidence = "High"
         if abs(rank_gap) < 1000:
@@ -463,11 +487,41 @@ class CollegePredictor:
         Calculate production-grade Unified Recommendation Score:
           40% Cutoff Match + 20% Branch + 15% Category + 10% Location + 10% Fee + 5% Placement
         """
-        # 1. Cutoff Match Score (40%)
+        # 1. Cutoff Match & Institutional Selectivity Score (45%)
+        # In engineering admissions, colleges with lower cutoffs (e.g. RVCE, BMS, MSRIT, PES, UVCE)
+        # represent higher prestige and institutional selectivity.
+        # Students must be matched to colleges competitive for their rank:
+        # A rank 3,000 student should be prioritized for top institutions (cutoffs 1,500 - 8,000),
+        # not low-tier colleges with cutoff 120,000 (overqualified).
+        selectivity = max(0.0, min(1.0, 1.0 - (final_cutoff / 140000.0)))
+
         if kcet_rank <= final_cutoff:
-            cutoff_score = 100.0
+            ratio = kcet_rank / max(final_cutoff, 1)
+            # Competitive Target zone: student rank is 50% to 100% of cutoff
+            if ratio >= 0.50:
+                fit_score = 90.0 + (ratio - 0.50) * 20.0  # 90.0 to 100.0
+            elif ratio >= 0.20:
+                fit_score = 80.0 + (ratio - 0.20) * 33.3  # 80.0 to 90.0
+            else:
+                # Overqualified safe backup: e.g. rank 3k for cutoff 120k (ratio 0.025)
+                # Still a valid safe choice, but scored 55 - 75 so prime competitive colleges rank higher
+                fit_score = max(55.0, 60.0 + (ratio / 0.20) * 20.0)
+
+            cutoff_score = 0.70 * fit_score + 0.30 * (selectivity * 100.0)
         else:
-            cutoff_score = max(0.0, 100.0 - ((kcet_rank - final_cutoff) / final_cutoff) * 200.0)
+            # Ambitious / Dream: student rank is worse than cutoff (cutoff is tighter)
+            rank_excess = (kcet_rank - final_cutoff) / max(final_cutoff, 1)
+            if rank_excess <= 0.20:
+                # Close dream reach (within 20% rank gap): viable aspirational option
+                fit_score = 90.0 - (rank_excess / 0.20) * 25.0  # 65.0 to 90.0
+            elif rank_excess <= 0.50:
+                fit_score = max(25.0, 65.0 - ((rank_excess - 0.20) / 0.30) * 40.0)
+            else:
+                fit_score = max(0.0, 25.0 - (rank_excess - 0.50) * 50.0)
+
+            cutoff_score = 0.65 * fit_score + 0.35 * (selectivity * 100.0)
+
+        cutoff_score = min(max(cutoff_score, 0.0), 100.0)
 
         # 2. Branch Preference Score (20%)
         if preferred_branches and branch in preferred_branches:
@@ -476,7 +530,7 @@ class CollegePredictor:
         else:
             branch_score = 0.0
 
-        # 3. Category match score (15%)
+        # 3. Category match score (10%)
         # Perfect 100 if college offers specific cutoffs for their category or student is GM
         college_cutoffs = college.get("cutoffs", {}).get("2024", {}).get(branch, {})
         dataset_category = self.CATEGORY_TO_DATASET.get(student_category, "GM")
@@ -501,7 +555,7 @@ class CollegePredictor:
         else:
             location_score = 0.0
 
-        # 5. Fee Affordability Match (10%)
+        # 5. Fee Affordability Match (5%)
         if not budget or budget <= 0:
             fee_score = 100.0
         elif fee <= budget:
@@ -509,7 +563,7 @@ class CollegePredictor:
         else:
             fee_score = max(0.0, 100.0 - ((fee - budget) / budget) * 100.0)
 
-        # 6. Placement Score (5%)
+        # 6. Placement Score (10%)
         if placement_avg_lpa >= 12.0:
             placement_score = 100.0
         elif placement_avg_lpa > 0.0:
@@ -520,12 +574,12 @@ class CollegePredictor:
             placement_score = TYPE_PRESTIGE.get(ctype, 50.0)
 
         weighted_total = (
-            0.40 * cutoff_score +
+            0.45 * cutoff_score +
             0.20 * branch_score +
-            0.15 * cat_score +
+            0.10 * cat_score +
             0.10 * location_score +
-            0.10 * fee_score +
-            0.05 * placement_score
+            0.05 * fee_score +
+            0.10 * min(placement_score, 100.0)
         )
 
         sub_scores = {
@@ -534,7 +588,7 @@ class CollegePredictor:
             "category_match": round(cat_score, 1),
             "location_preference": round(location_score, 1),
             "fee_affordability": round(fee_score, 1),
-            "placement_rating": round(placement_score, 1)
+            "placement_rating": round(min(placement_score, 100.0), 1)
         }
 
         return int(min(max(weighted_total, 0), 100)), sub_scores
@@ -575,6 +629,9 @@ class CollegePredictor:
             college_type = college.get("type", "Type1_Unaided")
             location = college.get("location", "Unknown")
             loc_str = " ".join(str(v) for v in location.values()) if isinstance(location, dict) else str(location or "Unknown")
+            district = college.get("district", "")
+            if district and isinstance(district, str) and district.lower() not in loc_str.lower():
+                loc_str = f"{loc_str}, {district}"
             coordinates = college.get("coordinates", None)
 
             # Location Filters
@@ -590,7 +647,19 @@ class CollegePredictor:
                 elif college_type_pref == "Private" and college_type in ["Government", "Government_Aided"]:
                     continue
 
-            latest_cutoffs = college.get("cutoffs", {}).get("2024", {})
+            # Merge latest cutoffs chronologically across 2023, 2024, 2025, 2026
+            # so no branch is lost if a college was only included for certain branches in newer rounds
+            latest_cutoffs = {}
+            col_cutoffs = college.get("cutoffs", {})
+            for yr in ["2023", "2024", "2025", "2026"]:
+                if yr in col_cutoffs and isinstance(col_cutoffs[yr], dict):
+                    latest_cutoffs.update(col_cutoffs[yr])
+
+            if not latest_cutoffs:
+                if college.get("cutoff_2025") and isinstance(college["cutoff_2025"], dict):
+                    latest_cutoffs.update(college["cutoff_2025"])
+                elif college.get("cutoff_2024") and isinstance(college["cutoff_2024"], dict):
+                    latest_cutoffs.update(college["cutoff_2024"])
 
             for branch in preferred_branches:
                 if branch not in latest_cutoffs:
@@ -659,17 +728,25 @@ class CollegePredictor:
                     reason = f"Recommended as an ambitious dream option. Your rank is {abs(rank_diff)} ranks behind the predicted cutoff of {final_cutoff}, but it matches your branch preference perfectly."
 
                 # Maps
-                map_link = None
-                if coordinates and isinstance(coordinates, dict) and 'lat' in coordinates:
+                map_link = college.get("google_maps_link")
+                if not map_link and coordinates and isinstance(coordinates, dict) and 'lat' in coordinates:
                     map_link = f"https://maps.google.com/?q={coordinates['lat']},{coordinates['lng']}"
+                if not map_link:
+                    clean_name = str(college_name).replace(' ', '+').replace('&', '%26')
+                    map_link = f"https://maps.google.com/?q={clean_name}+Karnataka"
 
                 # 5-year trend maps for the sparkline charts
                 historical_cutoffs = {}
                 allcutoffs = college.get("cutoffs", {})
-                for yr in ["2020", "2021", "2022", "2023", "2024"]:
-                    val = allcutoffs.get(yr, {}).get(branch, {}).get("GM", 0)
-                    if val:
-                        historical_cutoffs[yr] = val
+                if not allcutoffs and college.get("cutoff_trends"):
+                    allcutoffs = college.get("cutoff_trends", {})
+                for yr in ["2020", "2021", "2022", "2023", "2024", "2025", "2026"]:
+                    yr_val = allcutoffs.get(yr, {})
+                    if isinstance(yr_val, dict):
+                        b_val = yr_val.get(branch, {})
+                        val = b_val.get("GM", 0) if isinstance(b_val, dict) else (int(b_val) if isinstance(b_val, (int, float)) else 0)
+                        if val:
+                            historical_cutoffs[yr] = val
 
                 predictions.append({
                     # Submitting required Upgraded production format
@@ -713,7 +790,20 @@ class CollegePredictor:
 
         # Sort recommendations: Hybrid recommendation score first, then probability
         predictions.sort(key=lambda x: (x["recommendation_score"], x["probability"]), reverse=True)
-        top_predictions = predictions[:top_n]
+
+        # Ensure college diversity: at most 2 branches per institution in top recommendations
+        diverse_predictions = []
+        seen_colleges = {}
+        for p in predictions:
+            cid = p.get("college_id", "")
+            count = seen_colleges.get(cid, 0)
+            if count < 2:
+                diverse_predictions.append(p)
+                seen_colleges[cid] = count + 1
+            if len(diverse_predictions) >= top_n:
+                break
+
+        top_predictions = diverse_predictions if diverse_predictions else predictions[:top_n]
 
         # Option Entry sequencing
         option_sequence = self._generate_kea_option_sequence(predictions, kcet_rank)
@@ -749,12 +839,17 @@ class CollegePredictor:
             return {"annual_fee": 0, "hostel_available": False, "naac_grade": "N/A"}
 
         annual_fee = info.get("annual_fee", {})
-        if category in ["SC", "ST"]:
-            fee = annual_fee.get("sc_st", 0)
-        elif category == "OBC":
-            fee = annual_fee.get("obc", annual_fee.get("gm", 0))
+        if isinstance(annual_fee, (int, float)):
+            fee = 4120 if category in ["SC", "ST"] else int(annual_fee)
+        elif isinstance(annual_fee, dict):
+            if category in ["SC", "ST"]:
+                fee = annual_fee.get("sc_st", 0)
+            elif category == "OBC":
+                fee = annual_fee.get("obc", annual_fee.get("gm", 0))
+            else:
+                fee = annual_fee.get("gm", 0)
         else:
-            fee = annual_fee.get("gm", 0)
+            fee = 0
 
         return {
             "annual_fee": fee,
@@ -764,9 +859,9 @@ class CollegePredictor:
         }
 
     def _generate_kea_option_sequence(self, all_predictions: List[Dict], student_rank: int) -> List[Dict]:
-        """KEA Option Entry order recommendations (Dream -> Realistic -> Safe)."""
+        """KEA Option Entry order recommendations (Ambitious/Dream -> Realistic/Target -> Safe)."""
         sequence = []
-        dream = [p for p in all_predictions if p["category"] == "Dream" and p["probability"] > 5.0]
+        dream = [p for p in all_predictions if p["category"] in ("Ambitious", "Dream", "Reach") and p["probability"] >= 5.0]
         realistic = [p for p in all_predictions if p["category"] == "Moderate"]
         safe = [p for p in all_predictions if p["category"] == "Safe"]
 

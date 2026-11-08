@@ -58,7 +58,9 @@ class MLTrainingPipeline:
     def load_datasets(self):
         """Load KEA, JEE, and NEET datasets from data folder."""
         # 1. KEA Cutoffs
-        kea_path = os.path.join(DATA_DIR, "cutoff_dataset.json")
+        kea_path = os.path.join(DATA_DIR, "Production_Ready_Colleges.json")
+        if not os.path.exists(kea_path):
+            kea_path = os.path.join(DATA_DIR, "cutoff_dataset.json")
         if os.path.exists(kea_path):
             with open(kea_path, 'r', encoding='utf-8') as f:
                 self.kea_dataset = json.load(f)
@@ -97,8 +99,10 @@ class MLTrainingPipeline:
         for college in self.kea_dataset:
             cid = college["college_id"]
             ranks = []
-            cutoffs = college.get("cutoffs", {})
+            cutoffs = college.get("cutoffs") or college.get("cutoff_trends") or {}
             for year, branch_data in cutoffs.items():
+                if not isinstance(branch_data, dict):
+                    continue
                 for branch, cat_data in branch_data.items():
                     val = cat_data.get("GM")
                     if val and isinstance(val, (int, float)):
@@ -120,13 +124,14 @@ class MLTrainingPipeline:
             naac_val = NAAC_SCORE.get(naac, 60)
             college_base_rank = college_mean_ranks.get(cid, 25000.0)
 
-            cutoffs = college.get("cutoffs", {})
-            years = sorted([int(y) for y in cutoffs.keys()])
+            cutoffs = college.get("cutoffs") or college.get("cutoff_trends") or {}
+            years = sorted([int(y) for y in cutoffs.keys() if str(y).isdigit()])
 
             # Extract branches and categories for local trend
             all_branches = set()
             for y_str in cutoffs.keys():
-                all_branches.update(cutoffs[y_str].keys())
+                if isinstance(cutoffs[y_str], dict):
+                    all_branches.update(cutoffs[y_str].keys())
 
             for branch in all_branches:
                 for category in ["GM", "OBC", "SC", "ST"]:

@@ -123,11 +123,21 @@ async def chat(request: ChatRequest):
     except Exception as e:
         logger.warning(f"RAG search failed: {e}")
 
+    # ── Step 3.5: Add Live Web Search context ─────────────────────────
+    try:
+        from web_search_service import get_web_search_service
+        ws = get_web_search_service()
+        web_text = ws.format_context_for_llm(query, max_results=5)
+        if web_text:
+            context_parts.append(web_text)
+    except Exception as e:
+        logger.warning(f"Web search failed: {e}")
+
     # ── Step 4: Build full context ────────────────────────────────────
     full_context = "\n\n".join([c for c in context_parts if c])
 
     if not full_context:
-        full_context = "No specific data found in the database for this query."
+        full_context = "No specific data found in the local database for this query."
 
     # ── Step 5: Generate LLM explanation ──────────────────────────────
     from prompt_templates import (
@@ -157,7 +167,7 @@ async def chat(request: ChatRequest):
     messages.append({"role": "user", "content": user_prompt})
 
     # Call LLM
-    response_text, model_used = await _call_llm(messages)
+    response_text, model_used = await _call_llm(messages, query=query)
 
     elapsed = time.time() - start_time
     logger.info(f"Chat completed in {elapsed:.2f}s | Model: {model_used}")
@@ -234,7 +244,17 @@ async def chat_stream(request: ChatRequest):
     except Exception:
         pass
 
-    full_context = "\n\n".join([c for c in context_parts if c]) or "No data found."
+    # Live Web Search
+    try:
+        from web_search_service import get_web_search_service
+        ws = get_web_search_service()
+        web_text = ws.format_context_for_llm(query, max_results=5)
+        if web_text:
+            context_parts.append(web_text)
+    except Exception:
+        pass
+
+    full_context = "\n\n".join([c for c in context_parts if c]) or "No data found in local database."
 
     from prompt_templates import (
         COUNSELOR_SYSTEM_PROMPT, build_contextual_prompt
@@ -258,144 +278,70 @@ async def chat_stream(request: ChatRequest):
     messages.append({"role": "user", "content": user_prompt})
 
     return StreamingResponse(
-        _stream_llm(messages),
+        _stream_llm(messages, query=query),
         media_type="text/event-stream",
     )
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# LLM Calling (Groq primary, Ollama fallback)
+# LLM Calling (Groq primary, FastCloud secondary, Web/Domain Synthesis fallback)
 # ══════════════════════════════════════════════════════════════════════════════
 
-async def _call_llm(messages: list) -> tuple:
-    """Call LLM — Groq primary, Ollama fallback. Returns (text, model_used)."""
-    import httpx
-
-    # Try Groq first
-    if GROQ_API_KEY:
-        try:
-            async with httpx.AsyncClient(timeout=30) as client:
-                response = await client.post(
-                    GROQ_API_URL,
-                    json={
-                        "model": GROQ_MODEL,
-                        "messages": messages,
-                        "temperature": 0.3,
-                        "max_tokens": 2048,
-                    },
-                    headers={
-                        "Authorization": f"Bearer {GROQ_API_KEY}",
-                        "Content-Type": "application/json",
-                    },
-                )
-                if response.status_code == 200:
-                    data = response.json()
-                    text = data["choices"][0]["message"]["content"]
-                    return text, f"groq/{GROQ_MODEL}"
-                else:
-                    logger.warning(f"Groq API error {response.status_code}: {response.text[:200]}")
-        except Exception as e:
-            logger.warning(f"Groq API failed: {e}")
-
-    # Fallback to Ollama
-    try:
-        async with httpx.AsyncClient(timeout=60) as client:
-            response = await client.post(
-                f"{OLLAMA_HOST}/api/chat",
-                json={
-                    "model": OLLAMA_MODEL,
-                    "messages": messages,
-                    "stream": False,
-                    "options": {"temperature": 0.3},
-                },
-            )
-            if response.status_code == 200:
-                data = response.json()
-                text = data.get("message", {}).get("content", "")
-                return text, f"ollama/{OLLAMA_MODEL}"
-    except Exception as e:
-        logger.warning(f"Ollama failed: {e}")
-
-    # Final fallback: return context-only response
-    return (
-        "I apologize, but the AI language model is currently unavailable. "
-        "However, I can still provide you with the database results above. "
-        "Please review the structured data for your answer.",
-        "fallback/none"
-    )
+async def _call_llm(messages: list, query: str = "") -> tuple:
+    """Call LLM — Groq primary, FastCloud secondary, Web/Domain Synthesis fallback."""
+    from llm_service import get_llm_service
+    svc = get_llm_service()
+    if svc.groq.available:
+        text = svc.groq.generate(messages)
+        if text:
+            return text, f"groq/{GROQ_MODEL}"
+    if svc.fast_cloud.available:
+        text = svc.fast_cloud.generate(messages)
+        if text:
+            return text, "cloud/openai-fast"
+    if svc.web_search and query:
+        synth = svc.web_search.synthesize_answer(query)
+        if synth:
+            return synth, "InsightRural AI (Hybrid DB + Live Web Search)"
+    return svc.fallback.generate(query or ""), "fallback/rag"
 
 
-async def _stream_llm(messages: list):
+async def _stream_llm(messages: list, query: str = ""):
     """Stream LLM response as SSE events."""
-    import httpx
+    from llm_service import get_llm_service
+    svc = get_llm_service()
 
-    # Try Groq streaming
-    if GROQ_API_KEY:
-        try:
-            async with httpx.AsyncClient(timeout=60) as client:
-                async with client.stream(
-                    "POST",
-                    GROQ_API_URL,
-                    json={
-                        "model": GROQ_MODEL,
-                        "messages": messages,
-                        "temperature": 0.3,
-                        "max_tokens": 2048,
-                        "stream": True,
-                    },
-                    headers={
-                        "Authorization": f"Bearer {GROQ_API_KEY}",
-                        "Content-Type": "application/json",
-                    },
-                ) as response:
-                    async for line in response.aiter_lines():
-                        if line.startswith("data: "):
-                            data_str = line[6:]
-                            if data_str.strip() == "[DONE]":
-                                yield "data: [DONE]\n\n"
-                                return
-                            try:
-                                chunk = json.loads(data_str)
-                                delta = chunk.get("choices", [{}])[0].get("delta", {})
-                                content = delta.get("content", "")
-                                if content:
-                                    yield f"data: {json.dumps({'content': content})}\n\n"
-                            except json.JSONDecodeError:
-                                pass
-                    yield "data: [DONE]\n\n"
-                    return
-        except Exception as e:
-            logger.warning(f"Groq streaming failed: {e}")
+    if svc.groq.available:
+        yielded = False
+        for token in svc.groq.stream(messages):
+            yielded = True
+            yield f"data: {json.dumps({'content': token})}\n\n"
+        if yielded:
+            yield "data: [DONE]\n\n"
+            return
 
-    # Ollama streaming fallback
-    try:
-        async with httpx.AsyncClient(timeout=60) as client:
-            async with client.stream(
-                "POST",
-                f"{OLLAMA_HOST}/api/chat",
-                json={
-                    "model": OLLAMA_MODEL,
-                    "messages": messages,
-                    "stream": True,
-                    "options": {"temperature": 0.3},
-                },
-            ) as response:
-                async for line in response.aiter_lines():
-                    if line.strip():
-                        try:
-                            chunk = json.loads(line)
-                            content = chunk.get("message", {}).get("content", "")
-                            if content:
-                                yield f"data: {json.dumps({'content': content})}\n\n"
-                            if chunk.get("done"):
-                                yield "data: [DONE]\n\n"
-                                return
-                        except json.JSONDecodeError:
-                            pass
-    except Exception as e:
-        logger.warning(f"Ollama streaming failed: {e}")
-        yield f"data: {json.dumps({'content': 'AI model unavailable. Please check database results.'})}\n\n"
-        yield "data: [DONE]\n\n"
+    if svc.fast_cloud.available:
+        yielded = False
+        for token in svc.fast_cloud.stream(messages):
+            yielded = True
+            yield f"data: {json.dumps({'content': token})}\n\n"
+        if yielded:
+            yield "data: [DONE]\n\n"
+            return
+
+    if svc.web_search and query:
+        synth = svc.web_search.synthesize_answer(query)
+        if synth:
+            words = synth.split(" ")
+            for i in range(0, len(words), 6):
+                chunk = " ".join(words[i:i+6]) + (" " if i + 6 < len(words) else "")
+                yield f"data: {json.dumps({'content': chunk})}\n\n"
+            yield "data: [DONE]\n\n"
+            return
+
+    fallback_text = svc.fallback.generate(query or "")
+    yield f"data: {json.dumps({'content': fallback_text})}\n\n"
+    yield "data: [DONE]\n\n"
 
 
 # ══════════════════════════════════════════════════════════════════════════════

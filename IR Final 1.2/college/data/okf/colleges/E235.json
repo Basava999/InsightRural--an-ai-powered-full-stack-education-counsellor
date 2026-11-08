@@ -1,0 +1,568 @@
+{
+  "college_id": "E235",
+  "name": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE",
+  "short_name": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE",
+  "type": "Deemed_University",
+  "location": "Tumakuru",
+  "district": "Tumakuru",
+  "state": "Karnataka",
+  "affiliation": "Deemed_University",
+  "hostel_available": true,
+  "branches": [
+    "AI_DS",
+    "CIVIL",
+    "CSE",
+    "DS",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Deemed_University",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://ruas.ac.in",
+  "phone": "+91-80-23600822",
+  "email": "admissions@ruas.ac.in",
+  "established": 2013,
+  "total_seats": 600,
+  "naac_grade": "A+",
+  "nba_accredited": true,
+  "placement_avg_lpa": 13.5,
+  "placement_highest_lpa": 58.0,
+  "top_recruiters": [
+    "Amazon",
+    "Infosys",
+    "Wipro",
+    "Deloitte",
+    "Accenture",
+    "L&T",
+    "Honeywell"
+  ],
+  "facilities": [
+    "Deemed University campus",
+    "Library",
+    "Labs",
+    "Hostel",
+    "Sports",
+    "Innovation hub"
+  ],
+  "highlights": [
+    "Ramaiah Deemed University",
+    "NAAC A+",
+    "Good for design & innovation branches"
+  ],
+  "google_maps_link": "https://maps.app.goo.gl/pJe3cK6G3HxLmVRQ9",
+  "cutoffs": {
+    "2020": {
+      "CIVIL": {
+        "GM": 28160,
+        "OBC": 38016,
+        "SC": 146432,
+        "ST": 115455
+      },
+      "CSE": {
+        "GM": 12099,
+        "OBC": 16333,
+        "SC": 62914,
+        "ST": 49605
+      },
+      "DS": {
+        "GM": 17595,
+        "OBC": 23753,
+        "SC": 91494,
+        "ST": 72139
+      },
+      "ECE": {
+        "GM": 15786,
+        "OBC": 21311,
+        "SC": 82087,
+        "ST": 64722
+      },
+      "EEE": {
+        "GM": 27913,
+        "OBC": 37682,
+        "SC": 145147,
+        "ST": 114443
+      },
+      "ISE": {
+        "GM": 18900,
+        "OBC": 25515,
+        "SC": 98280,
+        "ST": 77490
+      },
+      "ME": {
+        "GM": 48133,
+        "OBC": 64979,
+        "SC": 250291,
+        "ST": 197345
+      }
+    },
+    "2021": {
+      "CIVIL": {
+        "GM": 29760,
+        "OBC": 40176,
+        "SC": 154752,
+        "ST": 122015
+      },
+      "CSE": {
+        "GM": 12984,
+        "OBC": 17528,
+        "SC": 67516,
+        "ST": 53234
+      },
+      "DS": {
+        "GM": 18630,
+        "OBC": 25150,
+        "SC": 96876,
+        "ST": 76383
+      },
+      "ECE": {
+        "GM": 16301,
+        "OBC": 22006,
+        "SC": 84765,
+        "ST": 66834
+      },
+      "EEE": {
+        "GM": 28483,
+        "OBC": 38452,
+        "SC": 148111,
+        "ST": 116780
+      },
+      "ISE": {
+        "GM": 20025,
+        "OBC": 27033,
+        "SC": 104130,
+        "ST": 82102
+      },
+      "ME": {
+        "GM": 50807,
+        "OBC": 68589,
+        "SC": 264196,
+        "ST": 208308
+      }
+    },
+    "2022": {
+      "CIVIL": {
+        "GM": 33280,
+        "OBC": 44928,
+        "SC": 173056,
+        "ST": 136448
+      },
+      "CSE": {
+        "GM": 13869,
+        "OBC": 18723,
+        "SC": 72118,
+        "ST": 56862
+      },
+      "DS": {
+        "GM": 19665,
+        "OBC": 26547,
+        "SC": 102258,
+        "ST": 80626
+      },
+      "ECE": {
+        "GM": 16815,
+        "OBC": 22700,
+        "SC": 87438,
+        "ST": 68941
+      },
+      "EEE": {
+        "GM": 29052,
+        "OBC": 39220,
+        "SC": 151070,
+        "ST": 119113
+      },
+      "ISE": {
+        "GM": 21375,
+        "OBC": 28856,
+        "SC": 111150,
+        "ST": 87637
+      },
+      "ME": {
+        "GM": 55086,
+        "OBC": 74366,
+        "SC": 286447,
+        "ST": 225852
+      }
+    },
+    "2023": {
+      "CSE": {
+        "GM": 12376,
+        "OBC": 18214,
+        "SC": 58582,
+        "ST": 85328
+      }
+    },
+    "2024": {
+      "CSE": {
+        "GM": 19249,
+        "OBC": 32579,
+        "SC": 68527,
+        "ST": 84075
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 92799,
+        "OBC": 238329,
+        "SC": 93056,
+        "ST": 193852
+      },
+      "ME": {
+        "GM": 5,
+        "OBC": 6,
+        "SC": 26,
+        "ST": 20
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2020": {
+      "CIVIL": {
+        "GM": 28160,
+        "OBC": 38016,
+        "SC": 146432,
+        "ST": 115455
+      },
+      "CSE": {
+        "GM": 12099,
+        "OBC": 16333,
+        "SC": 62914,
+        "ST": 49605
+      },
+      "DS": {
+        "GM": 17595,
+        "OBC": 23753,
+        "SC": 91494,
+        "ST": 72139
+      },
+      "ECE": {
+        "GM": 15786,
+        "OBC": 21311,
+        "SC": 82087,
+        "ST": 64722
+      },
+      "EEE": {
+        "GM": 27913,
+        "OBC": 37682,
+        "SC": 145147,
+        "ST": 114443
+      },
+      "ISE": {
+        "GM": 18900,
+        "OBC": 25515,
+        "SC": 98280,
+        "ST": 77490
+      },
+      "ME": {
+        "GM": 48133,
+        "OBC": 64979,
+        "SC": 250291,
+        "ST": 197345
+      }
+    },
+    "2021": {
+      "CIVIL": {
+        "GM": 29760,
+        "OBC": 40176,
+        "SC": 154752,
+        "ST": 122015
+      },
+      "CSE": {
+        "GM": 12984,
+        "OBC": 17528,
+        "SC": 67516,
+        "ST": 53234
+      },
+      "DS": {
+        "GM": 18630,
+        "OBC": 25150,
+        "SC": 96876,
+        "ST": 76383
+      },
+      "ECE": {
+        "GM": 16301,
+        "OBC": 22006,
+        "SC": 84765,
+        "ST": 66834
+      },
+      "EEE": {
+        "GM": 28483,
+        "OBC": 38452,
+        "SC": 148111,
+        "ST": 116780
+      },
+      "ISE": {
+        "GM": 20025,
+        "OBC": 27033,
+        "SC": 104130,
+        "ST": 82102
+      },
+      "ME": {
+        "GM": 50807,
+        "OBC": 68589,
+        "SC": 264196,
+        "ST": 208308
+      }
+    },
+    "2022": {
+      "CIVIL": {
+        "GM": 33280,
+        "OBC": 44928,
+        "SC": 173056,
+        "ST": 136448
+      },
+      "CSE": {
+        "GM": 13869,
+        "OBC": 18723,
+        "SC": 72118,
+        "ST": 56862
+      },
+      "DS": {
+        "GM": 19665,
+        "OBC": 26547,
+        "SC": 102258,
+        "ST": 80626
+      },
+      "ECE": {
+        "GM": 16815,
+        "OBC": 22700,
+        "SC": 87438,
+        "ST": 68941
+      },
+      "EEE": {
+        "GM": 29052,
+        "OBC": 39220,
+        "SC": 151070,
+        "ST": 119113
+      },
+      "ISE": {
+        "GM": 21375,
+        "OBC": 28856,
+        "SC": 111150,
+        "ST": 87637
+      },
+      "ME": {
+        "GM": 55086,
+        "OBC": 74366,
+        "SC": 286447,
+        "ST": 225852
+      }
+    },
+    "2023": {
+      "CSE": {
+        "GM": 12376,
+        "OBC": 18214,
+        "SC": 58582,
+        "ST": 85328
+      }
+    },
+    "2024": {
+      "CSE": {
+        "GM": 19249,
+        "OBC": 32579,
+        "SC": 68527,
+        "ST": 84075
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 92799,
+        "OBC": 238329,
+        "SC": 93056,
+        "ST": 193852
+      },
+      "ME": {
+        "GM": 5,
+        "OBC": 6,
+        "SC": 26,
+        "ST": 20
+      }
+    }
+  },
+  "cutoff_rounds": {
+    "2023": {
+      "R1": {
+        "CSE": {
+          "GM": 10518,
+          "OBC": 16086,
+          "SC": 56379,
+          "ST": 58766,
+          "quota": "GEN",
+          "details": {
+            "1G": 17435,
+            "2AG": 16086,
+            "2AK": 25086,
+            "2AR": 20614,
+            "2BG": 21588,
+            "3AG": 12208,
+            "3BG": 12026,
+            "3BR": 19084,
+            "GM": 10518,
+            "GMK": 19184,
+            "GMR": 17916,
+            "SCG": 56379,
+            "SCK": 63027,
+            "SCR": 77382,
+            "STG": 58766,
+            "STR": 91599
+          }
+        }
+      },
+      "R2": {
+        "CSE": {
+          "GM": 12376,
+          "OBC": 18214,
+          "SC": 58582,
+          "ST": 85328,
+          "quota": "GEN",
+          "details": {
+            "1G": 23136,
+            "2AG": 18214,
+            "2AK": 25086,
+            "2AR": 21547,
+            "2BG": 21588,
+            "3AG": 14470,
+            "3BG": 13595,
+            "3BR": 20293,
+            "GM": 12376,
+            "GMK": 19184,
+            "GMR": 19231,
+            "SCG": 58582,
+            "SCK": 91533,
+            "SCR": 77382,
+            "STG": 85328,
+            "STR": 91599
+          }
+        }
+      }
+    },
+    "2024": {
+      "R1": {
+        "CSE": {
+          "GM": 16196,
+          "OBC": 20244,
+          "SC": 68527,
+          "ST": 84075,
+          "quota": "HK",
+          "details": {
+            "2AG": 20244,
+            "2AR": 25428,
+            "GM": 16196,
+            "GMK": 35765,
+            "SCG": 68527,
+            "STG": 84075
+          }
+        }
+      },
+      "R2": {
+        "CSE": {
+          "GM": 19249,
+          "OBC": 32579,
+          "SC": 68527,
+          "ST": 84075,
+          "quota": "HK",
+          "details": {
+            "2AG": 32579,
+            "2AR": 48012,
+            "GM": 19249,
+            "GMK": 35765,
+            "SCG": 68527,
+            "STG": 84075
+          }
+        }
+      }
+    },
+    "2025": {
+      "R1": {
+        "CIVIL": {
+          "GM": 59902,
+          "OBC": 80867,
+          "SC": 311490,
+          "ST": 245598,
+          "quota": "HK",
+          "details": {
+            "GMH": 59902
+          }
+        }
+      },
+      "R2": {
+        "CIVIL": {
+          "GM": 95811,
+          "OBC": 129344,
+          "SC": 498217,
+          "ST": 392825,
+          "quota": "HK",
+          "details": {
+            "GMH": 95811
+          }
+        }
+      },
+      "R3": {
+        "CIVIL": {
+          "GM": 92799,
+          "OBC": 238329,
+          "SC": 93056,
+          "ST": 193852,
+          "quota": "GEN",
+          "details": {
+            "2AG": 238329,
+            "GM": 92799,
+            "GMR": 112525,
+            "SCG": 93056,
+            "STG": 193852
+          }
+        },
+        "ME": {
+          "GM": 5,
+          "OBC": 6,
+          "SC": 26,
+          "ST": 20,
+          "quota": "GEN",
+          "details": {
+            "GM": 5,
+            "GMR": 5
+          }
+        }
+      }
+    }
+  },
+  "cutoff_2024": {
+    "CSE": {
+      "GM": 19249,
+      "OBC": 32579,
+      "SC": 68527,
+      "ST": 84075
+    }
+  },
+  "cutoff_2025": {
+    "CIVIL": {
+      "GM": 92799,
+      "OBC": 238329,
+      "SC": 93056,
+      "ST": 193852
+    },
+    "ME": {
+      "GM": 5,
+      "OBC": 6,
+      "SC": 26,
+      "ST": 20
+    }
+  },
+  "data_quality_score": 100,
+  "search_keywords": [
+    "m . s . ramaiah university of applied sciences university house",
+    "e235",
+    "tumakuru",
+    "tumakuru",
+    "ai_ds",
+    "civil",
+    "cse",
+    "ds",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

@@ -1,0 +1,667 @@
+{
+  "college_id": "E161",
+  "name": "Engineering College E161",
+  "short_name": "Engineering College E161",
+  "type": "Type1_Unaided",
+  "location": "Karnataka",
+  "district": "Bangalore Urban",
+  "state": "Karnataka",
+  "affiliation": "Visvesvaraya Technological University (VTU)",
+  "hostel_available": true,
+  "branches": [
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Type1_Unaided",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://engineeringcoll.ac.in",
+  "phone": "+91-80-22000161",
+  "email": "principal@engineeringcoll.ac.in",
+  "established": 1971,
+  "total_seats": 600,
+  "naac_grade": "B+",
+  "nba_accredited": true,
+  "placement_avg_lpa": 6.5,
+  "placement_highest_lpa": 20.8,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "Capgemini",
+    "Tech Mahindra",
+    "L&T Technology Services",
+    "Mindtree",
+    "HCL"
+  ],
+  "facilities": [
+    "Central Library & Digital E-Resource Centre",
+    "Boys Hostel on Campus",
+    "Girls Hostel on Campus",
+    "High-Speed Wi-Fi Campus",
+    "Modern Computing & AI/ML Labs",
+    "Multi-Sport Grounds & Indoor Gymnasium",
+    "Hygienic Cafeteria & Food Court",
+    "College Bus / Transport Service",
+    "24/7 Medical Health Centre & Ambulance",
+    "Innovation, Incubation & Entrepreneurship Cell"
+  ],
+  "highlights": [
+    "Accredited NAAC Grade B+ with modern engineering laboratories",
+    "Official KEA code E161 with 600 approved total engineering seats",
+    "Strong placement record with average package of 6.5 LPA (highest: 20.8 LPA)",
+    "Comprehensive campus facilities including on-campus hostels, Wi-Fi, and library"
+  ],
+  "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Engineering+College+E161+Karnataka+Karnataka",
+  "cutoffs": {
+    "2023": {
+      "CIVIL": {
+        "GM": 200060,
+        "OBC": 270081,
+        "SC": 1040312,
+        "ST": 820245
+      },
+      "CSE": {
+        "GM": 50533,
+        "OBC": 68110,
+        "SC": 85626,
+        "ST": 88353
+      },
+      "ECE": {
+        "GM": 73495,
+        "OBC": 92340,
+        "SC": 126438,
+        "ST": 141544
+      },
+      "ME": {
+        "GM": 194440,
+        "OBC": 262494,
+        "SC": 1011088,
+        "ST": 797203
+      }
+    },
+    "2024": {
+      "CIVIL": {
+        "GM": 263492,
+        "OBC": 355714,
+        "SC": 1370158,
+        "ST": 1080317
+      },
+      "CSE": {
+        "GM": 89435,
+        "OBC": 115533,
+        "SC": 124205,
+        "ST": 366683
+      },
+      "ECE": {
+        "GM": 115170,
+        "OBC": 167968,
+        "SC": 195663,
+        "ST": 472196
+      },
+      "ME": {
+        "GM": 270281,
+        "OBC": 364879,
+        "SC": 1405461,
+        "ST": 1108152
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 257241,
+        "OBC": 347275,
+        "SC": 1337653,
+        "ST": 1054688
+      },
+      "ME": {
+        "GM": 256252,
+        "OBC": 345940,
+        "SC": 1332510,
+        "ST": 1050633
+      }
+    },
+    "2026": {
+      "CIVIL": {
+        "GM": 152828,
+        "OBC": 206317,
+        "SC": 794705,
+        "ST": 626594
+      },
+      "ME": {
+        "GM": 172258,
+        "OBC": 232548,
+        "SC": 895741,
+        "ST": 706257
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2023": {
+      "CIVIL": {
+        "GM": 200060,
+        "OBC": 270081,
+        "SC": 1040312,
+        "ST": 820245
+      },
+      "CSE": {
+        "GM": 50533,
+        "OBC": 68110,
+        "SC": 85626,
+        "ST": 88353
+      },
+      "ECE": {
+        "GM": 73495,
+        "OBC": 92340,
+        "SC": 126438,
+        "ST": 141544
+      },
+      "ME": {
+        "GM": 194440,
+        "OBC": 262494,
+        "SC": 1011088,
+        "ST": 797203
+      }
+    },
+    "2024": {
+      "CIVIL": {
+        "GM": 263492,
+        "OBC": 355714,
+        "SC": 1370158,
+        "ST": 1080317
+      },
+      "CSE": {
+        "GM": 89435,
+        "OBC": 115533,
+        "SC": 124205,
+        "ST": 366683
+      },
+      "ECE": {
+        "GM": 115170,
+        "OBC": 167968,
+        "SC": 195663,
+        "ST": 472196
+      },
+      "ME": {
+        "GM": 270281,
+        "OBC": 364879,
+        "SC": 1405461,
+        "ST": 1108152
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 257241,
+        "OBC": 347275,
+        "SC": 1337653,
+        "ST": 1054688
+      },
+      "ME": {
+        "GM": 256252,
+        "OBC": 345940,
+        "SC": 1332510,
+        "ST": 1050633
+      }
+    },
+    "2026": {
+      "CIVIL": {
+        "GM": 152828,
+        "OBC": 206317,
+        "SC": 794705,
+        "ST": 626594
+      },
+      "ME": {
+        "GM": 172258,
+        "OBC": 232548,
+        "SC": 895741,
+        "ST": 706257
+      }
+    }
+  },
+  "cutoff_rounds": {
+    "2023": {
+      "R1": {
+        "CIVIL": {
+          "GM": 187830,
+          "OBC": 190253,
+          "SC": 172359,
+          "ST": 770102,
+          "quota": "GEN",
+          "details": {
+            "1G": 184621,
+            "2AG": 190253,
+            "2BG": 189207,
+            "3AG": 175452,
+            "3BG": 187830,
+            "SCG": 172359
+          }
+        },
+        "CSE": {
+          "GM": 49123,
+          "OBC": 59672,
+          "SC": 75990,
+          "ST": 82724,
+          "quota": "GEN",
+          "details": {
+            "1G": 56491,
+            "2AG": 59672,
+            "2AR": 61659,
+            "2BG": 58127,
+            "3AG": 49768,
+            "3AK": 55592,
+            "3BG": 52349,
+            "3BR": 54666,
+            "GM": 49123,
+            "GMK": 51001,
+            "GMR": 53999,
+            "SCG": 75990,
+            "SCR": 78648,
+            "STG": 82724,
+            "STR": 88353
+          }
+        },
+        "ECE": {
+          "GM": 71983,
+          "OBC": 85093,
+          "SC": 103813,
+          "ST": 129957,
+          "quota": "GEN",
+          "details": {
+            "1G": 79505,
+            "1R": 99432,
+            "2AG": 85093,
+            "2AK": 85099,
+            "2AR": 86200,
+            "2BG": 78625,
+            "3AG": 75677,
+            "3BG": 73592,
+            "GM": 71983,
+            "GMK": 76606,
+            "GMR": 76555,
+            "SCR": 103813,
+            "STR": 129957
+          }
+        },
+        "ME": {
+          "GM": 194440,
+          "OBC": 262494,
+          "SC": 1011088,
+          "ST": 797203,
+          "quota": "GEN",
+          "details": {
+            "GM": 194440
+          }
+        }
+      },
+      "R2": {
+        "CIVIL": {
+          "GM": 200060,
+          "OBC": 270081,
+          "SC": 1040312,
+          "ST": 820245,
+          "quota": "GEN",
+          "details": {
+            "GM": 200060
+          }
+        },
+        "CSE": {
+          "GM": 50533,
+          "OBC": 68110,
+          "SC": 85626,
+          "ST": 88353,
+          "quota": "GEN",
+          "details": {
+            "1G": 56491,
+            "2AG": 68110,
+            "2AR": 76949,
+            "2BG": 58127,
+            "3AG": 52794,
+            "3AK": 69557,
+            "3BG": 55278,
+            "3BR": 58073,
+            "GM": 50533,
+            "GMK": 51001,
+            "GMR": 57232,
+            "SCG": 85626,
+            "SCR": 93962,
+            "STG": 88353,
+            "STR": 113191
+          }
+        },
+        "ECE": {
+          "GM": 73495,
+          "OBC": 92340,
+          "SC": 126438,
+          "ST": 141544,
+          "quota": "GEN",
+          "details": {
+            "1G": 92819,
+            "1R": 99432,
+            "2AG": 92340,
+            "2AK": 100876,
+            "2AR": 92360,
+            "2BG": 78625,
+            "3AG": 81893,
+            "3BG": 75030,
+            "GM": 73495,
+            "GMK": 81930,
+            "GMR": 85099,
+            "SCR": 126438,
+            "STR": 141544
+          }
+        },
+        "ME": {
+          "GM": 194440,
+          "OBC": 262494,
+          "SC": 1011088,
+          "ST": 797203,
+          "quota": "GEN",
+          "details": {
+            "GM": 194440
+          }
+        }
+      }
+    },
+    "2024": {
+      "R1": {
+        "CIVIL": {
+          "GM": 190086,
+          "OBC": 247599,
+          "SC": 988447,
+          "ST": 217798,
+          "quota": "HK",
+          "details": {
+            "2BG": 247599,
+            "GMK": 190086,
+            "STG": 217798
+          }
+        },
+        "CSE": {
+          "GM": 83070,
+          "OBC": 93099,
+          "SC": 103042,
+          "ST": 340586,
+          "quota": "HK",
+          "details": {
+            "2AG": 93099,
+            "GM": 83070,
+            "GMR": 86173,
+            "SCG": 103042
+          }
+        },
+        "ECE": {
+          "GM": 104849,
+          "OBC": 115170,
+          "SC": 178068,
+          "ST": 429880,
+          "quota": "HK",
+          "details": {
+            "2AG": 115170,
+            "GM": 104849,
+            "SCG": 178068,
+            "SCR": 195663
+          }
+        },
+        "ME": {
+          "GM": 198910,
+          "OBC": 207397,
+          "SC": 1034332,
+          "ST": 815530,
+          "quota": "HK",
+          "details": {
+            "3AG": 248920,
+            "3BG": 207397,
+            "GM": 198910,
+            "GMR": 240380
+          }
+        }
+      },
+      "R2": {
+        "CIVIL": {
+          "GM": 263492,
+          "OBC": 355714,
+          "SC": 1370158,
+          "ST": 1080317,
+          "quota": "HK",
+          "details": {
+            "GM": 263492
+          }
+        },
+        "CSE": {
+          "GM": 89435,
+          "OBC": 115533,
+          "SC": 124205,
+          "ST": 366683,
+          "quota": "HK",
+          "details": {
+            "2AG": 115533,
+            "GM": 89435,
+            "SCG": 124205
+          }
+        },
+        "ECE": {
+          "GM": 115170,
+          "OBC": 167968,
+          "SC": 195663,
+          "ST": 472196,
+          "quota": "HK",
+          "details": {
+            "2AG": 167968,
+            "GM": 115170,
+            "SCG": 195663,
+            "SCR": 245396
+          }
+        },
+        "ME": {
+          "GM": 270281,
+          "OBC": 364879,
+          "SC": 1405461,
+          "ST": 1108152,
+          "quota": "GEN",
+          "details": {
+            "GM": 270281
+          }
+        }
+      }
+    },
+    "2025": {
+      "R1": {
+        "CIVIL": {
+          "GM": 208783,
+          "OBC": 257241,
+          "SC": 230858,
+          "ST": 856010,
+          "quota": "HK",
+          "details": {
+            "2AH": 257241,
+            "GMH": 208783,
+            "SCH": 230858
+          }
+        },
+        "ME": {
+          "GM": 197159,
+          "OBC": 266164,
+          "SC": 1025226,
+          "ST": 808351,
+          "quota": "HK",
+          "details": {
+            "GMH": 197159,
+            "GMKH": 258436
+          }
+        }
+      },
+      "R2": {
+        "CIVIL": {
+          "GM": 257241,
+          "OBC": 347275,
+          "SC": 1337653,
+          "ST": 1054688,
+          "quota": "GEN",
+          "details": {
+            "GM": 257241
+          }
+        },
+        "ME": {
+          "GM": 258436,
+          "OBC": 348888,
+          "SC": 1343867,
+          "ST": 1059587,
+          "quota": "GEN",
+          "details": {
+            "GM": 258436
+          }
+        }
+      },
+      "R3": {
+        "CIVIL": {
+          "GM": 257241,
+          "OBC": 347275,
+          "SC": 1337653,
+          "ST": 1054688,
+          "quota": "GEN",
+          "details": {
+            "GM": 257241
+          }
+        },
+        "ME": {
+          "GM": 256252,
+          "OBC": 345940,
+          "SC": 1332510,
+          "ST": 1050633,
+          "quota": "GEN",
+          "details": {
+            "GM": 256252
+          }
+        }
+      }
+    },
+    "2026": {
+      "Mock_Special": {
+        "CIVIL": {
+          "GM": 141001,
+          "OBC": 190351,
+          "SC": 733205,
+          "ST": 578104,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 141001
+          }
+        },
+        "ME": {
+          "GM": 194186,
+          "OBC": 262151,
+          "SC": 274046,
+          "ST": 796162,
+          "quota": "SPL",
+          "details": {
+            "SCG": 274046,
+            "SNQ": 114327
+          }
+        }
+      },
+      "Mock1": {
+        "CIVIL": {
+          "GM": 136178,
+          "OBC": 183840,
+          "SC": 708125,
+          "ST": 558329,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 136178
+          }
+        },
+        "ME": {
+          "GM": 194313,
+          "OBC": 262322,
+          "SC": 242301,
+          "ST": 796683,
+          "quota": "SPL",
+          "details": {
+            "SCG": 242301,
+            "SNQ": 146326
+          }
+        }
+      },
+      "Mock2": {
+        "CIVIL": {
+          "GM": 152828,
+          "OBC": 206317,
+          "SC": 794705,
+          "ST": 626594,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 152828
+          }
+        },
+        "ME": {
+          "GM": 172258,
+          "OBC": 232548,
+          "SC": 895741,
+          "ST": 706257,
+          "quota": "SPL",
+          "details": {
+            "SNQ": 172258
+          }
+        }
+      }
+    }
+  },
+  "cutoff_2024": {
+    "CIVIL": {
+      "GM": 263492,
+      "OBC": 355714,
+      "SC": 1370158,
+      "ST": 1080317
+    },
+    "CSE": {
+      "GM": 89435,
+      "OBC": 115533,
+      "SC": 124205,
+      "ST": 366683
+    },
+    "ECE": {
+      "GM": 115170,
+      "OBC": 167968,
+      "SC": 195663,
+      "ST": 472196
+    },
+    "ME": {
+      "GM": 270281,
+      "OBC": 364879,
+      "SC": 1405461,
+      "ST": 1108152
+    }
+  },
+  "cutoff_2025": {
+    "CIVIL": {
+      "GM": 257241,
+      "OBC": 347275,
+      "SC": 1337653,
+      "ST": 1054688
+    },
+    "ME": {
+      "GM": 256252,
+      "OBC": 345940,
+      "SC": 1332510,
+      "ST": 1050633
+    }
+  },
+  "data_quality_score": 100,
+  "search_keywords": [
+    "engineering college e161",
+    "e161",
+    "karnataka",
+    "bangalore urban",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

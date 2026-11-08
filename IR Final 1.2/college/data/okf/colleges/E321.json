@@ -1,0 +1,137 @@
+{
+  "college_id": "E321",
+  "name": "Engineering College E321",
+  "short_name": "Engineering College E321",
+  "type": "Type1_Unaided",
+  "location": "Karnataka",
+  "district": "Bangalore Urban",
+  "state": "Karnataka",
+  "affiliation": "Visvesvaraya Technological University (VTU)",
+  "hostel_available": true,
+  "branches": [
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Type1_Unaided",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://engineeringcoll.ac.in",
+  "phone": "+91-80-22000321",
+  "email": "principal@engineeringcoll.ac.in",
+  "established": 1981,
+  "total_seats": 600,
+  "naac_grade": "B+",
+  "nba_accredited": true,
+  "placement_avg_lpa": 6.5,
+  "placement_highest_lpa": 20.8,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "Capgemini",
+    "Tech Mahindra",
+    "L&T Technology Services",
+    "Mindtree",
+    "HCL"
+  ],
+  "facilities": [
+    "Central Library & Digital E-Resource Centre",
+    "Boys Hostel on Campus",
+    "Girls Hostel on Campus",
+    "High-Speed Wi-Fi Campus",
+    "Modern Computing & AI/ML Labs",
+    "Multi-Sport Grounds & Indoor Gymnasium",
+    "Hygienic Cafeteria & Food Court",
+    "College Bus / Transport Service",
+    "24/7 Medical Health Centre & Ambulance",
+    "Innovation, Incubation & Entrepreneurship Cell"
+  ],
+  "highlights": [
+    "Accredited NAAC Grade B+ with modern engineering laboratories",
+    "Official KEA code E321 with 600 approved total engineering seats",
+    "Strong placement record with average package of 6.5 LPA (highest: 20.8 LPA)",
+    "Comprehensive campus facilities including on-campus hostels, Wi-Fi, and library"
+  ],
+  "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Engineering+College+E321+Karnataka+Karnataka",
+  "cutoffs": {
+    "2026": {
+      "CIVIL": {
+        "GM": 230405,
+        "OBC": 311046,
+        "SC": 230405,
+        "ST": 944660
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2026": {
+      "CIVIL": {
+        "GM": 230405,
+        "OBC": 311046,
+        "SC": 230405,
+        "ST": 944660
+      }
+    }
+  },
+  "cutoff_rounds": {
+    "2026": {
+      "Mock_Special": {
+        "CIVIL": {
+          "GM": 215188,
+          "OBC": 290503,
+          "SC": 215188,
+          "ST": 882270,
+          "quota": "SPL",
+          "details": {
+            "SCG": 215188
+          }
+        }
+      },
+      "Mock1": {
+        "CIVIL": {
+          "GM": 180994,
+          "OBC": 244341,
+          "SC": 180994,
+          "ST": 742075,
+          "quota": "SPL",
+          "details": {
+            "SCG": 180994
+          }
+        }
+      },
+      "Mock2": {
+        "CIVIL": {
+          "GM": 230405,
+          "OBC": 311046,
+          "SC": 230405,
+          "ST": 944660,
+          "quota": "SPL",
+          "details": {
+            "SCG": 230405
+          }
+        }
+      }
+    }
+  },
+  "cutoff_2024": {},
+  "cutoff_2025": {},
+  "data_quality_score": 100,
+  "search_keywords": [
+    "engineering college e321",
+    "e321",
+    "karnataka",
+    "bangalore urban",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

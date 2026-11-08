@@ -431,6 +431,7 @@ class MLPredictionEngine:
                     return {
                         "trained": True,
                         "best_model": self.best_model_name,
+                        "training_samples": "cached",
                         "model_comparison": self.metrics,
                         "cached": True,
                     }
@@ -679,8 +680,9 @@ class KEASeatAllotmentEngine:
         try:
             result = self.ml_engine.train(self.colleges)
             if result.get("trained"):
-                logger.info(f"[KEA Engine] ML trained: {result['best_model']} "
-                          f"({result['training_samples']} samples)")
+                best_m = result.get('best_model', 'Default')
+                samples = result.get('training_samples', 'cached')
+                logger.info(f"[KEA Engine] ML trained: {best_m} ({samples} samples)")
             else:
                 logger.warning(f"[KEA Engine] ML training skipped: {result.get('error', 'unknown')}")
         except Exception as e:
@@ -1097,12 +1099,17 @@ class KEASeatAllotmentEngine:
 
                 # Fee calculation
                 fee_data = college.get("annual_fee", {})
-                if category in ("SC", "ST"):
-                    annual_fee = fee_data.get("sc_st", 0)
-                elif dataset_cat == "OBC":
-                    annual_fee = fee_data.get("obc", fee_data.get("gm", 0))
+                if isinstance(fee_data, (int, float)):
+                    annual_fee = 4120 if category in ("SC", "ST") else int(fee_data)
+                elif isinstance(fee_data, dict):
+                    if category in ("SC", "ST"):
+                        annual_fee = fee_data.get("sc_st", 0)
+                    elif dataset_cat == "OBC":
+                        annual_fee = fee_data.get("obc", fee_data.get("gm", 0))
+                    else:
+                        annual_fee = fee_data.get("gm", 0)
                 else:
-                    annual_fee = fee_data.get("gm", 0)
+                    annual_fee = 0
 
                 if isinstance(annual_fee, (int, float)):
                     annual_fee = int(annual_fee)

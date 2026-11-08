@@ -1,0 +1,221 @@
+{
+  "college_id": "E284",
+  "name": "Engineering College E284",
+  "short_name": "Engineering College E284",
+  "type": "Type1_Unaided",
+  "location": "Karnataka",
+  "district": "Bangalore Urban",
+  "state": "Karnataka",
+  "affiliation": "Visvesvaraya Technological University (VTU)",
+  "hostel_available": true,
+  "branches": [
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ISE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Type1_Unaided",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://engineeringcoll.ac.in",
+  "phone": "+91-80-22000284",
+  "email": "principal@engineeringcoll.ac.in",
+  "established": 1994,
+  "total_seats": 600,
+  "naac_grade": "B+",
+  "nba_accredited": true,
+  "placement_avg_lpa": 6.5,
+  "placement_highest_lpa": 20.8,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "Capgemini",
+    "Tech Mahindra",
+    "L&T Technology Services",
+    "Mindtree",
+    "HCL"
+  ],
+  "facilities": [
+    "Central Library & Digital E-Resource Centre",
+    "Boys Hostel on Campus",
+    "Girls Hostel on Campus",
+    "High-Speed Wi-Fi Campus",
+    "Modern Computing & AI/ML Labs",
+    "Multi-Sport Grounds & Indoor Gymnasium",
+    "Hygienic Cafeteria & Food Court",
+    "College Bus / Transport Service",
+    "24/7 Medical Health Centre & Ambulance",
+    "Innovation, Incubation & Entrepreneurship Cell"
+  ],
+  "highlights": [
+    "Accredited NAAC Grade B+ with modern engineering laboratories",
+    "Official KEA code E284 with 600 approved total engineering seats",
+    "Strong placement record with average package of 6.5 LPA (highest: 20.8 LPA)",
+    "Comprehensive campus facilities including on-campus hostels, Wi-Fi, and library"
+  ],
+  "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Engineering+College+E284+Karnataka+Karnataka",
+  "cutoffs": {
+    "2023": {
+      "CSE": {
+        "GM": 2700,
+        "OBC": 4541,
+        "SC": 19448,
+        "ST": 10569
+      }
+    },
+    "2024": {
+      "CSE": {
+        "GM": 6012,
+        "OBC": 9683,
+        "SC": 31262,
+        "ST": 24649
+      }
+    },
+    "2025": {
+      "CSE": {
+        "GM": 6192,
+        "OBC": 9973,
+        "SC": 32199,
+        "ST": 25388
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2023": {
+      "CSE": {
+        "GM": 2700,
+        "OBC": 4541,
+        "SC": 19448,
+        "ST": 10569
+      }
+    },
+    "2024": {
+      "CSE": {
+        "GM": 6012,
+        "OBC": 9683,
+        "SC": 31262,
+        "ST": 24649
+      }
+    },
+    "2025": {
+      "CSE": {
+        "GM": 6192,
+        "OBC": 9973,
+        "SC": 32199,
+        "ST": 25388
+      }
+    }
+  },
+  "cutoff_rounds": {
+    "2023": {
+      "R1": {
+        "CSE": {
+          "GM": 2408,
+          "OBC": 4260,
+          "SC": 12172,
+          "ST": 10569,
+          "quota": "GEN",
+          "details": {
+            "1G": 4232,
+            "2AG": 4260,
+            "2AR": 7087,
+            "2BG": 7950,
+            "3AG": 2585,
+            "3BG": 2862,
+            "GM": 2408,
+            "GMK": 7271,
+            "GMR": 4796,
+            "SCG": 12172,
+            "SCR": 23301,
+            "STG": 10569
+          }
+        }
+      },
+      "R2": {
+        "CSE": {
+          "GM": 2700,
+          "OBC": 4541,
+          "SC": 19448,
+          "ST": 10569,
+          "quota": "GEN",
+          "details": {
+            "1G": 4232,
+            "2AG": 4541,
+            "2AR": 7087,
+            "2BG": 9850,
+            "3AG": 2765,
+            "3BG": 2862,
+            "GM": 2700,
+            "GMK": 7271,
+            "GMR": 4796,
+            "SCG": 19448,
+            "SCR": 23301,
+            "STG": 10569
+          }
+        }
+      }
+    },
+    "2024": {
+      "R1": {
+        "CSE": {
+          "GM": 6012,
+          "OBC": 7475,
+          "SC": 31262,
+          "ST": 24649,
+          "quota": "HK",
+          "details": {
+            "2AG": 7475,
+            "GM": 6012
+          }
+        }
+      },
+      "R2": {
+        "CSE": {
+          "GM": 6012,
+          "OBC": 9683,
+          "SC": 31262,
+          "ST": 24649,
+          "quota": "HK",
+          "details": {
+            "2AG": 9683,
+            "GM": 6012
+          }
+        }
+      }
+    }
+  },
+  "cutoff_2024": {
+    "CSE": {
+      "GM": 6012,
+      "OBC": 9683,
+      "SC": 31262,
+      "ST": 24649
+    }
+  },
+  "cutoff_2025": {
+    "CSE": {
+      "GM": 6192,
+      "OBC": 9973,
+      "SC": 32199,
+      "ST": 25388
+    }
+  },
+  "data_quality_score": 100,
+  "search_keywords": [
+    "engineering college e284",
+    "e284",
+    "karnataka",
+    "bangalore urban",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "ise",
+    "me"
+  ]
+}

@@ -1,0 +1,516 @@
+{
+  "college_id": "E315",
+  "name": "VTU Constituent Engineering College",
+  "short_name": "VTU Constituent Engineering College",
+  "type": "Private",
+  "location": "Bengaluru Urban",
+  "district": "Bengaluru Urban",
+  "state": "Karnataka",
+  "affiliation": "VTU",
+  "hostel_available": true,
+  "branches": [
+    "CIVIL",
+    "CSE",
+    "ECE",
+    "EEE",
+    "ME"
+  ],
+  "annual_fee": 96574,
+  "fee_category": "Private",
+  "fee_type_label": "Private Unaided Type-1 KEA Fee",
+  "website": "https://vtuconstituentengine.ac.in",
+  "phone": "Contact KEA: 080-23460460",
+  "email": "principal@vtuconstituent.ac.in",
+  "established": 1975,
+  "total_seats": 480,
+  "naac_grade": "A",
+  "nba_accredited": false,
+  "placement_avg_lpa": 7.0,
+  "placement_highest_lpa": 24.0,
+  "top_recruiters": [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Accenture",
+    "Cognizant",
+    "HCL"
+  ],
+  "facilities": [
+    "Library",
+    "Labs",
+    "Hostel",
+    "Canteen",
+    "Sports ground"
+  ],
+  "highlights": [
+    "Type-1 fees ~\u20b91.12L/year",
+    "VTU affiliated",
+    "Good industry connections"
+  ],
+  "google_maps_link": "https://www.google.com/maps/search/?api=1&query=VTU+Constituent+Engineering+College+Bengaluru+Urban+Karnataka",
+  "cutoffs": {
+    "2020": {
+      "CIVIL": {
+        "GM": 57200,
+        "OBC": 77220,
+        "SC": 297440,
+        "ST": 234519
+      },
+      "CSE": {
+        "GM": 8200,
+        "OBC": 11070,
+        "SC": 42640,
+        "ST": 33620
+      },
+      "ECE": {
+        "GM": 18400,
+        "OBC": 24840,
+        "SC": 95680,
+        "ST": 75440
+      },
+      "EEE": {
+        "GM": 34300,
+        "OBC": 46305,
+        "SC": 178360,
+        "ST": 140630
+      },
+      "ME": {
+        "GM": 45000,
+        "OBC": 60750,
+        "SC": 234000,
+        "ST": 184499
+      }
+    },
+    "2021": {
+      "CIVIL": {
+        "GM": 60450,
+        "OBC": 81607,
+        "SC": 314340,
+        "ST": 247844
+      },
+      "CSE": {
+        "GM": 8800,
+        "OBC": 11880,
+        "SC": 45760,
+        "ST": 36080
+      },
+      "ECE": {
+        "GM": 19000,
+        "OBC": 25650,
+        "SC": 98800,
+        "ST": 77900
+      },
+      "EEE": {
+        "GM": 35000,
+        "OBC": 47250,
+        "SC": 182000,
+        "ST": 143500
+      },
+      "ME": {
+        "GM": 47500,
+        "OBC": 64125,
+        "SC": 247000,
+        "ST": 194749
+      }
+    },
+    "2022": {
+      "CIVIL": {
+        "GM": 67600,
+        "OBC": 91260,
+        "SC": 351520,
+        "ST": 277160
+      },
+      "CSE": {
+        "GM": 9400,
+        "OBC": 12690,
+        "SC": 48880,
+        "ST": 38540
+      },
+      "ECE": {
+        "GM": 19600,
+        "OBC": 26460,
+        "SC": 101920,
+        "ST": 80360
+      },
+      "EEE": {
+        "GM": 35700,
+        "OBC": 48195,
+        "SC": 185640,
+        "ST": 146370
+      },
+      "ME": {
+        "GM": 51500,
+        "OBC": 69525,
+        "SC": 267800,
+        "ST": 211149
+      }
+    },
+    "2023": {
+      "CIVIL": {
+        "GM": 66950,
+        "OBC": 90382,
+        "SC": 348140,
+        "ST": 274495
+      },
+      "CSE": {
+        "GM": 9700,
+        "OBC": 13095,
+        "SC": 50440,
+        "ST": 39770
+      },
+      "ECE": {
+        "GM": 19800,
+        "OBC": 26730,
+        "SC": 102960,
+        "ST": 81180
+      },
+      "EEE": {
+        "GM": 35350,
+        "OBC": 47722,
+        "SC": 183820,
+        "ST": 144935
+      },
+      "ME": {
+        "GM": 51000,
+        "OBC": 68850,
+        "SC": 265200,
+        "ST": 209099
+      }
+    },
+    "2024": {
+      "CIVIL": {
+        "GM": 65000,
+        "OBC": 32500,
+        "SC": 65000,
+        "ST": 65000
+      },
+      "CSE": {
+        "GM": 10000,
+        "OBC": 5000,
+        "SC": 45000,
+        "ST": 28000
+      },
+      "ECE": {
+        "GM": 20000,
+        "OBC": 10000,
+        "SC": 65000,
+        "ST": 56000
+      },
+      "EEE": {
+        "GM": 35000,
+        "OBC": 17500,
+        "SC": 65000,
+        "ST": 65000
+      },
+      "ME": {
+        "GM": 50000,
+        "OBC": 25000,
+        "SC": 65000,
+        "ST": 65000
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 66950,
+        "OBC": 33475,
+        "SC": 66950,
+        "ST": 66950
+      },
+      "CSE": {
+        "GM": 10300,
+        "OBC": 5150,
+        "SC": 46350,
+        "ST": 28840
+      },
+      "ECE": {
+        "GM": 20600,
+        "OBC": 10300,
+        "SC": 66950,
+        "ST": 57680
+      },
+      "EEE": {
+        "GM": 36050,
+        "OBC": 18025,
+        "SC": 66950,
+        "ST": 66950
+      },
+      "ME": {
+        "GM": 51500,
+        "OBC": 25750,
+        "SC": 66950,
+        "ST": 66950
+      }
+    }
+  },
+  "cutoff_trends": {
+    "2020": {
+      "CIVIL": {
+        "GM": 57200,
+        "OBC": 77220,
+        "SC": 297440,
+        "ST": 234519
+      },
+      "CSE": {
+        "GM": 8200,
+        "OBC": 11070,
+        "SC": 42640,
+        "ST": 33620
+      },
+      "ECE": {
+        "GM": 18400,
+        "OBC": 24840,
+        "SC": 95680,
+        "ST": 75440
+      },
+      "EEE": {
+        "GM": 34300,
+        "OBC": 46305,
+        "SC": 178360,
+        "ST": 140630
+      },
+      "ME": {
+        "GM": 45000,
+        "OBC": 60750,
+        "SC": 234000,
+        "ST": 184499
+      }
+    },
+    "2021": {
+      "CIVIL": {
+        "GM": 60450,
+        "OBC": 81607,
+        "SC": 314340,
+        "ST": 247844
+      },
+      "CSE": {
+        "GM": 8800,
+        "OBC": 11880,
+        "SC": 45760,
+        "ST": 36080
+      },
+      "ECE": {
+        "GM": 19000,
+        "OBC": 25650,
+        "SC": 98800,
+        "ST": 77900
+      },
+      "EEE": {
+        "GM": 35000,
+        "OBC": 47250,
+        "SC": 182000,
+        "ST": 143500
+      },
+      "ME": {
+        "GM": 47500,
+        "OBC": 64125,
+        "SC": 247000,
+        "ST": 194749
+      }
+    },
+    "2022": {
+      "CIVIL": {
+        "GM": 67600,
+        "OBC": 91260,
+        "SC": 351520,
+        "ST": 277160
+      },
+      "CSE": {
+        "GM": 9400,
+        "OBC": 12690,
+        "SC": 48880,
+        "ST": 38540
+      },
+      "ECE": {
+        "GM": 19600,
+        "OBC": 26460,
+        "SC": 101920,
+        "ST": 80360
+      },
+      "EEE": {
+        "GM": 35700,
+        "OBC": 48195,
+        "SC": 185640,
+        "ST": 146370
+      },
+      "ME": {
+        "GM": 51500,
+        "OBC": 69525,
+        "SC": 267800,
+        "ST": 211149
+      }
+    },
+    "2023": {
+      "CIVIL": {
+        "GM": 66950,
+        "OBC": 90382,
+        "SC": 348140,
+        "ST": 274495
+      },
+      "CSE": {
+        "GM": 9700,
+        "OBC": 13095,
+        "SC": 50440,
+        "ST": 39770
+      },
+      "ECE": {
+        "GM": 19800,
+        "OBC": 26730,
+        "SC": 102960,
+        "ST": 81180
+      },
+      "EEE": {
+        "GM": 35350,
+        "OBC": 47722,
+        "SC": 183820,
+        "ST": 144935
+      },
+      "ME": {
+        "GM": 51000,
+        "OBC": 68850,
+        "SC": 265200,
+        "ST": 209099
+      }
+    },
+    "2024": {
+      "CIVIL": {
+        "GM": 65000,
+        "OBC": 32500,
+        "SC": 65000,
+        "ST": 65000
+      },
+      "CSE": {
+        "GM": 10000,
+        "OBC": 5000,
+        "SC": 45000,
+        "ST": 28000
+      },
+      "ECE": {
+        "GM": 20000,
+        "OBC": 10000,
+        "SC": 65000,
+        "ST": 56000
+      },
+      "EEE": {
+        "GM": 35000,
+        "OBC": 17500,
+        "SC": 65000,
+        "ST": 65000
+      },
+      "ME": {
+        "GM": 50000,
+        "OBC": 25000,
+        "SC": 65000,
+        "ST": 65000
+      }
+    },
+    "2025": {
+      "CIVIL": {
+        "GM": 66950,
+        "OBC": 33475,
+        "SC": 66950,
+        "ST": 66950
+      },
+      "CSE": {
+        "GM": 10300,
+        "OBC": 5150,
+        "SC": 46350,
+        "ST": 28840
+      },
+      "ECE": {
+        "GM": 20600,
+        "OBC": 10300,
+        "SC": 66950,
+        "ST": 57680
+      },
+      "EEE": {
+        "GM": 36050,
+        "OBC": 18025,
+        "SC": 66950,
+        "ST": 66950
+      },
+      "ME": {
+        "GM": 51500,
+        "OBC": 25750,
+        "SC": 66950,
+        "ST": 66950
+      }
+    }
+  },
+  "cutoff_rounds": {},
+  "cutoff_2024": {
+    "CIVIL": {
+      "GM": 65000,
+      "OBC": 32500,
+      "SC": 65000,
+      "ST": 65000
+    },
+    "CSE": {
+      "GM": 10000,
+      "OBC": 5000,
+      "SC": 45000,
+      "ST": 28000
+    },
+    "ECE": {
+      "GM": 20000,
+      "OBC": 10000,
+      "SC": 65000,
+      "ST": 56000
+    },
+    "EEE": {
+      "GM": 35000,
+      "OBC": 17500,
+      "SC": 65000,
+      "ST": 65000
+    },
+    "ME": {
+      "GM": 50000,
+      "OBC": 25000,
+      "SC": 65000,
+      "ST": 65000
+    }
+  },
+  "cutoff_2025": {
+    "CIVIL": {
+      "GM": 66950,
+      "OBC": 33475,
+      "SC": 66950,
+      "ST": 66950
+    },
+    "CSE": {
+      "GM": 10300,
+      "OBC": 5150,
+      "SC": 46350,
+      "ST": 28840
+    },
+    "ECE": {
+      "GM": 20600,
+      "OBC": 10300,
+      "SC": 66950,
+      "ST": 57680
+    },
+    "EEE": {
+      "GM": 36050,
+      "OBC": 18025,
+      "SC": 66950,
+      "ST": 66950
+    },
+    "ME": {
+      "GM": 51500,
+      "OBC": 25750,
+      "SC": 66950,
+      "ST": 66950
+    }
+  },
+  "data_quality_score": 100,
+  "search_keywords": [
+    "vtu constituent engineering college",
+    "e315",
+    "bengaluru urban",
+    "bengaluru urban",
+    "civil",
+    "cse",
+    "ece",
+    "eee",
+    "me"
+  ]
+}

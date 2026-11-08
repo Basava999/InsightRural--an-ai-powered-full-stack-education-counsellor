@@ -316,14 +316,22 @@ const HostelExplorer = {
         if (typeof fees === 'string') {
             feeText = fees;
         } else if (typeof fees === 'number') {
-            feeText = `₹${fees.toLocaleString('en-IN')}/year`;
+            feeText = fees === 0 ? 'Free (Govt Subsidized)' : `₹${fees.toLocaleString('en-IN')}/year`;
+        } else if (fees.total_yearly !== undefined) {
+            feeText = fees.total_yearly === 0 ? 'Free (₹0/year)' : `₹${Number(fees.total_yearly).toLocaleString('en-IN')}/year`;
+        } else if (fees.total_monthly) {
+            feeText = `₹${fees.total_monthly}/month`;
+        } else if (fees.shared_room_monthly && fees.shared_room_monthly.min) {
+            feeText = `₹${fees.shared_room_monthly.min.toLocaleString('en-IN')} - ₹${fees.shared_room_monthly.max.toLocaleString('en-IN')}/month`;
         } else if (fees.annual) {
             feeText = `₹${fees.annual.toLocaleString('en-IN')}/year`;
-        } else if (fees.hostel_fee) {
-            feeText = `₹${fees.hostel_fee.toLocaleString('en-IN')}/year`;
+        } else if (fees.hostel_fee || fees.hostel_fee_yearly) {
+            const hf = fees.hostel_fee || fees.hostel_fee_yearly;
+            feeText = hf === 0 ? 'Free (₹0/year)' : `₹${Number(hf).toLocaleString('en-IN')}/year`;
         }
 
-        const capacity = hostel.capacity || 'N/A';
+        const totalCap = (fac.capacity_boys || 0) + (fac.capacity_girls || 0);
+        const capacity = hostel.capacity || (totalCap > 0 ? `${totalCap} (${fac.capacity_boys || 0}B / ${fac.capacity_girls || 0}G)` : 'Available');
         const location = hostel.location || hostel.city || 'Karnataka';
 
         // Amenities chips
@@ -556,18 +564,21 @@ const HostelExplorer = {
         const getVal = (hostel, path) => {
             const fees = hostel.fees || hostel.fee || {};
             const fac = hostel.facilities || {};
+            const totalCap = (fac.capacity_boys || 0) + (fac.capacity_girls || 0);
             switch (path) {
                 case 'type': return hostel.type || 'N/A';
                 case 'location': return hostel.location || hostel.city || 'N/A';
-                case 'capacity': return hostel.capacity || 'N/A';
+                case 'capacity': return hostel.capacity || (totalCap > 0 ? `${totalCap}` : 'Available');
                 case 'fees':
                     if (typeof fees === 'string') return fees;
-                    if (typeof fees === 'number') return `₹${fees.toLocaleString('en-IN')}`;
+                    if (typeof fees === 'number') return fees === 0 ? 'Free' : `₹${fees.toLocaleString('en-IN')}`;
+                    if (fees.total_yearly !== undefined) return fees.total_yearly === 0 ? 'Free' : `₹${Number(fees.total_yearly).toLocaleString('en-IN')}/yr`;
+                    if (fees.total_monthly) return `₹${fees.total_monthly}/mo`;
                     if (fees.annual) return `₹${fees.annual.toLocaleString('en-IN')}/yr`;
-                    if (fees.hostel_fee) return `₹${fees.hostel_fee.toLocaleString('en-IN')}/yr`;
+                    if (fees.hostel_fee || fees.hostel_fee_yearly) return `₹${(fees.hostel_fee || fees.hostel_fee_yearly).toLocaleString('en-IN')}/yr`;
                     return 'Contact';
                 case 'wifi': return fac.wifi ? '✅' : '❌';
-                case 'mess': return fac.mess ? '✅' : '❌';
+                case 'mess': return (fac.mess || fac.mess_type) ? '✅' : '❌';
                 case 'boys': return fac.boys_hostel ? '✅' : '❌';
                 case 'girls': return fac.girls_hostel ? '✅' : '❌';
                 default: return 'N/A';
@@ -626,6 +637,8 @@ const HostelExplorer = {
         ];
     }
 };
+
+window.HostelExplorer = HostelExplorer;
 
 // Auto-initialize
 if (document.readyState === 'loading') {

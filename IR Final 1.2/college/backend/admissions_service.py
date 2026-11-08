@@ -3,7 +3,7 @@
 import json
 import os
 import re
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 from admission_probability import calculate_admission_probability, normalize_category
 from ml_predictor import get_jee_predictor, get_neet_predictor
@@ -27,8 +27,10 @@ def _safe_int(value, default: Optional[int] = None) -> Optional[int]:
         return default
 
 
-def _clean(value: Optional[str]) -> str:
-    return (value or "").strip().lower()
+def _clean(value: Any) -> str:
+    if isinstance(value, (list, tuple)):
+        return ", ".join(str(v) for v in value if v).strip().lower()
+    return str(value or "").strip().lower()
 
 
 def _branch_matches(branch: str, preferred: List[str]) -> bool:

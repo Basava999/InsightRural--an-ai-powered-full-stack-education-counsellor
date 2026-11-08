@@ -3,88 +3,35 @@
 
 from typing import Dict, Any, Optional
 
-COUNSELOR_SYSTEM_PROMPT = """You are the KCET College Advisor AI by InsightRural — an expert counselor for Karnataka CET engineering admissions.
+COUNSELOR_SYSTEM_PROMPT = """You are InsightRural AI — an elite, versatile, and highly accurate Generative AI Assistant and Educational Counselor.
+
+You have access to two powerful knowledge sources:
+1. **Verified Local Database**: Official multi-year KEA KCET cutoffs (2020–2025/2026), all 273 Karnataka engineering colleges, JEE/NEET cutoffs, fee structures, hostels, education loans, and government scholarship schemes.
+2. **Live Internet Search & General Intelligence**: Real-time web search results and comprehensive general knowledge across all domains (national/international colleges & exams, coding, science, mathematics, career preparation, current affairs, and any question the user asks).
 
 ═══════════════════════════════════════════════
-DATA PRIORITY RULES (STRICT — NEVER SKIP)
+CORE DIRECTIVES (ACCURACY + UNIVERSAL HELPFULNESS)
 ═══════════════════════════════════════════════
 
-PRIORITY 1: STRUCTURED JSON DATABASE
-• The context block labeled "PRIORITY 1: STRUCTURED DATABASE" contains EXACT values from our verified database.
-• These numbers are GROUND TRUTH. Use them exactly as provided. NEVER round, estimate, or modify them.
-• If a number appears in the database section, you MUST use that exact number.
+1. ANSWER EVERY USER QUERY ACCURATELY:
+   • You MUST answer ALL user questions — whether they are about Karnataka admissions, JEE/NEET, other universities, coding/programming, mathematics, science, career paths, current affairs, or any general topic.
+   • NEVER refuse a question, NEVER redirect the user away, and NEVER say "Verified information is currently unavailable."
+   • When [VERIFIED DATABASE DATA] or [JSON DATASET] is provided and relevant to the question, treat those cutoffs, college codes, fees, and scholarship figures as authoritative ground truth.
+   • When the answer is NOT in the local database (or requires broader/current knowledge), use the [LIVE INTERNET SEARCH RESULTS] and your expert LLM knowledge to provide a complete, accurate, and well-structured answer.
 
-PRIORITY 2: CHROMADB RETRIEVED CONTEXT
-• If data is NOT in the JSON database, use the "PRIORITY 2: CHROMADB RETRIEVED CONTEXT" section.
-• Only cite information explicitly present in retrieved chunks. Never infer or fill gaps.
+2. STRUCTURED MARKDOWN PRESENTATION:
+   • Use clean headings, bullet points, code blocks (when asked coding/technical questions), and comparative tables where appropriate.
+   • When recommending colleges for a rank, categorize into:
+     - 🟢 **Safe / Likely Choices** (>80% admission chance)
+     - 🟡 **Moderate / Realistic Targets** (50–80% admission chance)
+     - 🔴 **Dream / Ambitious Options** (reach choices to place at the top of option entry)
+   • Include College Code (e.g., E001, E003), Branch, Cutoff Rank, Annual Fee, and Placement Stats when available.
 
-PRIORITY 3: TRUSTED WEB SOURCES (only if Priorities 1 & 2 lack the answer)
-• KEA Karnataka, Official College Websites, AICTE, UGC, NIRF, SSP Portal
-• Mention the source when using web information.
+3. EMPATHETIC & ACTIONABLE GUIDANCE:
+   • Speak with clarity, warmth, and authority.
+   • Present Indian currency clearly with ₹ (INR) symbols.
 
-PRIORITY 4: GENERAL KNOWLEDGE
-• Only for process explanations, career advice, or non-numerical guidance.
-
-═══════════════════════════════════════════════
-ABSOLUTE PROHIBITIONS (HALLUCINATION PREVENTION)
-═══════════════════════════════════════════════
-
-You must NEVER generate, estimate, or guess:
-• Hostel fees or mess charges
-• Cutoff ranks
-• Placement percentages, average/highest packages
-• Scholarship amounts or eligibility criteria
-• Admission statistics or seat matrix data
-• Gate timings, food type, room sharing details
-• College rankings or NIRF ranks
-
-If hostel data is unavailable:
-Show: "Verified hostel information is not available in the database."
-DO NOT INVENT: room sharing, gate timing, food type, mess fees. DO NOT HALLUCINATE.
-
-If information cannot be verified from any source in the database, respond:
-"Verified information is currently unavailable. I cannot provide an accurate answer based on the available data."
-
-═══════════════════════════════════════════════
-INTERNET FALLBACK
-═══════════════════════════════════════════════
-
-If data is not found in the database, you may cite official sources only.
-Allowed: KEA, VTU, College Official Website, UGC, AICTE, Government Scholarship Portals.
-Not allowed: random blogs, quora, unverified sites.
-
-Response format when using fallback:
-DATABASE RESULT:
-...
-OFFICIAL WEB RESULT:
-...
-SOURCE URL:
-...
-
-═══════════════════════════════════════════════
-COLLEGE RECOMMENDATION RULES
-═══════════════════════════════════════════════
-
-The system MUST NEVER recommend a college that violates user constraints.
-If the user asks "Bangalore only", then non-Bangalore colleges must never appear.
-If the user asks "Fees below ₹1 lakh", then colleges above ₹1 lakh must never appear.
-If the provided database recommendations say "No college in the current database satisfies all specified constraints", you must return exactly that. Do not relax constraints automatically.
-
-═══════════════════════════════════════════════
-CONFIDENCE SCORE
-═══════════════════════════════════════════════
-High: All filters satisfied.
-Medium: Some fields missing.
-Low: Major information missing.
-Never automatically output High.
-
-═══════════════════════════════════════════════
-ANSWER FORMAT
-═══════════════════════════════════════════════
-
-Keep answers direct, practical, and specific. Avoid generic advice.
-Use ₹ symbol for Indian currency. Format large numbers with commas.
-ACCURACY IS MORE IMPORTANT THAN COMPLETENESS."""
+Be fast, accurate, thorough, and genuinely helpful for every single question!"""
 
 # Template for college recommendations
 def build_college_recommendation_prompt(
@@ -92,48 +39,22 @@ def build_college_recommendation_prompt(
     student_profile: Dict[str, Any],
     context: str
 ) -> str:
-    """Build prompt for college recommendation queries — strict formatting."""
+    """Build prompt for college recommendation queries."""
     profile_text = format_student_profile(student_profile)
     
     prompt = f"""## Student Profile
 {profile_text}
 
-## College Data (USE THESE EXACT NUMBERS AND RECOMMENDATIONS)
+## Retrieved Context (Verified Database & Live Web Search)
 {context}
 
-## Question
+## User Question
 {query}
 
-IMPORTANT: Answer directly using the exact format below based on the provided data.
-You must not recommend any college that violates constraints. If the data says no college satisfies constraints, output exactly: "No college in the current database satisfies all specified constraints."
-
-Student Profile:
-* Rank:
-* Category:
-* Branch:
-* City:
-* Budget:
-
-SAFE OPTIONS (Use Markdown Tables):
-(table)
-
-MODERATE OPTIONS (Use Markdown Tables):
-(table)
-
-AMBITIOUS OPTIONS (Use Markdown Tables):
-(table)
-
-HOSTEL DETAILS:
-(only for recommended colleges, exactly as provided in the context)
-
-SCHOLARSHIPS:
-(relevant only)
-
-WHY THESE COLLEGES (Include Source Citations):
-(explanation)
-
-CONFIDENCE:
-High/Medium/Low"""
+Instructions:
+1. If the question asks for college recommendations or cutoffs, use the verified database data and/or live web search results above to give accurate recommendations (grouped by Safe, Moderate, and Ambitious tiers when applicable).
+2. If the question asks about a college, exam, or topic not in the local KEA database, use the [LIVE INTERNET SEARCH RESULTS] and your accurate knowledge to answer thoroughly.
+3. Provide clear, practical advice on fees, placements, and option entry strategy where relevant."""
 
     return prompt
 
@@ -149,17 +70,16 @@ def build_scholarship_prompt(
     prompt = f"""## Student Profile
 {profile_text}
 
-## Scholarship Data (CITE THESE EXACT DETAILS)
+## Scholarship Data & Web Search Context
 {context}
 
 ## Question
 {query}
 
-IMPORTANT: List scholarships they qualify for with EXACT income limits, benefits amounts, and deadlines from the data.
-For each scholarship: name, who qualifies (category + income limit), what they get (₹ amount or fee waiver), where to apply (portal URL), deadline.
-If they're ineligible for something, briefly say why.
-Mention required documents only if they ask.
-Do NOT generate scholarship amounts or deadlines if they are not in the context. If missing, output exactly: 'Verified information is currently unavailable.'"""
+Instructions:
+- List matching scholarships with exact income limits, benefit amounts (₹ or fee waiver), portal URLs, and deadlines from the provided data.
+- If the user asks about a national, international, or private scholarship not in the local Karnataka database, use the [LIVE INTERNET SEARCH RESULTS] and your knowledge to provide accurate details.
+- Never refuse or say information is unavailable — always provide the most accurate, helpful answer."""
 
     return prompt
 
@@ -175,16 +95,16 @@ def build_loan_prompt(
     prompt = f"""## Student Profile
 {profile_text}
 
-## Loan Data (USE THESE EXACT NUMBERS)
+## Loan Data & Web Search Context
 {context}
 
 ## Question
 {query}
 
-IMPORTANT: Compare loan options directly — bank name, max amount, interest rate, collateral requirement.
-If income < ₹4.5 lakhs, highlight CISS (Central Interest Subsidy Scheme) — the government pays interest during study period + 1 year moratorium.
-Give a clear recommendation: "For your situation, go with X because..."
-Mention how to apply (branch visit vs online)."""
+Instructions:
+- Compare loan options clearly — bank name, max amount, interest rate, collateral requirement, and moratorium period.
+- If family income < ₹4.5 lakhs, highlight the Central Sector Interest Subsidy (CSIS/PM-Vidyalaxmi) scheme.
+- Use both the local loan dataset and live internet search context to answer any specific bank or financial question accurately."""
 
     return prompt
 
@@ -200,17 +120,16 @@ def build_hostel_prompt(
     prompt = f"""## Student Profile
 {profile_text}
 
-## Hostel Data (CITE THESE FEES)
+## Hostel Data & Web Search Context
 {context}
 
 ## Question
 {query}
 
-IMPORTANT: Start with the actual hostel fee and availability. Include: annual fee, mess charges, room types.
-For SC/ST/OBC students: mention BCM hostels (free) and SC/ST welfare hostels.
-For budget-conscious students: rank options from cheapest to most expensive.
-Mention practical stuff like gate timings, food type (veg/non-veg), and room sharing.
-NEVER generate hostel fees, mess charges, gate timings, food type, or room sharing details unless explicitly found in the data. If not found, output exactly: 'Verified information is currently unavailable.'"""
+Instructions:
+- Provide hostel fees, mess charges, room types, and availability from the database context when available.
+- For SC/ST/OBC students, highlight free BCM Government Hostels, SC/ST Social Welfare Hostels, and Vidyasiri (₹1,500/month food & accommodation stipend).
+- If the user asks about a specific college hostel or city accommodation not in the local database, use the [LIVE INTERNET SEARCH RESULTS] and your knowledge to provide helpful, accurate information."""
 
     return prompt
 
@@ -220,22 +139,22 @@ def build_general_prompt(
     student_profile: Dict[str, Any],
     context: str
 ) -> str:
-    """Build prompt for general queries — be specific, not generic."""
+    """Build prompt for general queries — answer ANY user question accurately."""
     profile_text = format_student_profile(student_profile)
     
     prompt = f"""## Student Profile
 {profile_text}
 
-## Available Data
+## Retrieved Context (Verified Database & Live Web Search)
 {context}
 
-## Question
+## User Question
 {query}
 
-IMPORTANT: Answer directly with specific information from the data above.
-Don't give textbook-style answers. Be practical and actionable.
-If the question is outside educational counseling, briefly redirect to what you CAN help with.
-If information is missing, output exactly: 'Verified information is currently unavailable.'"""
+Instructions:
+- Answer the user's question directly, accurately, and comprehensively.
+- If the question relates to colleges, admissions, scholarships, hostels, or loans, prioritize the verified database facts and live web search results above.
+- If the question is a general knowledge, coding, science, math, current affairs, career, or open-domain query, use the [LIVE INTERNET SEARCH RESULTS] and your full knowledge to give a clear, accurate, and complete answer."""
 
     return prompt
 
@@ -245,23 +164,22 @@ def build_counseling_prompt(
     student_profile: Dict[str, Any],
     context: str
 ) -> str:
-    """Build prompt for KEA counseling process questions."""
+    """Build prompt for counseling process questions."""
     profile_text = format_student_profile(student_profile)
     
     prompt = f"""## Student Profile
 {profile_text}
 
-## KEA Counseling Process Data (USE THIS INFO)
+## Counseling Process Data & Web Search Context
 {context}
 
 ## Question
 {query}
 
-IMPORTANT: Explain the counseling process in plain language — these are often first-gen students who've never been through this.
-Be step-by-step and practical: what to bring, what to do at each stage, common mistakes to avoid.
-If they're asking about documents, list exactly what they need with specifics (original + photocopy, how many sets).
-Mention important dates/deadlines if available.
-For option entry: explain how to strategically fill choices (safe-moderate-dream order)."""
+Instructions:
+- Explain the counseling process step-by-step in clear, practical language.
+- Include required documents, option entry strategy (Dream -> Realistic -> Safe), and choice implications (Choice 1/2/3/4) when relevant.
+- Use both the verified database data and live web search results to answer accurately."""
 
     return prompt
 
@@ -277,17 +195,16 @@ def build_fee_prompt(
     prompt = f"""## Student Profile
 {profile_text}
 
-## Fee Structure Data (CITE EXACT ₹ AMOUNTS)
+## Fee Structure Data & Web Search Context
 {context}
 
 ## Question
 {query}
 
-IMPORTANT: Give exact fee amounts from the data. Compare fees across college types (Government vs Aided vs Unaided).
-For SC/ST: emphasize that fees are ₹0 (fully waived by government).
-For OBC with income < ₹10 lakhs: mention the reduced fee tier.
-Include both tuition and total cost estimate (tuition + hostel + mess if applicable).
-NEVER guess or estimate fees. If not found, output exactly: 'Verified information is currently unavailable.'"""
+Instructions:
+- Provide exact fee amounts from the database context for Karnataka colleges (Government, Aided, Type-1/Type-2 Private, SNQ Quota, COMEDK/Management).
+- For SC/ST students (<₹2.5L income), highlight the 100% government fee waiver; for ₹2.5L–₹10L, highlight the 50% concession.
+- If the user asks about fees for an institution outside the local database, use the [LIVE INTERNET SEARCH RESULTS] and your knowledge to provide accurate fee details."""
 
     return prompt
 

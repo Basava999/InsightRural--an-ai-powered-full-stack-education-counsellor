@@ -36,15 +36,15 @@ const ChatComponent = {
             { emoji: '🏛️', text: 'Which college can I get with rank 5000 in CSE?' },
             { emoji: '💰', text: 'What scholarships are available for SC students?' },
             { emoji: '📊', text: 'Compare RVCE vs MSRIT for Computer Science' },
-            { emoji: '🏠', text: 'What are hostel options near BMSCE?' },
+            { emoji: '🌐', text: 'Compare IIT Bombay vs NIT Surathkal CSE placements' },
             { emoji: '🏦', text: 'How do I apply for an education loan?' },
-            { emoji: '📋', text: 'Explain the KEA KCET counseling process' }
+            { emoji: '💻', text: 'What is the 6-month roadmap to master AI & Machine Learning?' }
         ];
 
         hero.innerHTML = `
             <div class="ir-welcome-logo">IR</div>
             <h2 class="ir-welcome-heading">How can I help you today?</h2>
-            <p class="ir-welcome-sub">I'm InsightRural AI — your personal guide for KCET counseling, colleges, scholarships & more.</p>
+            <p class="ir-welcome-sub">I'm InsightRural AI — powered by our verified KEA database + Live Internet Search & LLM to answer any question accurately.</p>
             <div class="ir-chips-wrapper">
                 <p class="ir-chips-label">✨ Try asking me:</p>
                 <div class="ir-chips">
@@ -85,10 +85,12 @@ const ChatComponent = {
         bar.id       = 'ai-status-bar';
         bar.className = 'ir-status-bar';
         const online = status.ai_modules_available;
+        const modelLabel = status.model ? `🧠 InsightRural AI · ${status.model}` : '🧠 InsightRural AI · Counselor Engine';
         bar.innerHTML = `
             <span class="ir-status-dot ${online ? 'online' : 'offline'}"></span>
-            <span>${online ? '🧠 InsightRural AI · Ollama LLaMA 3' : '⚠️ Offline Mode'}</span>
-            ${status.rag_indexed ? '<span class="ir-status-tag">📚 RAG Active</span>' : ''}
+            <span>${online ? modelLabel : '⚠️ Offline Mode'}</span>
+            <span class="ir-status-tag">🌐 Live Web Search Active</span>
+            ${status.rag_indexed ? '<span class="ir-status-tag">📚 RAG + KEA DB Active</span>' : '<span class="ir-status-tag">📊 2024-2026 Cutoffs</span>'}
             <span class="ir-status-right">InsightRural v2.5</span>`;
         this.msgContainer.parentNode.insertBefore(bar, this.msgContainer);
     },
@@ -158,14 +160,11 @@ const ChatComponent = {
 
     // ─── Send Message ─────────────────────────────────────────────────────────
     async sendMessage() {
-        if (!AppState.isLoggedIn()) {
-            if (window.Toast) {
-                window.Toast.show('Please sign in to chat with the AI Counselor', 'warning', 5000);
+        if (!AppState.isLoggedIn() && !AppState.user) {
+            // Guest mode: automatically provide default student profile so anyone can chat freely
+            if (!AppState.profile) {
+                AppState.profile = { category: 'GM', reservation: 'None', rank: null };
             }
-            if (window.ModalComponent) {
-                window.ModalComponent.showModal('login-modal');
-            }
-            return;
         }
 
         const msg = this.chatInput.value.trim();
